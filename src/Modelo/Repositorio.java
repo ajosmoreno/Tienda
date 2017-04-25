@@ -19,7 +19,7 @@ public class Repositorio {
             ResultSet rsCompras = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM compras WHERE cliente = " + rs.getString("id"));
             ResultSet rsReparaciones = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM reparaciones WHERE cliente = " + rs.getString("id"));
             ResultSet rsLiberaciones = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM reparaciones WHERE cliente = " + rs.getString("id"));
-            Cliente c = new Cliente(Integer.parseInt(rs.getString("id")), rs.getString("usuario"), rs.getString("contrasenya"), rs.getString("fechaRegistro"), rs.getString("nombre"), rs.getString("apellidos"), Integer.parseInt(rs.getString("permiso")), "PEDIDOOOOOSSSSSSSSSSSS", rs.getString("direccion"), rs.getString("telefono"), rs.getString("fechaNacimiento"), rs.getString("dni"));
+            //Cliente c = new Cliente(Integer.parseInt(rs.getString("id")), rs.getString("usuario"), rs.getString("contrasenya"), rs.getString("fechaRegistro"), rs.getString("nombre"), rs.getString("apellidos"), Integer.parseInt(rs.getString("permiso")), "PEDIDOOOOOSSSSSSSSSSSS", rs.getString("direccion"), rs.getString("telefono"), rs.getString("fechaNacimiento"), rs.getString("dni"));
         }
     }
     
