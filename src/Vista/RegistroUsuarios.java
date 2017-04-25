@@ -7,16 +7,7 @@ package Vista;
 
 import Controlador.ControladorRegistro;
 import com.toedter.calendar.JDateChooser;
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -195,7 +186,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
             else if(ex.getMessage().contains("Duplicate entry") && ex.getMessage().contains("for key 'dni'"))
                 mostrarError("El DNI introducido ya pertenece a un usuario.");
             else
-                mostrarError("Ha ocurrido un error desconocido.");
+                mostrarError("Ha ocurrido un error desconocido.\n"+ex.getMessage());
         }
     }//GEN-LAST:event_jButtonaceptarActionPerformed
 

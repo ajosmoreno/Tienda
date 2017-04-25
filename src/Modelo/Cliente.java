@@ -12,13 +12,13 @@ import java.util.Date;
  */
 public final class Cliente extends Usuario{
     
-    private ArrayList<Pedido> pedidosRealizados;
+    private int[] pedidosRealizados;
     private String direccion;
     private String telefono;
     private String fechaNacimiento;
     private String dni;
     
-    public Cliente(int id, String nombreUsuario, String contrasenya, String fechaRegistro, String nombre, String apellidos, int permisos, ArrayList<Pedido> pedidosRealizados, String direccion, String telefono, String fechaNacimiento, String dni){
+    public Cliente(int id, String nombreUsuario, String contrasenya, String fechaRegistro, String nombre, String apellidos, int permisos, int[] pedidosRealizados, String direccion, String telefono, String fechaNacimiento, String dni){
         super(id, nombreUsuario, contrasenya, fechaRegistro, nombre, apellidos, permisos);
         this.pedidosRealizados = pedidosRealizados;
         this.direccion = direccion;
@@ -27,11 +27,11 @@ public final class Cliente extends Usuario{
         this.dni = dni;
     }
 
-    public ArrayList<Pedido> getPedidosRealizados() {
+    public int[] getPedidosRealizados() {
         return pedidosRealizados;
     }
 
-    public void setPedidosRealizados(ArrayList<Pedido> pedidosRealizados) {
+    public void setPedidosRealizados(int[] pedidosRealizados) {
         this.pedidosRealizados = pedidosRealizados;
     }
 

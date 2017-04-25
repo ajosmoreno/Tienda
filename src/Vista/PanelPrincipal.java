@@ -5,18 +5,33 @@
  */
 package Vista;
 
+import Controlador.ControladorPrincipal;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Antonio
  */
 public class PanelPrincipal extends javax.swing.JFrame {
 
+    private ControladorPrincipal miControlador;
     /**
      * Creates new form PanelPrincipal
      */
     public PanelPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
+        miControlador = new ControladorPrincipal(this);
+        try {
+            miControlador.inicializarDatos();
+        } catch (SQLException | ClassNotFoundException ex) {
+            mostrarError("Error al inicializar los datos.");
+        }
     }
 
     /**
@@ -118,18 +133,25 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtoninvitadoActionPerformed
 
     private void jButtonregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonregistroActionPerformed
-        // TODO add your handling code here:
         RegistroUsuarios registro = new RegistroUsuarios(this,true);
         registro.setVisible(true);
-        
     }//GEN-LAST:event_jButtonregistroActionPerformed
 
     private void jButtonentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonentrarActionPerformed
-        // TODO add your handling code here:
-        Opciones opcion = new Opciones(this,true);
-        opcion.setVisible(true); 
+        if(jTextFieldusuario.getText().equals("") || new String(jPasswordFieldusuario.getPassword()).equals(""))
+            mostrarError("Rellena todos los campos.");
+        else{
+            try {
+                miControlador.iniciarSesion();
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger("Ha ocurrido un error al iniciar sesión.");
+            }
+        } 
     }//GEN-LAST:event_jButtonentrarActionPerformed
 
+    public void mostrarError(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+    }
     /**
      * @param args the command line arguments
      */
@@ -178,4 +200,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordFieldusuario;
     private javax.swing.JTextField jTextFieldusuario;
     // End of variables declaration//GEN-END:variables
+
+    public JPasswordField getjPasswordFieldusuario() {
+        return jPasswordFieldusuario;
+    }
+
+    public JTextField getjTextFieldusuario() {
+        return jTextFieldusuario;
+    }
+
+    
 }
