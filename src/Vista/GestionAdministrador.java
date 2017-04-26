@@ -17,6 +17,11 @@ public class GestionAdministrador extends javax.swing.JDialog {
     public GestionAdministrador(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        jPanelusuarios.setVisible(false);
+        //jButtonmodificarusuario.setVisible(false);
+        //jButtoneliminarusuario.setVisible(false);
+        //jButtoninsertarusuario.setVisible(false);
+        //jPanelmodificarusuario.setVisible(false);
     }
 
     /**
@@ -28,66 +33,453 @@ public class GestionAdministrador extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGrouppermisos = new javax.swing.ButtonGroup();
         jButtongestionusuarios = new javax.swing.JButton();
         jButtongestionpedidos = new javax.swing.JButton();
         jButtonliberacion = new javax.swing.JButton();
         jButtonreparacion = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelusuarios = new javax.swing.JPanel();
+        jButtonmodificarusuario = new javax.swing.JButton();
+        jButtoneliminarusuario = new javax.swing.JButton();
+        jButtoninsertarusuario = new javax.swing.JButton();
+        jPanelmodificarusuario = new javax.swing.JPanel();
+        jLabelidusuario = new javax.swing.JLabel();
+        jTextFieldbuscadorid = new javax.swing.JTextField();
+        jButtonbuscar = new javax.swing.JButton();
+        jLabelnombre = new javax.swing.JLabel();
+        jLabelapellidos = new javax.swing.JLabel();
+        jLabeldni = new javax.swing.JLabel();
+        jLabelnacimiento = new javax.swing.JLabel();
+        jLabeldireccion = new javax.swing.JLabel();
+        jLabeltelefono = new javax.swing.JLabel();
+        jTextFieldnombre = new javax.swing.JTextField();
+        jTextFieldapellidos = new javax.swing.JTextField();
+        jTextFielddni = new javax.swing.JTextField();
+        jDateChoosernacimiento = new com.toedter.calendar.JDateChooser();
+        jTextFielddireccion = new javax.swing.JTextField();
+        jTextFieldtelefono = new javax.swing.JTextField();
+        jButtoncambiar = new javax.swing.JButton();
+        jButtonborrartodo = new javax.swing.JButton();
+        jButtoncancelar = new javax.swing.JButton();
+        jLabelusuario = new javax.swing.JLabel();
+        jLabelpassword = new javax.swing.JLabel();
+        jTextFieldusuario = new javax.swing.JTextField();
+        jTextFieldpassword = new javax.swing.JTextField();
+        jLabelpermisos = new javax.swing.JLabel();
+        jRadioButtonadministrador = new javax.swing.JRadioButton();
+        jRadioButtoninvitado = new javax.swing.JRadioButton();
+        jRadioButtoncliente = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtongestionusuarios.setText("Gestion de usuarios");
+        jButtongestionusuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtongestionusuariosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtongestionusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 150, -1));
 
         jButtongestionpedidos.setText("Gestion de pedidos");
+        getContentPane().add(jButtongestionpedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 150, -1));
 
         jButtonliberacion.setText("Realizar Liberacion");
+        getContentPane().add(jButtonliberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 150, -1));
 
         jButtonreparacion.setText("Realizar Reparacion");
+        getContentPane().add(jButtonreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 150, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jButtonmodificarusuario.setText("Modificar usuario");
+        jButtonmodificarusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonmodificarusuarioActionPerformed(evt);
+            }
+        });
+
+        jButtoneliminarusuario.setText("Eliminar usuario");
+        jButtoneliminarusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtoneliminarusuarioActionPerformed(evt);
+            }
+        });
+
+        jButtoninsertarusuario.setText("Añadir usuario");
+        jButtoninsertarusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtoninsertarusuarioActionPerformed(evt);
+            }
+        });
+
+        jLabelidusuario.setText("Id: ");
+
+        jTextFieldbuscadorid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldbuscadoridActionPerformed(evt);
+            }
+        });
+
+        jButtonbuscar.setText("Buscar");
+        jButtonbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonbuscarActionPerformed(evt);
+            }
+        });
+
+        jLabelnombre.setText("Nombre: ");
+
+        jLabelapellidos.setText("Apellidos: ");
+
+        jLabeldni.setText("DNI: ");
+
+        jLabelnacimiento.setText("Fecha Nacimiento: ");
+
+        jLabeldireccion.setText("Dirección: ");
+
+        jLabeltelefono.setText("Telefono: ");
+
+        jDateChoosernacimiento.setFocusable(false);
+
+        jButtoncambiar.setText("Realizar cambios");
+
+        jButtonborrartodo.setText("Borrar todo");
+        jButtonborrartodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonborrartodoActionPerformed(evt);
+            }
+        });
+
+        jButtoncancelar.setText("Cancelar");
+        jButtoncancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtoncancelarActionPerformed(evt);
+            }
+        });
+
+        jLabelusuario.setText("Usuario: ");
+
+        jLabelpassword.setText("Contraseña: ");
+
+        jLabelpermisos.setText("Permisos: ");
+
+        buttonGrouppermisos.add(jRadioButtonadministrador);
+        jRadioButtonadministrador.setText("Administrador");
+
+        buttonGrouppermisos.add(jRadioButtoninvitado);
+        jRadioButtoninvitado.setText("Invitado");
+
+        buttonGrouppermisos.add(jRadioButtoncliente);
+        jRadioButtoncliente.setText("Cliente");
+
+        javax.swing.GroupLayout jPanelmodificarusuarioLayout = new javax.swing.GroupLayout(jPanelmodificarusuario);
+        jPanelmodificarusuario.setLayout(jPanelmodificarusuarioLayout);
+        jPanelmodificarusuarioLayout.setHorizontalGroup(
+            jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelmodificarusuarioLayout.createSequentialGroup()
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelmodificarusuarioLayout.createSequentialGroup()
+                        .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jDateChoosernacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
+                                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelpermisos)
+                                            .addComponent(jLabeldni)
+                                            .addComponent(jLabelapellidos)
+                                            .addComponent(jLabelnombre)
+                                            .addComponent(jLabelnacimiento)
+                                            .addComponent(jLabelpassword)
+                                            .addComponent(jLabelusuario)
+                                            .addComponent(jLabeldireccion)
+                                            .addComponent(jLabeltelefono))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelmodificarusuarioLayout.createSequentialGroup()
+                                        .addContainerGap(72, Short.MAX_VALUE)
+                                        .addComponent(jButtoncambiar)
+                                        .addGap(36, 36, 36)))
+                                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
+                                            .addComponent(jRadioButtoncliente)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jRadioButtonadministrador))
+                                        .addComponent(jTextFieldpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFielddireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
+                                            .addGap(28, 28, 28)
+                                            .addComponent(jButtonborrartodo)))
+                                    .addComponent(jTextFielddni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldapellidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldnombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(3, 3, 3))
+                    .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jLabelidusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldbuscadorid, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jButtonbuscar)))
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtoncancelar)
+                    .addComponent(jRadioButtoninvitado))
+                .addGap(58, 58, 58))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jPanelmodificarusuarioLayout.setVerticalGroup(
+            jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelidusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldbuscadorid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonbuscar))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelnombre)
+                    .addComponent(jTextFieldnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelapellidos)
+                    .addComponent(jTextFieldapellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabeldni)
+                    .addComponent(jTextFielddni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelnacimiento)
+                    .addComponent(jDateChoosernacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabeldireccion)
+                    .addComponent(jTextFielddireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabeltelefono)
+                    .addComponent(jTextFieldtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelusuario)
+                    .addComponent(jTextFieldusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelpassword)
+                    .addComponent(jTextFieldpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelpermisos)
+                    .addComponent(jRadioButtoncliente)
+                    .addComponent(jRadioButtoninvitado)
+                    .addComponent(jRadioButtonadministrador))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtoncambiar)
+                    .addComponent(jButtonborrartodo)
+                    .addComponent(jButtoncancelar))
+                .addGap(46, 46, 46))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButtongestionusuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonliberacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonreparacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButtongestionpedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanelusuariosLayout = new javax.swing.GroupLayout(jPanelusuarios);
+        jPanelusuarios.setLayout(jPanelusuariosLayout);
+        jPanelusuariosLayout.setHorizontalGroup(
+            jPanelusuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelusuariosLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jPanelusuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonmodificarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtoneliminarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtoninsertarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelmodificarusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jButtongestionusuarios)
-                .addGap(33, 33, 33)
-                .addComponent(jButtonliberacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jButtonreparacion)
-                .addGap(50, 50, 50)
-                .addComponent(jButtongestionpedidos)
-                .addGap(193, 193, 193))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanelusuariosLayout.setVerticalGroup(
+            jPanelusuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelusuariosLayout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(jButtonmodificarusuario)
+                .addGap(18, 18, 18)
+                .addComponent(jButtoneliminarusuario)
+                .addGap(18, 18, 18)
+                .addComponent(jButtoninsertarusuario)
+                .addContainerGap(404, Short.MAX_VALUE))
+            .addGroup(jPanelusuariosLayout.createSequentialGroup()
+                .addComponent(jPanelmodificarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        getContentPane().add(jPanelusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 680, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtongestionusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtongestionusuariosActionPerformed
+        // TODO add your handling code here:
+        jPanelusuarios.setVisible(true);
+        jButtonmodificarusuario.setVisible(true);
+        jButtoneliminarusuario.setVisible(true);
+        jButtoninsertarusuario.setVisible(true);
+        jPanelmodificarusuario.setVisible(false);
+        
+        
+    }//GEN-LAST:event_jButtongestionusuariosActionPerformed
+
+    private void jTextFieldbuscadoridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldbuscadoridActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldbuscadoridActionPerformed
+
+    private void jButtonmodificarusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonmodificarusuarioActionPerformed
+        // TODO add your handling code here:
+        jPanelmodificarusuario.setVisible(true);
+        jLabelidusuario.setVisible(true);
+        jTextFieldbuscadorid.setVisible(true);
+        jButtonbuscar.setVisible(true);
+        jLabelnombre.setVisible(false);
+        jLabelapellidos.setVisible(false);
+        jLabeldni.setVisible(false);
+        jLabeldireccion.setVisible(false);
+        jLabeltelefono.setVisible(false);
+        jLabelnacimiento.setVisible(false);
+        jLabelusuario.setVisible(false);
+        jLabelpassword.setVisible(false);
+        jTextFieldnombre.setVisible(false);
+        jTextFieldapellidos.setVisible(false);
+        jTextFielddni.setVisible(false);
+        jDateChoosernacimiento.setVisible(false);
+        jTextFielddireccion.setVisible(false);
+        jTextFieldtelefono.setVisible(false);
+        jTextFieldusuario.setVisible(false);
+        jTextFieldpassword.setVisible(false);
+        jButtoncambiar.setVisible(false);
+        jButtonborrartodo.setVisible(false);
+        jButtoncancelar.setVisible(false);
+        jLabelpermisos.setVisible(false);
+        jRadioButtoncliente.setVisible(false);
+        jRadioButtoninvitado.setVisible(false);
+        jRadioButtonadministrador.setVisible(false);
+        jButtoncambiar.setVisible(false);
+        jButtonborrartodo.setVisible(false);
+        jButtoncancelar.setVisible(false);
+        
+        
+    }//GEN-LAST:event_jButtonmodificarusuarioActionPerformed
+
+    private void jButtonborrartodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonborrartodoActionPerformed
+        // TODO add your handling code here:
+     
+        jTextFieldnombre.setText("");
+        jTextFieldapellidos.setText("");
+        jTextFielddni.setText("");
+        jDateChoosernacimiento.setDate(null);
+        jTextFielddireccion.setText("");
+        jTextFieldtelefono.setText("");
+        jTextFieldusuario.setText("");
+        jTextFieldpassword.setText("");
+    }//GEN-LAST:event_jButtonborrartodoActionPerformed
+
+    private void jButtoncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoncancelarActionPerformed
+        // TODO add your handling code here:
+        jPanelmodificarusuario.setVisible(false);
+    }//GEN-LAST:event_jButtoncancelarActionPerformed
+
+    private void jButtonbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonbuscarActionPerformed
+        // TODO add your handling code here:
+        
+        jLabelnombre.setVisible(true);
+        jLabelapellidos.setVisible(true);
+        jLabeldni.setVisible(true);
+        jLabeldireccion.setVisible(true);
+        jLabeltelefono.setVisible(true);
+        jLabelnacimiento.setVisible(true);
+        jLabelusuario.setVisible(true);
+        jLabelpassword.setVisible(true);
+        jTextFieldnombre.setVisible(true);
+        jTextFieldapellidos.setVisible(true);
+        jTextFielddni.setVisible(true);
+        jDateChoosernacimiento.setVisible(true);
+        jTextFielddireccion.setVisible(true);
+        jTextFieldtelefono.setVisible(true);
+        jTextFieldusuario.setVisible(true);
+        jTextFieldpassword.setVisible(true);
+        jButtoncambiar.setVisible(true);
+        jButtonborrartodo.setVisible(true);
+        jButtoncancelar.setVisible(true);
+        jLabelpermisos.setVisible(true);
+        jRadioButtoncliente.setVisible(true);
+        jRadioButtoninvitado.setVisible(true);
+        jRadioButtonadministrador.setVisible(true);
+        
+    }//GEN-LAST:event_jButtonbuscarActionPerformed
+
+    private void jButtoninsertarusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoninsertarusuarioActionPerformed
+        // TODO add your handling code here:
+        jPanelmodificarusuario.setVisible(true);
+        jLabelidusuario.setVisible(false);
+        jTextFieldbuscadorid.setVisible(false);
+        jButtonbuscar.setVisible(false);
+        jLabelnombre.setVisible(true);
+        jLabelapellidos.setVisible(true);
+        jLabeldni.setVisible(true);
+        jLabeldireccion.setVisible(true);
+        jLabeltelefono.setVisible(true);
+        jLabelnacimiento.setVisible(true);
+        jLabelusuario.setVisible(true);
+        jLabelpassword.setVisible(true);
+        jTextFieldnombre.setVisible(true);
+        jTextFieldapellidos.setVisible(true);
+        jTextFielddni.setVisible(true);
+        jDateChoosernacimiento.setVisible(true);
+        jTextFielddireccion.setVisible(true);
+        jTextFieldtelefono.setVisible(true);
+        jTextFieldusuario.setVisible(true);
+        jTextFieldpassword.setVisible(true);
+        jButtoncambiar.setVisible(true);
+        jButtonborrartodo.setVisible(true);
+        jButtoncancelar.setVisible(true);
+        jLabelpermisos.setVisible(true);
+        jRadioButtoncliente.setVisible(true);
+        jRadioButtoninvitado.setVisible(true);
+        jRadioButtonadministrador.setVisible(true);
+        
+    }//GEN-LAST:event_jButtoninsertarusuarioActionPerformed
+
+    private void jButtoneliminarusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoneliminarusuarioActionPerformed
+        // TODO add your handling code here:
+        
+        jPanelmodificarusuario.setVisible(true);
+        jLabelidusuario.setVisible(true);
+        jTextFieldbuscadorid.setVisible(true);
+        jButtonbuscar.setVisible(true);
+        jLabelnombre.setVisible(false);
+        jLabelapellidos.setVisible(false);
+        jLabeldni.setVisible(false);
+        jLabeldireccion.setVisible(false);
+        jLabeltelefono.setVisible(false);
+        jLabelnacimiento.setVisible(false);
+        jLabelusuario.setVisible(false);
+        jLabelpassword.setVisible(false);
+        jTextFieldnombre.setVisible(false);
+        jTextFieldapellidos.setVisible(false);
+        jTextFielddni.setVisible(false);
+        jDateChoosernacimiento.setVisible(false);
+        jTextFielddireccion.setVisible(false);
+        jTextFieldtelefono.setVisible(false);
+        jTextFieldusuario.setVisible(false);
+        jTextFieldpassword.setVisible(false);
+        jButtoncambiar.setVisible(false);
+        jButtonborrartodo.setVisible(false);
+        jButtoncancelar.setVisible(false);
+        jLabelpermisos.setVisible(false);
+        jRadioButtoncliente.setVisible(false);
+        jRadioButtoninvitado.setVisible(false);
+        jRadioButtonadministrador.setVisible(false);
+        
+    }//GEN-LAST:event_jButtoneliminarusuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,10 +524,41 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGrouppermisos;
+    private javax.swing.JButton jButtonborrartodo;
+    private javax.swing.JButton jButtonbuscar;
+    private javax.swing.JButton jButtoncambiar;
+    private javax.swing.JButton jButtoncancelar;
+    private javax.swing.JButton jButtoneliminarusuario;
     private javax.swing.JButton jButtongestionpedidos;
     private javax.swing.JButton jButtongestionusuarios;
+    private javax.swing.JButton jButtoninsertarusuario;
     private javax.swing.JButton jButtonliberacion;
+    private javax.swing.JButton jButtonmodificarusuario;
     private javax.swing.JButton jButtonreparacion;
-    private javax.swing.JPanel jPanel2;
+    private com.toedter.calendar.JDateChooser jDateChoosernacimiento;
+    private javax.swing.JLabel jLabelapellidos;
+    private javax.swing.JLabel jLabeldireccion;
+    private javax.swing.JLabel jLabeldni;
+    private javax.swing.JLabel jLabelidusuario;
+    private javax.swing.JLabel jLabelnacimiento;
+    private javax.swing.JLabel jLabelnombre;
+    private javax.swing.JLabel jLabelpassword;
+    private javax.swing.JLabel jLabelpermisos;
+    private javax.swing.JLabel jLabeltelefono;
+    private javax.swing.JLabel jLabelusuario;
+    private javax.swing.JPanel jPanelmodificarusuario;
+    private javax.swing.JPanel jPanelusuarios;
+    private javax.swing.JRadioButton jRadioButtonadministrador;
+    private javax.swing.JRadioButton jRadioButtoncliente;
+    private javax.swing.JRadioButton jRadioButtoninvitado;
+    private javax.swing.JTextField jTextFieldapellidos;
+    private javax.swing.JTextField jTextFieldbuscadorid;
+    private javax.swing.JTextField jTextFielddireccion;
+    private javax.swing.JTextField jTextFielddni;
+    private javax.swing.JTextField jTextFieldnombre;
+    private javax.swing.JTextField jTextFieldpassword;
+    private javax.swing.JTextField jTextFieldtelefono;
+    private javax.swing.JTextField jTextFieldusuario;
     // End of variables declaration//GEN-END:variables
 }
