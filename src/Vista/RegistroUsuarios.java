@@ -63,11 +63,13 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelRegistro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelRegistro.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelRegistro.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRegistro.setText("REGISTRO DE USUARIOS");
-        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 11, -1, 33));
+        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, 33));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,12 +89,17 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         getContentPane().add(jLabelnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 174, -1, -1));
 
         jLabelapellidos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelapellidos.setForeground(new java.awt.Color(255, 255, 255));
         jLabelapellidos.setText("Apellidos:");
         getContentPane().add(jLabelapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 212, -1, -1));
 
+        jLabeldireccion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabeldireccion.setForeground(new java.awt.Color(255, 255, 255));
         jLabeldireccion.setText("Dirección:");
         getContentPane().add(jLabeldireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 322, -1, -1));
 
+        jLabeltelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabeltelefono.setForeground(new java.awt.Color(255, 255, 255));
         jLabeltelefono.setText("Telefono:");
         getContentPane().add(jLabeltelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 363, -1, -1));
         getContentPane().add(jTextFieldnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 171, 157, -1));
@@ -128,6 +135,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         getContentPane().add(jButtonsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 70, 40));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Fecha de nacimiento: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 284, -1, -1));
 
@@ -142,12 +150,13 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         getContentPane().add(jDateChoosernacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 284, 160, -1));
 
         jLabeldni.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabeldni.setForeground(new java.awt.Color(255, 255, 255));
         jLabeldni.setText("DNI:");
         getContentPane().add(jLabeldni, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
         getContentPane().add(jTextFielddni, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 247, 157, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoregistro.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 560));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

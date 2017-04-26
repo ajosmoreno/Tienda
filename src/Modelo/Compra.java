@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -8,18 +9,18 @@ import java.util.Date;
  */
 public class Compra extends Pedido{
     
-    private Producto[] productos;
+    private ArrayList<Producto> productos;
     
-    public Compra(int numeroPedido, Date fecha, Cliente cliente, double subtotal, double total, String tipoPago, String estadoPedido, Producto[] productos){
+    public Compra(int numeroPedido, String fecha, int cliente, double subtotal, double total, String tipoPago, String estadoPedido, ArrayList<Producto> productos){
         super(numeroPedido, fecha, cliente, subtotal, total, tipoPago, estadoPedido);
         this.productos = productos;
     }
 
-    public Producto[] getProductos() {
+    public ArrayList<Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(Producto[] productos) {
+    public void setProductos(ArrayList<Producto> productos) {
         this.productos = productos;
     }    
 }

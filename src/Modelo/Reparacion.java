@@ -8,20 +8,20 @@ import java.util.Date;
  */
 public class Reparacion extends Pedido{
     
-    private Proveedor proveedor;
+    private int proveedor;
     private String diagnostico;
     
-    public Reparacion(int numeroPedido, Date fecha, Cliente cliente, double subtotal, double total, String tipoPago, String estadoPedido, Proveedor proveedor, String diagnostico){
+    public Reparacion(int numeroPedido, String fecha, int cliente, double subtotal, double total, String tipoPago, String estadoPedido, int proveedor, String diagnostico){
         super(numeroPedido, fecha, cliente, subtotal, total, tipoPago, estadoPedido);
         this.proveedor = proveedor;
         this.diagnostico = diagnostico;
     }
 
-    public Proveedor getProveedor() {
+    public int getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(Proveedor proveedor) {
+    public void setProveedor(int proveedor) {
         this.proveedor = proveedor;
     }
 

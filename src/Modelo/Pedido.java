@@ -9,14 +9,14 @@ import java.util.Date;
 public class Pedido {
     
     private int numeroPedido;
-    private Date fecha;
-    private Cliente cliente;
+    private String fecha;
+    private int cliente;
     private double subtotal;
     private double total;
     private String tipoPago;
     private String estadoPedido;
 
-    public Pedido(int numeroPedido, Date fecha, Cliente cliente, double subtotal, double total, String tipoPago, String estadoPedido) {
+    public Pedido(int numeroPedido, String fecha, int cliente, double subtotal, double total, String tipoPago, String estadoPedido) {
         this.numeroPedido = numeroPedido;
         this.fecha = fecha;
         this.cliente = cliente;
@@ -34,19 +34,19 @@ public class Pedido {
         this.numeroPedido = numeroPedido;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public Cliente getCliente() {
+    public int getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(int cliente) {
         this.cliente = cliente;
     }
 

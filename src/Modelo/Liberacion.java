@@ -8,12 +8,12 @@ import java.util.Date;
  */
 public class Liberacion extends Pedido{
     
-    private Operador operador;
+    private int operador;
     private String imei;
     private String codigoLiberacion;
     private String instrucciones;
     
-    public Liberacion(int numeroPedido, Date fecha, Cliente cliente, double subtotal, double total, String tipoPago, String estadoPedido, Operador operador, String imei, String codigoLiberacion, String instrucciones){
+    public Liberacion(int numeroPedido, String fecha, int cliente, double subtotal, double total, String tipoPago, String estadoPedido, int operador, String imei, String codigoLiberacion, String instrucciones){
         super(numeroPedido, fecha, cliente, subtotal, total, tipoPago, estadoPedido);
         this.operador = operador;
         this.imei = imei;
@@ -21,11 +21,11 @@ public class Liberacion extends Pedido{
         this.instrucciones = instrucciones;
     }
 
-    public Operador getOperador() {
+    public int getOperador() {
         return operador;
     }
 
-    public void setOperador(Operador operador) {
+    public void setOperador(int operador) {
         this.operador = operador;
     }
 
@@ -52,6 +52,4 @@ public class Liberacion extends Pedido{
     public void setInstrucciones(String instrucciones) {
         this.instrucciones = instrucciones;
     }
-    
-    
 }

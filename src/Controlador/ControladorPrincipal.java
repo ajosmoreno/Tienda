@@ -38,6 +38,7 @@ public class ControladorPrincipal {
                 } else{
                     miVentana.mostrarError("La contraseña introducida no es correcta.");
                 }
+                break;
             }
         }
         if(!encontrado) miVentana.mostrarError("El usuario introducido no existe.");
