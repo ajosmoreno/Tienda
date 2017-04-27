@@ -5,7 +5,7 @@
  */
 package Vista;
 
-import com.sun.awt.AWTUtilities;
+
 import java.awt.Color;
 
 
@@ -25,7 +25,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         //jPanelPrincipal.setBackground(new Color(0,0,0,255));
         //jPanelUsuarios.setBackground(new Color(0,0,0,255));
         //jPanelModificarUsuario.setBackground(new Color(0,0,0,255));
-        //jPanelUsuarios.setVisible(false);
+        jPanelUsuarios.setVisible(false);
         setLocationRelativeTo(null);
     
         
@@ -170,9 +170,12 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelUsuarios.add(jButtonInsertarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 283, 130, 70));
 
         jLabelLiberaciones.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabelLiberaciones.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLiberaciones.setText("LIBERACIONES");
         jPanelUsuarios.add(jLabelLiberaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 210, 57));
 
+        jLabelImei.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelImei.setForeground(new java.awt.Color(255, 255, 255));
         jLabelImei.setText("IMEI del terminal: ");
         jPanelUsuarios.add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
 
@@ -184,6 +187,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
         });
         jPanelUsuarios.add(jComboBoxOperadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 200, -1));
 
+        jLabelOperador.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelOperador.setForeground(new java.awt.Color(255, 255, 255));
         jLabelOperador.setText("Operador: ");
         jPanelUsuarios.add(jLabelOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 87, -1));
         jPanelUsuarios.add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 200, -1));
@@ -196,14 +201,20 @@ public class GestionAdministrador extends javax.swing.JDialog {
         });
         jPanelUsuarios.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 403, 130, 40));
 
+        jLabelNombreCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelNombreCliente.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreCliente.setText("Nombre del cliente: ");
         jPanelUsuarios.add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 120, 20));
         jPanelUsuarios.add(jTextFieldNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 200, -1));
 
+        jLabelObservaciones.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelObservaciones.setForeground(new java.awt.Color(255, 255, 255));
         jLabelObservaciones.setText("Observaciones: ");
         jPanelUsuarios.add(jLabelObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 90, -1));
         jPanelUsuarios.add(jTextFieldObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 200, -1));
 
+        jLabelDiagnostico.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelDiagnostico.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDiagnostico.setText("Diagnostico: ");
         jPanelUsuarios.add(jLabelDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
 
@@ -217,6 +228,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelModificarUsuario.setOpaque(false);
         jPanelModificarUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabelIdUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelIdUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabelIdUsuario.setText("Id: ");
         jPanelModificarUsuario.add(jLabelIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 30, 29, 26));
 
@@ -235,21 +248,33 @@ public class GestionAdministrador extends javax.swing.JDialog {
         });
         jPanelModificarUsuario.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 32, -1, -1));
 
+        jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombre.setText("Nombre: ");
         jPanelModificarUsuario.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 77, -1, -1));
 
+        jLabelApellidos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelApellidos.setForeground(new java.awt.Color(255, 255, 255));
         jLabelApellidos.setText("Apellidos: ");
         jPanelModificarUsuario.add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 108, -1, -1));
 
+        jLabelDni.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelDni.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDni.setText("DNI: ");
         jPanelModificarUsuario.add(jLabelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 146, -1, -1));
 
+        jLabelNacimiento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelNacimiento.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNacimiento.setText("Fecha Nacimiento: ");
         jPanelModificarUsuario.add(jLabelNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 181, -1, -1));
 
+        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDireccion.setText("Dirección: ");
         jPanelModificarUsuario.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 219, -1, -1));
 
+        jLabelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTelefono.setText("Telefono: ");
         jPanelModificarUsuario.add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 263, -1, -1));
         jPanelModificarUsuario.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 74, 179, -1));
@@ -280,18 +305,26 @@ public class GestionAdministrador extends javax.swing.JDialog {
         });
         jPanelModificarUsuario.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, -1, -1));
 
+        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsuario.setText("Usuario: ");
         jPanelModificarUsuario.add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 301, -1, -1));
 
+        jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Contraseña: ");
         jPanelModificarUsuario.add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 339, -1, -1));
         jPanelModificarUsuario.add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 298, 180, -1));
         jPanelModificarUsuario.add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 336, 180, -1));
 
+        jLabelPermisos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelPermisos.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPermisos.setText("Permisos: ");
         jPanelModificarUsuario.add(jLabelPermisos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 384, -1, -1));
 
         buttonGrouppermisos.add(jRadioButtonAdministrador);
+        jRadioButtonAdministrador.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButtonAdministrador.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonAdministrador.setText("Administrador");
         jRadioButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,12 +334,18 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelModificarUsuario.add(jRadioButtonAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
 
         buttonGrouppermisos.add(jRadioButtonInvitado);
+        jRadioButtonInvitado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButtonInvitado.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonInvitado.setText("Invitado");
         jPanelModificarUsuario.add(jRadioButtonInvitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
 
         buttonGrouppermisos.add(jRadioButtonCliente);
+        jRadioButtonCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButtonCliente.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonCliente.setText("Cliente");
         jPanelModificarUsuario.add(jRadioButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanelModificarUsuario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 590));
 
         jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 600, 590));
@@ -328,6 +367,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
         getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 590));
 
+        jLabelfondoprincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondojpanelprincipal.PNG"))); // NOI18N
         jLabelfondoprincipal.setOpaque(true);
         getContentPane().add(jLabelfondoprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
