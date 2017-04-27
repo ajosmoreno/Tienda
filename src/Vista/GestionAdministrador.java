@@ -17,7 +17,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
     public GestionAdministrador(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jPanelusuarios.setVisible(false);
+        jPanelUsuarios.setVisible(false);
+
+        setLocationRelativeTo(null);
         //jButtonmodificarusuario.setVisible(false);
         //jButtoneliminarusuario.setVisible(false);
         //jButtoninsertarusuario.setVisible(false);
@@ -34,452 +36,558 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private void initComponents() {
 
         buttonGrouppermisos = new javax.swing.ButtonGroup();
-        jButtongestionusuarios = new javax.swing.JButton();
-        jButtongestionpedidos = new javax.swing.JButton();
-        jButtonliberacion = new javax.swing.JButton();
-        jButtonreparacion = new javax.swing.JButton();
-        jPanelusuarios = new javax.swing.JPanel();
-        jButtonmodificarusuario = new javax.swing.JButton();
-        jButtoneliminarusuario = new javax.swing.JButton();
-        jButtoninsertarusuario = new javax.swing.JButton();
-        jPanelmodificarusuario = new javax.swing.JPanel();
-        jLabelidusuario = new javax.swing.JLabel();
-        jTextFieldbuscadorid = new javax.swing.JTextField();
-        jButtonbuscar = new javax.swing.JButton();
-        jLabelnombre = new javax.swing.JLabel();
-        jLabelapellidos = new javax.swing.JLabel();
-        jLabeldni = new javax.swing.JLabel();
-        jLabelnacimiento = new javax.swing.JLabel();
-        jLabeldireccion = new javax.swing.JLabel();
-        jLabeltelefono = new javax.swing.JLabel();
-        jTextFieldnombre = new javax.swing.JTextField();
-        jTextFieldapellidos = new javax.swing.JTextField();
-        jTextFielddni = new javax.swing.JTextField();
-        jDateChoosernacimiento = new com.toedter.calendar.JDateChooser();
-        jTextFielddireccion = new javax.swing.JTextField();
-        jTextFieldtelefono = new javax.swing.JTextField();
-        jButtoncambiar = new javax.swing.JButton();
-        jButtonborrartodo = new javax.swing.JButton();
-        jButtoncancelar = new javax.swing.JButton();
-        jLabelusuario = new javax.swing.JLabel();
-        jLabelpassword = new javax.swing.JLabel();
-        jTextFieldusuario = new javax.swing.JTextField();
-        jTextFieldpassword = new javax.swing.JTextField();
-        jLabelpermisos = new javax.swing.JLabel();
-        jRadioButtonadministrador = new javax.swing.JRadioButton();
-        jRadioButtoninvitado = new javax.swing.JRadioButton();
-        jRadioButtoncliente = new javax.swing.JRadioButton();
+        jPanelPrincipal = new javax.swing.JPanel();
+        jButtonLiberacion = new javax.swing.JButton();
+        jButtonReparacion = new javax.swing.JButton();
+        jButtonGestionUsuarios = new javax.swing.JButton();
+        jButtonGestionPedidos = new javax.swing.JButton();
+        jButtonSalir = new javax.swing.JButton();
+        jPanelUsuarios = new javax.swing.JPanel();
+        jButtonModificarUsuario = new javax.swing.JButton();
+        jButtonEliminarUsuario = new javax.swing.JButton();
+        jButtonInsertarUsuario = new javax.swing.JButton();
+        jLabelLiberaciones = new javax.swing.JLabel();
+        jLabelImei = new javax.swing.JLabel();
+        jComboBoxOperadores = new javax.swing.JComboBox<>();
+        jLabelOperador = new javax.swing.JLabel();
+        jTextFieldImei = new javax.swing.JTextField();
+        jButtonBack = new javax.swing.JButton();
+        jLabelNombreCliente = new javax.swing.JLabel();
+        jTextFieldNombreCliente = new javax.swing.JTextField();
+        jLabelObservaciones = new javax.swing.JLabel();
+        jTextFieldObservaciones = new javax.swing.JTextField();
+        jLabelDiagnostico = new javax.swing.JLabel();
+        jScrollPaneDiagnostico = new javax.swing.JScrollPane();
+        jTextAreaDiagnostico = new javax.swing.JTextArea();
+        jPanelModificarUsuario = new javax.swing.JPanel();
+        jLabelIdUsuario = new javax.swing.JLabel();
+        jTextFieldBuscadorId = new javax.swing.JTextField();
+        jButtonBuscar = new javax.swing.JButton();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelApellidos = new javax.swing.JLabel();
+        jLabelDni = new javax.swing.JLabel();
+        jLabelNacimiento = new javax.swing.JLabel();
+        jLabelDireccion = new javax.swing.JLabel();
+        jLabelTelefono = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldApellidos = new javax.swing.JTextField();
+        jTextFieldDni = new javax.swing.JTextField();
+        jDateChooserNacimiento = new com.toedter.calendar.JDateChooser();
+        jTextFieldDireccion = new javax.swing.JTextField();
+        jTextFieldTelefono = new javax.swing.JTextField();
+        jButtonCambiar = new javax.swing.JButton();
+        jButtonBorrarTodo = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jLabelUsuario = new javax.swing.JLabel();
+        jLabelPassword = new javax.swing.JLabel();
+        jTextFieldUsuario = new javax.swing.JTextField();
+        jTextFieldPassword = new javax.swing.JTextField();
+        jLabelPermisos = new javax.swing.JLabel();
+        jRadioButtonAdministrador = new javax.swing.JRadioButton();
+        jRadioButtonInvitado = new javax.swing.JRadioButton();
+        jRadioButtonCliente = new javax.swing.JRadioButton();
+        jButtonSolicitarCodigo = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Gestion del Administrador");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtongestionusuarios.setText("Gestion de usuarios");
-        jButtongestionusuarios.addActionListener(new java.awt.event.ActionListener() {
+        jPanelPrincipal.setLayout(null);
+
+        jButtonLiberacion.setText("Realizar Liberacion");
+        jButtonLiberacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtongestionusuariosActionPerformed(evt);
+                jButtonLiberacionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtongestionusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 150, -1));
+        jPanelPrincipal.add(jButtonLiberacion);
+        jButtonLiberacion.setBounds(20, 240, 170, 60);
 
-        jButtongestionpedidos.setText("Gestion de pedidos");
-        getContentPane().add(jButtongestionpedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 150, -1));
-
-        jButtonliberacion.setText("Realizar Liberacion");
-        getContentPane().add(jButtonliberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 150, -1));
-
-        jButtonreparacion.setText("Realizar Reparacion");
-        getContentPane().add(jButtonreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 150, -1));
-
-        jButtonmodificarusuario.setText("Modificar usuario");
-        jButtonmodificarusuario.addActionListener(new java.awt.event.ActionListener() {
+        jButtonReparacion.setText("Realizar Reparacion");
+        jButtonReparacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonmodificarusuarioActionPerformed(evt);
+                jButtonReparacionActionPerformed(evt);
             }
         });
+        jPanelPrincipal.add(jButtonReparacion);
+        jButtonReparacion.setBounds(20, 170, 170, 60);
 
-        jButtoneliminarusuario.setText("Eliminar usuario");
-        jButtoneliminarusuario.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGestionUsuarios.setText("Gestion de usuarios");
+        jButtonGestionUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtoneliminarusuarioActionPerformed(evt);
+                jButtonGestionUsuariosActionPerformed(evt);
             }
         });
+        jPanelPrincipal.add(jButtonGestionUsuarios);
+        jButtonGestionUsuarios.setBounds(20, 100, 170, 60);
 
-        jButtoninsertarusuario.setText("Añadir usuario");
-        jButtoninsertarusuario.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGestionPedidos.setText("Gestion de pedidos");
+        jPanelPrincipal.add(jButtonGestionPedidos);
+        jButtonGestionPedidos.setBounds(20, 320, 170, 60);
+
+        jButtonSalir.setText("Salir");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtoninsertarusuarioActionPerformed(evt);
+                jButtonSalirActionPerformed(evt);
             }
         });
+        jPanelPrincipal.add(jButtonSalir);
+        jButtonSalir.setBounds(23, 453, 160, 80);
 
-        jLabelidusuario.setText("Id: ");
+        jPanelUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextFieldbuscadorid.addActionListener(new java.awt.event.ActionListener() {
+        jButtonModificarUsuario.setText("Modificar usuario");
+        jButtonModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldbuscadoridActionPerformed(evt);
+                jButtonModificarUsuarioActionPerformed(evt);
             }
         });
+        jPanelUsuarios.add(jButtonModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 113, 130, 70));
 
-        jButtonbuscar.setText("Buscar");
-        jButtonbuscar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEliminarUsuario.setText("Eliminar usuario");
+        jButtonEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonbuscarActionPerformed(evt);
+                jButtonEliminarUsuarioActionPerformed(evt);
             }
         });
+        jPanelUsuarios.add(jButtonEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 130, 70));
 
-        jLabelnombre.setText("Nombre: ");
-
-        jLabelapellidos.setText("Apellidos: ");
-
-        jLabeldni.setText("DNI: ");
-
-        jLabelnacimiento.setText("Fecha Nacimiento: ");
-
-        jLabeldireccion.setText("Dirección: ");
-
-        jLabeltelefono.setText("Telefono: ");
-
-        jDateChoosernacimiento.setFocusable(false);
-
-        jButtoncambiar.setText("Realizar cambios");
-
-        jButtonborrartodo.setText("Borrar todo");
-        jButtonborrartodo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonInsertarUsuario.setText("Añadir usuario");
+        jButtonInsertarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonborrartodoActionPerformed(evt);
+                jButtonInsertarUsuarioActionPerformed(evt);
             }
         });
+        jPanelUsuarios.add(jButtonInsertarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 283, 130, 70));
 
-        jButtoncancelar.setText("Cancelar");
-        jButtoncancelar.addActionListener(new java.awt.event.ActionListener() {
+        jLabelLiberaciones.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabelLiberaciones.setText("LIBERACIONES");
+        jPanelUsuarios.add(jLabelLiberaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 210, 57));
+
+        jLabelImei.setText("IMEI del terminal: ");
+        jPanelUsuarios.add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
+
+        jComboBoxOperadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Movistar", "Vodafone", "Orange", "Yoigo", " " }));
+        jComboBoxOperadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtoncancelarActionPerformed(evt);
+                jComboBoxOperadoresActionPerformed(evt);
             }
         });
+        jPanelUsuarios.add(jComboBoxOperadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 200, -1));
 
-        jLabelusuario.setText("Usuario: ");
+        jLabelOperador.setText("Operador: ");
+        jPanelUsuarios.add(jLabelOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 87, -1));
+        jPanelUsuarios.add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 200, -1));
 
-        jLabelpassword.setText("Contraseña: ");
+        jButtonBack.setText("Volver atras");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBackActionPerformed(evt);
+            }
+        });
+        jPanelUsuarios.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 403, 130, 40));
 
-        jLabelpermisos.setText("Permisos: ");
+        jLabelNombreCliente.setText("Nombre del cliente: ");
+        jPanelUsuarios.add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 120, 20));
+        jPanelUsuarios.add(jTextFieldNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 200, -1));
 
-        buttonGrouppermisos.add(jRadioButtonadministrador);
-        jRadioButtonadministrador.setText("Administrador");
+        jLabelObservaciones.setText("Observaciones: ");
+        jPanelUsuarios.add(jLabelObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 90, -1));
+        jPanelUsuarios.add(jTextFieldObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 200, -1));
 
-        buttonGrouppermisos.add(jRadioButtoninvitado);
-        jRadioButtoninvitado.setText("Invitado");
+        jLabelDiagnostico.setText("Diagnostico: ");
+        jPanelUsuarios.add(jLabelDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
 
-        buttonGrouppermisos.add(jRadioButtoncliente);
-        jRadioButtoncliente.setText("Cliente");
+        jTextAreaDiagnostico.setColumns(20);
+        jTextAreaDiagnostico.setRows(5);
+        jScrollPaneDiagnostico.setViewportView(jTextAreaDiagnostico);
 
-        javax.swing.GroupLayout jPanelmodificarusuarioLayout = new javax.swing.GroupLayout(jPanelmodificarusuario);
-        jPanelmodificarusuario.setLayout(jPanelmodificarusuarioLayout);
-        jPanelmodificarusuarioLayout.setHorizontalGroup(
-            jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelmodificarusuarioLayout.createSequentialGroup()
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelmodificarusuarioLayout.createSequentialGroup()
-                        .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jDateChoosernacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
-                                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
-                                        .addGap(50, 50, 50)
-                                        .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelpermisos)
-                                            .addComponent(jLabeldni)
-                                            .addComponent(jLabelapellidos)
-                                            .addComponent(jLabelnombre)
-                                            .addComponent(jLabelnacimiento)
-                                            .addComponent(jLabelpassword)
-                                            .addComponent(jLabelusuario)
-                                            .addComponent(jLabeldireccion)
-                                            .addComponent(jLabeltelefono))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelmodificarusuarioLayout.createSequentialGroup()
-                                        .addContainerGap(72, Short.MAX_VALUE)
-                                        .addComponent(jButtoncambiar)
-                                        .addGap(36, 36, 36)))
-                                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
-                                            .addComponent(jRadioButtoncliente)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jRadioButtonadministrador))
-                                        .addComponent(jTextFieldpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFielddireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
-                                            .addGap(28, 28, 28)
-                                            .addComponent(jButtonborrartodo)))
-                                    .addComponent(jTextFielddni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldapellidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldnombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(3, 3, 3))
-                    .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jLabelidusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldbuscadorid, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jButtonbuscar)))
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtoncancelar)
-                    .addComponent(jRadioButtoninvitado))
-                .addGap(58, 58, 58))
-        );
-        jPanelmodificarusuarioLayout.setVerticalGroup(
-            jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelmodificarusuarioLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelidusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldbuscadorid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonbuscar))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelnombre)
-                    .addComponent(jTextFieldnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelapellidos)
-                    .addComponent(jTextFieldapellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabeldni)
-                    .addComponent(jTextFielddni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelnacimiento)
-                    .addComponent(jDateChoosernacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabeldireccion)
-                    .addComponent(jTextFielddireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabeltelefono)
-                    .addComponent(jTextFieldtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelusuario)
-                    .addComponent(jTextFieldusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelpassword)
-                    .addComponent(jTextFieldpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelpermisos)
-                    .addComponent(jRadioButtoncliente)
-                    .addComponent(jRadioButtoninvitado)
-                    .addComponent(jRadioButtonadministrador))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelmodificarusuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtoncambiar)
-                    .addComponent(jButtonborrartodo)
-                    .addComponent(jButtoncancelar))
-                .addGap(46, 46, 46))
-        );
+        jPanelUsuarios.add(jScrollPaneDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 320, 130));
 
-        javax.swing.GroupLayout jPanelusuariosLayout = new javax.swing.GroupLayout(jPanelusuarios);
-        jPanelusuarios.setLayout(jPanelusuariosLayout);
-        jPanelusuariosLayout.setHorizontalGroup(
-            jPanelusuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelusuariosLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(jPanelusuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonmodificarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtoneliminarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtoninsertarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelmodificarusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanelusuariosLayout.setVerticalGroup(
-            jPanelusuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelusuariosLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jButtonmodificarusuario)
-                .addGap(18, 18, 18)
-                .addComponent(jButtoneliminarusuario)
-                .addGap(18, 18, 18)
-                .addComponent(jButtoninsertarusuario)
-                .addContainerGap(404, Short.MAX_VALUE))
-            .addGroup(jPanelusuariosLayout.createSequentialGroup()
-                .addComponent(jPanelmodificarusuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanelModificarUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(jPanelusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 680, 580));
+        jLabelIdUsuario.setText("Id: ");
+        jPanelModificarUsuario.add(jLabelIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 30, 29, 26));
+
+        jTextFieldBuscadorId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldBuscadorIdActionPerformed(evt);
+            }
+        });
+        jPanelModificarUsuario.add(jTextFieldBuscadorId, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 33, 115, -1));
+
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarActionPerformed(evt);
+            }
+        });
+        jPanelModificarUsuario.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 32, -1, -1));
+
+        jLabelNombre.setText("Nombre: ");
+        jPanelModificarUsuario.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 77, -1, -1));
+
+        jLabelApellidos.setText("Apellidos: ");
+        jPanelModificarUsuario.add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 108, -1, -1));
+
+        jLabelDni.setText("DNI: ");
+        jPanelModificarUsuario.add(jLabelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 146, -1, -1));
+
+        jLabelNacimiento.setText("Fecha Nacimiento: ");
+        jPanelModificarUsuario.add(jLabelNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 181, -1, -1));
+
+        jLabelDireccion.setText("Dirección: ");
+        jPanelModificarUsuario.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 219, -1, -1));
+
+        jLabelTelefono.setText("Telefono: ");
+        jPanelModificarUsuario.add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 263, -1, -1));
+        jPanelModificarUsuario.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 74, 179, -1));
+        jPanelModificarUsuario.add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 105, 179, -1));
+        jPanelModificarUsuario.add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 143, 179, -1));
+
+        jDateChooserNacimiento.setFocusable(false);
+        jPanelModificarUsuario.add(jDateChooserNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 181, 179, -1));
+        jPanelModificarUsuario.add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 219, 180, -1));
+        jPanelModificarUsuario.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 260, 180, -1));
+
+        jButtonCambiar.setText("Realizar cambios");
+        jPanelModificarUsuario.add(jButtonCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 500, -1, -1));
+
+        jButtonBorrarTodo.setText("Borrar todo");
+        jButtonBorrarTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarTodoActionPerformed(evt);
+            }
+        });
+        jPanelModificarUsuario.add(jButtonBorrarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 500, -1, -1));
+
+        jButtonCancelar.setText("Volver atras");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanelModificarUsuario.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, -1, -1));
+
+        jLabelUsuario.setText("Usuario: ");
+        jPanelModificarUsuario.add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 301, -1, -1));
+
+        jLabelPassword.setText("Contraseña: ");
+        jPanelModificarUsuario.add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 339, -1, -1));
+        jPanelModificarUsuario.add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 298, 180, -1));
+        jPanelModificarUsuario.add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 336, 180, -1));
+
+        jLabelPermisos.setText("Permisos: ");
+        jPanelModificarUsuario.add(jLabelPermisos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 384, -1, -1));
+
+        buttonGrouppermisos.add(jRadioButtonAdministrador);
+        jRadioButtonAdministrador.setText("Administrador");
+        jRadioButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonAdministradorActionPerformed(evt);
+            }
+        });
+        jPanelModificarUsuario.add(jRadioButtonAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
+
+        buttonGrouppermisos.add(jRadioButtonInvitado);
+        jRadioButtonInvitado.setText("Invitado");
+        jPanelModificarUsuario.add(jRadioButtonInvitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
+
+        buttonGrouppermisos.add(jRadioButtonCliente);
+        jRadioButtonCliente.setText("Cliente");
+        jPanelModificarUsuario.add(jRadioButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+
+        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 600, 600));
+
+        jButtonSolicitarCodigo.setText("Solicitar Código");
+        jPanelUsuarios.add(jButtonSolicitarCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, -1, -1));
+
+        jButtonVolver.setText("Volver Atrás");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
+        jPanelUsuarios.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, -1, -1));
+
+        jPanelPrincipal.add(jPanelUsuarios);
+        jPanelUsuarios.setBounds(230, 0, 760, 590);
+
+        getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtongestionusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtongestionusuariosActionPerformed
+    private void jButtonGestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionUsuariosActionPerformed
         // TODO add your handling code here:
-        jPanelusuarios.setVisible(true);
-        jButtonmodificarusuario.setVisible(true);
-        jButtoneliminarusuario.setVisible(true);
-        jButtoninsertarusuario.setVisible(true);
-        jPanelmodificarusuario.setVisible(false);
-        
-        
-    }//GEN-LAST:event_jButtongestionusuariosActionPerformed
 
-    private void jTextFieldbuscadoridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldbuscadoridActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldbuscadoridActionPerformed
+        jPanelUsuarios.setVisible(true);
+        jButtonModificarUsuario.setVisible(true);
+        jButtonEliminarUsuario.setVisible(true);
+        jButtonInsertarUsuario.setVisible(true);
+        jButtonBack.setVisible(true);
+        jPanelModificarUsuario.setVisible(false);
+        jLabelLiberaciones.setVisible(false);
+        jLabelImei.setVisible(false);
+        jComboBoxOperadores.setVisible(false);
+        jLabelOperador.setVisible(false);
+        jButtonSolicitarCodigo.setVisible(false);
+        jButtonVolver.setVisible(false);
+        jTextFieldImei.setVisible(false);
+        jLabelNombreCliente.setVisible(false);
+        jTextFieldNombreCliente.setVisible(false);
+        jLabelObservaciones.setVisible(false);
+        jTextFieldObservaciones.setVisible(false);
+        jLabelDiagnostico.setVisible(false);
+        jTextAreaDiagnostico.setVisible(false);
+        jScrollPaneDiagnostico.setVisible(false);
+        jButtonSolicitarCodigo.setVisible(false);
 
-    private void jButtonmodificarusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonmodificarusuarioActionPerformed
-        // TODO add your handling code here:
-        jPanelmodificarusuario.setVisible(true);
-        jLabelidusuario.setVisible(true);
-        jTextFieldbuscadorid.setVisible(true);
-        jButtonbuscar.setVisible(true);
-        jLabelnombre.setVisible(false);
-        jLabelapellidos.setVisible(false);
-        jLabeldni.setVisible(false);
-        jLabeldireccion.setVisible(false);
-        jLabeltelefono.setVisible(false);
-        jLabelnacimiento.setVisible(false);
-        jLabelusuario.setVisible(false);
-        jLabelpassword.setVisible(false);
-        jTextFieldnombre.setVisible(false);
-        jTextFieldapellidos.setVisible(false);
-        jTextFielddni.setVisible(false);
-        jDateChoosernacimiento.setVisible(false);
-        jTextFielddireccion.setVisible(false);
-        jTextFieldtelefono.setVisible(false);
-        jTextFieldusuario.setVisible(false);
-        jTextFieldpassword.setVisible(false);
-        jButtoncambiar.setVisible(false);
-        jButtonborrartodo.setVisible(false);
-        jButtoncancelar.setVisible(false);
-        jLabelpermisos.setVisible(false);
-        jRadioButtoncliente.setVisible(false);
-        jRadioButtoninvitado.setVisible(false);
-        jRadioButtonadministrador.setVisible(false);
-        jButtoncambiar.setVisible(false);
-        jButtonborrartodo.setVisible(false);
-        jButtoncancelar.setVisible(false);
-        
-        
-    }//GEN-LAST:event_jButtonmodificarusuarioActionPerformed
 
-    private void jButtonborrartodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonborrartodoActionPerformed
-        // TODO add your handling code here:
-     
-        jTextFieldnombre.setText("");
-        jTextFieldapellidos.setText("");
-        jTextFielddni.setText("");
-        jDateChoosernacimiento.setDate(null);
-        jTextFielddireccion.setText("");
-        jTextFieldtelefono.setText("");
-        jTextFieldusuario.setText("");
-        jTextFieldpassword.setText("");
-    }//GEN-LAST:event_jButtonborrartodoActionPerformed
+    }//GEN-LAST:event_jButtonGestionUsuariosActionPerformed
 
-    private void jButtoncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoncancelarActionPerformed
+    private void jTextFieldBuscadorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscadorIdActionPerformed
         // TODO add your handling code here:
-        jPanelmodificarusuario.setVisible(false);
-    }//GEN-LAST:event_jButtoncancelarActionPerformed
+    }//GEN-LAST:event_jTextFieldBuscadorIdActionPerformed
 
-    private void jButtonbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonbuscarActionPerformed
+    private void jButtonModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarUsuarioActionPerformed
         // TODO add your handling code here:
-        
-        jLabelnombre.setVisible(true);
-        jLabelapellidos.setVisible(true);
-        jLabeldni.setVisible(true);
-        jLabeldireccion.setVisible(true);
-        jLabeltelefono.setVisible(true);
-        jLabelnacimiento.setVisible(true);
-        jLabelusuario.setVisible(true);
-        jLabelpassword.setVisible(true);
-        jTextFieldnombre.setVisible(true);
-        jTextFieldapellidos.setVisible(true);
-        jTextFielddni.setVisible(true);
-        jDateChoosernacimiento.setVisible(true);
-        jTextFielddireccion.setVisible(true);
-        jTextFieldtelefono.setVisible(true);
-        jTextFieldusuario.setVisible(true);
-        jTextFieldpassword.setVisible(true);
-        jButtoncambiar.setVisible(true);
-        jButtonborrartodo.setVisible(true);
-        jButtoncancelar.setVisible(true);
-        jLabelpermisos.setVisible(true);
-        jRadioButtoncliente.setVisible(true);
-        jRadioButtoninvitado.setVisible(true);
-        jRadioButtonadministrador.setVisible(true);
-        
-    }//GEN-LAST:event_jButtonbuscarActionPerformed
+        jPanelModificarUsuario.setVisible(true);
+        jLabelIdUsuario.setVisible(true);
+        jTextFieldBuscadorId.setVisible(true);
+        jButtonBuscar.setVisible(true);
+        jLabelNombre.setVisible(false);
+        jLabelApellidos.setVisible(false);
+        jLabelDni.setVisible(false);
+        jLabelDireccion.setVisible(false);
+        jLabelTelefono.setVisible(false);
+        jLabelNacimiento.setVisible(false);
+        jLabelUsuario.setVisible(false);
+        jLabelPassword.setVisible(false);
+        jTextFieldNombre.setVisible(false);
+        jTextFieldApellidos.setVisible(false);
+        jTextFieldDni.setVisible(false);
+        jDateChooserNacimiento.setVisible(false);
+        jTextFieldDireccion.setVisible(false);
+        jTextFieldTelefono.setVisible(false);
+        jTextFieldUsuario.setVisible(false);
+        jTextFieldPassword.setVisible(false);
+        jButtonCambiar.setVisible(false);
+        jButtonBorrarTodo.setVisible(false);
+        jButtonCancelar.setVisible(false);
+        jLabelPermisos.setVisible(false);
+        jRadioButtonCliente.setVisible(false);
+        jRadioButtonInvitado.setVisible(false);
+        jRadioButtonAdministrador.setVisible(false);
+        jButtonCambiar.setVisible(false);
+        jButtonBorrarTodo.setVisible(false);
+        jButtonCancelar.setVisible(false);
 
-    private void jButtoninsertarusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoninsertarusuarioActionPerformed
-        // TODO add your handling code here:
-        jPanelmodificarusuario.setVisible(true);
-        jLabelidusuario.setVisible(false);
-        jTextFieldbuscadorid.setVisible(false);
-        jButtonbuscar.setVisible(false);
-        jLabelnombre.setVisible(true);
-        jLabelapellidos.setVisible(true);
-        jLabeldni.setVisible(true);
-        jLabeldireccion.setVisible(true);
-        jLabeltelefono.setVisible(true);
-        jLabelnacimiento.setVisible(true);
-        jLabelusuario.setVisible(true);
-        jLabelpassword.setVisible(true);
-        jTextFieldnombre.setVisible(true);
-        jTextFieldapellidos.setVisible(true);
-        jTextFielddni.setVisible(true);
-        jDateChoosernacimiento.setVisible(true);
-        jTextFielddireccion.setVisible(true);
-        jTextFieldtelefono.setVisible(true);
-        jTextFieldusuario.setVisible(true);
-        jTextFieldpassword.setVisible(true);
-        jButtoncambiar.setVisible(true);
-        jButtonborrartodo.setVisible(true);
-        jButtoncancelar.setVisible(true);
-        jLabelpermisos.setVisible(true);
-        jRadioButtoncliente.setVisible(true);
-        jRadioButtoninvitado.setVisible(true);
-        jRadioButtonadministrador.setVisible(true);
-        
-    }//GEN-LAST:event_jButtoninsertarusuarioActionPerformed
 
-    private void jButtoneliminarusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoneliminarusuarioActionPerformed
+    }//GEN-LAST:event_jButtonModificarUsuarioActionPerformed
+
+    private void jButtonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarTodoActionPerformed
         // TODO add your handling code here:
-        
-        jPanelmodificarusuario.setVisible(true);
-        jLabelidusuario.setVisible(true);
-        jTextFieldbuscadorid.setVisible(true);
-        jButtonbuscar.setVisible(true);
-        jLabelnombre.setVisible(false);
-        jLabelapellidos.setVisible(false);
-        jLabeldni.setVisible(false);
-        jLabeldireccion.setVisible(false);
-        jLabeltelefono.setVisible(false);
-        jLabelnacimiento.setVisible(false);
-        jLabelusuario.setVisible(false);
-        jLabelpassword.setVisible(false);
-        jTextFieldnombre.setVisible(false);
-        jTextFieldapellidos.setVisible(false);
-        jTextFielddni.setVisible(false);
-        jDateChoosernacimiento.setVisible(false);
-        jTextFielddireccion.setVisible(false);
-        jTextFieldtelefono.setVisible(false);
-        jTextFieldusuario.setVisible(false);
-        jTextFieldpassword.setVisible(false);
-        jButtoncambiar.setVisible(false);
-        jButtonborrartodo.setVisible(false);
-        jButtoncancelar.setVisible(false);
-        jLabelpermisos.setVisible(false);
-        jRadioButtoncliente.setVisible(false);
-        jRadioButtoninvitado.setVisible(false);
-        jRadioButtonadministrador.setVisible(false);
-        
-    }//GEN-LAST:event_jButtoneliminarusuarioActionPerformed
+
+        jTextFieldNombre.setText("");
+        jTextFieldApellidos.setText("");
+        jTextFieldDni.setText("");
+        jDateChooserNacimiento.setDate(null);
+        jTextFieldDireccion.setText("");
+        jTextFieldTelefono.setText("");
+        jTextFieldUsuario.setText("");
+        jTextFieldPassword.setText("");
+    }//GEN-LAST:event_jButtonBorrarTodoActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        jPanelModificarUsuario.setVisible(false);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+        // TODO add your handling code here:
+
+        jLabelNombre.setVisible(true);
+        jLabelApellidos.setVisible(true);
+        jLabelDni.setVisible(true);
+        jLabelDireccion.setVisible(true);
+        jLabelTelefono.setVisible(true);
+        jLabelNacimiento.setVisible(true);
+        jLabelUsuario.setVisible(true);
+        jLabelPassword.setVisible(true);
+        jTextFieldNombre.setVisible(true);
+        jTextFieldApellidos.setVisible(true);
+        jTextFieldDni.setVisible(true);
+        jDateChooserNacimiento.setVisible(true);
+        jTextFieldDireccion.setVisible(true);
+        jTextFieldTelefono.setVisible(true);
+        jTextFieldUsuario.setVisible(true);
+        jTextFieldPassword.setVisible(true);
+        jButtonCambiar.setVisible(true);
+        jButtonBorrarTodo.setVisible(true);
+        jButtonCancelar.setVisible(true);
+        jLabelPermisos.setVisible(true);
+        jRadioButtonCliente.setVisible(true);
+        jRadioButtonInvitado.setVisible(true);
+        jRadioButtonAdministrador.setVisible(true);
+
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jButtonInsertarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarUsuarioActionPerformed
+        // TODO add your handling code here:
+        jPanelModificarUsuario.setVisible(true);
+        jLabelIdUsuario.setVisible(false);
+        jTextFieldBuscadorId.setVisible(false);
+        jButtonBuscar.setVisible(false);
+        jLabelNombre.setVisible(true);
+        jLabelApellidos.setVisible(true);
+        jLabelDni.setVisible(true);
+        jLabelDireccion.setVisible(true);
+        jLabelTelefono.setVisible(true);
+        jLabelNacimiento.setVisible(true);
+        jLabelUsuario.setVisible(true);
+        jLabelPassword.setVisible(true);
+        jTextFieldNombre.setVisible(true);
+        jTextFieldApellidos.setVisible(true);
+        jTextFieldDni.setVisible(true);
+        jDateChooserNacimiento.setVisible(true);
+        jTextFieldDireccion.setVisible(true);
+        jTextFieldTelefono.setVisible(true);
+        jTextFieldUsuario.setVisible(true);
+        jTextFieldPassword.setVisible(true);
+        jButtonCambiar.setVisible(true);
+        jButtonBorrarTodo.setVisible(true);
+        jButtonCancelar.setVisible(true);
+        jLabelPermisos.setVisible(true);
+        jRadioButtonCliente.setVisible(true);
+        jRadioButtonInvitado.setVisible(true);
+        jRadioButtonAdministrador.setVisible(true);
+
+    }//GEN-LAST:event_jButtonInsertarUsuarioActionPerformed
+
+    private void jButtonEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuarioActionPerformed
+        // TODO add your handling code here:
+
+        jPanelModificarUsuario.setVisible(true);
+        jLabelIdUsuario.setVisible(true);
+        jTextFieldBuscadorId.setVisible(true);
+        jButtonBuscar.setVisible(true);
+        jLabelNombre.setVisible(false);
+        jLabelApellidos.setVisible(false);
+        jLabelDni.setVisible(false);
+        jLabelDireccion.setVisible(false);
+        jLabelTelefono.setVisible(false);
+        jLabelNacimiento.setVisible(false);
+        jLabelUsuario.setVisible(false);
+        jLabelPassword.setVisible(false);
+        jTextFieldNombre.setVisible(false);
+        jTextFieldApellidos.setVisible(false);
+        jTextFieldDni.setVisible(false);
+        jDateChooserNacimiento.setVisible(false);
+        jTextFieldDireccion.setVisible(false);
+        jTextFieldTelefono.setVisible(false);
+        jTextFieldUsuario.setVisible(false);
+        jTextFieldPassword.setVisible(false);
+        jButtonCambiar.setVisible(false);
+        jButtonBorrarTodo.setVisible(false);
+        jButtonCancelar.setVisible(false);
+        jLabelPermisos.setVisible(false);
+        jRadioButtonCliente.setVisible(false);
+        jRadioButtonInvitado.setVisible(false);
+        jRadioButtonAdministrador.setVisible(false);
+
+    }//GEN-LAST:event_jButtonEliminarUsuarioActionPerformed
+
+    private void jRadioButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdministradorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonAdministradorActionPerformed
+
+    private void jButtonLiberacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLiberacionActionPerformed
+        // TODO add your handling code here:
+        jPanelUsuarios.setVisible(true);
+        jLabelNombreCliente.setVisible(false);
+        jTextFieldNombreCliente.setVisible(false);
+        jLabelObservaciones.setVisible(false);
+        jTextFieldObservaciones.setVisible(false);
+        jLabelDiagnostico.setVisible(false);
+        jTextAreaDiagnostico.setVisible(false);
+        jScrollPaneDiagnostico.setVisible(false);
+        jButtonSolicitarCodigo.setVisible(false);
+        jButtonSolicitarCodigo.setText("Solicitar Codigo");
+        jLabelLiberaciones.setText("Liberaciones");
+        jLabelLiberaciones.setVisible(true);
+        jLabelImei.setVisible(true);
+        jComboBoxOperadores.setVisible(true);
+        jLabelOperador.setVisible(true);
+        jButtonSolicitarCodigo.setVisible(true);
+        jButtonVolver.setVisible(true);
+        jTextFieldImei.setVisible(true);
+        jPanelModificarUsuario.setVisible(false);
+        jButtonModificarUsuario.setVisible(false);
+        jButtonEliminarUsuario.setVisible(false);
+        jButtonInsertarUsuario.setVisible(false);
+        jButtonBack.setVisible(false);
+    }//GEN-LAST:event_jButtonLiberacionActionPerformed
+
+    private void jComboBoxOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOperadoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxOperadoresActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        // TODO add your handling code here:
+        jLabelLiberaciones.setVisible(false);
+        jLabelImei.setVisible(false);
+        jComboBoxOperadores.setVisible(false);
+        jLabelOperador.setVisible(false);
+        jButtonSolicitarCodigo.setVisible(false);
+        jButtonVolver.setVisible(false);
+        jTextFieldImei.setVisible(false);
+        jLabelNombreCliente.setVisible(false);
+        jTextFieldNombreCliente.setVisible(false);
+        jLabelObservaciones.setVisible(false);
+        jTextFieldObservaciones.setVisible(false);
+        jLabelDiagnostico.setVisible(false);
+        jTextAreaDiagnostico.setVisible(false);
+        jScrollPaneDiagnostico.setVisible(false);
+    }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        jPanelUsuarios.setVisible(false);
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void jButtonReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReparacionActionPerformed
+        // TODO add your handling code here:
+        jPanelUsuarios.setVisible(true);
+        jLabelNombreCliente.setVisible(true);
+        jTextFieldNombreCliente.setVisible(true);
+        jLabelObservaciones.setVisible(true);
+        jTextFieldObservaciones.setVisible(true);
+        jLabelDiagnostico.setVisible(true);
+        jTextAreaDiagnostico.setVisible(true);
+        jScrollPaneDiagnostico.setVisible(true);
+        jButtonSolicitarCodigo.setVisible(true);
+        jButtonSolicitarCodigo.setText("Generar Informe");
+        jLabelLiberaciones.setText("Reparaciones");
+        jLabelLiberaciones.setVisible(true);
+        jButtonVolver.setVisible(true);
+        jLabelImei.setVisible(false);
+        jComboBoxOperadores.setVisible(false);
+        jLabelOperador.setVisible(false);
+        jTextFieldImei.setVisible(false);
+        jPanelModificarUsuario.setVisible(false);
+        jButtonModificarUsuario.setVisible(false);
+        jButtonEliminarUsuario.setVisible(false);
+        jButtonInsertarUsuario.setVisible(false);
+        jButtonBack.setVisible(false);
+
+    }//GEN-LAST:event_jButtonReparacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -525,40 +633,57 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGrouppermisos;
-    private javax.swing.JButton jButtonborrartodo;
-    private javax.swing.JButton jButtonbuscar;
-    private javax.swing.JButton jButtoncambiar;
-    private javax.swing.JButton jButtoncancelar;
-    private javax.swing.JButton jButtoneliminarusuario;
-    private javax.swing.JButton jButtongestionpedidos;
-    private javax.swing.JButton jButtongestionusuarios;
-    private javax.swing.JButton jButtoninsertarusuario;
-    private javax.swing.JButton jButtonliberacion;
-    private javax.swing.JButton jButtonmodificarusuario;
-    private javax.swing.JButton jButtonreparacion;
-    private com.toedter.calendar.JDateChooser jDateChoosernacimiento;
-    private javax.swing.JLabel jLabelapellidos;
-    private javax.swing.JLabel jLabeldireccion;
-    private javax.swing.JLabel jLabeldni;
-    private javax.swing.JLabel jLabelidusuario;
-    private javax.swing.JLabel jLabelnacimiento;
-    private javax.swing.JLabel jLabelnombre;
-    private javax.swing.JLabel jLabelpassword;
-    private javax.swing.JLabel jLabelpermisos;
-    private javax.swing.JLabel jLabeltelefono;
-    private javax.swing.JLabel jLabelusuario;
-    private javax.swing.JPanel jPanelmodificarusuario;
-    private javax.swing.JPanel jPanelusuarios;
-    private javax.swing.JRadioButton jRadioButtonadministrador;
-    private javax.swing.JRadioButton jRadioButtoncliente;
-    private javax.swing.JRadioButton jRadioButtoninvitado;
-    private javax.swing.JTextField jTextFieldapellidos;
-    private javax.swing.JTextField jTextFieldbuscadorid;
-    private javax.swing.JTextField jTextFielddireccion;
-    private javax.swing.JTextField jTextFielddni;
-    private javax.swing.JTextField jTextFieldnombre;
-    private javax.swing.JTextField jTextFieldpassword;
-    private javax.swing.JTextField jTextFieldtelefono;
-    private javax.swing.JTextField jTextFieldusuario;
+    private javax.swing.JButton jButtonBack;
+    private javax.swing.JButton jButtonBorrarTodo;
+    private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonCambiar;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonEliminarUsuario;
+    private javax.swing.JButton jButtonGestionPedidos;
+    private javax.swing.JButton jButtonGestionUsuarios;
+    private javax.swing.JButton jButtonInsertarUsuario;
+    private javax.swing.JButton jButtonLiberacion;
+    private javax.swing.JButton jButtonModificarUsuario;
+    private javax.swing.JButton jButtonReparacion;
+    private javax.swing.JButton jButtonSalir;
+    private javax.swing.JButton jButtonSolicitarCodigo;
+    private javax.swing.JButton jButtonVolver;
+    private javax.swing.JComboBox<String> jComboBoxOperadores;
+    private com.toedter.calendar.JDateChooser jDateChooserNacimiento;
+    private javax.swing.JLabel jLabelApellidos;
+    private javax.swing.JLabel jLabelDiagnostico;
+    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelDni;
+    private javax.swing.JLabel jLabelIdUsuario;
+    private javax.swing.JLabel jLabelImei;
+    private javax.swing.JLabel jLabelLiberaciones;
+    private javax.swing.JLabel jLabelNacimiento;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelNombreCliente;
+    private javax.swing.JLabel jLabelObservaciones;
+    private javax.swing.JLabel jLabelOperador;
+    private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelPermisos;
+    private javax.swing.JLabel jLabelTelefono;
+    private javax.swing.JLabel jLabelUsuario;
+    private javax.swing.JPanel jPanelModificarUsuario;
+    private javax.swing.JPanel jPanelPrincipal;
+    private javax.swing.JPanel jPanelUsuarios;
+    private javax.swing.JRadioButton jRadioButtonAdministrador;
+    private javax.swing.JRadioButton jRadioButtonCliente;
+    private javax.swing.JRadioButton jRadioButtonInvitado;
+    private javax.swing.JScrollPane jScrollPaneDiagnostico;
+    private javax.swing.JTextArea jTextAreaDiagnostico;
+    private javax.swing.JTextField jTextFieldApellidos;
+    private javax.swing.JTextField jTextFieldBuscadorId;
+    private javax.swing.JTextField jTextFieldDireccion;
+    private javax.swing.JTextField jTextFieldDni;
+    private javax.swing.JTextField jTextFieldImei;
+    private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField jTextFieldNombreCliente;
+    private javax.swing.JTextField jTextFieldObservaciones;
+    private javax.swing.JTextField jTextFieldPassword;
+    private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }
