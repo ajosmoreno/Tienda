@@ -5,6 +5,10 @@
  */
 package Vista;
 
+import com.sun.awt.AWTUtilities;
+import java.awt.Color;
+
+
 /**
  *
  * @author Antonio
@@ -17,13 +21,16 @@ public class GestionAdministrador extends javax.swing.JDialog {
     public GestionAdministrador(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jPanelUsuarios.setVisible(false);
-
+        jPanelPrincipal.setVisible(true);
+        //jPanelPrincipal.setBackground(new Color(0,0,0,255));
+        //jPanelUsuarios.setBackground(new Color(0,0,0,255));
+        //jPanelModificarUsuario.setBackground(new Color(0,0,0,255));
+        //jPanelUsuarios.setVisible(false);
         setLocationRelativeTo(null);
-        //jButtonmodificarusuario.setVisible(false);
-        //jButtoneliminarusuario.setVisible(false);
-        //jButtoninsertarusuario.setVisible(false);
-        //jPanelmodificarusuario.setVisible(false);
+    
+        
+        
+ 
     }
 
     /**
@@ -86,14 +93,19 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jRadioButtonAdministrador = new javax.swing.JRadioButton();
         jRadioButtonInvitado = new javax.swing.JRadioButton();
         jRadioButtonCliente = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
         jButtonSolicitarCodigo = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
+        jLabelFondoUsuario = new javax.swing.JLabel();
+        jLabelFondoPrincipal = new javax.swing.JLabel();
+        jLabelfondoprincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion del Administrador");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelPrincipal.setLayout(null);
+        jPanelPrincipal.setOpaque(false);
+        jPanelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonLiberacion.setText("Realizar Liberacion");
         jButtonLiberacion.addActionListener(new java.awt.event.ActionListener() {
@@ -101,8 +113,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonLiberacionActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButtonLiberacion);
-        jButtonLiberacion.setBounds(20, 240, 170, 60);
+        jPanelPrincipal.add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 170, 60));
 
         jButtonReparacion.setText("Realizar Reparacion");
         jButtonReparacion.addActionListener(new java.awt.event.ActionListener() {
@@ -110,8 +121,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonReparacionActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButtonReparacion);
-        jButtonReparacion.setBounds(20, 170, 170, 60);
+        jPanelPrincipal.add(jButtonReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 170, 60));
 
         jButtonGestionUsuarios.setText("Gestion de usuarios");
         jButtonGestionUsuarios.addActionListener(new java.awt.event.ActionListener() {
@@ -119,12 +129,10 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonGestionUsuariosActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButtonGestionUsuarios);
-        jButtonGestionUsuarios.setBounds(20, 100, 170, 60);
+        jPanelPrincipal.add(jButtonGestionUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 170, 60));
 
         jButtonGestionPedidos.setText("Gestion de pedidos");
-        jPanelPrincipal.add(jButtonGestionPedidos);
-        jButtonGestionPedidos.setBounds(20, 320, 170, 60);
+        jPanelPrincipal.add(jButtonGestionPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 170, 60));
 
         jButtonSalir.setText("Salir");
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -132,9 +140,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButtonSalir);
-        jButtonSalir.setBounds(23, 453, 160, 80);
+        jPanelPrincipal.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 453, 160, 80));
 
+        jPanelUsuarios.setOpaque(false);
         jPanelUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonModificarUsuario.setText("Modificar usuario");
@@ -205,6 +213,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
         jPanelUsuarios.add(jScrollPaneDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 320, 130));
 
+        jPanelModificarUsuario.setMinimumSize(new java.awt.Dimension(481, 590));
+        jPanelModificarUsuario.setOpaque(false);
         jPanelModificarUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelIdUsuario.setText("Id: ");
@@ -297,8 +307,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
         buttonGrouppermisos.add(jRadioButtonCliente);
         jRadioButtonCliente.setText("Cliente");
         jPanelModificarUsuario.add(jRadioButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+        jPanelModificarUsuario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 590));
 
-        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 600, 600));
+        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 600, 590));
 
         jButtonSolicitarCodigo.setText("Solicitar Código");
         jPanelUsuarios.add(jButtonSolicitarCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, -1, -1));
@@ -310,11 +321,15 @@ public class GestionAdministrador extends javax.swing.JDialog {
             }
         });
         jPanelUsuarios.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, -1, -1));
+        jPanelUsuarios.add(jLabelFondoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 590));
 
-        jPanelPrincipal.add(jPanelUsuarios);
-        jPanelUsuarios.setBounds(230, 0, 760, 590);
+        jPanelPrincipal.add(jPanelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 760, 590));
+        jPanelPrincipal.add(jLabelFondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 590));
 
         getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 590));
+
+        jLabelfondoprincipal.setOpaque(true);
+        getContentPane().add(jLabelfondoprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -650,10 +665,13 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxOperadores;
     private com.toedter.calendar.JDateChooser jDateChooserNacimiento;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelApellidos;
     private javax.swing.JLabel jLabelDiagnostico;
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelDni;
+    private javax.swing.JLabel jLabelFondoPrincipal;
+    private javax.swing.JLabel jLabelFondoUsuario;
     private javax.swing.JLabel jLabelIdUsuario;
     private javax.swing.JLabel jLabelImei;
     private javax.swing.JLabel jLabelLiberaciones;
@@ -666,6 +684,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelPermisos;
     private javax.swing.JLabel jLabelTelefono;
     private javax.swing.JLabel jLabelUsuario;
+    private javax.swing.JLabel jLabelfondoprincipal;
     private javax.swing.JPanel jPanelModificarUsuario;
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JPanel jPanelUsuarios;
