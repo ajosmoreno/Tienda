@@ -1,7 +1,5 @@
 package Modelo;
 
-import java.util.Date;
-
 /**
  *
  * @author José Manuel Moreno Córdoba

@@ -4,20 +4,22 @@ package Modelo;
  *
  * @author José Manuel Moreno Córdoba
  */
-public class Operador {
+public class Gestor {
     
     private int id;
     private String nombre;
     private String direccion;
     private String telefono;
     private String email;
+    private String tipo;
 
-    public Operador(int id, String nombre, String direccion, String telefono, String email) {
+    public Gestor(int id, String nombre, String direccion, String telefono, String email, String tipo) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
+        this.tipo = tipo;
     }
 
     public int getId() {
@@ -58,5 +60,13 @@ public class Operador {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
