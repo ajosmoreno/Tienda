@@ -1,0 +1,81 @@
+CREATE TABLE usuarios
+(id int unsigned auto_increment primary key,
+usuario char(30) unique not null,
+contrasenya char(32) not null,
+fechaRegistro timestamp default current_timestamp,
+nombre char(50) not null,
+apellidos char(50) not null,
+direccion char(50) not null,
+telefono char(9) not null,
+fechaNacimiento date not null,
+dni char(9) unique not null,
+permiso tinyint unsigned not null) ENGINE = INNODB;
+
+CREATE TABLE pedidos
+(numeroPedido int unsigned auto_increment primary key,
+fecha timestamp default current_timestamp,
+idCliente int unsigned not null,
+subtotal float(6,2),
+total float(6,2),
+tipoPago enum('Efectivo', 'Tarjeta'),
+estadoPedido enum('Completado', 'No completado'),
+foreign key(idCliente) references usuarios(id)
+ON UPDATE CASCADE ON DELETE NO ACTION) ENGINE = INNODB;
+
+CREATE TABLE compras
+(numeroPedido int unsigned primary key,
+foreign key(numeroPedido) references pedidos(numeroPedido)
+ON UPDATE CASCADE ON DELETE NO ACTION) ENGINE = INNODB;
+
+CREATE TABLE gestores
+(id int unsigned auto_increment primary key,
+nombre char(50) not null,
+direccion char(50) not null,
+telefono char(9) not null,
+email char(50) not null,
+tipo enum("Operador", "Proveedor")) ENGINE = INNODB;
+
+CREATE TABLE reparaciones
+(numeroPedido int unsigned primary key,
+proveedor int unsigned not null,
+diagnostico text not null,
+foreign key(numeroPedido) references pedidos(numeroPedido)
+ON UPDATE CASCADE ON DELETE NO ACTION,
+foreign key(proveedor) references gestores(id)
+ON UPDATE CASCADE ON DELETE NO ACTION) ENGINE = INNODB;
+
+CREATE TABLE liberaciones
+(numeroPedido int unsigned primary key,
+operador int unsigned not null,
+imei char(15) not null,
+codigoLiberacion char(50),
+instrucciones text,
+foreign key(numeroPedido) references pedidos(numeroPedido)
+ON UPDATE CASCADE ON DELETE NO ACTION,
+foreign key(operador) references gestores(id)
+ON UPDATE CASCADE ON DELETE NO ACTION) ENGINE = INNODB;
+
+CREATE TABLE productos
+(id int unsigned auto_increment primary key,
+marca char(50) not null,
+modelo char(50) not null,
+precio float(6,2) not null,
+color char(20) not null,
+descripcion text not null,
+stock tinyint default 0 not null) ENGINE = INNODB;
+
+CREATE TABLE productosComprados
+(numeroPedido int unsigned,
+idProducto int unsigned,
+foreign key(numeroPedido) references compras(numeroPedido)
+ON UPDATE CASCADE ON DELETE NO ACTION,
+foreign key(idProducto) references productos(id)
+ON UPDATE CASCADE ON DELETE NO ACTION) ENGINE = INNODB;
+
+CREATE TABLE cesta
+(idCliente int unsigned primary key,
+idProducto int unsigned not null,
+foreign key (idCliente) references usuarios(id)
+ON UPDATE CASCADE ON DELETE CASCADE,
+foreign key (idProducto) references productos(id)
+ON UPDATE CASCADE ON DELETE CASCADE) ENGINE = INNODB;
