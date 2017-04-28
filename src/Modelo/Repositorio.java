@@ -9,25 +9,53 @@ import java.util.ArrayList;
  * @author José Manuel Moreno Córdoba
  */
 public class Repositorio {
-    
+
     private ArrayList<Cliente> clientes;
+    private ArrayList<Producto> productos;
+    private ArrayList<Pedido> pedidos;
     private static Repositorio miRepositorio = null;
-    
-    private Repositorio() throws SQLException, ClassNotFoundException{
+
+    private Repositorio() throws SQLException, ClassNotFoundException {
         clientes = new ArrayList<Cliente>();
+        productos = new ArrayList<Producto>();
+        pedidos = new ArrayList<Pedido>();
     }
-    
-    public void cargarDatos() throws ClassNotFoundException, SQLException{
+
+    public void cargarProductos() throws ClassNotFoundException, SQLException {
+        ResultSet rsProducto = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM productos;");
+        while (rsProducto.next()) {
+            Producto p = new Producto(Integer.parseInt(rsProducto.getString("id")), rsProducto.getString("marca"), rsProducto.getString("modelo"), Double.parseDouble(rsProducto.getString("precio")), rsProducto.getString("color"), rsProducto.getString("descripcion"), Integer.parseInt(rsProducto.getString("stock")));
+            productos.add(p);
+        }
+    }
+
+    public void cargarPedidos() throws ClassNotFoundException, SQLException {
+        //Añadimos los pedidos que son compra al repositorio
+        ResultSet rsCompras = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM compras;");
+        while(rsCompras.next()){
+            ResultSet rsPedidosCompras = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM pedidos WHERE numeroPedido = '" + rsCompras.getString("numeroPedido") + "';");
+            ArrayList<Producto> productos = new ArrayList<Producto>();
+            rsPedidosCompras.next();
+            for(Producto p: this.productos){
+                if(p.getId() == Integer.parseInt(rsCompras.getString(""))){
+                    
+                }
+            }
+            Compra c = new Compra(0, fecha, 0, 0, 0, tipoPago, estadoPedido, productos);
+        }
+    }
+
+    /*public void cargarDatos() throws ClassNotFoundException, SQLException {
         ResultSet rsCliente = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM usuarios;");
-        while(rsCliente.next()){
+        while (rsCliente.next()) {
             ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
             //Generamos los pedidos que son de tipo compra del cliente
             ResultSet rsIDCompras = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT numeroPedido FROM compras WHERE numeroPedido IN (SELECT numeroPedido FROM pedidos WHERE idCliente = '" + rsCliente.getString("id") + "');");
-            while(rsIDCompras.next()){
+            while (rsIDCompras.next()) {
                 ResultSet rsCompras = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM pedidos WHERE numeroPedido = '" + rsIDCompras.getString("numeroPedido") + "';");
                 ArrayList<Producto> productos = new ArrayList<Producto>();
                 ResultSet rsProductosCompra = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM productosComprados WHERE numeroPedido = " + rsCompras.getString("numeroPedido"));
-                while(rsProductosCompra.next()){
+                while (rsProductosCompra.next()) {
                     ResultSet rsProducto = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM productos WHERE id = " + rsProductosCompra.getString("idProducto"));
                     Producto p = new Producto(Integer.parseInt(rsProducto.getString("id")), rsProducto.getString("marca"), rsProducto.getString("modelo"), Double.parseDouble(rsProducto.getString("precio")), rsProducto.getString("color"), rsProducto.getString("descripcion"), Integer.parseInt(rsProducto.getString("stock")));
                     productos.add(p);
@@ -37,9 +65,9 @@ public class Repositorio {
             }
             //Generamos los pedidos que son de tipo reparación del cliente
             ResultSet rsIDReparaciones = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT numeroPedido FROM reparaciones WHERE numeroPedido IN (SELECT numeroPedido FROM pedidos WHERE idCliente = '" + rsCliente.getString("id") + "');");
-            while(rsIDReparaciones.next()){
+            while (rsIDReparaciones.next()) {
                 ResultSet rsPedidoReparacion = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM pedidos WHERE numeroPedido = '" + rsIDReparaciones.getString("numeroPedido") + "';");
-                while(rsPedidoReparacion.next()){
+                while (rsPedidoReparacion.next()) {
                     ResultSet reparacion = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM reparaciones WHERE numeroPedido = " + rsPedidoReparacion.getString("numeroPedido"));
                     reparacion.next();
                     Reparacion r = new Reparacion(Integer.parseInt(rsPedidoReparacion.getString("numeroPedido")), rsPedidoReparacion.getString("fecha"), Integer.parseInt(rsPedidoReparacion.getString("idCliente")), Double.parseDouble(rsPedidoReparacion.getString("subtotal")), Double.parseDouble(rsPedidoReparacion.getString("total")), rsPedidoReparacion.getString("tipoPago"), rsPedidoReparacion.getString("estadoPedido"), Integer.parseInt(reparacion.getString("proveedor")), reparacion.getString("diagnostico"));
@@ -48,9 +76,9 @@ public class Repositorio {
             }
             //Generamos los pedidos que son de tipo liberación del cliente
             ResultSet rsIDLiberaciones = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT numeroPedido FROM liberaciones WHERE numeroPedido IN (SELECT numeroPedido FROM pedidos WHERE idCliente = '" + rsCliente.getString("id") + "');");
-            while(rsIDLiberaciones.next()){
+            while (rsIDLiberaciones.next()) {
                 ResultSet rsPedidoLiberacion = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM pedidos WHERE numeroPedido = '" + rsIDLiberaciones.getString("numeroPedido") + "';");
-                while(rsPedidoLiberacion.next()){
+                while (rsPedidoLiberacion.next()) {
                     ResultSet liberacion = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM liberaciones WHERE numeroPedido = " + rsPedidoLiberacion.getString("numeroPedido"));
                     liberacion.next();
                     Liberacion l = new Liberacion(Integer.parseInt(rsPedidoLiberacion.getString("numeroPedido")), rsPedidoLiberacion.getString("fecha"), Integer.parseInt(rsPedidoLiberacion.getString("idCliente")), Double.parseDouble(rsPedidoLiberacion.getString("subtotal")), Double.parseDouble(rsPedidoLiberacion.getString("total")), rsPedidoLiberacion.getString("tipoPago"), rsPedidoLiberacion.getString("estadoPedido"), Integer.parseInt(liberacion.getString("operador")), liberacion.getString("imei"), liberacion.getString("codigoLiberacion"), liberacion.getString("instrucciones"));
@@ -60,14 +88,16 @@ public class Repositorio {
             Cliente c = new Cliente(Integer.parseInt(rsCliente.getString("id")), rsCliente.getString("usuario"), rsCliente.getString("contrasenya"), rsCliente.getString("fechaRegistro"), rsCliente.getString("nombre"), rsCliente.getString("apellidos"), Integer.parseInt(rsCliente.getString("permiso")), pedidos, rsCliente.getString("direccion"), rsCliente.getString("telefono"), rsCliente.getString("fechaNacimiento"), rsCliente.getString("dni"));
             clientes.add(c);
         }
-    }
-    
-    public static Repositorio repositorio() throws SQLException, ClassNotFoundException{
-        if(miRepositorio == null) miRepositorio = new Repositorio();
+    }*/
+
+    public static Repositorio repositorio() throws SQLException, ClassNotFoundException {
+        if (miRepositorio == null) {
+            miRepositorio = new Repositorio();
+        }
         return miRepositorio;
     }
-    
-    public ArrayList<Cliente> devolverClientes(){
+
+    public ArrayList<Cliente> devolverClientes() {
         return clientes;
     }
 }

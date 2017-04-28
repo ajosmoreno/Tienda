@@ -71,7 +71,6 @@ stock tinyint default 0 not null) ENGINE = INNODB;
 CREATE TABLE productosComprados
 (numeroPedido int unsigned,
 idProducto int unsigned,
-cantidad tinyint default 1,
 primary key(numeroPedido, idProducto),
 foreign key(numeroPedido) references compras(numeroPedido)
 ON UPDATE CASCADE ON DELETE NO ACTION,
@@ -81,7 +80,6 @@ ON UPDATE CASCADE ON DELETE NO ACTION) ENGINE = INNODB;
 CREATE TABLE cesta
 (idCliente int unsigned,
 idProducto int unsigned,
-cantidad tinyint default 1,
 primary key(idCliente, idProducto),
 foreign key (idCliente) references usuarios(id)
 ON UPDATE CASCADE ON DELETE CASCADE,
