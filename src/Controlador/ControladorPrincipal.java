@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.BaseDeDatos;
 import Modelo.Cliente;
 import Modelo.Repositorio;
 import Vista.Opciones;
@@ -42,5 +43,9 @@ public class ControladorPrincipal {
             }
         }
         if(!encontrado) miVentana.mostrarError("El usuario introducido no existe.");
+    }
+    
+    public void cerrarConexionBBDD() throws SQLException, ClassNotFoundException{
+        BaseDeDatos.baseDeDatos().cerrarConexion();
     }
 }

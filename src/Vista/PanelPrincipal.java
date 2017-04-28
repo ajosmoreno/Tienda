@@ -56,6 +56,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabelfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelbienvenido.setFont(new java.awt.Font("Tahoma", 3, 22)); // NOI18N
@@ -123,7 +128,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonsalirActionPerformed
-        // TODO add your handling code here:
+        try {
+            miControlador.cerrarConexionBBDD();
+        } catch (SQLException | ClassNotFoundException ex) {
+            mostrarError("Error al cerrar la base de datos.");
+        }
         System.exit(0);
     }//GEN-LAST:event_jButtonsalirActionPerformed
 
@@ -148,6 +157,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         } 
     }//GEN-LAST:event_jButtonentrarActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        try {
+            miControlador.cerrarConexionBBDD();
+        } catch (SQLException | ClassNotFoundException ex) {
+            mostrarError("Error al cerrar la base de datos.");
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
