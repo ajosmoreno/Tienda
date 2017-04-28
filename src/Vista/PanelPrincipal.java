@@ -30,7 +30,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         try {
             miControlador.inicializarDatos();
         } catch (SQLException | ClassNotFoundException ex) {
+            mostrarError("Error al inicializar base de datos.");
             mostrarError(ex.getMessage());
+            System.exit(0);
         }
     }
 

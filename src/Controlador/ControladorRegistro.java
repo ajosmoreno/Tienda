@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.BaseDeDatos;
 import Modelo.Cliente;
 import Vista.RegistroUsuarios;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -30,10 +31,10 @@ public class ControladorRegistro {
         String fechaNacimiento = df.format(miRegistro.getjDateChoosernacimiento().getDate());
         String direccion = miRegistro.getjTextFielddireccion().getText();
         String telefono = miRegistro.getjTextFieldtelefono().getText();
-        int resultado = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario +"', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', 1);");
-        if(resultado > 0){ 
+        ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario +"', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', 1);");
+        if(res != null)
             miRegistro.mostrarMensaje("Usuario registrado correctamente.");
-            miRegistro.dispose();
-        }
+        else
+            miRegistro.mostrarError("Error al crear el usuario.");
     }
 }

@@ -11,7 +11,7 @@ package Vista;
  */
 public class Opciones extends javax.swing.JDialog {
 
-  /*  java.awt.Frame ventana;*/
+    java.awt.Frame ventana;
     /**
      * Creates new form Opciones
      */
@@ -19,7 +19,7 @@ public class Opciones extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        /*ventana = parent;*/
+        ventana = parent;
     }
 
     /**
@@ -77,11 +77,8 @@ public class Opciones extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonreparacionActionPerformed
 
     private void jButtonvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonvolverActionPerformed
-        // TODO add your handling code here:
-        PanelPrincipal panelPrincipal = new PanelPrincipal();
         this.dispose();
-       /* ventana.setVisible(true);*/
-        
+        ventana.setVisible(true);
     }//GEN-LAST:event_jButtonvolverActionPerformed
 
     /**

@@ -21,7 +21,7 @@ public class ControladorPrincipal {
     }
     
     public void inicializarDatos() throws SQLException, ClassNotFoundException{
-        Repositorio.repositorio().cargarDatos();
+        Repositorio.repositorio().inicializarDatos();
     }
     
     public void iniciarSesion() throws SQLException, ClassNotFoundException{
@@ -29,7 +29,9 @@ public class ControladorPrincipal {
         String usuario = miVentana.getjTextFieldusuario().getText();
         String contrasenya = new String(miVentana.getjPasswordFieldusuario().getPassword());
         ArrayList<Cliente> listaClientes = Repositorio.repositorio().devolverClientes();
-        for(Cliente c: listaClientes){
+        int contador = 0;
+        while(!encontrado && contador < listaClientes.size()){
+            Cliente c = listaClientes.get(contador);
             if(c.getNombreUsuario().equals(usuario)){
                 encontrado = true;
                 if(c.getContrasenya().equals(Cliente.encriptarContrasenya(contrasenya))){
@@ -39,8 +41,8 @@ public class ControladorPrincipal {
                 } else{
                     miVentana.mostrarError("La contraseña introducida no es correcta.");
                 }
-                break;
             }
+            contador++;
         }
         if(!encontrado) miVentana.mostrarError("El usuario introducido no existe.");
     }

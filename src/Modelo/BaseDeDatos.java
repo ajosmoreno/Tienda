@@ -36,10 +36,16 @@ public class BaseDeDatos {
         return rs;
     }
     
-    public int ejecutarConsulta(String consulta) throws SQLException{
+    public ResultSet ejecutarConsulta(String consulta) throws SQLException {
         Statement stm = conn.createStatement();
         int resultado = stm.executeUpdate(consulta);
-        stm.close();
-        return resultado;
+        if(resultado > 0){
+            ResultSet rs = stm.getGeneratedKeys();
+            stm.close();
+            return rs;
+        } else{
+            stm.close();
+            return null;
+        }
     }
 }
