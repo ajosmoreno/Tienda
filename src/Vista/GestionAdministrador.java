@@ -363,11 +363,12 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelUsuarios.add(jLabelFondoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 590));
 
         jPanelPrincipal.add(jPanelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 760, 590));
+
+        jLabelFondoPrincipal.setIcon(new javax.swing.ImageIcon("C:\\Users\\alumno\\Documents\\NetBeansProjects\\Tienda\\Imagenes\\fondojpanelprincipal.PNG")); // NOI18N
         jPanelPrincipal.add(jLabelFondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 590));
 
         getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 590));
 
-        jLabelfondoprincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondojpanelprincipal.PNG"))); // NOI18N
         jLabelfondoprincipal.setOpaque(true);
         getContentPane().add(jLabelfondoprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

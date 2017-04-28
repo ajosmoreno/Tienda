@@ -11,7 +11,7 @@ package Vista;
  */
 public class Opciones extends javax.swing.JDialog {
 
-    java.awt.Frame ventana;
+  /*  java.awt.Frame ventana;*/
     /**
      * Creates new form Opciones
      */
@@ -19,7 +19,7 @@ public class Opciones extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        ventana = parent;
+        /*ventana = parent;*/
     }
 
     /**
@@ -36,12 +36,16 @@ public class Opciones extends javax.swing.JDialog {
         jButtonreparacion = new javax.swing.JButton();
         jButtonLiberacion = new javax.swing.JButton();
         jButtonvolver = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonvercatalogo.setText("Ver Catalogo");
+        getContentPane().add(jButtonvercatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 123, 41));
 
         jButtongestion.setText("Gestion de Pedidos");
+        getContentPane().add(jButtongestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, 41));
 
         jButtonreparacion.setText("Reparación");
         jButtonreparacion.addActionListener(new java.awt.event.ActionListener() {
@@ -49,8 +53,10 @@ public class Opciones extends javax.swing.JDialog {
                 jButtonreparacionActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 123, 41));
 
         jButtonLiberacion.setText("Liberación");
+        getContentPane().add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 123, 41));
 
         jButtonvolver.setText("Volver al menú principal");
         jButtonvolver.addActionListener(new java.awt.event.ActionListener() {
@@ -58,41 +64,10 @@ public class Opciones extends javax.swing.JDialog {
                 jButtonvolverActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, 41));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonvercatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonreparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonLiberacion, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtongestion))
-                .addGap(62, 62, 62))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(jButtonvolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtongestion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonvercatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonreparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonLiberacion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jButtonvolver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\alumno\\Documents\\NetBeansProjects\\Tienda\\Imagenes\\fondocatalogo-iloveimg-resized.png")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -105,7 +80,7 @@ public class Opciones extends javax.swing.JDialog {
         // TODO add your handling code here:
         PanelPrincipal panelPrincipal = new PanelPrincipal();
         this.dispose();
-        ventana.setVisible(true);
+       /* ventana.setVisible(true);*/
         
     }//GEN-LAST:event_jButtonvolverActionPerformed
 
@@ -157,5 +132,6 @@ public class Opciones extends javax.swing.JDialog {
     private javax.swing.JButton jButtonreparacion;
     private javax.swing.JButton jButtonvercatalogo;
     private javax.swing.JButton jButtonvolver;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
