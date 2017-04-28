@@ -39,13 +39,9 @@ public class BaseDeDatos {
     public ResultSet ejecutarConsulta(String consulta) throws SQLException {
         Statement stm = conn.createStatement();
         int resultado = stm.executeUpdate(consulta);
-        if(resultado > 0){
-            ResultSet rs = stm.getGeneratedKeys();
-            stm.close();
-            return rs;
-        } else{
-            stm.close();
-            return null;
-        }
+        ResultSet rs = stm.getGeneratedKeys();
+        stm.close();
+        if(resultado > 0) return rs;
+        else return null;
     }
 }
