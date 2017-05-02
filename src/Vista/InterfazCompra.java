@@ -5,6 +5,11 @@
  */
 package Vista;
 
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JTextPane;
+
 /**
  *
  * @author Antonio
@@ -16,8 +21,10 @@ public class InterfazCompra extends javax.swing.JDialog {
      */
     public InterfazCompra(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        
         initComponents();
+        setLocationRelativeTo(null);
+        jTextPaneCaracteristicas.setVisible(false);
+        
     }
 
     /**
@@ -33,107 +40,140 @@ public class InterfazCompra extends javax.swing.JDialog {
         jLabelcatalogo = new javax.swing.JLabel();
         jLabelmarca = new javax.swing.JLabel();
         jLabelmodelo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonAñadirCesta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBoxMarca = new javax.swing.JComboBox<>();
+        jComboBoxModelo = new javax.swing.JComboBox<>();
+        jComboBoxOperador = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
+        jLabelCaracteristicas = new javax.swing.JLabel();
+        jLabelImagen = new javax.swing.JLabel();
+        jScrollPanecaracteristicas = new javax.swing.JScrollPane();
+        jTextPaneCaracteristicas = new javax.swing.JTextPane();
+        jLabelPrecio = new javax.swing.JLabel();
+        jLabelPrecioTotal = new javax.swing.JLabel();
+        jButtonVolver = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(780, 560));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelcatalogo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelcatalogo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelcatalogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelcatalogo.setText("Catalogo");
+        getContentPane().add(jLabelcatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 260, 53));
 
+        jLabelmarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelmarca.setText("Marca: ");
+        getContentPane().add(jLabelmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 70, 20));
 
+        jLabelmodelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelmodelo.setText("Modelo:");
+        getContentPane().add(jLabelmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, 24));
 
-        jButton1.setText("Añadir a la cesta");
+        jButtonAñadirCesta.setText("Añadir a la cesta");
+        getContentPane().add(jButtonAñadirCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 130, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Operador:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 80, 24));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apple" }));
+        getContentPane().add(jComboBoxMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 120, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Iphone 6S" }));
+        jComboBoxModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxModeloActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBoxModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 120, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxOperador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Movistar", "Vodafone", "Orange", "Yoigo", "MasMovil" }));
+        getContentPane().add(jComboBoxOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 118, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 347, Short.MAX_VALUE)
-        );
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelmarca, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(jComboBox3, 0, 118, Short.MAX_VALUE))
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(197, 197, 197)
-                .addComponent(jLabelcatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jLabelmarca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addComponent(jButton1)
-                .addGap(102, 102, 102))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabelcatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabelCaracteristicas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelCaracteristicas.setText("Caracteristicas: ");
+        jPanel2.add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 27, -1, -1));
+        jPanel2.add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 260, 230));
+
+        jTextPaneCaracteristicas.setFocusable(false);
+        jScrollPanecaracteristicas.setViewportView(jTextPaneCaracteristicas);
+
+        jPanel2.add(jScrollPanecaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 53, 285, 282));
+
+        jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelPrecio.setText("Precio: ");
+        jPanel2.add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+
+        jLabelPrecioTotal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel2.add(jLabelPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 58, 20));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 600, 410));
+
+        jButtonVolver.setText("Volver atras");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 460, 130, -1));
+
+        jLabelFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Antonio\\Desktop\\1DAM\\Programación\\Tienda\\Imagenes\\fondointerfazcompra.jpg")); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModeloActionPerformed
+       jScrollPanecaracteristicas.setVisible(true);
+       jTextPaneCaracteristicas.setVisible(true); 
+       establecerCaracteristicas();
+       jLabelPrecioTotal.setText("500 €");
+       //establecerImagen();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxModeloActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButtonVolverActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    public JComboBox getjComboBoxModelo() {
+        return jComboBoxModelo;
+    }
+
+    public void establecerCaracteristicas() {
+        jTextPaneCaracteristicas.setText(caracteristicasIphone6s);
+    }
+
+   /* public void establecerImagen() {
+        jLabelImagen.setIcon(icon);
+    }*/
+
+    
+    
+    /*String path = "C:\\Users\\Antonio\\Desktop\\1DAM\\Programación\\Tienda\\Imagenes\\iphone6s.png";
+    URL url = this.getClass().getResource(path);
+    ImageIcon icon = new ImageIcon(url);*/
+
+
+    String caracteristicasIphone6s = new String("Procesador: Chip A9 con arquitectura de 64 bits\n"
+            + "Capacidad: 32GB" 
+            + "Pantalla panorámica de 4,7 pulgadas (en diagonal) retroiluminada por LED\n"
+            + "Pantalla Multi-Touch con tecnología IPS\n"
+            + "Resolución de 1.334 por 750 a 326 p/p\n"
+            + "Contraste de 1.400:1 (típico)");
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -158,6 +198,10 @@ public class InterfazCompra extends javax.swing.JDialog {
         }
         //</editor-fold>
 
+        /**
+         *
+         * @return
+         */
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -174,15 +218,23 @@ public class InterfazCompra extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton jButtonAñadirCesta;
+    private javax.swing.JButton jButtonVolver;
+    private javax.swing.JComboBox<String> jComboBoxMarca;
+    private javax.swing.JComboBox<String> jComboBoxModelo;
+    private javax.swing.JComboBox<String> jComboBoxOperador;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelCaracteristicas;
+    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelImagen;
+    private javax.swing.JLabel jLabelPrecio;
+    private javax.swing.JLabel jLabelPrecioTotal;
     private javax.swing.JLabel jLabelcatalogo;
     private javax.swing.JLabel jLabelmarca;
     private javax.swing.JLabel jLabelmodelo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPanecaracteristicas;
+    private javax.swing.JTextPane jTextPaneCaracteristicas;
     // End of variables declaration//GEN-END:variables
 }
