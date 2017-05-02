@@ -49,6 +49,8 @@ public class ControladorPrincipal {
                             miVentana.setVisible(true);
                             break;
                     }
+                    miVentana.getjTextFieldusuario().setText("");
+                    miVentana.getjPasswordFieldusuario().setText("");
                 } else{
                     miVentana.mostrarError("La contraseña introducida no es correcta.");
                 }
@@ -61,5 +63,4 @@ public class ControladorPrincipal {
     public void cerrarConexionBBDD() throws SQLException, ClassNotFoundException{
         BaseDeDatos.baseDeDatos().cerrarConexion();
     }
-    
 }
