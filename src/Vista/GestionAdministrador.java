@@ -36,7 +36,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         //jPanelModificarUsuario.setBackground(new Color(0,0,0,255));
         jPanelUsuarios.setVisible(false);
         setLocationRelativeTo(null);
-        jLabelfondoprincipal.setIcon(new ImageIcon("Imagenes/fondojpanelprincipal.PNG"));
+        jLabelFondoPrincipal.setIcon(new ImageIcon("Imagenes/fondojpanelprincipal.PNG"));
     }
 
     /**
@@ -104,7 +104,6 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jButtonVolver = new javax.swing.JButton();
         jLabelFondoUsuario = new javax.swing.JLabel();
         jLabelFondoPrincipal = new javax.swing.JLabel();
-        jLabelfondoprincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion del Administrador");
@@ -374,13 +373,11 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelUsuarios.add(jLabelFondoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 590));
 
         jPanelPrincipal.add(jPanelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 760, 590));
-        jPanelPrincipal.add(jLabelFondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 590));
 
         getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 590));
 
-        jLabelfondoprincipal.setIcon(new javax.swing.ImageIcon("C:\\Users\\Antonio\\Desktop\\1DAM\\Programación\\Tienda\\Imagenes\\fondojpanelprincipal.PNG")); // NOI18N
-        jLabelfondoprincipal.setOpaque(true);
-        getContentPane().add(jLabelfondoprincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabelFondoPrincipal.setOpaque(true);
+        getContentPane().add(jLabelFondoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -784,7 +781,6 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelPermisos;
     private javax.swing.JLabel jLabelTelefono;
     private javax.swing.JLabel jLabelUsuario;
-    private javax.swing.JLabel jLabelfondoprincipal;
     private javax.swing.JPanel jPanelModificarUsuario;
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JPanel jPanelUsuarios;

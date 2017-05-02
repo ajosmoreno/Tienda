@@ -37,11 +37,11 @@ public class InterfazCompra extends javax.swing.JDialog {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
-        jLabelcatalogo = new javax.swing.JLabel();
-        jLabelmarca = new javax.swing.JLabel();
-        jLabelmodelo = new javax.swing.JLabel();
+        jLabelCatalogo = new javax.swing.JLabel();
+        jLabelMarca = new javax.swing.JLabel();
+        jLabelModelo = new javax.swing.JLabel();
         jButtonAñadirCesta = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelOperador = new javax.swing.JLabel();
         jComboBoxMarca = new javax.swing.JComboBox<>();
         jComboBoxModelo = new javax.swing.JComboBox<>();
         jComboBoxOperador = new javax.swing.JComboBox<>();
@@ -58,28 +58,27 @@ public class InterfazCompra extends javax.swing.JDialog {
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(780, 560));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelcatalogo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelcatalogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelcatalogo.setText("Catalogo");
-        getContentPane().add(jLabelcatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 260, 53));
+        jLabelCatalogo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelCatalogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCatalogo.setText("Catalogo");
+        getContentPane().add(jLabelCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 260, 53));
 
-        jLabelmarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelmarca.setText("Marca: ");
-        getContentPane().add(jLabelmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 70, 20));
+        jLabelMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelMarca.setText("Marca: ");
+        getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 70, 20));
 
-        jLabelmodelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelmodelo.setText("Modelo:");
-        getContentPane().add(jLabelmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, 24));
+        jLabelModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelModelo.setText("Modelo:");
+        getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, 24));
 
         jButtonAñadirCesta.setText("Añadir a la cesta");
         getContentPane().add(jButtonAñadirCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 130, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Operador:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 80, 24));
+        jLabelOperador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelOperador.setText("Operador:");
+        getContentPane().add(jLabelOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 80, 24));
 
         jComboBoxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apple" }));
         getContentPane().add(jComboBoxMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 120, -1));
@@ -124,8 +123,6 @@ public class InterfazCompra extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 460, 130, -1));
-
-        jLabelFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Antonio\\Desktop\\1DAM\\Programación\\Tienda\\Imagenes\\fondointerfazcompra.jpg")); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 560));
 
         pack();
@@ -223,15 +220,15 @@ public class InterfazCompra extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> jComboBoxMarca;
     private javax.swing.JComboBox<String> jComboBoxModelo;
     private javax.swing.JComboBox<String> jComboBoxOperador;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCaracteristicas;
+    private javax.swing.JLabel jLabelCatalogo;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelImagen;
+    private javax.swing.JLabel jLabelMarca;
+    private javax.swing.JLabel jLabelModelo;
+    private javax.swing.JLabel jLabelOperador;
     private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JLabel jLabelPrecioTotal;
-    private javax.swing.JLabel jLabelcatalogo;
-    private javax.swing.JLabel jLabelmarca;
-    private javax.swing.JLabel jLabelmodelo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPanecaracteristicas;
