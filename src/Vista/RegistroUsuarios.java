@@ -8,6 +8,7 @@ package Vista;
 import Controlador.ControladorRegistro;
 import com.toedter.calendar.JDateChooser;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -27,7 +28,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         initComponents();
         miControlador = new ControladorRegistro(this);
         setLocationRelativeTo(null);
-      
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondoregistro.png"));
     }    
 
     /**

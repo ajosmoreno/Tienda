@@ -9,6 +9,7 @@ package Vista;
 
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -35,10 +36,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         //jPanelModificarUsuario.setBackground(new Color(0,0,0,255));
         jPanelUsuarios.setVisible(false);
         setLocationRelativeTo(null);
-       
-        
-        
- 
+        jLabelfondoprincipal.setIcon(new ImageIcon("Imagenes/fondojpanelprincipal.PNG"));
     }
 
     /**

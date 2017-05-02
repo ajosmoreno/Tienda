@@ -748,9 +748,6 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabelfondoprincipal">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Antonio\Desktop\1DAM\Programaci&#xf3;n\Tienda\Imagenes\fondojpanelprincipal.PNG"/>
-        </Property>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
       <Constraints>

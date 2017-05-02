@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.BaseDeDatos;
 import Modelo.Cliente;
 import Modelo.Repositorio;
+import Vista.GestionAdministrador;
 import Vista.Opciones;
 import Vista.PanelPrincipal;
 import java.sql.SQLException;
@@ -35,9 +36,19 @@ public class ControladorPrincipal {
             if(c.getNombreUsuario().equals(usuario)){
                 encontrado = true;
                 if(c.getContrasenya().equals(Cliente.encriptarContrasenya(contrasenya))){
-                    Opciones op = new Opciones(miVentana, true);
-                    miVentana.setVisible(false);
-                    op.setVisible(true);
+                    switch(c.getPermisos()){
+                        case 0:
+                            break; 
+                        case 1:
+                            
+                            break;
+                        case 2:
+                            GestionAdministrador gAdmin = new GestionAdministrador(miVentana, true);
+                            miVentana.setVisible(false);
+                            gAdmin.setVisible(true);
+                            miVentana.setVisible(true);
+                            break;
+                    }
                 } else{
                     miVentana.mostrarError("La contraseña introducida no es correcta.");
                 }

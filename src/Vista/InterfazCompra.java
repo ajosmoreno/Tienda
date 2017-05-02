@@ -24,7 +24,7 @@ public class InterfazCompra extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         jTextPaneCaracteristicas.setVisible(false);
-        
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondointerfazcompra.jpg"));
     }
 
     /**

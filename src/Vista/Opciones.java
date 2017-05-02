@@ -11,7 +11,6 @@ package Vista;
  */
 public class Opciones extends javax.swing.JDialog {
 
-    java.awt.Frame ventana;
     /**
      * Creates new form Opciones
      */
@@ -19,7 +18,6 @@ public class Opciones extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        ventana = parent;
     }
 
     /**
@@ -78,7 +76,6 @@ public class Opciones extends javax.swing.JDialog {
 
     private void jButtonvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonvolverActionPerformed
         this.dispose();
-        ventana.setVisible(true);
     }//GEN-LAST:event_jButtonvolverActionPerformed
 
     /**

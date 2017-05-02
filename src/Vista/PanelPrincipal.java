@@ -9,6 +9,7 @@ import Controlador.ControladorPrincipal;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -26,14 +27,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
     public PanelPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondoprincipal.jpg"));
         miControlador = new ControladorPrincipal(this);
-       /* try {
+        try {
             miControlador.inicializarDatos();
         } catch (SQLException | ClassNotFoundException ex) {
             mostrarError("Error al inicializar base de datos.");
             mostrarError(ex.getMessage());
             System.exit(0);
-        }*/
+        }
     }
 
     /**
@@ -122,8 +124,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 80, 40));
-
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoprincipal.jpg"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         pack();
