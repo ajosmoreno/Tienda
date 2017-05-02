@@ -1,4 +1,4 @@
-package Controlador;
+ package Controlador;
 
 import Modelo.BaseDeDatos;
 import Modelo.Cliente;
@@ -18,19 +18,19 @@ public class ControladorRegistro {
     
     public ControladorRegistro(RegistroUsuarios miRegistro){
         this.miRegistro = miRegistro;
-        miRegistro.getjDateChoosernacimiento().getDateEditor().setEnabled(false);
+        miRegistro.getjDateChooserNacimiento().getDateEditor().setEnabled(false);
     }
     
     public void registrar() throws ClassNotFoundException, SQLException{
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        String usuario = miRegistro.getjTextFieldnombreusuario().getText();
-        String contrasenya = new String(miRegistro.getjPasswordFieldusuario().getPassword());
-        String nombre = miRegistro.getjTextFieldnombre().getText();
-        String apellidos = miRegistro.getjTextFieldapellidos().getText();
-        String dni = miRegistro.getjTextFielddni().getText();
-        String fechaNacimiento = df.format(miRegistro.getjDateChoosernacimiento().getDate());
-        String direccion = miRegistro.getjTextFielddireccion().getText();
-        String telefono = miRegistro.getjTextFieldtelefono().getText();
+        String usuario = miRegistro.getjTextFieldNombreUsuario().getText();
+        String contrasenya = new String(miRegistro.getjPasswordFieldUsuario().getPassword());
+        String nombre = miRegistro.getjTextFieldNombre().getText();
+        String apellidos = miRegistro.getjTextFieldApellidos().getText();
+        String dni = miRegistro.getjTextFieldDni().getText();
+        String fechaNacimiento = df.format(miRegistro.getjDateChooserNacimiento().getDate());
+        String direccion = miRegistro.getjTextFieldDireccion().getText();
+        String telefono = miRegistro.getjTextFieldTelefono().getText();
         ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario +"', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', 1);");
         if(res != null)
             miRegistro.mostrarMensaje("Usuario registrado correctamente.");

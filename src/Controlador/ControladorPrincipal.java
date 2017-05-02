@@ -50,4 +50,5 @@ public class ControladorPrincipal {
     public void cerrarConexionBBDD() throws SQLException, ClassNotFoundException{
         BaseDeDatos.baseDeDatos().cerrarConexion();
     }
+    
 }

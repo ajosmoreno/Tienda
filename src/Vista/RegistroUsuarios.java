@@ -41,26 +41,26 @@ public class RegistroUsuarios extends javax.swing.JDialog {
 
         buttonGrouppermisos = new javax.swing.ButtonGroup();
         jLabelRegistro = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldnombreusuario = new javax.swing.JTextField();
-        jPasswordFieldusuario = new javax.swing.JPasswordField();
-        jLabelnombre = new javax.swing.JLabel();
-        jLabelapellidos = new javax.swing.JLabel();
-        jLabeldireccion = new javax.swing.JLabel();
-        jLabeltelefono = new javax.swing.JLabel();
-        jTextFieldnombre = new javax.swing.JTextField();
-        jTextFieldapellidos = new javax.swing.JTextField();
-        jTextFielddireccion = new javax.swing.JTextField();
-        jTextFieldtelefono = new javax.swing.JTextField();
-        jButtonaceptar = new javax.swing.JButton();
-        jButtonborrartodo = new javax.swing.JButton();
-        jButtonsalir = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jDateChoosernacimiento = new com.toedter.calendar.JDateChooser();
-        jLabeldni = new javax.swing.JLabel();
-        jTextFielddni = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelUsuario = new javax.swing.JLabel();
+        jLabelContraseña = new javax.swing.JLabel();
+        jTextFieldNombreUsuario = new javax.swing.JTextField();
+        jPasswordFieldUsuario = new javax.swing.JPasswordField();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelApellidos = new javax.swing.JLabel();
+        jLabelDireccion = new javax.swing.JLabel();
+        jLabelTelefono = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldApellidos = new javax.swing.JTextField();
+        jTextFieldDireccion = new javax.swing.JTextField();
+        jTextFieldTelefono = new javax.swing.JTextField();
+        jButtonAceptar = new javax.swing.JButton();
+        jButtonBorrarTodo = new javax.swing.JButton();
+        jButtonSalir = new javax.swing.JButton();
+        jLabelFechaNacimiento = new javax.swing.JLabel();
+        jDateChooserNacimiento = new com.toedter.calendar.JDateChooser();
+        jLabelDni = new javax.swing.JLabel();
+        jTextFieldDni = new javax.swing.JTextField();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -71,121 +71,121 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelRegistro.setText("REGISTRO DE USUARIOS");
         getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, 33));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Usuario:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 98, -1, -1));
+        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelUsuario.setText("Usuario:");
+        getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 98, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Contraseña:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 136, -1, -1));
-        getContentPane().add(jTextFieldnombreusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 95, 157, -1));
-        getContentPane().add(jPasswordFieldusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 133, 157, -1));
+        jLabelContraseña.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelContraseña.setText("Contraseña:");
+        getContentPane().add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 136, -1, -1));
+        getContentPane().add(jTextFieldNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 95, 157, -1));
+        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 133, 157, -1));
 
-        jLabelnombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelnombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelnombre.setText("Nombre: ");
-        getContentPane().add(jLabelnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 174, -1, -1));
+        jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setText("Nombre: ");
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 174, -1, -1));
 
-        jLabelapellidos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelapellidos.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelapellidos.setText("Apellidos:");
-        getContentPane().add(jLabelapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 212, -1, -1));
+        jLabelApellidos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelApellidos.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelApellidos.setText("Apellidos:");
+        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 212, -1, -1));
 
-        jLabeldireccion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabeldireccion.setForeground(new java.awt.Color(255, 255, 255));
-        jLabeldireccion.setText("Dirección:");
-        getContentPane().add(jLabeldireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 322, -1, -1));
+        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDireccion.setText("Dirección:");
+        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 322, -1, -1));
 
-        jLabeltelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabeltelefono.setForeground(new java.awt.Color(255, 255, 255));
-        jLabeltelefono.setText("Telefono:");
-        getContentPane().add(jLabeltelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 363, -1, -1));
-        getContentPane().add(jTextFieldnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 171, 157, -1));
-        getContentPane().add(jTextFieldapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 209, 157, -1));
-        getContentPane().add(jTextFielddireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 360, 157, -1));
-        getContentPane().add(jTextFieldtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 322, 157, -1));
+        jLabelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTelefono.setText("Telefono:");
+        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 363, -1, -1));
+        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 171, 157, -1));
+        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 209, 157, -1));
+        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 360, 157, -1));
+        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 322, 157, -1));
 
-        jButtonaceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonaceptar.setText("Aceptar");
-        jButtonaceptar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonaceptarActionPerformed(evt);
+                jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonaceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, 100, 40));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, 100, 40));
 
-        jButtonborrartodo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonborrartodo.setText("Borrar todo");
-        jButtonborrartodo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBorrarTodo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonBorrarTodo.setText("Borrar todo");
+        jButtonBorrarTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonborrartodoActionPerformed(evt);
+                jButtonBorrarTodoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonborrartodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 110, 40));
+        getContentPane().add(jButtonBorrarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 110, 40));
 
-        jButtonsalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonsalir.setText("Salir");
-        jButtonsalir.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSalir.setText("Salir");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonsalirActionPerformed(evt);
+                jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 70, 40));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 70, 40));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Fecha de nacimiento: ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 284, -1, -1));
+        jLabelFechaNacimiento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelFechaNacimiento.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFechaNacimiento.setText("Fecha de nacimiento: ");
+        getContentPane().add(jLabelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 284, -1, -1));
 
-        jDateChoosernacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
+        jDateChooserNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jDateChoosernacimientoKeyPressed(evt);
+                jDateChooserNacimientoKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jDateChoosernacimientoKeyTyped(evt);
+                jDateChooserNacimientoKeyTyped(evt);
             }
         });
-        getContentPane().add(jDateChoosernacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 284, 160, -1));
+        getContentPane().add(jDateChooserNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 284, 160, -1));
 
-        jLabeldni.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabeldni.setForeground(new java.awt.Color(255, 255, 255));
-        jLabeldni.setText("DNI:");
-        getContentPane().add(jLabeldni, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
-        getContentPane().add(jTextFielddni, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 247, 157, -1));
+        jLabelDni.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelDni.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDni.setText("DNI:");
+        getContentPane().add(jLabelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+        getContentPane().add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 247, 157, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoregistro.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 560));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Antonio\\Desktop\\1DAM\\Programación\\Tienda\\Imagenes\\fondoregistro.png")); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonborrartodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonborrartodoActionPerformed
-        jTextFieldnombreusuario.setText("");
-        jPasswordFieldusuario.setText("");
-        jTextFieldnombre.setText("");
-        jTextFieldapellidos.setText("");
-        jTextFielddireccion.setText("");
-        jTextFieldtelefono.setText("");
-        jDateChoosernacimiento.setDate(null);
-        jTextFielddni.setText("");
-    }//GEN-LAST:event_jButtonborrartodoActionPerformed
+    private void jButtonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarTodoActionPerformed
+        jTextFieldNombreUsuario.setText("");
+        jPasswordFieldUsuario.setText("");
+        jTextFieldNombre.setText("");
+        jTextFieldApellidos.setText("");
+        jTextFieldDireccion.setText("");
+        jTextFieldTelefono.setText("");
+        jDateChooserNacimiento.setDate(null);
+        jTextFieldDni.setText("");
+    }//GEN-LAST:event_jButtonBorrarTodoActionPerformed
 
-    private void jButtonsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonsalirActionPerformed
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         this.dispose();
         
-    }//GEN-LAST:event_jButtonsalirActionPerformed
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jDateChoosernacimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChoosernacimientoKeyPressed
+    private void jDateChooserNacimientoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooserNacimientoKeyPressed
 
-    }//GEN-LAST:event_jDateChoosernacimientoKeyPressed
+    }//GEN-LAST:event_jDateChooserNacimientoKeyPressed
 
-    private void jDateChoosernacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChoosernacimientoKeyTyped
+    private void jDateChooserNacimientoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooserNacimientoKeyTyped
 
-    }//GEN-LAST:event_jDateChoosernacimientoKeyTyped
+    }//GEN-LAST:event_jDateChooserNacimientoKeyTyped
 
-    private void jButtonaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonaceptarActionPerformed
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         try {
             miControlador.registrar();
             this.dispose();
@@ -197,38 +197,38 @@ public class RegistroUsuarios extends javax.swing.JDialog {
             else
                 mostrarError("Ha ocurrido un error desconocido.\n"+ex.getMessage());
         }
-    }//GEN-LAST:event_jButtonaceptarActionPerformed
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
 
-    public JDateChooser getjDateChoosernacimiento() {
-        return jDateChoosernacimiento;
+    public JDateChooser getjDateChooserNacimiento() {
+        return jDateChooserNacimiento;
     }
 
-    public JPasswordField getjPasswordFieldusuario() {
-        return jPasswordFieldusuario;
+    public JPasswordField getjPasswordFieldUsuario() {
+        return jPasswordFieldUsuario;
     }
 
-    public JTextField getjTextFieldapellidos() {
-        return jTextFieldapellidos;
+    public JTextField getjTextFieldApellidos() {
+        return jTextFieldApellidos;
     }
 
-    public JTextField getjTextFielddireccion() {
-        return jTextFielddireccion;
+    public JTextField getjTextFieldDireccion() {
+        return jTextFieldDireccion;
     }
 
-    public JTextField getjTextFielddni() {
-        return jTextFielddni;
+    public JTextField getjTextFieldDni() {
+        return jTextFieldDni;
     }
 
-    public JTextField getjTextFieldnombre() {
-        return jTextFieldnombre;
+    public JTextField getjTextFieldNombre() {
+        return jTextFieldNombre;
     }
 
-    public JTextField getjTextFieldnombreusuario() {
-        return jTextFieldnombreusuario;
+    public JTextField getjTextFieldNombreUsuario() {
+        return jTextFieldNombreUsuario;
     }
 
-    public JTextField getjTextFieldtelefono() {
-        return jTextFieldtelefono;
+    public JTextField getjTextFieldTelefono() {
+        return jTextFieldTelefono;
     }
     
     public void mostrarError(String mensaje){
@@ -282,27 +282,27 @@ public class RegistroUsuarios extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGrouppermisos;
-    private javax.swing.JButton jButtonaceptar;
-    private javax.swing.JButton jButtonborrartodo;
-    private javax.swing.JButton jButtonsalir;
-    private com.toedter.calendar.JDateChooser jDateChoosernacimiento;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton jButtonAceptar;
+    private javax.swing.JButton jButtonBorrarTodo;
+    private javax.swing.JButton jButtonSalir;
+    private com.toedter.calendar.JDateChooser jDateChooserNacimiento;
+    private javax.swing.JLabel jLabelApellidos;
+    private javax.swing.JLabel jLabelContraseña;
+    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelDni;
+    private javax.swing.JLabel jLabelFechaNacimiento;
+    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelRegistro;
-    private javax.swing.JLabel jLabelapellidos;
-    private javax.swing.JLabel jLabeldireccion;
-    private javax.swing.JLabel jLabeldni;
-    private javax.swing.JLabel jLabelnombre;
-    private javax.swing.JLabel jLabeltelefono;
-    private javax.swing.JPasswordField jPasswordFieldusuario;
-    private javax.swing.JTextField jTextFieldapellidos;
-    private javax.swing.JTextField jTextFielddireccion;
-    private javax.swing.JTextField jTextFielddni;
-    private javax.swing.JTextField jTextFieldnombre;
-    private javax.swing.JTextField jTextFieldnombreusuario;
-    private javax.swing.JTextField jTextFieldtelefono;
+    private javax.swing.JLabel jLabelTelefono;
+    private javax.swing.JLabel jLabelUsuario;
+    private javax.swing.JPasswordField jPasswordFieldUsuario;
+    private javax.swing.JTextField jTextFieldApellidos;
+    private javax.swing.JTextField jTextFieldDireccion;
+    private javax.swing.JTextField jTextFieldDni;
+    private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField jTextFieldNombreUsuario;
+    private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
 
 }

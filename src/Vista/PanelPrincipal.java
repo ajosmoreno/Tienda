@@ -27,13 +27,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         miControlador = new ControladorPrincipal(this);
-        try {
+       /* try {
             miControlador.inicializarDatos();
         } catch (SQLException | ClassNotFoundException ex) {
             mostrarError("Error al inicializar base de datos.");
             mostrarError(ex.getMessage());
             System.exit(0);
-        }
+        }*/
     }
 
     /**
@@ -45,17 +45,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelbienvenido = new javax.swing.JLabel();
-        jLabelusuario = new javax.swing.JLabel();
-        jTextFieldusuario = new javax.swing.JTextField();
-        jPasswordFieldusuario = new javax.swing.JPasswordField();
-        jLabelpassword = new javax.swing.JLabel();
-        jLabelregistro = new javax.swing.JLabel();
-        jButtonregistro = new javax.swing.JButton();
-        jButtonentrar = new javax.swing.JButton();
-        jButtoninvitado = new javax.swing.JButton();
-        jButtonsalir = new javax.swing.JButton();
-        jLabelfondo = new javax.swing.JLabel();
+        jLabelBienvenido = new javax.swing.JLabel();
+        jLabelUsuario = new javax.swing.JLabel();
+        jTextFieldUsuario = new javax.swing.JTextField();
+        jPasswordFieldUsuario = new javax.swing.JPasswordField();
+        jLabelPassword = new javax.swing.JLabel();
+        jLabelRegistro = new javax.swing.JLabel();
+        jButtonRegistro = new javax.swing.JButton();
+        jButtonEntrar = new javax.swing.JButton();
+        jButtonInvitado = new javax.swing.JButton();
+        jButtonSalir = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -65,91 +65,91 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelbienvenido.setFont(new java.awt.Font("Tahoma", 3, 22)); // NOI18N
-        jLabelbienvenido.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelbienvenido.setText("Bienvenido");
-        getContentPane().add(jLabelbienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 138, 54));
+        jLabelBienvenido.setFont(new java.awt.Font("Tahoma", 3, 22)); // NOI18N
+        jLabelBienvenido.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelBienvenido.setText("Bienvenido");
+        getContentPane().add(jLabelBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 138, 54));
 
-        jLabelusuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelusuario.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelusuario.setText("Usuario :");
-        getContentPane().add(jLabelusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 60, 40));
-        getContentPane().add(jTextFieldusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 210, -1));
-        getContentPane().add(jPasswordFieldusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 210, -1));
+        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelUsuario.setText("Usuario :");
+        getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 60, 40));
+        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 210, -1));
+        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 210, -1));
 
-        jLabelpassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelpassword.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelpassword.setText("Contraseña :");
-        getContentPane().add(jLabelpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 90, 30));
+        jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPassword.setText("Contraseña :");
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 90, 30));
 
-        jLabelregistro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelregistro.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelregistro.setText("¿Aun no estas registrado?");
-        getContentPane().add(jLabelregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 170, 20));
+        jLabelRegistro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRegistro.setText("¿Aun no estas registrado?");
+        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 170, 20));
 
-        jButtonregistro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonregistro.setText("Registrar");
-        jButtonregistro.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonRegistro.setText("Registrar");
+        jButtonRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonregistroActionPerformed(evt);
+                jButtonRegistroActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 110, 40));
+        getContentPane().add(jButtonRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 110, 40));
 
-        jButtonentrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonentrar.setText("Entrar");
-        jButtonentrar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEntrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonEntrar.setText("Entrar");
+        jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonentrarActionPerformed(evt);
+                jButtonEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonentrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 100, 40));
+        getContentPane().add(jButtonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 100, 40));
 
-        jButtoninvitado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtoninvitado.setText("Entrar como invitado");
-        jButtoninvitado.addActionListener(new java.awt.event.ActionListener() {
+        jButtonInvitado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonInvitado.setText("Entrar como invitado");
+        jButtonInvitado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtoninvitadoActionPerformed(evt);
+                jButtonInvitadoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtoninvitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 160, 40));
+        getContentPane().add(jButtonInvitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 160, 40));
 
-        jButtonsalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonsalir.setText("Salir");
-        jButtonsalir.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSalir.setText("Salir");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonsalirActionPerformed(evt);
+                jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 80, 40));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 80, 40));
 
-        jLabelfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoprincipal.jpg"))); // NOI18N
-        getContentPane().add(jLabelfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoprincipal.jpg"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonsalirActionPerformed
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         try {
             miControlador.cerrarConexionBBDD();
         } catch (SQLException | ClassNotFoundException ex) {
             mostrarError("Error al cerrar la base de datos.");
         }
         System.exit(0);
-    }//GEN-LAST:event_jButtonsalirActionPerformed
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButtoninvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoninvitadoActionPerformed
+    private void jButtonInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInvitadoActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButtoninvitadoActionPerformed
+    }//GEN-LAST:event_jButtonInvitadoActionPerformed
 
-    private void jButtonregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonregistroActionPerformed
+    private void jButtonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistroActionPerformed
         RegistroUsuarios registro = new RegistroUsuarios(this,true);
         registro.setVisible(true);
-    }//GEN-LAST:event_jButtonregistroActionPerformed
+    }//GEN-LAST:event_jButtonRegistroActionPerformed
 
-    private void jButtonentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonentrarActionPerformed
-        if(jTextFieldusuario.getText().equals("") || new String(jPasswordFieldusuario.getPassword()).equals(""))
+    private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
+        if(jTextFieldUsuario.getText().equals("") || new String(jPasswordFieldUsuario.getPassword()).equals(""))
             mostrarError("Rellena todos los campos.");
         else{
             try {
@@ -158,7 +158,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 Logger.getLogger("Ha ocurrido un error al iniciar sesión.");
             }
         } 
-    }//GEN-LAST:event_jButtonentrarActionPerformed
+    }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         try {
@@ -207,25 +207,25 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonentrar;
-    private javax.swing.JButton jButtoninvitado;
-    private javax.swing.JButton jButtonregistro;
-    private javax.swing.JButton jButtonsalir;
-    private javax.swing.JLabel jLabelbienvenido;
-    private javax.swing.JLabel jLabelfondo;
-    private javax.swing.JLabel jLabelpassword;
-    private javax.swing.JLabel jLabelregistro;
-    private javax.swing.JLabel jLabelusuario;
-    private javax.swing.JPasswordField jPasswordFieldusuario;
-    private javax.swing.JTextField jTextFieldusuario;
+    private javax.swing.JButton jButtonEntrar;
+    private javax.swing.JButton jButtonInvitado;
+    private javax.swing.JButton jButtonRegistro;
+    private javax.swing.JButton jButtonSalir;
+    private javax.swing.JLabel jLabelBienvenido;
+    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelRegistro;
+    private javax.swing.JLabel jLabelUsuario;
+    private javax.swing.JPasswordField jPasswordFieldUsuario;
+    private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 
     public JPasswordField getjPasswordFieldusuario() {
-        return jPasswordFieldusuario;
+        return jPasswordFieldUsuario;
     }
 
     public JTextField getjTextFieldusuario() {
-        return jTextFieldusuario;
+        return jTextFieldUsuario;
     }
 
     
