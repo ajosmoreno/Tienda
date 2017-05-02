@@ -13,8 +13,9 @@ public class Producto {
     private String color;
     private String descripcion;
     private int stock;
+    private String imagen;
 
-    public Producto(int id, String marca, String modelo, double precio, String color, String descripcion, int stock) {
+    public Producto(int id, String marca, String modelo, double precio, String color, String descripcion, int stock, String imagen) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
@@ -22,6 +23,7 @@ public class Producto {
         this.color = color;
         this.descripcion = descripcion;
         this.stock = stock;
+        this.imagen = imagen;
     }
 
     public int getId() {
@@ -78,5 +80,13 @@ public class Producto {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }
