@@ -136,7 +136,7 @@ public class InterfazCompra extends javax.swing.JDialog {
        jTextPaneCaracteristicas.setVisible(true); 
        establecerCaracteristicas();
        jLabelPrecioTotal.setText("500 €");
-       //establecerImagen();
+       establecerImagen();
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxModeloActionPerformed
 
@@ -156,15 +156,15 @@ public class InterfazCompra extends javax.swing.JDialog {
         jTextPaneCaracteristicas.setText(caracteristicasIphone6s);
     }
 
-   /* public void establecerImagen() {
+    public void establecerImagen() {
         jLabelImagen.setIcon(icon);
-    }*/
+    }
 
     
     
-    /*String path = "C:\\Users\\Antonio\\Desktop\\1DAM\\Programación\\Tienda\\Imagenes\\iphone6s.png";
-    URL url = this.getClass().getResource(path);
-    ImageIcon icon = new ImageIcon(url);*/
+    String path = "Imagenes/iphone6s.jpg";
+    //URL url = this.getClass().getResource(path);
+    ImageIcon icon = new ImageIcon(path);
 
 
     String caracteristicasIphone6s = new String("Procesador: Chip A9 con arquitectura de 64 bits\n"
