@@ -35,6 +35,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
             mostrarError("Error al inicializar base de datos.");
             mostrarError(ex.getMessage());
             System.exit(0);
+        } catch(Exception ex){
+            mostrarError(ex.getMessage());
         }
     }
 
@@ -134,6 +136,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
             miControlador.cerrarConexionBBDD();
         } catch (SQLException | ClassNotFoundException ex) {
             mostrarError("Error al cerrar la base de datos.");
+        } catch(Exception ex){
+            mostrarError(ex.getMessage());
         }
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
@@ -156,6 +160,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 miControlador.iniciarSesion();
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger("Ha ocurrido un error al iniciar sesión.");
+            } catch(Exception ex){
+                mostrarError(ex.getMessage());
             }
         } 
     }//GEN-LAST:event_jButtonEntrarActionPerformed
@@ -165,6 +171,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
             miControlador.cerrarConexionBBDD();
         } catch (SQLException | ClassNotFoundException ex) {
             mostrarError("Error al cerrar la base de datos.");
+        } catch(Exception ex){
+            mostrarError(ex.getMessage());
         }
     }//GEN-LAST:event_formWindowClosing
 

@@ -1,5 +1,11 @@
 package Modelo;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -15,12 +21,12 @@ public class BaseDeDatos {
     private static BaseDeDatos miBBDD = null;
     private Connection conn;
     
-    private BaseDeDatos() throws ClassNotFoundException, SQLException{
+    private BaseDeDatos() throws ClassNotFoundException, SQLException, Exception{
         Class.forName("org.mariadb.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/tienda?user=tienda&password=tienda123");
+        conn = DriverManager.getConnection("jdbc:mariadb://" + leerConfig("servidor") + ":" + leerConfig("puerto") + "/" + leerConfig("bd") + "?user=" + leerConfig("usuario") + "&password=" + leerConfig("contraseña"));
     }
     
-    public static BaseDeDatos baseDeDatos() throws ClassNotFoundException, SQLException{
+    public static BaseDeDatos baseDeDatos() throws ClassNotFoundException, SQLException, Exception{
         if(miBBDD == null) miBBDD = new BaseDeDatos();
         return miBBDD;
     }
@@ -43,5 +49,39 @@ public class BaseDeDatos {
         stm.close();
         if(resultado > 0) return rs;
         else return null;
+    }
+    
+    public String leerConfig(String campo) throws IOException, Exception{
+        String valor = null;
+        File archivo = new File("config.ini");
+        if(!archivo.exists()){
+            archivo.createNewFile();
+            PrintWriter pw = new PrintWriter(new FileWriter(archivo));
+            pw.println("#Configuración Base de Datos");
+            pw.println("servidor=");
+            pw.println("puerto=");
+            pw.println("usuario=");
+            pw.println("contraseña=");
+            pw.println("bd=");
+            pw.close();
+            throw new Exception("El archivo de configuración no está completo.");
+        } else{
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea = br.readLine();
+            boolean encontrado = false;
+            while(linea != null && !encontrado){
+                if(linea.startsWith(campo)){
+                    try{
+                        encontrado = true;
+                        valor = linea.split("=")[1];
+                    } catch(IndexOutOfBoundsException ex){
+                        throw new Exception("El archivo de configuración no está completo.");
+                    }
+                }
+                linea = br.readLine();
+            }
+            br.close();
+        }
+        return valor;
     }
 }

@@ -21,11 +21,11 @@ public class ControladorPrincipal {
         this.miVentana = miVentana;
     }
     
-    public void inicializarDatos() throws SQLException, ClassNotFoundException{
+    public void inicializarDatos() throws SQLException, ClassNotFoundException, Exception{
         Repositorio.repositorio().inicializarDatos();
     }
     
-    public void iniciarSesion() throws SQLException, ClassNotFoundException{
+    public void iniciarSesion() throws SQLException, ClassNotFoundException, Exception{
         boolean encontrado = false;
         String usuario = miVentana.getjTextFieldusuario().getText();
         String contrasenya = new String(miVentana.getjPasswordFieldusuario().getPassword());
@@ -60,7 +60,7 @@ public class ControladorPrincipal {
         if(!encontrado) miVentana.mostrarError("El usuario introducido no existe.");
     }
     
-    public void cerrarConexionBBDD() throws SQLException, ClassNotFoundException{
+    public void cerrarConexionBBDD() throws SQLException, ClassNotFoundException, Exception{
         BaseDeDatos.baseDeDatos().cerrarConexion();
     }
 }

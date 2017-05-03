@@ -197,6 +197,8 @@ public class RegistroUsuarios extends javax.swing.JDialog {
                 mostrarError("El DNI introducido ya pertenece a un usuario.");
             else
                 mostrarError("Ha ocurrido un error desconocido.\n"+ex.getMessage());
+        } catch(Exception ex){
+            mostrarError(ex.getMessage());
         }
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 

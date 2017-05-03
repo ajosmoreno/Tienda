@@ -21,7 +21,7 @@ public class Repositorio {
         listaPedidos = new ArrayList<Pedido>();
     }
 
-    public void cargarProductos() throws ClassNotFoundException, SQLException {
+    public void cargarProductos() throws ClassNotFoundException, SQLException, Exception {
         ResultSet rsProducto = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM productos;");
         while (rsProducto.next()) {
             Producto p = new Producto(Integer.parseInt(rsProducto.getString("id")), rsProducto.getString("marca"), rsProducto.getString("modelo"), Double.parseDouble(rsProducto.getString("precio")), rsProducto.getString("color"), rsProducto.getString("descripcion"), Integer.parseInt(rsProducto.getString("stock")), rsProducto.getString("imagen"));
@@ -29,7 +29,7 @@ public class Repositorio {
         }
     }
 
-    public void cargarPedidos() throws ClassNotFoundException, SQLException {
+    public void cargarPedidos() throws ClassNotFoundException, SQLException, Exception {
         //Añadimos los pedidos que son compra al repositorio
         ResultSet rsCompras = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM compras;");
         while(rsCompras.next()){
@@ -70,7 +70,7 @@ public class Repositorio {
         }
     }
 
-    public void cargarClientes() throws SQLException, ClassNotFoundException{
+    public void cargarClientes() throws SQLException, ClassNotFoundException, Exception{
         ResultSet rsClientes = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM usuarios;");
         while(rsClientes.next()){
             ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
@@ -83,13 +83,13 @@ public class Repositorio {
         }
     }
     
-    public void inicializarDatos() throws ClassNotFoundException, SQLException {
+    public void inicializarDatos() throws ClassNotFoundException, SQLException, Exception {
         cargarProductos();
         cargarPedidos();
         cargarClientes();
     }
 
-    public static Repositorio repositorio() throws SQLException, ClassNotFoundException {
+    public static Repositorio repositorio() throws SQLException, ClassNotFoundException, Exception {
         if (miRepositorio == null) {
             miRepositorio = new Repositorio();
         }

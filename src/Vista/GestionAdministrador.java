@@ -5,24 +5,24 @@
  */
 package Vista;
 
-
-
+import Controlador.ControladorGestionAdministrador;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
-
 
 /**
  *
  * @author Antonio
  */
-
-
-
 public class GestionAdministrador extends javax.swing.JDialog {
+
+    private ControladorGestionAdministrador miControlador;
 
     /**
      * Creates new form GestionAdministrador
@@ -30,6 +30,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     public GestionAdministrador(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        miControlador = new ControladorGestionAdministrador(this);
         jPanelPrincipal.setVisible(true);
         //jPanelPrincipal.setBackground(new Color(0,0,0,255));
         //jPanelUsuarios.setBackground(new Color(0,0,0,255));
@@ -240,7 +241,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
         jLabeBuscarNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabeBuscarNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLabeBuscarNombre.setText("Nombre del cliente: ");
+        jLabeBuscarNombre.setText("Nombre de usuario: ");
         jPanelModificarUsuario.add(jLabeBuscarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 120, 26));
 
         jTextFieldBuscadorNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -469,32 +470,35 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
 
-        jLabelNombre.setVisible(true);
-        jLabelApellidos.setVisible(true);
-        jLabelDni.setVisible(true);
-        jLabelDireccion.setVisible(true);
-        jLabelTelefono.setVisible(true);
-        jLabelNacimiento.setVisible(true);
-        jLabelUsuario.setVisible(true);
-        jLabelPassword.setVisible(true);
-        jTextFieldNombre.setVisible(true);
-        jTextFieldApellidos.setVisible(true);
-        jTextFieldDni.setVisible(true);
-        jDateChooserNacimiento.setVisible(true);
-        jTextFieldDireccion.setVisible(true);
-        jTextFieldTelefono.setVisible(true);
-        jTextFieldUsuario.setVisible(true);
-        jTextFieldPassword.setVisible(true);
-        jButtonCambiar.setVisible(true);
-        jButtonBorrarTodo.setVisible(true);
-        jButtonCancelar.setVisible(true);
-        jLabelPermisos.setVisible(true);
-        jRadioButtonCliente.setVisible(true);
-        jRadioButtonInvitado.setVisible(true);
-        jRadioButtonAdministrador.setVisible(true);
-
+        try {
+            miControlador.buscarCliente();
+            jLabelNombre.setVisible(true);
+            jLabelApellidos.setVisible(true);
+            jLabelDni.setVisible(true);
+            jLabelDireccion.setVisible(true);
+            jLabelTelefono.setVisible(true);
+            jLabelNacimiento.setVisible(true);
+            jLabelUsuario.setVisible(true);
+            jLabelPassword.setVisible(true);
+            jTextFieldNombre.setVisible(true);
+            jTextFieldApellidos.setVisible(true);
+            jTextFieldDni.setVisible(true);
+            jDateChooserNacimiento.setVisible(true);
+            jTextFieldDireccion.setVisible(true);
+            jTextFieldTelefono.setVisible(true);
+            jTextFieldUsuario.setVisible(true);
+            jTextFieldPassword.setVisible(true);
+            jButtonCambiar.setVisible(true);
+            jButtonBorrarTodo.setVisible(true);
+            jButtonCancelar.setVisible(true);
+            jLabelPermisos.setVisible(true);
+            jRadioButtonCliente.setVisible(true);
+            jRadioButtonInvitado.setVisible(true);
+            jRadioButtonAdministrador.setVisible(true);
+        } catch (SQLException | ClassNotFoundException ex) {
+            mostrarError("Ha ocurrido un error al buscar el usuario.");
+        }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonInsertarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarUsuarioActionPerformed
@@ -622,7 +626,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReparacionActionPerformed
@@ -653,54 +657,57 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonReparacionActionPerformed
 
     private void jButtonGestionPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionPedidosActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
+        miControlador.abrirGestionPedidos();
     }//GEN-LAST:event_jButtonGestionPedidosActionPerformed
 
-    
-    public JTextField getjTextFieldBuscadorNombre(){
+    public JTextField getjTextFieldBuscadorNombre() {
         return jTextFieldBuscadorNombre;
     }
-    public JTextField getjTextFieldNombre(){
+
+    public JTextField getjTextFieldNombre() {
         return jTextFieldNombre;
     }
-    public JTextField getjTextFieldApellidos(){
+
+    public JTextField getjTextFieldApellidos() {
         return jTextFieldApellidos;
     }
-    public JTextField getjTextFieldDni(){
+
+    public JTextField getjTextFieldDni() {
         return jTextFieldDni;
     }
-    public JTextField getjTextFieldDireccion(){
+
+    public JTextField getjTextFieldDireccion() {
         return jTextFieldDireccion;
     }
+
     public JDateChooser getjDateChooserNacimiento() {
         return jDateChooserNacimiento;
     }
-    public JTextField getjTextFieldTelefono(){
+
+    public JTextField getjTextFieldTelefono() {
         return jTextFieldTelefono;
     }
-    public JTextField getjTextFieldUsuario(){
+
+    public JTextField getjTextFieldUsuario() {
         return jTextFieldUsuario;
     }
-    public JTextField getjTextFieldPassword(){
+
+    public JTextField getjTextFieldPassword() {
         return jTextFieldPassword;
     }
-    public JTextArea getjTextAreaDiagnostico(){
+
+    public JTextArea getjTextAreaDiagnostico() {
         return jTextAreaDiagnostico;
     }
-    public JTextField getjTextFieldImei(){
+
+    public JTextField getjTextFieldImei() {
         return jTextFieldImei;
     }
-    public JTextField getjTextFieldObservaciones(){
+
+    public JTextField getjTextFieldObservaciones() {
         return jTextFieldObservaciones;
     }
-    
-    
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -801,4 +808,14 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldTelefono;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public JTextField getjTextFieldNombreCliente() {
+        return jTextFieldNombreCliente;
+    }
+    
+    
 }

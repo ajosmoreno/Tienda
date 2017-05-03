@@ -21,7 +21,7 @@ public class ControladorRegistro {
         miRegistro.getjDateChooserNacimiento().getDateEditor().setEnabled(false);
     }
     
-    public void registrar() throws ClassNotFoundException, SQLException{
+    public void registrar() throws ClassNotFoundException, SQLException, Exception{
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String usuario = miRegistro.getjTextFieldNombreUsuario().getText();
         String contrasenya = new String(miRegistro.getjPasswordFieldUsuario().getPassword());
