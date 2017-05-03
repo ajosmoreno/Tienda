@@ -2,6 +2,7 @@
 
 import Modelo.BaseDeDatos;
 import Modelo.Cliente;
+import Modelo.Repositorio;
 import Vista.RegistroUsuarios;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,12 +31,12 @@ public class ControladorRegistro {
         String dni = miRegistro.getjTextFieldDni().getText();
         String fechaNacimiento = df.format(miRegistro.getjDateChooserNacimiento().getDate());
         String direccion = miRegistro.getjTextFieldDireccion().getText();
-        System.out.println("Direccion: " + miRegistro.getjTextFieldDireccion().getText());
         String telefono = miRegistro.getjTextFieldTelefono().getText();
-        System.out.println("Telefono: " + miRegistro.getjTextFieldTelefono().getText());
         ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario +"', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', 1);");
-        if(res != null)
+        if(res != null){
+            Repositorio.repositorio().cargarClientes();
             miRegistro.mostrarMensaje("Usuario registrado correctamente.");
+        }
         else
             miRegistro.mostrarError("Error al crear el usuario.");
     }

@@ -414,6 +414,10 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
     private void jButtonModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarUsuarioActionPerformed
         // TODO add your handling code here:
+        modificarUsuarioPaneles();
+    }//GEN-LAST:event_jButtonModificarUsuarioActionPerformed
+
+    public void modificarUsuarioPaneles(){
         jPanelModificarUsuario.setVisible(true);
         jLabeBuscarNombre.setVisible(true);
         jTextFieldBuscadorNombre.setVisible(true);
@@ -444,10 +448,14 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jButtonCambiar.setVisible(false);
         jButtonEliminarUsuario.setVisible(false);
         jButtonCancelar.setVisible(false);
-    }//GEN-LAST:event_jButtonModificarUsuarioActionPerformed
-
+    }
+    
     private void jButtonEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuarioActionPerformed
-        miControlador.eliminarUsuario();
+        try {
+            miControlador.eliminarUsuario();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al eliminar el usuario.");
+        }
     }//GEN-LAST:event_jButtonEliminarUsuarioActionPerformed
 
     public void limpiarCampos(){
@@ -786,6 +794,10 @@ public class GestionAdministrador extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }
 
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.DEFAULT_OPTION);
+    }
+    
     public JTextField getjTextFieldNombreCliente() {
         return jTextFieldNombreCliente;
     }
