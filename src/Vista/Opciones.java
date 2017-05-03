@@ -26,7 +26,7 @@ public class Opciones extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         jButtonLiberacion.setEnabled(false);
         jButtonGestion.setEnabled(false);
-        jButtonVerCatalogo.setEnabled(false);
+        jButtonReparacion.setEnabled(false);
     }
 
     /**

@@ -143,7 +143,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInvitadoActionPerformed
-        // TODO add your handling code here:
+        miControlador.entrarComoInvitado();
         
     }//GEN-LAST:event_jButtonInvitadoActionPerformed
 

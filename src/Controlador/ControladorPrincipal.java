@@ -38,6 +38,8 @@ public class ControladorPrincipal {
                 if(c.getContrasenya().equals(Cliente.encriptarContrasenya(contrasenya))){
                     switch(c.getPermisos()){
                         case 0:
+                            Opciones opInvitado = new Opciones(miVentana, true, true);
+                            opInvitado.setVisible(true);
                             break; 
                         case 1:
                             Opciones op = new Opciones(miVentana, true);
@@ -61,5 +63,10 @@ public class ControladorPrincipal {
     
     public void cerrarConexionBBDD() throws SQLException, ClassNotFoundException, Exception{
         BaseDeDatos.baseDeDatos().cerrarConexion();
+    }
+
+    public void entrarComoInvitado() {
+        Opciones opInvitado = new Opciones(miVentana, true, true);
+        opInvitado.setVisible(true);
     }
 }
