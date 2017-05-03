@@ -212,7 +212,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         return jTextFieldApellidos;
     }
 
-    public JTextField getjTextFieldDireccion() {
+    public JTextField getjTextFieldTelefono() {
         return jTextFieldTelefono;
     }
 
@@ -228,7 +228,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         return jTextFieldNombreUsuario;
     }
 
-    public JTextField getjTextFieldTelefono() {
+    public JTextField getjTextFieldDireccion() {
         return jTextFieldDireccion;
     }
     
