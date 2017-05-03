@@ -24,7 +24,10 @@ public class InterfazCompra extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         jTextPaneCaracteristicas.setVisible(false);
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondointerfazcompra.jpg"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondocatalogo.jpg"));
+        jButtonAñadirCesta.setIcon(new ImageIcon("Imagenes/botonañadirproducto.png"));
+        jButtonCestaCompra.setIcon(new ImageIcon("Imagenes/botonircesta.png"));
+        jButtonVolver.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
     }
 
     /**
@@ -53,30 +56,36 @@ public class InterfazCompra extends javax.swing.JDialog {
         jLabelPrecio = new javax.swing.JLabel();
         jLabelPrecioTotal = new javax.swing.JLabel();
         jButtonVolver = new javax.swing.JButton();
+        jButtonCestaCompra = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelCatalogo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelCatalogo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCatalogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCatalogo.setText("Catalogo");
         getContentPane().add(jLabelCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 260, 53));
 
         jLabelMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelMarca.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMarca.setText("Marca: ");
         getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 70, 20));
 
         jLabelModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelModelo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelModelo.setText("Modelo:");
         getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, 24));
 
-        jButtonAñadirCesta.setText("Añadir a la cesta");
-        getContentPane().add(jButtonAñadirCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 130, -1));
+        jButtonAñadirCesta.setToolTipText("Añadir producto a la cesta de compra");
+        getContentPane().add(jButtonAñadirCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 90, 90));
 
         jLabelOperador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelOperador.setForeground(new java.awt.Color(255, 255, 255));
         jLabelOperador.setText("Operador:");
         getContentPane().add(jLabelOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 80, 24));
 
@@ -98,9 +107,10 @@ public class InterfazCompra extends javax.swing.JDialog {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelCaracteristicas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCaracteristicas.setText("Caracteristicas: ");
         jPanel2.add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 27, -1, -1));
-        jPanel2.add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 260, 230));
+        jPanel2.add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 260, 240));
 
         jTextPaneCaracteristicas.setFocusable(false);
         jScrollPanecaracteristicas.setViewportView(jTextPaneCaracteristicas);
@@ -108,22 +118,35 @@ public class InterfazCompra extends javax.swing.JDialog {
         jPanel2.add(jScrollPanecaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 53, 285, 282));
 
         jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPrecio.setText("Precio: ");
         jPanel2.add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
 
         jLabelPrecioTotal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelPrecioTotal.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jLabelPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 58, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 600, 410));
 
-        jButtonVolver.setText("Volver atras");
+        jButtonVolver.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonVolver.setToolTipText("Volver atras");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 460, 130, -1));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 560));
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, 90, 90));
+
+        jButtonCestaCompra.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCestaCompra.setToolTipText("Ir a la cesta de la compra");
+        jButtonCestaCompra.setOpaque(false);
+        jButtonCestaCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCestaCompraActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonCestaCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 90, 90));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -142,6 +165,10 @@ public class InterfazCompra extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
+    private void jButtonCestaCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCestaCompraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCestaCompraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -159,7 +186,7 @@ public class InterfazCompra extends javax.swing.JDialog {
 
     
     
-    String path = "Imagenes/iphone6s.jpg";
+    String path = "Imagenes/Productos/iphone6s.jpg";
     //URL url = this.getClass().getResource(path);
     ImageIcon icon = new ImageIcon(path);
 
@@ -216,6 +243,7 @@ public class InterfazCompra extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAñadirCesta;
+    private javax.swing.JButton jButtonCestaCompra;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxMarca;
     private javax.swing.JComboBox<String> jComboBoxModelo;
