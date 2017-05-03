@@ -58,7 +58,7 @@ public class GestionPedidos extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Gestion de Pedidos"); // NOI18N
-        setSize(new java.awt.Dimension(920, 650));
+        setSize(new java.awt.Dimension(920, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonComprobarPedido.setText("Comprobar Pedidos Pendientes");
