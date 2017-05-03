@@ -40,13 +40,12 @@ public class ControladorPrincipal {
                         case 0:
                             break; 
                         case 1:
-                            
+                            Opciones op = new Opciones(miVentana, true);
+                            op.setVisible(true);
                             break;
                         case 2:
                             GestionAdministrador gAdmin = new GestionAdministrador(miVentana, true);
-                            miVentana.setVisible(false);
                             gAdmin.setVisible(true);
-                            miVentana.setVisible(true);
                             break;
                     }
                     miVentana.getjTextFieldusuario().setText("");

@@ -52,8 +52,8 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelTelefono = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldApellidos = new javax.swing.JTextField();
-        jTextFieldDireccion = new javax.swing.JTextField();
         jTextFieldTelefono = new javax.swing.JTextField();
+        jTextFieldDireccion = new javax.swing.JTextField();
         jButtonAceptar = new javax.swing.JButton();
         jButtonBorrarTodo = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
@@ -105,8 +105,8 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 363, -1, -1));
         getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 171, 157, -1));
         getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 209, 157, -1));
-        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 360, 157, -1));
-        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 322, 157, -1));
+        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 360, 157, -1));
+        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 322, 157, -1));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAceptar.setText("Aceptar");
@@ -155,8 +155,6 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelDni.setText("DNI:");
         getContentPane().add(jLabelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
         getContentPane().add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 247, 157, -1));
-
-        jLabelFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Antonio\\Desktop\\1DAM\\Programación\\Tienda\\Imagenes\\fondoregistro.png")); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 560));
 
         pack();
@@ -167,8 +165,8 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jPasswordFieldUsuario.setText("");
         jTextFieldNombre.setText("");
         jTextFieldApellidos.setText("");
-        jTextFieldDireccion.setText("");
         jTextFieldTelefono.setText("");
+        jTextFieldDireccion.setText("");
         jDateChooserNacimiento.setDate(null);
         jTextFieldDni.setText("");
     }//GEN-LAST:event_jButtonBorrarTodoActionPerformed
@@ -215,7 +213,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
     }
 
     public JTextField getjTextFieldDireccion() {
-        return jTextFieldDireccion;
+        return jTextFieldTelefono;
     }
 
     public JTextField getjTextFieldDni() {
@@ -231,7 +229,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
     }
 
     public JTextField getjTextFieldTelefono() {
-        return jTextFieldTelefono;
+        return jTextFieldDireccion;
     }
     
     public void mostrarError(String mensaje){
