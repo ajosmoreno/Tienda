@@ -77,7 +77,6 @@ public class InterfazCompra extends javax.swing.JDialog {
         jComboBoxMarca = new javax.swing.JComboBox<>();
         jComboBoxModelo = new javax.swing.JComboBox<>();
         jComboBoxColor = new javax.swing.JComboBox<>();
-        jPanel2 = new javax.swing.JPanel();
         jLabelCaracteristicas = new javax.swing.JLabel();
         jLabelImagen = new javax.swing.JLabel();
         jLabelPrecio = new javax.swing.JLabel();
@@ -136,32 +135,27 @@ public class InterfazCompra extends javax.swing.JDialog {
         });
         getContentPane().add(jComboBoxColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 118, -1));
 
-        jPanel2.setOpaque(false);
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabelCaracteristicas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCaracteristicas.setText("Caracteristicas: ");
-        jPanel2.add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 27, -1, -1));
-        jPanel2.add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 370, 380));
+        getContentPane().add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
+        getContentPane().add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 370, 380));
 
         jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPrecio.setText("Precio: ");
-        jPanel2.add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
         jLabelPrecioTotal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelPrecioTotal.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jLabelPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 58, 20));
+        getContentPane().add(jLabelPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 58, 20));
 
         jTextAreaCaracteristicas.setEditable(false);
         jTextAreaCaracteristicas.setColumns(20);
         jTextAreaCaracteristicas.setRows(5);
         jScrollPane1.setViewportView(jTextAreaCaracteristicas);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 290, 290));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 600, 410));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 290, 290));
 
         jButtonVolver.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVolver.setToolTipText("Volver atras");
@@ -331,7 +325,6 @@ public class InterfazCompra extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JLabel jLabelPrecioTotal;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaCaracteristicas;
     // End of variables declaration//GEN-END:variables

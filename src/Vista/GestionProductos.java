@@ -23,6 +23,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
         jButtonCancelar.setIcon(new ImageIcon("Imagenes/iconocancelar.jpg"));
         jButtonAceptar.setIcon(new ImageIcon("Imagenes/iconook.jpg"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondoregistroproductos.jpg"));
         jLabelBuscador.setVisible(false);
         jTextFieldBuscadorProductos.setVisible(false);
         jButtonBuscar.setVisible(false);
@@ -74,6 +75,9 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Gestion de productos");
+        setMinimumSize(new java.awt.Dimension(1000, 700));
+        setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonModificarProducto.setText("Modificar producto");
@@ -108,8 +112,10 @@ public class GestionProductos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 370, 90, 90));
 
+        jLabelBuscador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelBuscador.setForeground(new java.awt.Color(255, 255, 255));
         jLabelBuscador.setText("Id producto: ");
-        getContentPane().add(jLabelBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, -1, -1));
+        getContentPane().add(jLabelBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, 20));
         getContentPane().add(jTextFieldBuscadorProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 150, -1));
 
         jButtonBuscar.setText("Buscar");
@@ -120,20 +126,30 @@ public class GestionProductos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, -1, -1));
 
+        jLabelModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelModelo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelModelo.setText("Modelo: ");
-        getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+        getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
 
+        jLabelMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelMarca.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMarca.setText("Marca: ");
-        getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
+        getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
 
+        jLabelCaracteristicas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCaracteristicas.setText("Caracteristicas: ");
-        getContentPane().add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, -1, -1));
+        getContentPane().add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
 
+        jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPrecio.setText("Precio: ");
-        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
+        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
+        jLabelFoto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setText("Foto: ");
-        getContentPane().add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
+        getContentPane().add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
         getContentPane().add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 270, -1));
         getContentPane().add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 270, -1));
         getContentPane().add(jTextFieldFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 270, -1));
@@ -151,11 +167,11 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, 90, 90));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 90, 90));
 
         jButtonAceptar.setToolTipText("Aceptar");
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 570, 90, 90));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 90, 90));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
