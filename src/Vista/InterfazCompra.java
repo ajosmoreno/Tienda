@@ -54,7 +54,9 @@ public class InterfazCompra extends javax.swing.JDialog {
         return jLabelImagen;
     }
 
-    
+    public void mostrarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.DEFAULT_OPTION);
+    }
     
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
@@ -112,6 +114,11 @@ public class InterfazCompra extends javax.swing.JDialog {
 
         jButtonAñadirCesta.setToolTipText("Añadir producto a la cesta de compra");
         jButtonAñadirCesta.setEnabled(false);
+        jButtonAñadirCesta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAñadirCestaActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonAñadirCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 90, 90));
 
         jComboBoxMarca.addActionListener(new java.awt.event.ActionListener() {
@@ -246,6 +253,16 @@ public class InterfazCompra extends javax.swing.JDialog {
             mostrarError("Error al cargar operadores.");
         }
     }//GEN-LAST:event_jComboBoxColorActionPerformed
+
+    private void jButtonAñadirCestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirCestaActionPerformed
+        try {
+            miControlador.añadirCesta();
+        } catch (Exception ex) {
+            if(ex.getMessage().contains("Duplicate") && ex.getMessage().contains("for key 'PRIMARY'"))
+                mostrarError("Ya has añadido este producto a la cesta.");
+            else mostrarError(ex.getMessage());
+        }
+    }//GEN-LAST:event_jButtonAñadirCestaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -96,11 +96,28 @@ public class ControladorInterfazCompra {
     public void habilitarBotones(){
         if(Sesion.miCliente().getCliente().getPermisos() == 1 && productoSeleccionado.getStock() > 0){
             miVentana.getjButtonAñadirCesta().setEnabled(true);
+        } else{
+            deshabilitarBotones();
         }
         
     }
     
     public void deshabilitarBotones(){
         miVentana.getjButtonAñadirCesta().setEnabled(false);
+    }
+    
+    public void añadirCesta() throws SQLException, Exception{
+        if(Sesion.miCliente().getCliente().getPermisos() == 1){
+            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO cesta VALUES (" + Sesion.miCliente().getCliente().getId() + ", " + productoSeleccionado.getId() + ");");
+            if(rs != null){
+                Sesion.miCliente().getCliente().getCesta().add(productoSeleccionado);
+                miVentana.mostrarMensaje("Producto añadido correctamente a la cesta.");
+            } else{
+                miVentana.mostrarError("No se ha podido añadir el producto a la cesta.");
+            }
+            
+        } else{
+            miVentana.mostrarError("No puedes comprar el producto porque no eres cliente.");
+        }
     }
 }
