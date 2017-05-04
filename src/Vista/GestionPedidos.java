@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.ControladorGestionPedidos;
+import javax.swing.ImageIcon;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,6 +32,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         jButtonRealizar.setVisible(false);
         jScrollPanePedidos.setVisible(false);
         setLocationRelativeTo(null);
+        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
         
         
     }
@@ -80,13 +82,13 @@ public class GestionPedidos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonListarPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 176, 230, 39));
 
-        jButtonVolverAtras.setText("Volver atras");
+        jButtonVolverAtras.setToolTipText("Volver atras");
         jButtonVolverAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 230, 38));
+        getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 90, 90));
 
         jLabelNombreCliente.setText("Nombre Cliente: ");
         getContentPane().add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
@@ -102,20 +104,20 @@ public class GestionPedidos extends javax.swing.JDialog {
 
         jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "", "Nº Pedido", "Marca", "Modelo", "Operador", "Fecha Pedido", "Pedido Realizado"
+                "", "Nº Pedido", "Marca", "Modelo", "Fecha Pedido", "Pedido Realizado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                true, true, true, true, true, true, false
+                true, true, true, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -130,7 +132,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         if (jTablePedidos.getColumnModel().getColumnCount() > 0) {
             jTablePedidos.getColumnModel().getColumn(0).setResizable(false);
             jTablePedidos.getColumnModel().getColumn(0).setPreferredWidth(10);
-            jTablePedidos.getColumnModel().getColumn(6).setResizable(false);
+            jTablePedidos.getColumnModel().getColumn(5).setResizable(false);
         }
 
         getContentPane().add(jScrollPanePedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 620, 270));
@@ -172,8 +174,8 @@ public class GestionPedidos extends javax.swing.JDialog {
         jTextFieldNombreCliente.setVisible(true);
         jLabelNombreCliente.setVisible(true);
         jButtonBuscar.setVisible(true);
-        //jTablePedidos.setVisible(false);
-        //jScrollPanePedidos.setVisible(false);
+        jTablePedidos.setVisible(false);
+        jScrollPanePedidos.setVisible(false);
         jButtonRealizar.setVisible(false);
         jButtonCancelarPedido.setVisible(false);
         
