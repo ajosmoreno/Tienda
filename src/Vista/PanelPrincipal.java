@@ -235,6 +235,4 @@ public class PanelPrincipal extends javax.swing.JFrame {
     public JTextField getjTextFieldusuario() {
         return jTextFieldUsuario;
     }
-
-    
 }
