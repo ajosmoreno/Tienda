@@ -81,7 +81,6 @@ public class ControladorInterfazCompra {
     public void mostrarCaracteristicas() throws ClassNotFoundException, Exception { 
         miVentana.getjTextAreaCaracteristicas().setText(productoSeleccionado.getDescripcion());
         miVentana.getjLabelPrecioTotal().setText("" + productoSeleccionado.getPrecio() + "€");
-        System.out.println("Imagenes/Productos/" + productoSeleccionado.getImagen());
         miVentana.getjLabelImagen().setIcon(new ImageIcon("Imagenes/Productos/" + productoSeleccionado.getImagen()));
         
     }
