@@ -1,5 +1,7 @@
 package Vista;
 
+import javax.swing.ImageIcon;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,6 +21,7 @@ public class Reparacion extends javax.swing.JDialog {
     public Reparacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        jLabel7Icon.setIcon(new ImageIcon("Imagenes/Reparacion-iloveimg-resized.jpg"));
     }
 
     /**
@@ -123,11 +126,10 @@ public class Reparacion extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 371, 98, 36));
-
-        jLabel7Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\alumno\\Documents\\NetBeansProjects\\Tienda\\Imagenes\\Reparacion-iloveimg-resized.jpg")); // NOI18N
         getContentPane().add(jLabel7Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1NombreActionPerformed
