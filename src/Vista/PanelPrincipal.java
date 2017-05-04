@@ -7,7 +7,6 @@ package Vista;
 
 import Controlador.ControladorPrincipal;
 import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -143,7 +142,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInvitadoActionPerformed
-        miControlador.entrarComoInvitado();
+        try {
+            miControlador.entrarComoInvitado();
+            
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al entrar como invitado.");
+        }
         
     }//GEN-LAST:event_jButtonInvitadoActionPerformed
 

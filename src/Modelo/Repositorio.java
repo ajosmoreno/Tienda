@@ -102,4 +102,8 @@ public class Repositorio {
     public ArrayList<Cliente> devolverClientes() {
         return listaClientes;
     }
+    
+    public ArrayList<Producto> devolverProductos() {
+        return listaProductos;
+    }
 }

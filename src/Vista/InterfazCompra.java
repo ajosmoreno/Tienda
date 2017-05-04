@@ -5,9 +5,13 @@
  */
 package Vista;
 
+import Controlador.ControladorInterfazCompra;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 
 /**
@@ -16,6 +20,7 @@ import javax.swing.JTextPane;
  */
 public class InterfazCompra extends javax.swing.JDialog {
 
+    private ControladorInterfazCompra miControlador;
     /**
      * Creates new form InterfazCompra
      */
@@ -28,8 +33,18 @@ public class InterfazCompra extends javax.swing.JDialog {
         jButtonAñadirCesta.setIcon(new ImageIcon("Imagenes/botonañadirproducto.png"));
         jButtonCestaCompra.setIcon(new ImageIcon("Imagenes/botonircesta.png"));
         jButtonVolver.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
+        miControlador = new ControladorInterfazCompra(this);
+        try {
+            miControlador.cargarMarcas();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al cargar los productos.");
+        }
     }
 
+    public void mostrarError(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,10 +104,13 @@ public class InterfazCompra extends javax.swing.JDialog {
         jLabelOperador.setText("Operador:");
         getContentPane().add(jLabelOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 80, 24));
 
-        jComboBoxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apple" }));
+        jComboBoxMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxMarcaActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBoxMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 120, -1));
 
-        jComboBoxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Iphone 6S" }));
         jComboBoxModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxModeloActionPerformed(evt);
@@ -100,7 +118,6 @@ public class InterfazCompra extends javax.swing.JDialog {
         });
         getContentPane().add(jComboBoxModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 120, -1));
 
-        jComboBoxOperador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Movistar", "Vodafone", "Orange", "Yoigo", "MasMovil" }));
         getContentPane().add(jComboBoxOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 118, -1));
 
         jPanel2.setOpaque(false);
@@ -168,6 +185,14 @@ public class InterfazCompra extends javax.swing.JDialog {
     private void jButtonCestaCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCestaCompraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCestaCompraActionPerformed
+
+    private void jComboBoxMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcaActionPerformed
+        try {
+            miControlador.mostrarModelos();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al cargar los modelos.");
+        }
+    }//GEN-LAST:event_jComboBoxMarcaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,6 +266,11 @@ public class InterfazCompra extends javax.swing.JDialog {
         });
     }
 
+    public JComboBox<String> getjComboBoxMarca() {
+        return jComboBoxMarca;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAñadirCesta;
     private javax.swing.JButton jButtonCestaCompra;
@@ -262,4 +292,6 @@ public class InterfazCompra extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPanecaracteristicas;
     private javax.swing.JTextPane jTextPaneCaracteristicas;
     // End of variables declaration//GEN-END:variables
+
+    
 }

@@ -5,12 +5,15 @@
  */
 package Vista;
 
+import Controlador.ControladorOpciones;
+
 /**
  *
  * @author Antonio
  */
 public class Opciones extends javax.swing.JDialog {
 
+    private ControladorOpciones miControlador;
     /**
      * Creates new form Opciones
      */
@@ -18,15 +21,12 @@ public class Opciones extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-    }
-    
-    public Opciones(java.awt.Frame parent, boolean modal, boolean invitado) {
-        super(parent, modal);
-        initComponents();
-        setLocationRelativeTo(null);
-        jButtonLiberacion.setEnabled(false);
-        jButtonGestion.setEnabled(false);
-        jButtonReparacion.setEnabled(false);
+        miControlador = new ControladorOpciones(this);
+        if(miControlador.esInvitado()){
+            jButtonLiberacion.setEnabled(false);
+            jButtonGestion.setEnabled(false);
+            jButtonReparacion.setEnabled(false);
+        }
     }
 
     /**
@@ -49,6 +49,11 @@ public class Opciones extends javax.swing.JDialog {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonVerCatalogo.setText("Ver Catalogo");
+        jButtonVerCatalogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerCatalogoActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonVerCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 123, 41));
 
         jButtonGestion.setText("Gestion de Pedidos");
@@ -84,6 +89,10 @@ public class Opciones extends javax.swing.JDialog {
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonVerCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerCatalogoActionPerformed
+        miControlador.abrirCatalogo();
+    }//GEN-LAST:event_jButtonVerCatalogoActionPerformed
 
     /**
      * @param args the command line arguments
