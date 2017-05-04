@@ -146,6 +146,11 @@ public class GestionProductos extends javax.swing.JDialog {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 490, 250));
 
         jButtonCancelar.setToolTipText("Aceptar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, 90, 90));
 
         jButtonAceptar.setToolTipText("Aceptar");
@@ -163,6 +168,9 @@ public class GestionProductos extends javax.swing.JDialog {
 
     private void jButtonInsertarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarProductoActionPerformed
         // TODO add your handling code here:
+        jLabelBuscador.setVisible(false);
+        jTextFieldBuscadorProductos.setVisible(false);
+        jButtonBuscar.setVisible(false);
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
         jTextAreaCarateristicas.setVisible(false);
@@ -237,6 +245,27 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
     }//GEN-LAST:event_jButtonEliminarProductoActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        jLabelBuscador.setVisible(false);
+        jTextFieldBuscadorProductos.setVisible(false);
+        jButtonBuscar.setVisible(false);
+        jLabelMarca.setVisible(false);
+        jLabelModelo.setVisible(false);
+        jLabelPrecio.setVisible(false);
+        jLabelFoto.setVisible(false);
+        jLabelCaracteristicas.setVisible(false);
+        jTextAreaCarateristicas.setVisible(false);
+        jScrollPane1.setVisible(false);
+        jTextFieldMarca.setVisible(false);
+        jTextFieldModelo.setVisible(false);
+        jTextFieldFoto.setVisible(false);
+        jTextFieldPrecio.setVisible(false);
+        jButtonCancelar.setVisible(false);
+        jButtonAceptar.setVisible(false);
+
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
