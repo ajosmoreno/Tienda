@@ -30,7 +30,7 @@ public class ControladorInterfazCompra {
     }
     
     public void mostrarMarcas() throws SQLException, Exception{
-        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT distinct marca FROM productos;");
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT distinct marca FROM productos WHERE stock > 0;");
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();
         dcb.addElement("");
         while(rs.next()){
@@ -43,11 +43,9 @@ public class ControladorInterfazCompra {
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();    
         if(!miVentana.getjComboBoxMarca().getSelectedItem().equals("")){
             dcb.addElement("");
-            ArrayList<Producto> listaProductos = Repositorio.repositorio().devolverProductos();
-            for(Producto p: listaProductos){
-                if(p.getMarca().equals(miVentana.getjComboBoxMarca().getSelectedItem())){
-                    dcb.addElement(p.getModelo());
-                }
+            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT modelo FROM productos WHERE marca = '" + miVentana.getjComboBoxMarca().getSelectedItem() + "' GROUP BY modelo;");
+            while(rs.next()){
+                dcb.addElement(rs.getString("modelo"));
             }
         }
         miVentana.getjComboBoxModelo().setModel(dcb);
@@ -61,16 +59,29 @@ public class ControladorInterfazCompra {
             for(Producto p: listaProductos){
                 if(p.getMarca().equals(miVentana.getjComboBoxMarca().getSelectedItem()) && p.getModelo().equals(miVentana.getjComboBoxModelo().getSelectedItem())){
                     dcb.addElement(p.getColor());
-                    productoSeleccionado = p;
                 }
             }
         }
         miVentana.getjComboBoxColor().setModel(dcb);
     }
 
+    public void seleccionarProducto() throws ClassNotFoundException, Exception{
+        ArrayList<Producto> listaProductos = Repositorio.repositorio().devolverProductos();
+        boolean encontrado = false;
+        int contador = 0;
+        while(!encontrado && contador < listaProductos.size()){
+            Producto p = listaProductos.get(contador);
+            if(p.getMarca().equals(miVentana.getjComboBoxMarca().getSelectedItem()) && p.getModelo().equals(miVentana.getjComboBoxModelo().getSelectedItem()) && p.getColor().equals(miVentana.getjComboBoxColor().getSelectedItem())){
+                productoSeleccionado = p;
+            }
+            contador++;
+        }
+    }
+    
     public void mostrarCaracteristicas() throws ClassNotFoundException, Exception { 
         miVentana.getjTextAreaCaracteristicas().setText(productoSeleccionado.getDescripcion());
         miVentana.getjLabelPrecioTotal().setText("" + productoSeleccionado.getPrecio() + "€");
+        System.out.println("Imagenes/Productos/" + productoSeleccionado.getImagen());
         miVentana.getjLabelImagen().setIcon(new ImageIcon("Imagenes/Productos/" + productoSeleccionado.getImagen()));
         
     }

@@ -227,6 +227,7 @@ public class InterfazCompra extends javax.swing.JDialog {
     private void jComboBoxColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColorActionPerformed
         try {
             if(jComboBoxColor.getSelectedIndex() > 0){
+                miControlador.seleccionarProducto();
                 miControlador.mostrarCaracteristicas();
                 miControlador.habilitarBotones();
             }
