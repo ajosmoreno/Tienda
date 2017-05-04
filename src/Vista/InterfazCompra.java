@@ -141,7 +141,7 @@ public class InterfazCompra extends javax.swing.JDialog {
         jLabelCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCaracteristicas.setText("Caracteristicas: ");
         jPanel2.add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 27, -1, -1));
-        jPanel2.add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 250, 380));
+        jPanel2.add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 370, 380));
 
         jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,7 +168,7 @@ public class InterfazCompra extends javax.swing.JDialog {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, 90, 90));
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 470, 90, 90));
 
         jButtonCestaCompra.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCestaCompra.setToolTipText("Ir a la cesta de la compra");
@@ -184,7 +184,7 @@ public class InterfazCompra extends javax.swing.JDialog {
         jLabelModelo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelModelo.setText("Modelo:");
         getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, 24));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 570));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
