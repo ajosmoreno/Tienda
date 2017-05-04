@@ -186,8 +186,12 @@ public class RegistroUsuarios extends javax.swing.JDialog {
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         try {
-            miControlador.registrar();
-            this.dispose();
+            if(jTextFieldNombreUsuario.getText().equals("") || jTextFieldNombre.getText().equals("") || jTextFieldApellidos.getText().equals("") || new String(jPasswordFieldUsuario.getPassword()).equals("") || jTextFieldDireccion.getText().equals("") || jTextFieldDni.getText().equals("") || jDateChooserNacimiento.getDate() == null){
+                mostrarError("Rellena todos los campos.");
+            } else{
+                miControlador.registrar();
+                this.dispose();
+            }
         } catch (ClassNotFoundException | SQLException ex) {
             if(ex.getMessage().contains("Duplicate entry") && ex.getMessage().contains("for key 'usuario'"))
                 mostrarError("El usuario elegido no está disponible.");
