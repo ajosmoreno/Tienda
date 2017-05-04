@@ -83,7 +83,21 @@ public class Repositorio {
                 if(p.getCliente() == Integer.parseInt(rsClientes.getString("id")))
                     pedidos.add(p);
             }
-            Cliente c = new Cliente(Integer.parseInt(rsClientes.getString("id")), rsClientes.getString("usuario"), rsClientes.getString("contrasenya"), rsClientes.getString("fechaRegistro"), rsClientes.getString("nombre"), rsClientes.getString("apellidos"), Integer.parseInt(rsClientes.getString("permiso")), pedidos, rsClientes.getString("direccion"), rsClientes.getString("telefono"), rsClientes.getString("fechaNacimiento"), rsClientes.getString("dni"));
+            ArrayList<Producto> cesta = new ArrayList<Producto>();
+            ResultSet rsCesta = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM cesta WHERE idCliente = " + rsClientes.getString("id"));
+            while(rsCesta.next()){
+                boolean encontrado = false;
+                int contador = 0;
+                while(!encontrado && contador < listaProductos.size()){
+                    Producto p = listaProductos.get(contador);
+                    if(p.getId() == Integer.parseInt(rsCesta.getString("idProducto"))){
+                        encontrado = true;
+                        cesta.add(p);
+                    }
+                    contador++;
+                }
+            }
+            Cliente c = new Cliente(Integer.parseInt(rsClientes.getString("id")), rsClientes.getString("usuario"), rsClientes.getString("contrasenya"), rsClientes.getString("fechaRegistro"), rsClientes.getString("nombre"), rsClientes.getString("apellidos"), Integer.parseInt(rsClientes.getString("permiso")), pedidos, rsClientes.getString("direccion"), rsClientes.getString("telefono"), rsClientes.getString("fechaNacimiento"), rsClientes.getString("dni"), cesta);
             listaClientes.add(c);
         }
     }
