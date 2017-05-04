@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -111,6 +112,7 @@ public class InterfazCompra extends javax.swing.JDialog {
         getContentPane().add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 70, 24));
 
         jButtonAñadirCesta.setToolTipText("Añadir producto a la cesta de compra");
+        jButtonAñadirCesta.setEnabled(false);
         getContentPane().add(jButtonAñadirCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 90, 90));
 
         jComboBoxMarca.addActionListener(new java.awt.event.ActionListener() {
@@ -172,6 +174,7 @@ public class InterfazCompra extends javax.swing.JDialog {
 
         jButtonCestaCompra.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCestaCompra.setToolTipText("Ir a la cesta de la compra");
+        jButtonCestaCompra.setEnabled(false);
         jButtonCestaCompra.setOpaque(false);
         jButtonCestaCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,6 +199,7 @@ public class InterfazCompra extends javax.swing.JDialog {
             else{
                 jComboBoxColor.setModel(new DefaultComboBoxModel());
                 miControlador.vaciarCaracteristicas();
+                miControlador.deshabilitarBotones();
             }
         } catch (Exception ex) {
             mostrarError("Error al cargar los colores del producto.");
@@ -219,6 +223,7 @@ public class InterfazCompra extends javax.swing.JDialog {
                 jComboBoxModelo.setModel(new DefaultComboBoxModel());
                 jComboBoxColor.setModel(new DefaultComboBoxModel());
                 miControlador.vaciarCaracteristicas();
+                miControlador.deshabilitarBotones();
             }
         } catch (Exception ex) {
             mostrarError("Ha ocurrido un error al cargar los modelos.");
@@ -229,9 +234,11 @@ public class InterfazCompra extends javax.swing.JDialog {
         try {
             if(jComboBoxColor.getSelectedIndex() > 0){
                 miControlador.mostrarCaracteristicas();
+                miControlador.habilitarBotones();
             }
             else{
                 miControlador.vaciarCaracteristicas();
+                miControlador.deshabilitarBotones();
             }
         } catch (Exception ex) {
             mostrarError("Error al cargar operadores.");
@@ -247,6 +254,14 @@ public class InterfazCompra extends javax.swing.JDialog {
 
     public JComboBox<String> getjComboBoxColor() {
         return jComboBoxColor;
+    }
+
+    public JButton getjButtonAñadirCesta() {
+        return jButtonAñadirCesta;
+    }
+
+    public JButton getjButtonCestaCompra() {
+        return jButtonCestaCompra;
     }
     
     

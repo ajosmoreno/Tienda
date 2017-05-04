@@ -89,6 +89,7 @@
     <Component class="javax.swing.JButton" name="jButtonA&#xf1;adirCesta">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="A&#xf1;adir producto a la cesta de compra"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -263,6 +264,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Ir a la cesta de la compra"/>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Events>

@@ -4,6 +4,7 @@ import Modelo.BaseDeDatos;
 import Modelo.Gestor;
 import Modelo.Producto;
 import Modelo.Repositorio;
+import Modelo.Sesion;
 import Vista.InterfazCompra;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,9 +20,13 @@ import javax.swing.JLabel;
 public class ControladorInterfazCompra {
     
     private InterfazCompra miVentana;
+    private Producto productoSeleccionado;
 
     public ControladorInterfazCompra(InterfazCompra miVentana) {
         this.miVentana = miVentana;
+        if(Sesion.miCliente().getCliente().getPermisos() == 1){
+            miVentana.getjButtonCestaCompra().setEnabled(true);
+        }
     }
     
     public void mostrarMarcas() throws SQLException, Exception{
@@ -56,32 +61,33 @@ public class ControladorInterfazCompra {
             for(Producto p: listaProductos){
                 if(p.getMarca().equals(miVentana.getjComboBoxMarca().getSelectedItem()) && p.getModelo().equals(miVentana.getjComboBoxModelo().getSelectedItem())){
                     dcb.addElement(p.getColor());
+                    productoSeleccionado = p;
                 }
             }
         }
         miVentana.getjComboBoxColor().setModel(dcb);
     }
 
-    public void mostrarCaracteristicas() throws ClassNotFoundException, Exception {
-        ArrayList<Producto> listaProductos = Repositorio.repositorio().devolverProductos();
-        boolean encontrado = false;
-        int contador = 0;
-        while(!encontrado && contador < listaProductos.size()){
-            Producto p = listaProductos.get(contador);
-            if(p.getMarca().equals(miVentana.getjComboBoxMarca().getSelectedItem()) && p.getModelo().equals(miVentana.getjComboBoxModelo().getSelectedItem()) && p.getColor().equals(miVentana.getjComboBoxColor().getSelectedItem())){
-                encontrado = true;
-                miVentana.getjTextAreaCaracteristicas().setText(p.getDescripcion());
-                miVentana.getjLabelPrecioTotal().setText("" + p.getPrecio() + "€");
-                miVentana.getjLabelImagen().setHorizontalTextPosition(JLabel.LEFT);
-                miVentana.getjLabelImagen().setIcon(new ImageIcon("Imagenes/Productos/" + p.getImagen()));
-            }
-            contador++;
-        }
+    public void mostrarCaracteristicas() throws ClassNotFoundException, Exception { 
+        miVentana.getjTextAreaCaracteristicas().setText(productoSeleccionado.getDescripcion());
+        miVentana.getjLabelPrecioTotal().setText("" + productoSeleccionado.getPrecio() + "€");
+        miVentana.getjLabelImagen().setIcon(new ImageIcon("Imagenes/Productos/" + productoSeleccionado.getImagen()));
+        
     }
     
     public void vaciarCaracteristicas(){
         miVentana.getjTextAreaCaracteristicas().setText("");
         miVentana.getjLabelPrecioTotal().setText("");
         miVentana.getjLabelImagen().setIcon(null);
+    }
+    
+    public void habilitarBotones(){
+        if(Sesion.miCliente().getCliente().getPermisos() == 1){
+            miVentana.getjButtonAñadirCesta().setEnabled(true);
+        }
+    }
+    
+    public void deshabilitarBotones(){
+        miVentana.getjButtonAñadirCesta().setEnabled(false);
     }
 }
