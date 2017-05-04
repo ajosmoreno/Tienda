@@ -21,11 +21,11 @@ public class ControladorPrincipal {
         this.miVentana = miVentana;
     }
     
-    public void inicializarDatos() throws SQLException, ClassNotFoundException{
+    public void inicializarDatos() throws SQLException, ClassNotFoundException, Exception{
         Repositorio.repositorio().inicializarDatos();
     }
     
-    public void iniciarSesion() throws SQLException, ClassNotFoundException{
+    public void iniciarSesion() throws SQLException, ClassNotFoundException, Exception{
         boolean encontrado = false;
         String usuario = miVentana.getjTextFieldusuario().getText();
         String contrasenya = new String(miVentana.getjPasswordFieldusuario().getPassword());
@@ -38,15 +38,16 @@ public class ControladorPrincipal {
                 if(c.getContrasenya().equals(Cliente.encriptarContrasenya(contrasenya))){
                     switch(c.getPermisos()){
                         case 0:
+                            Opciones opInvitado = new Opciones(miVentana, true, true);
+                            opInvitado.setVisible(true);
                             break; 
                         case 1:
-                            
+                            Opciones op = new Opciones(miVentana, true);
+                            op.setVisible(true);
                             break;
                         case 2:
                             GestionAdministrador gAdmin = new GestionAdministrador(miVentana, true);
-                            miVentana.setVisible(false);
                             gAdmin.setVisible(true);
-                            miVentana.setVisible(true);
                             break;
                     }
                     miVentana.getjTextFieldusuario().setText("");
@@ -60,7 +61,12 @@ public class ControladorPrincipal {
         if(!encontrado) miVentana.mostrarError("El usuario introducido no existe.");
     }
     
-    public void cerrarConexionBBDD() throws SQLException, ClassNotFoundException{
+    public void cerrarConexionBBDD() throws SQLException, ClassNotFoundException, Exception{
         BaseDeDatos.baseDeDatos().cerrarConexion();
+    }
+
+    public void entrarComoInvitado() {
+        Opciones opInvitado = new Opciones(miVentana, true, true);
+        opInvitado.setVisible(true);
     }
 }

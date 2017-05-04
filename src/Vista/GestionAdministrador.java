@@ -5,24 +5,25 @@
  */
 package Vista;
 
-
-
+import Controlador.ControladorGestionAdministrador;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
-
 
 /**
  *
  * @author Antonio
  */
-
-
-
 public class GestionAdministrador extends javax.swing.JDialog {
+
+    private ControladorGestionAdministrador miControlador;
 
     /**
      * Creates new form GestionAdministrador
@@ -30,6 +31,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     public GestionAdministrador(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        miControlador = new ControladorGestionAdministrador(this);
         jPanelPrincipal.setVisible(true);
         //jPanelPrincipal.setBackground(new Color(0,0,0,255));
         //jPanelUsuarios.setBackground(new Color(0,0,0,255));
@@ -57,7 +59,6 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jButtonSalir = new javax.swing.JButton();
         jPanelUsuarios = new javax.swing.JPanel();
         jButtonModificarUsuario = new javax.swing.JButton();
-        jButtonEliminarUsuario = new javax.swing.JButton();
         jButtonInsertarUsuario = new javax.swing.JButton();
         jLabelLiberaciones = new javax.swing.JLabel();
         jLabelImei = new javax.swing.JLabel();
@@ -89,7 +90,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jTextFieldDireccion = new javax.swing.JTextField();
         jTextFieldTelefono = new javax.swing.JTextField();
         jButtonCambiar = new javax.swing.JButton();
-        jButtonBorrarTodo = new javax.swing.JButton();
+        jButtonEliminarUsuario = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
@@ -161,15 +162,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonModificarUsuarioActionPerformed(evt);
             }
         });
-        jPanelUsuarios.add(jButtonModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 113, 130, 70));
-
-        jButtonEliminarUsuario.setText("Eliminar usuario");
-        jButtonEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarUsuarioActionPerformed(evt);
-            }
-        });
-        jPanelUsuarios.add(jButtonEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 130, 70));
+        jPanelUsuarios.add(jButtonModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 113, 130, 100));
 
         jButtonInsertarUsuario.setText("Añadir usuario");
         jButtonInsertarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +170,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonInsertarUsuarioActionPerformed(evt);
             }
         });
-        jPanelUsuarios.add(jButtonInsertarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 283, 130, 70));
+        jPanelUsuarios.add(jButtonInsertarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 253, 130, 100));
 
         jLabelLiberaciones.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabelLiberaciones.setForeground(new java.awt.Color(255, 255, 255));
@@ -240,7 +233,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
         jLabeBuscarNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabeBuscarNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLabeBuscarNombre.setText("Nombre del cliente: ");
+        jLabeBuscarNombre.setText("Nombre de usuario: ");
         jPanelModificarUsuario.add(jLabeBuscarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 120, 26));
 
         jTextFieldBuscadorNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -297,15 +290,20 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelModificarUsuario.add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 260, 180, -1));
 
         jButtonCambiar.setText("Realizar cambios");
-        jPanelModificarUsuario.add(jButtonCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 500, -1, -1));
-
-        jButtonBorrarTodo.setText("Borrar todo");
-        jButtonBorrarTodo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBorrarTodoActionPerformed(evt);
+                jButtonCambiarActionPerformed(evt);
             }
         });
-        jPanelModificarUsuario.add(jButtonBorrarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 500, -1, -1));
+        jPanelModificarUsuario.add(jButtonCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 500, -1, -1));
+
+        jButtonEliminarUsuario.setText("Eliminar usuario");
+        jButtonEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarUsuarioActionPerformed(evt);
+            }
+        });
+        jPanelModificarUsuario.add(jButtonEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, -1, -1));
 
         jButtonCancelar.setText("Volver atras");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -416,6 +414,10 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
     private void jButtonModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarUsuarioActionPerformed
         // TODO add your handling code here:
+        modificarUsuarioPaneles();
+    }//GEN-LAST:event_jButtonModificarUsuarioActionPerformed
+
+    public void modificarUsuarioPaneles(){
         jPanelModificarUsuario.setVisible(true);
         jLabeBuscarNombre.setVisible(true);
         jTextFieldBuscadorNombre.setVisible(true);
@@ -437,22 +439,26 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jTextFieldUsuario.setVisible(false);
         jTextFieldPassword.setVisible(false);
         jButtonCambiar.setVisible(false);
-        jButtonBorrarTodo.setVisible(false);
+        jButtonEliminarUsuario.setVisible(false);
         jButtonCancelar.setVisible(false);
         jLabelPermisos.setVisible(false);
         jRadioButtonCliente.setVisible(false);
         jRadioButtonInvitado.setVisible(false);
         jRadioButtonAdministrador.setVisible(false);
         jButtonCambiar.setVisible(false);
-        jButtonBorrarTodo.setVisible(false);
+        jButtonEliminarUsuario.setVisible(false);
         jButtonCancelar.setVisible(false);
+    }
+    
+    private void jButtonEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuarioActionPerformed
+        try {
+            miControlador.eliminarUsuario();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al eliminar el usuario.");
+        }
+    }//GEN-LAST:event_jButtonEliminarUsuarioActionPerformed
 
-
-    }//GEN-LAST:event_jButtonModificarUsuarioActionPerformed
-
-    private void jButtonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarTodoActionPerformed
-        // TODO add your handling code here:
-
+    public void limpiarCampos(){
         jTextFieldNombre.setText("");
         jTextFieldApellidos.setText("");
         jTextFieldDni.setText("");
@@ -461,40 +467,45 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jTextFieldTelefono.setText("");
         jTextFieldUsuario.setText("");
         jTextFieldPassword.setText("");
-    }//GEN-LAST:event_jButtonBorrarTodoActionPerformed
-
+    }
+    
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
         jPanelModificarUsuario.setVisible(false);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
 
-        jLabelNombre.setVisible(true);
-        jLabelApellidos.setVisible(true);
-        jLabelDni.setVisible(true);
-        jLabelDireccion.setVisible(true);
-        jLabelTelefono.setVisible(true);
-        jLabelNacimiento.setVisible(true);
-        jLabelUsuario.setVisible(true);
-        jLabelPassword.setVisible(true);
-        jTextFieldNombre.setVisible(true);
-        jTextFieldApellidos.setVisible(true);
-        jTextFieldDni.setVisible(true);
-        jDateChooserNacimiento.setVisible(true);
-        jTextFieldDireccion.setVisible(true);
-        jTextFieldTelefono.setVisible(true);
-        jTextFieldUsuario.setVisible(true);
-        jTextFieldPassword.setVisible(true);
-        jButtonCambiar.setVisible(true);
-        jButtonBorrarTodo.setVisible(true);
-        jButtonCancelar.setVisible(true);
-        jLabelPermisos.setVisible(true);
-        jRadioButtonCliente.setVisible(true);
-        jRadioButtonInvitado.setVisible(true);
-        jRadioButtonAdministrador.setVisible(true);
-
+        try {
+            miControlador.buscarCliente();
+            jLabelNombre.setVisible(true);
+            jLabelApellidos.setVisible(true);
+            jLabelDni.setVisible(true);
+            jLabelDireccion.setVisible(true);
+            jLabelTelefono.setVisible(true);
+            jLabelNacimiento.setVisible(true);
+            jLabelUsuario.setVisible(true);
+            jLabelPassword.setVisible(true);
+            jTextFieldNombre.setVisible(true);
+            jTextFieldApellidos.setVisible(true);
+            jTextFieldDni.setVisible(true);
+            jDateChooserNacimiento.setVisible(true);
+            jTextFieldDireccion.setVisible(true);
+            jTextFieldTelefono.setVisible(true);
+            jTextFieldUsuario.setVisible(true);
+            jTextFieldPassword.setVisible(true);
+            jButtonCambiar.setVisible(true);
+            jButtonEliminarUsuario.setVisible(true);
+            jButtonCancelar.setVisible(true);
+            jLabelPermisos.setVisible(true);
+            jRadioButtonCliente.setVisible(true);
+            jRadioButtonInvitado.setVisible(true);
+            jRadioButtonAdministrador.setVisible(true);
+        } catch (SQLException | ClassNotFoundException ex) {
+            mostrarError("Ha ocurrido un error al buscar el usuario.");
+        } catch (Exception ex) {
+            mostrarError(ex.getMessage());
+        }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonInsertarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarUsuarioActionPerformed
@@ -520,47 +531,14 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jTextFieldUsuario.setVisible(true);
         jTextFieldPassword.setVisible(true);
         jButtonCambiar.setVisible(true);
-        jButtonBorrarTodo.setVisible(true);
+        jButtonEliminarUsuario.setVisible(true);
         jButtonCancelar.setVisible(true);
         jLabelPermisos.setVisible(true);
         jRadioButtonCliente.setVisible(true);
         jRadioButtonInvitado.setVisible(true);
         jRadioButtonAdministrador.setVisible(true);
-
+        limpiarCampos();
     }//GEN-LAST:event_jButtonInsertarUsuarioActionPerformed
-
-    private void jButtonEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuarioActionPerformed
-        // TODO add your handling code here:
-
-        jPanelModificarUsuario.setVisible(true);
-        jLabeBuscarNombre.setVisible(true);
-        jTextFieldBuscadorNombre.setVisible(true);
-        jButtonBuscar.setVisible(true);
-        jLabelNombre.setVisible(false);
-        jLabelApellidos.setVisible(false);
-        jLabelDni.setVisible(false);
-        jLabelDireccion.setVisible(false);
-        jLabelTelefono.setVisible(false);
-        jLabelNacimiento.setVisible(false);
-        jLabelUsuario.setVisible(false);
-        jLabelPassword.setVisible(false);
-        jTextFieldNombre.setVisible(false);
-        jTextFieldApellidos.setVisible(false);
-        jTextFieldDni.setVisible(false);
-        jDateChooserNacimiento.setVisible(false);
-        jTextFieldDireccion.setVisible(false);
-        jTextFieldTelefono.setVisible(false);
-        jTextFieldUsuario.setVisible(false);
-        jTextFieldPassword.setVisible(false);
-        jButtonCambiar.setVisible(false);
-        jButtonBorrarTodo.setVisible(false);
-        jButtonCancelar.setVisible(false);
-        jLabelPermisos.setVisible(false);
-        jRadioButtonCliente.setVisible(false);
-        jRadioButtonInvitado.setVisible(false);
-        jRadioButtonAdministrador.setVisible(false);
-
-    }//GEN-LAST:event_jButtonEliminarUsuarioActionPerformed
 
     private void jRadioButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdministradorActionPerformed
         // TODO add your handling code here:
@@ -622,7 +600,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReparacionActionPerformed
@@ -653,54 +631,65 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonReparacionActionPerformed
 
     private void jButtonGestionPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionPedidosActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
+        miControlador.abrirGestionPedidos();
     }//GEN-LAST:event_jButtonGestionPedidosActionPerformed
 
-    
-    public JTextField getjTextFieldBuscadorNombre(){
+    private void jButtonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarActionPerformed
+        try {
+            miControlador.modificarUsuario();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al modificar el usuario.");
+        }
+    }//GEN-LAST:event_jButtonCambiarActionPerformed
+
+    public JTextField getjTextFieldBuscadorNombre() {
         return jTextFieldBuscadorNombre;
     }
-    public JTextField getjTextFieldNombre(){
+
+    public JTextField getjTextFieldNombre() {
         return jTextFieldNombre;
     }
-    public JTextField getjTextFieldApellidos(){
+
+    public JTextField getjTextFieldApellidos() {
         return jTextFieldApellidos;
     }
-    public JTextField getjTextFieldDni(){
+
+    public JTextField getjTextFieldDni() {
         return jTextFieldDni;
     }
-    public JTextField getjTextFieldDireccion(){
+
+    public JTextField getjTextFieldDireccion() {
         return jTextFieldDireccion;
     }
+
     public JDateChooser getjDateChooserNacimiento() {
         return jDateChooserNacimiento;
     }
-    public JTextField getjTextFieldTelefono(){
+
+    public JTextField getjTextFieldTelefono() {
         return jTextFieldTelefono;
     }
-    public JTextField getjTextFieldUsuario(){
+
+    public JTextField getjTextFieldUsuario() {
         return jTextFieldUsuario;
     }
-    public JTextField getjTextFieldPassword(){
+
+    public JTextField getjTextFieldPassword() {
         return jTextFieldPassword;
     }
-    public JTextArea getjTextAreaDiagnostico(){
+
+    public JTextArea getjTextAreaDiagnostico() {
         return jTextAreaDiagnostico;
     }
-    public JTextField getjTextFieldImei(){
+
+    public JTextField getjTextFieldImei() {
         return jTextFieldImei;
     }
-    public JTextField getjTextFieldObservaciones(){
+
+    public JTextField getjTextFieldObservaciones() {
         return jTextFieldObservaciones;
     }
-    
-    
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -746,7 +735,6 @@ public class GestionAdministrador extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGrouppermisos;
     private javax.swing.JButton jButtonBack;
-    private javax.swing.JButton jButtonBorrarTodo;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCambiar;
     private javax.swing.JButton jButtonCancelar;
@@ -801,4 +789,28 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldTelefono;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.DEFAULT_OPTION);
+    }
+    
+    public JTextField getjTextFieldNombreCliente() {
+        return jTextFieldNombreCliente;
+    }
+
+    public JRadioButton getjRadioButtonAdministrador() {
+        return jRadioButtonAdministrador;
+    }
+
+    public JRadioButton getjRadioButtonCliente() {
+        return jRadioButtonCliente;
+    }
+
+    public JRadioButton getjRadioButtonInvitado() {
+        return jRadioButtonInvitado;
+    }
 }

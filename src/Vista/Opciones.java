@@ -19,6 +19,15 @@ public class Opciones extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
     }
+    
+    public Opciones(java.awt.Frame parent, boolean modal, boolean invitado) {
+        super(parent, modal);
+        initComponents();
+        setLocationRelativeTo(null);
+        jButtonLiberacion.setEnabled(false);
+        jButtonGestion.setEnabled(false);
+        jButtonReparacion.setEnabled(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,52 +38,52 @@ public class Opciones extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonvercatalogo = new javax.swing.JButton();
-        jButtongestion = new javax.swing.JButton();
-        jButtonreparacion = new javax.swing.JButton();
+        jButtonVerCatalogo = new javax.swing.JButton();
+        jButtonGestion = new javax.swing.JButton();
+        jButtonReparacion = new javax.swing.JButton();
         jButtonLiberacion = new javax.swing.JButton();
-        jButtonvolver = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonvercatalogo.setText("Ver Catalogo");
-        getContentPane().add(jButtonvercatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 123, 41));
+        jButtonVerCatalogo.setText("Ver Catalogo");
+        getContentPane().add(jButtonVerCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 123, 41));
 
-        jButtongestion.setText("Gestion de Pedidos");
-        getContentPane().add(jButtongestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, 41));
+        jButtonGestion.setText("Gestion de Pedidos");
+        getContentPane().add(jButtonGestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, 41));
 
-        jButtonreparacion.setText("Reparación");
-        jButtonreparacion.addActionListener(new java.awt.event.ActionListener() {
+        jButtonReparacion.setText("Reparación");
+        jButtonReparacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonreparacionActionPerformed(evt);
+                jButtonReparacionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonreparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 123, 41));
+        getContentPane().add(jButtonReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 123, 41));
 
         jButtonLiberacion.setText("Liberación");
         getContentPane().add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 123, 41));
 
-        jButtonvolver.setText("Volver al menú principal");
-        jButtonvolver.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVolver.setText("Volver al menú principal");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonvolverActionPerformed(evt);
+                jButtonVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonvolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, 41));
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, 41));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonreparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonreparacionActionPerformed
+    private void jButtonReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReparacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonreparacionActionPerformed
+    }//GEN-LAST:event_jButtonReparacionActionPerformed
 
-    private void jButtonvolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonvolverActionPerformed
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButtonvolverActionPerformed
+    }//GEN-LAST:event_jButtonVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,11 +128,11 @@ public class Opciones extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonGestion;
     private javax.swing.JButton jButtonLiberacion;
-    private javax.swing.JButton jButtongestion;
-    private javax.swing.JButton jButtonreparacion;
-    private javax.swing.JButton jButtonvercatalogo;
-    private javax.swing.JButton jButtonvolver;
+    private javax.swing.JButton jButtonReparacion;
+    private javax.swing.JButton jButtonVerCatalogo;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabelFondo;
     // End of variables declaration//GEN-END:variables
 }
