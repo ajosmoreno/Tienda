@@ -13,12 +13,14 @@ public class Repositorio {
     private ArrayList<Cliente> listaClientes;
     private ArrayList<Producto> listaProductos;
     private ArrayList<Pedido> listaPedidos;
+    private ArrayList<Gestor> listaGestores;
     private static Repositorio miRepositorio = null;
 
     private Repositorio() throws SQLException, ClassNotFoundException {
         listaClientes = new ArrayList<Cliente>();
         listaProductos = new ArrayList<Producto>();
         listaPedidos = new ArrayList<Pedido>();
+        listaGestores = new ArrayList<Gestor>();
     }
 
     public void cargarProductos() throws ClassNotFoundException, SQLException, Exception {
@@ -86,10 +88,20 @@ public class Repositorio {
         }
     }
     
+    public void cargarGestores() throws SQLException, Exception{
+        listaGestores = new ArrayList<Gestor>();
+        ResultSet rsGestores = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM gestores;");
+        while(rsGestores.next()){
+            Gestor g = new Gestor(Integer.parseInt(rsGestores.getString("id")), rsGestores.getString("nombre"), rsGestores.getString("direccion"), rsGestores.getString("telefono"), rsGestores.getString("email"), rsGestores.getString("tipo"));
+            listaGestores.add(g);
+        }
+    }
+    
     public void inicializarDatos() throws ClassNotFoundException, SQLException, Exception {
         cargarProductos();
         cargarPedidos();
         cargarClientes();
+        cargarGestores();
     }
 
     public static Repositorio repositorio() throws SQLException, ClassNotFoundException, Exception {
@@ -105,5 +117,13 @@ public class Repositorio {
     
     public ArrayList<Producto> devolverProductos() {
         return listaProductos;
+    }
+    
+    public ArrayList<Pedido> devolverPedidos() {
+        return listaPedidos;
+    }
+    
+    public ArrayList<Gestor> devolverGestores(){
+        return listaGestores;
     }
 }
