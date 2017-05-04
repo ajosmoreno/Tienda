@@ -188,12 +188,15 @@ public class InterfazCompra extends javax.swing.JDialog {
 
     private void jComboBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModeloActionPerformed
         try {
+            jComboBoxColor.setModel(new DefaultComboBoxModel());
+                miControlador.vaciarCaracteristicas();
+                miControlador.deshabilitarBotones();
             if(jComboBoxModelo.getSelectedIndex() > 0)
                 miControlador.mostrarColores();
             else{
-                jComboBoxColor.setModel(new DefaultComboBoxModel());
+                /*jComboBoxColor.setModel(new DefaultComboBoxModel());
                 miControlador.vaciarCaracteristicas();
-                miControlador.deshabilitarBotones();
+                miControlador.deshabilitarBotones();*/
             }
         } catch (Exception ex) {
             mostrarError("Error al cargar los colores del producto.");
@@ -211,13 +214,17 @@ public class InterfazCompra extends javax.swing.JDialog {
 
     private void jComboBoxMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcaActionPerformed
         try {
-            if(jComboBoxMarca.getSelectedIndex() > 0)
-                miControlador.mostrarModelos();
-            else{
-                jComboBoxModelo.setModel(new DefaultComboBoxModel());
+            jComboBoxModelo.setModel(new DefaultComboBoxModel());
                 jComboBoxColor.setModel(new DefaultComboBoxModel());
                 miControlador.vaciarCaracteristicas();
                 miControlador.deshabilitarBotones();
+            if(jComboBoxMarca.getSelectedIndex() > 0)
+                miControlador.mostrarModelos();
+            else{
+                /*jComboBoxModelo.setModel(new DefaultComboBoxModel());
+                jComboBoxColor.setModel(new DefaultComboBoxModel());
+                miControlador.vaciarCaracteristicas();
+                miControlador.deshabilitarBotones();*/
             }
         } catch (Exception ex) {
             mostrarError("Ha ocurrido un error al cargar los modelos.");

@@ -30,7 +30,7 @@ public class ControladorInterfazCompra {
     }
     
     public void mostrarMarcas() throws SQLException, Exception{
-        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT distinct marca FROM productos WHERE stock > 0;");
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT distinct marca FROM productos;");
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();
         dcb.addElement("");
         while(rs.next()){
@@ -82,19 +82,22 @@ public class ControladorInterfazCompra {
         miVentana.getjTextAreaCaracteristicas().setText(productoSeleccionado.getDescripcion());
         miVentana.getjLabelPrecioTotal().setText("" + productoSeleccionado.getPrecio() + "€");
         miVentana.getjLabelImagen().setIcon(new ImageIcon("Imagenes/Productos/" + productoSeleccionado.getImagen()));
-        
+        if(productoSeleccionado.getStock() < 1)
+            miVentana.getjButtonAñadirCesta().setToolTipText("No hay stock de este producto.");
     }
     
     public void vaciarCaracteristicas(){
         miVentana.getjTextAreaCaracteristicas().setText("");
         miVentana.getjLabelPrecioTotal().setText("");
         miVentana.getjLabelImagen().setIcon(null);
+        miVentana.getjButtonAñadirCesta().setToolTipText("Añadir producto a la cesta de compra.");
     }
     
     public void habilitarBotones(){
-        if(Sesion.miCliente().getCliente().getPermisos() == 1){
+        if(Sesion.miCliente().getCliente().getPermisos() == 1 && productoSeleccionado.getStock() > 0){
             miVentana.getjButtonAñadirCesta().setEnabled(true);
         }
+        
     }
     
     public void deshabilitarBotones(){
