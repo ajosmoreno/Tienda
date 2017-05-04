@@ -163,7 +163,7 @@ public class GestionPedidos extends javax.swing.JDialog {
 
     private void jButtonVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverAtrasActionPerformed
         // TODO add your handling code here:
-        
+        this.dispose();
         
     }//GEN-LAST:event_jButtonVolverAtrasActionPerformed
 
