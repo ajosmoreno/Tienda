@@ -19,6 +19,7 @@ public class Liberacion extends javax.swing.JDialog {
     public Liberacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+       jLabel2Icon.setIcon(new javax.swing.ImageIcon("Imagenes/registroLiberacion-iloveimg-resized.gif"));
         this.setLocationRelativeTo(null);
     }
 
@@ -130,9 +131,7 @@ public class Liberacion extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 278, 98, 36));
-
-        jLabel2Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\alumno\\Documents\\NetBeansProjects\\Tienda\\Imagenes\\registroLiberacion-iloveimg-resized.gif")); // NOI18N
-        getContentPane().add(jLabel2Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 360));
+        getContentPane().add(jLabel2Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
