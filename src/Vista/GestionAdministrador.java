@@ -199,6 +199,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelUsuarios.add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 200, -1));
 
         jButtonBack.setToolTipText("Volver atras");
+        jButtonBack.setBorder(null);
+        jButtonBack.setBorderPainted(false);
+        jButtonBack.setContentAreaFilled(false);
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBackActionPerformed(evt);
@@ -307,6 +310,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
         });
         jPanelModificarUsuario.add(jButtonEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 140, 90));
 
+        jButtonCancelar.setBorder(null);
+        jButtonCancelar.setBorderPainted(false);
+        jButtonCancelar.setContentAreaFilled(false);
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -360,6 +366,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelUsuarios.add(jButtonSolicitarCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 130, 90));
 
         jButtonVolver.setToolTipText("Volver atras");
+        jButtonVolver.setBorder(null);
+        jButtonVolver.setBorderPainted(false);
+        jButtonVolver.setContentAreaFilled(false);
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);

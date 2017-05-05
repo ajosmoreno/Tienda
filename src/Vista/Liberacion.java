@@ -1,5 +1,7 @@
 package Vista;
 
+import javax.swing.ImageIcon;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,6 +23,10 @@ public class Liberacion extends javax.swing.JDialog {
         initComponents();
        jLabel2Icon.setIcon(new javax.swing.ImageIcon("Imagenes/registroLiberacion-iloveimg-resized.gif"));
         this.setLocationRelativeTo(null);
+        jButton1Aceptar.setIcon(new ImageIcon("Imagenes/botonaceptar2.png"));
+        jButton2Borrar.setIcon(new ImageIcon("Imagenes/"));
+        jButton3Salir.setIcon(new ImageIcon("Imagenes/close2.png"));
+        
     }
 
     /**
@@ -101,13 +107,18 @@ public class Liberacion extends javax.swing.JDialog {
         getContentPane().add(jTextField5Imei, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 220, 201, -1));
 
         jButton1Aceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1Aceptar.setText("Aceptar");
+        jButton1Aceptar.setBorder(null);
+        jButton1Aceptar.setBorderPainted(false);
+        jButton1Aceptar.setContentAreaFilled(false);
+        jButton1Aceptar.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButton1Aceptar.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButton1Aceptar.setPreferredSize(new java.awt.Dimension(50, 50));
         jButton1Aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1AceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 278, 98, 36));
+        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 264, 80, 50));
 
         jButton2Borrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2Borrar.setText("Borrar ");
@@ -124,13 +135,23 @@ public class Liberacion extends javax.swing.JDialog {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 11, 190, -1));
 
         jButton3Salir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3Salir.setText("Salir");
+        jButton3Salir.setBorder(null);
+        jButton3Salir.setBorderPainted(false);
+        jButton3Salir.setContentAreaFilled(false);
+        jButton3Salir.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButton3Salir.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButton3Salir.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButton3Salir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jButton3SalirMouseMoved(evt);
+            }
+        });
         jButton3Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3SalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 278, 98, 36));
+        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 90, 50));
         getContentPane().add(jLabel2Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 360));
 
         pack();
@@ -159,6 +180,10 @@ public class Liberacion extends javax.swing.JDialog {
     private void jButton3SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3SalirActionPerformed
           System.exit(0);
     }//GEN-LAST:event_jButton3SalirActionPerformed
+
+    private void jButton3SalirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3SalirMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3SalirMouseMoved
 
     /**
      * @param args the command line arguments

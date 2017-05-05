@@ -83,6 +83,9 @@ public class GestionPedidos extends javax.swing.JDialog {
         getContentPane().add(jButtonListarPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 176, 230, 39));
 
         jButtonVolverAtras.setToolTipText("Volver atras");
+        jButtonVolverAtras.setBorder(null);
+        jButtonVolverAtras.setBorderPainted(false);
+        jButtonVolverAtras.setContentAreaFilled(false);
         jButtonVolverAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverAtrasActionPerformed(evt);

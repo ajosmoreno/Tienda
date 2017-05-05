@@ -166,6 +166,9 @@ public class InterfazCompra extends javax.swing.JDialog {
 
         jButtonVolver.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVolver.setToolTipText("Volver atras");
+        jButtonVolver.setBorder(null);
+        jButtonVolver.setBorderPainted(false);
+        jButtonVolver.setContentAreaFilled(false);
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);

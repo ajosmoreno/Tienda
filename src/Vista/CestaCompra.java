@@ -90,6 +90,9 @@ public class CestaCompra extends javax.swing.JDialog {
         jButtonPagarTarjeta.setText("Realizar pago con tarjeta");
         getContentPane().add(jButtonPagarTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, 50));
 
+        jButtonVolver.setBorder(null);
+        jButtonVolver.setBorderPainted(false);
+        jButtonVolver.setContentAreaFilled(false);
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);

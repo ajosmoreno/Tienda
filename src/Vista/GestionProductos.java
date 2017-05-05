@@ -21,8 +21,8 @@ public class GestionProductos extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
-        jButtonCancelar.setIcon(new ImageIcon("Imagenes/iconocancelar.jpg"));
-        jButtonAceptar.setIcon(new ImageIcon("Imagenes/iconook.jpg"));
+        jButtonCancelar.setIcon(new ImageIcon("Imagenes/close.png"));
+        jButtonAceptar.setIcon(new ImageIcon("Imagenes/botonaceptar.png"));
         jLabelFondo.setIcon(new ImageIcon("Imagenes/fondoregistroproductos.jpg"));
         jLabelBuscador.setVisible(false);
         jTextFieldBuscadorProductos.setVisible(false);
@@ -77,7 +77,6 @@ public class GestionProductos extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion de productos");
         setMinimumSize(new java.awt.Dimension(1000, 700));
-        setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonModificarProducto.setText("Modificar producto");
@@ -105,6 +104,9 @@ public class GestionProductos extends javax.swing.JDialog {
         getContentPane().add(jButtonInsertarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 56, 139, 69));
 
         jButtonVolverAtras.setToolTipText("Volver atras");
+        jButtonVolverAtras.setBorder(null);
+        jButtonVolverAtras.setBorderPainted(false);
+        jButtonVolverAtras.setContentAreaFilled(false);
         jButtonVolverAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverAtrasActionPerformed(evt);
@@ -162,6 +164,9 @@ public class GestionProductos extends javax.swing.JDialog {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 490, 250));
 
         jButtonCancelar.setToolTipText("Aceptar");
+        jButtonCancelar.setBorder(null);
+        jButtonCancelar.setBorderPainted(false);
+        jButtonCancelar.setContentAreaFilled(false);
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -170,6 +175,14 @@ public class GestionProductos extends javax.swing.JDialog {
         getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 90, 90));
 
         jButtonAceptar.setToolTipText("Aceptar");
+        jButtonAceptar.setBorder(null);
+        jButtonAceptar.setBorderPainted(false);
+        jButtonAceptar.setContentAreaFilled(false);
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 90, 90));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
@@ -282,6 +295,10 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonAceptar.setVisible(false);
 
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     /**
      * @param args the command line arguments
