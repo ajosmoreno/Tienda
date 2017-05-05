@@ -9,6 +9,7 @@ import Controlador.ControladorGestionAdministrador;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -42,6 +43,12 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jButtonVolver.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
         jButtonCancelar.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
         jButtonBack.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
+        
+        
+        
+        
+        
+        
     }
 
     /**
@@ -105,6 +112,13 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jRadioButtonCliente = new javax.swing.JRadioButton();
         jButtonSolicitarCodigo = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
+        jLabelPedidosPendientes = new javax.swing.JLabel();
+        jComboBoxPedidosPendientes = new javax.swing.JComboBox<>();
+        jLabelCodigoLiberacion = new javax.swing.JLabel();
+        jTextFieldCodigoLiberacion = new javax.swing.JTextField();
+        jLabelNumeroTelefono = new javax.swing.JLabel();
+        jTextFieldNumeroTelefono = new javax.swing.JTextField();
+        jButtonFinalizarPedido = new javax.swing.JButton();
         jButtonGestionProducto = new javax.swing.JButton();
         jLabelFondoPrincipal = new javax.swing.JLabel();
 
@@ -182,7 +196,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jLabelImei.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelImei.setForeground(new java.awt.Color(255, 255, 255));
         jLabelImei.setText("IMEI del terminal: ");
-        jPanelUsuarios.add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
+        jPanelUsuarios.add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
 
         jComboBoxOperadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Movistar", "Vodafone", "Orange", "Yoigo", "MasMovil" }));
         jComboBoxOperadores.addActionListener(new java.awt.event.ActionListener() {
@@ -190,13 +204,13 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jComboBoxOperadoresActionPerformed(evt);
             }
         });
-        jPanelUsuarios.add(jComboBoxOperadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 200, -1));
+        jPanelUsuarios.add(jComboBoxOperadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 200, -1));
 
         jLabelOperador.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelOperador.setForeground(new java.awt.Color(255, 255, 255));
         jLabelOperador.setText("Operador: ");
-        jPanelUsuarios.add(jLabelOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 87, -1));
-        jPanelUsuarios.add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 200, -1));
+        jPanelUsuarios.add(jLabelOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 87, -1));
+        jPanelUsuarios.add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 200, -1));
 
         jButtonBack.setToolTipText("Volver atras");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -209,25 +223,25 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jLabelNombreCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelNombreCliente.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreCliente.setText("Nombre del cliente: ");
-        jPanelUsuarios.add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 120, 20));
-        jPanelUsuarios.add(jTextFieldNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 200, -1));
+        jPanelUsuarios.add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 120, 20));
+        jPanelUsuarios.add(jTextFieldNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 200, -1));
 
         jLabelObservaciones.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelObservaciones.setForeground(new java.awt.Color(255, 255, 255));
         jLabelObservaciones.setText("Observaciones: ");
-        jPanelUsuarios.add(jLabelObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 90, -1));
-        jPanelUsuarios.add(jTextFieldObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 200, -1));
+        jPanelUsuarios.add(jLabelObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 90, -1));
+        jPanelUsuarios.add(jTextFieldObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 200, -1));
 
         jLabelDiagnostico.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelDiagnostico.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDiagnostico.setText("Diagnostico: ");
-        jPanelUsuarios.add(jLabelDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
+        jPanelUsuarios.add(jLabelDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
 
         jTextAreaDiagnostico.setColumns(20);
         jTextAreaDiagnostico.setRows(5);
         jScrollPaneDiagnostico.setViewportView(jTextAreaDiagnostico);
 
-        jPanelUsuarios.add(jScrollPaneDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 320, 130));
+        jPanelUsuarios.add(jScrollPaneDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 320, 130));
 
         jPanelModificarUsuario.setMinimumSize(new java.awt.Dimension(481, 590));
         jPanelModificarUsuario.setOpaque(false);
@@ -354,10 +368,15 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jRadioButtonCliente.setText("Cliente");
         jPanelModificarUsuario.add(jRadioButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
-        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 600, 590));
+        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 600, 590));
 
         jButtonSolicitarCodigo.setText("Solicitar Código");
-        jPanelUsuarios.add(jButtonSolicitarCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 130, 90));
+        jButtonSolicitarCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSolicitarCodigoActionPerformed(evt);
+            }
+        });
+        jPanelUsuarios.add(jButtonSolicitarCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 130, 20));
 
         jButtonVolver.setToolTipText("Volver atras");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -365,7 +384,34 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        jPanelUsuarios.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 90, 90));
+        jPanelUsuarios.add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, 90, 90));
+
+        jLabelPedidosPendientes.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelPedidosPendientes.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPedidosPendientes.setText("Pedidos pendientes:");
+        jPanelUsuarios.add(jLabelPedidosPendientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 120, 20));
+
+        jComboBoxPedidosPendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPedidosPendientesActionPerformed(evt);
+            }
+        });
+        jPanelUsuarios.add(jComboBoxPedidosPendientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 200, -1));
+
+        jLabelCodigoLiberacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelCodigoLiberacion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCodigoLiberacion.setText("Codigo liberacion: ");
+        jPanelUsuarios.add(jLabelCodigoLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
+        jPanelUsuarios.add(jTextFieldCodigoLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 200, -1));
+
+        jLabelNumeroTelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelNumeroTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNumeroTelefono.setText("Numero de telefono: ");
+        jPanelUsuarios.add(jLabelNumeroTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
+        jPanelUsuarios.add(jTextFieldNumeroTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 200, -1));
+
+        jButtonFinalizarPedido.setText("Finalizar Pedido");
+        jPanelUsuarios.add(jButtonFinalizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, 130, 90));
 
         jPanelPrincipal.add(jPanelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 760, 590));
 
@@ -409,6 +455,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jTextAreaDiagnostico.setVisible(false);
         jScrollPaneDiagnostico.setVisible(false);
         jButtonSolicitarCodigo.setVisible(false);
+        jLabelPedidosPendientes.setVisible(false);
+        jComboBoxPedidosPendientes.setVisible(false);
 
 
     }//GEN-LAST:event_jButtonGestionUsuariosActionPerformed
@@ -453,6 +501,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jButtonCambiar.setVisible(false);
         jButtonEliminarUsuario.setVisible(false);
         jButtonCancelar.setVisible(false);
+        jLabelPedidosPendientes.setVisible(false);
+        jComboBoxPedidosPendientes.setVisible(false);
     }
     
     private void jButtonEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarUsuarioActionPerformed
@@ -552,6 +602,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private void jButtonLiberacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLiberacionActionPerformed
         // TODO add your handling code here:
         jPanelUsuarios.setVisible(true);
+        jLabelPedidosPendientes.setVisible(true);
+        jComboBoxPedidosPendientes.setVisible(true);
         jLabelNombreCliente.setVisible(false);
         jTextFieldNombreCliente.setVisible(false);
         jLabelObservaciones.setVisible(false);
@@ -596,6 +648,13 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jLabelDiagnostico.setVisible(false);
         jTextAreaDiagnostico.setVisible(false);
         jScrollPaneDiagnostico.setVisible(false);
+        jLabelPedidosPendientes.setVisible(false);
+        jLabelNumeroTelefono.setVisible(false);
+        jLabelCodigoLiberacion.setVisible(false);
+        jComboBoxPedidosPendientes.setVisible(false);
+        jTextFieldNumeroTelefono.setVisible(false);
+        jTextFieldCodigoLiberacion.setVisible(false);
+        jButtonFinalizarPedido.setVisible(false);
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
@@ -612,6 +671,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
         // TODO add your handling code here:
         jPanelUsuarios.setVisible(true);
         jLabelNombreCliente.setVisible(true);
+        jLabelPedidosPendientes.setVisible(true);
+        jComboBoxPedidosPendientes.setVisible(true);
         jTextFieldNombreCliente.setVisible(true);
         jLabelObservaciones.setVisible(true);
         jTextFieldObservaciones.setVisible(true);
@@ -651,6 +712,35 @@ public class GestionAdministrador extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonGestionProductoActionPerformed
 
+    private void jComboBoxPedidosPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPedidosPendientesActionPerformed
+        // TODO add your handling code here:
+        jLabelNombreCliente.setVisible(true);
+        jLabelNumeroTelefono.setVisible(true);
+        jLabelCodigoLiberacion.setVisible(true);
+        jLabelImei.setVisible(true);
+        jLabelOperador.setVisible(true);
+        jTextFieldCodigoLiberacion.setVisible(true);
+        jTextFieldNombreCliente.setVisible(true);
+        jTextFieldImei.setVisible(true);
+        jTextFieldNumeroTelefono.setVisible(true);
+        jButtonSolicitarCodigo.setVisible(true);
+        jButtonFinalizarPedido.setVisible(true);
+        jButtonVolver.setVisible(true);
+        
+    }//GEN-LAST:event_jComboBoxPedidosPendientesActionPerformed
+
+    private void jButtonSolicitarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarCodigoActionPerformed
+        // TODO add your handling code here:
+        
+        miControlador.asignarCodigoLiberacion();
+    }//GEN-LAST:event_jButtonSolicitarCodigoActionPerformed
+    
+     
+
+        
+    
+    
+    
     public JTextField getjTextFieldBuscadorNombre() {
         return jTextFieldBuscadorNombre;
     }
@@ -697,6 +787,10 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
     public JTextField getjTextFieldObservaciones() {
         return jTextFieldObservaciones;
+    }
+    
+    public JTextField getjTextFieldCodigoLiberacion(){
+        return jTextFieldCodigoLiberacion;
     }
 
     /**
@@ -748,6 +842,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JButton jButtonCambiar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEliminarUsuario;
+    private javax.swing.JButton jButtonFinalizarPedido;
     private javax.swing.JButton jButtonGestionPedidos;
     private javax.swing.JButton jButtonGestionProducto;
     private javax.swing.JButton jButtonGestionUsuarios;
@@ -759,9 +854,11 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JButton jButtonSolicitarCodigo;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxOperadores;
+    private javax.swing.JComboBox<String> jComboBoxPedidosPendientes;
     private com.toedter.calendar.JDateChooser jDateChooserNacimiento;
     private javax.swing.JLabel jLabeBuscarNombre;
     private javax.swing.JLabel jLabelApellidos;
+    private javax.swing.JLabel jLabelCodigoLiberacion;
     private javax.swing.JLabel jLabelDiagnostico;
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelDni;
@@ -771,9 +868,11 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelNacimiento;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelNombreCliente;
+    private javax.swing.JLabel jLabelNumeroTelefono;
     private javax.swing.JLabel jLabelObservaciones;
     private javax.swing.JLabel jLabelOperador;
     private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelPedidosPendientes;
     private javax.swing.JLabel jLabelPermisos;
     private javax.swing.JLabel jLabelTelefono;
     private javax.swing.JLabel jLabelUsuario;
@@ -787,11 +886,13 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JTextArea jTextAreaDiagnostico;
     private javax.swing.JTextField jTextFieldApellidos;
     private javax.swing.JTextField jTextFieldBuscadorNombre;
+    private javax.swing.JTextField jTextFieldCodigoLiberacion;
     private javax.swing.JTextField jTextFieldDireccion;
     private javax.swing.JTextField jTextFieldDni;
     private javax.swing.JTextField jTextFieldImei;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldNombreCliente;
+    private javax.swing.JTextField jTextFieldNumeroTelefono;
     private javax.swing.JTextField jTextFieldObservaciones;
     private javax.swing.JTextField jTextFieldPassword;
     private javax.swing.JTextField jTextFieldTelefono;

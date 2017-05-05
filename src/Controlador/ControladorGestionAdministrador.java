@@ -6,12 +6,15 @@ import Modelo.Repositorio;
 import Vista.GestionAdministrador;
 import Vista.GestionPedidos;
 import java.awt.Frame;
+import static java.lang.Integer.toString;
+import static java.lang.Integer.toString;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,16 +24,22 @@ import javax.swing.JOptionPane;
 public class ControladorGestionAdministrador {
 
     private GestionAdministrador miVentana;
-
+    
+        
     public ControladorGestionAdministrador(GestionAdministrador miVentana) {
         this.miVentana = miVentana;
     }
-
+    
+    public void generarCodigo(){
+        
+    }
+    
+    
     public void abrirGestionPedidos() {
         GestionPedidos gPedidos = new GestionPedidos((Frame) miVentana.getParent(), true);
         gPedidos.setVisible(true);
     }
-
+        
     public void buscarCliente() throws SQLException, ClassNotFoundException, Exception {
         ArrayList<Cliente> listaClientes = Repositorio.repositorio().devolverClientes();
         boolean encontrado = false;
@@ -106,5 +115,12 @@ public class ControladorGestionAdministrador {
                 miVentana.mostrarMensaje("Usuario eliminado correctamente.");
             } else miVentana.mostrarError("Ha ocurrido un error al modificar el usuario.");
         }
+    }
+    
+    public void asignarCodigoLiberacion(){
+
+        int codigo = (int)(Math.random()*999999999);
+        String codigoliberacion = String.valueOf(codigo);
+        miVentana.getjTextFieldCodigoLiberacion().setText(codigoliberacion);
     }
 }
