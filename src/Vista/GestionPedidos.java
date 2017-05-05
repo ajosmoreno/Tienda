@@ -23,7 +23,9 @@ public class GestionPedidos extends javax.swing.JDialog {
         super(parent, modal);
        
         initComponents();
-                
+        jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
+        jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
+        jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
         jTextFieldNombreCliente.setVisible(false);
         jLabelNombreCliente.setVisible(false);
         jButtonBuscar.setVisible(false);
@@ -100,13 +102,15 @@ public class GestionPedidos extends javax.swing.JDialog {
         getContentPane().add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
         getContentPane().add(jTextFieldNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 169, -1));
 
-        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setBorder(null);
+        jButtonBuscar.setBorderPainted(false);
+        jButtonBuscar.setContentAreaFilled(false);
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, -1, -1));
+        getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 40, 40));
 
         jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

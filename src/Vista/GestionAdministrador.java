@@ -52,7 +52,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jButtonBack.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonBack.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
         jButtonBack.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
-
+        jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
+        jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
+        jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
     }
 
     /**
@@ -257,13 +259,15 @@ public class GestionAdministrador extends javax.swing.JDialog {
         });
         jPanelModificarUsuario.add(jTextFieldBuscadorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 33, 115, -1));
 
-        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setBorder(null);
+        jButtonBuscar.setBorderPainted(false);
+        jButtonBuscar.setContentAreaFilled(false);
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBuscarActionPerformed(evt);
             }
         });
-        jPanelModificarUsuario.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 32, -1, -1));
+        jPanelModificarUsuario.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 22, 70, 30));
 
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));

@@ -20,6 +20,9 @@ public class GestionProductos extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
+        jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
+        jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonCancelar.setIcon(new ImageIcon("Imagenes/icon/close.png"));
         jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar.png"));
@@ -123,13 +126,15 @@ public class GestionProductos extends javax.swing.JDialog {
         getContentPane().add(jLabelBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, 20));
         getContentPane().add(jTextFieldBuscadorProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 150, -1));
 
-        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setBorder(null);
+        jButtonBuscar.setBorderPainted(false);
+        jButtonBuscar.setContentAreaFilled(false);
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, -1, -1));
+        getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 40, 40));
 
         jLabelModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelModelo.setForeground(new java.awt.Color(255, 255, 255));
