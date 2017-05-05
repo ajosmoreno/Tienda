@@ -23,8 +23,14 @@ public class Reparacion extends javax.swing.JDialog {
         initComponents();
         jLabel7Icon.setIcon(new ImageIcon("Imagenes/Reparacion-iloveimg-resized.jpg"));
         jButton1Aceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
+         jButton1Aceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
+        jButton1Aceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
         jButton2Borrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
+        jButton2Borrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
+        jButton2Borrar.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
         jButton3Salir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
+        jButton3Salir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
+        jButton3Salir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
     }
 
     /**
@@ -115,7 +121,7 @@ public class Reparacion extends javax.swing.JDialog {
                 jButton1AceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 357, 98, 50));
+        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 347, 98, 60));
 
         jButton2Borrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2Borrar.setBorder(null);
@@ -129,7 +135,7 @@ public class Reparacion extends javax.swing.JDialog {
                 jButton2BorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 98, 50));
+        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 98, 60));
 
         jButton3Salir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3Salir.setBorder(null);
@@ -143,7 +149,7 @@ public class Reparacion extends javax.swing.JDialog {
                 jButton3SalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 357, 98, 50));
+        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 347, 98, 60));
         getContentPane().add(jLabel7Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
 
         pack();

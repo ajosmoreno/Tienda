@@ -1,5 +1,6 @@
 package Vista;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /*
@@ -24,10 +25,14 @@ public class Liberacion extends javax.swing.JDialog {
        jLabel2Icon.setIcon(new javax.swing.ImageIcon("Imagenes/registroLiberacion-iloveimg-resized.gif"));
         this.setLocationRelativeTo(null);
         jButton1Aceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
+        jButton1Aceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
+        jButton1Aceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
         jButton2Borrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
-      /*  jButton3Salir*/
+        jButton2Borrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
+        jButton2Borrar.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
         jButton3Salir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
-       /* jButton3Salir.setRolloverIcon(rolloverIcon);*/
+        jButton3Salir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
+        jButton3Salir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
         
     }
 
@@ -120,10 +125,9 @@ public class Liberacion extends javax.swing.JDialog {
                 jButton1AceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 264, 80, 50));
+        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 264, 90, 70));
 
         jButton2Borrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2Borrar.setActionCommand("");
         jButton2Borrar.setBorder(null);
         jButton2Borrar.setBorderPainted(false);
         jButton2Borrar.setContentAreaFilled(false);
@@ -135,7 +139,7 @@ public class Liberacion extends javax.swing.JDialog {
                 jButton2BorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 90, 70));
+        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 100, 80));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,7 +163,7 @@ public class Liberacion extends javax.swing.JDialog {
                 jButton3SalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 90, 50));
+        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 100, 70));
         getContentPane().add(jLabel2Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 360));
 
         pack();
