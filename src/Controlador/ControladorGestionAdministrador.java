@@ -2,19 +2,21 @@ package Controlador;
 
 import Modelo.BaseDeDatos;
 import Modelo.Cliente;
+import Modelo.Gestor;
+import Modelo.Liberacion;
+import Modelo.Pedido;
+import Modelo.Reparacion;
 import Modelo.Repositorio;
 import Vista.GestionAdministrador;
 import Vista.GestionPedidos;
+import Vista.GestionProductos;
 import java.awt.Frame;
-import static java.lang.Integer.toString;
-import static java.lang.Integer.toString;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,16 +26,12 @@ import javax.swing.JOptionPane;
 public class ControladorGestionAdministrador {
 
     private GestionAdministrador miVentana;
-    
+    private Reparacion reparacionSeleccionada;
+    private Liberacion liberacionSeleccionada;
         
     public ControladorGestionAdministrador(GestionAdministrador miVentana) {
         this.miVentana = miVentana;
     }
-    
-    public void generarCodigo(){
-        
-    }
-    
     
     public void abrirGestionPedidos() {
         GestionPedidos gPedidos = new GestionPedidos((Frame) miVentana.getParent(), true);
@@ -146,5 +144,148 @@ public class ControladorGestionAdministrador {
         }
         else
             miVentana.mostrarError("Error al crear el usuario.");
+    }
+    
+    public void abrirGestionProductos(){
+        GestionProductos gProductos = new GestionProductos((Frame)miVentana.getParent(), true);
+        gProductos.setVisible(true);
+    }
+
+    public void cargarReparaciones() throws ClassNotFoundException, Exception {
+        DefaultComboBoxModel dcb = new DefaultComboBoxModel();
+        ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
+        dcb.addElement("");
+        for(Pedido p: listaPedidos){
+            if(p instanceof Reparacion && p.getEstadoPedido().equals("Procesando")){
+                dcb.addElement(p.getNumeroPedido());
+            }
+        }
+        miVentana.getjComboBoxPedidosPendientes().setModel(dcb);
+    }
+
+    public void cargarLiberaciones() throws ClassNotFoundException, Exception {
+        DefaultComboBoxModel dcb = new DefaultComboBoxModel();
+        ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
+        dcb.addElement("");
+        for(Pedido p: listaPedidos){
+            if(p instanceof Liberacion && p.getEstadoPedido().equals("Procesando")){
+                dcb.addElement(p.getNumeroPedido());
+            }
+        }
+        miVentana.getjComboBoxPedidosPendientes().setModel(dcb);
+    }
+
+    public void repararPedido() throws SQLException, Exception {
+        if(mostrarAvisoPedido(reparacionSeleccionada)){
+            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + reparacionSeleccionada.getNumeroPedido());
+            if(rs != null){
+                ResultSet rsReparacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE reparaciones SET diagnostico = '" + miVentana.getjTextAreaDiagnostico().getText() + "' WHERE numeroPedido = " + reparacionSeleccionada.getNumeroPedido());
+                if(rsReparacion != null){
+                    Repositorio.repositorio().cargarPedidos();
+                    miVentana.mostrarMensaje("Pedido completado.");
+                    miVentana.limpiarReparacion();
+                } else{
+                    ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Procesando' WHERE numeroPedido = " + reparacionSeleccionada.getNumeroPedido());
+                    if(rsError != null)
+                        miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.");
+                    else
+                        miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.\nSe ha quedado como completado.\nGestionar manualmente el pedido " + reparacionSeleccionada.getNumeroPedido());
+                }
+            }
+        }
+    }
+
+    public void liberarPedido() throws SQLException, Exception {
+        if(mostrarAvisoPedido(liberacionSeleccionada)){
+            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + liberacionSeleccionada.getNumeroPedido());
+            if(rs != null){
+                ResultSet rsLiberacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE liberaciones SET instrucciones = '" + miVentana.getjTextAreaDiagnostico().getText() + "', codigoLiberacion = '" + miVentana.getjTextFieldCodigoLiberacion().getText() + "' WHERE numeroPedido = " + liberacionSeleccionada.getNumeroPedido());
+                if(rsLiberacion != null){
+                    Repositorio.repositorio().cargarPedidos();
+                    miVentana.mostrarMensaje("Pedido completado.");
+                    miVentana.limpiarReparacion();
+                } else{
+                    ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Procesando' WHERE numeroPedido = " + liberacionSeleccionada.getNumeroPedido());
+                    if(rsError != null)
+                        miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.");
+                    else
+                        miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.\nSe ha quedado como completado.\nGestionar manualmente el pedido " + liberacionSeleccionada.getNumeroPedido());
+                }
+            } else{
+                miVentana.mostrarError("No se ha podido completar el pedido.");
+            }
+        }
+    }
+
+    public void abrirReparacion() throws ClassNotFoundException, Exception {
+        boolean encontrado = false;
+        int contador = 0;
+        ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
+        while(!encontrado && contador < listaPedidos.size()){
+            Pedido p = listaPedidos.get(contador);
+            if(p.getNumeroPedido() == Integer.parseInt(miVentana.getjComboBoxPedidosPendientes().getSelectedItem().toString())){
+                encontrado = true;
+                reparacionSeleccionada = (Reparacion)p;
+            }
+            contador++;
+        }
+        ArrayList<Gestor> listaGestores = Repositorio.repositorio().devolverGestores();
+        boolean gEncontrado = false;
+        int gContador = 0;
+        Gestor g = null;
+        while(!gEncontrado && gContador < listaGestores.size()){
+            Gestor g1 = listaGestores.get(gContador);
+            if(reparacionSeleccionada.getProveedor() == g1.getId()){
+                g = g1;
+                gEncontrado = true;
+            }
+            gContador++;
+        }
+        miVentana.getjButtonFinalizarPedido().setEnabled(true);
+        miVentana.getjTextFieldProveedor().setText(g.getNombre());
+        miVentana.getjTextAreaDiagnostico().setText("---- Mensaje inicial ----\n\n" + reparacionSeleccionada.getDiagnostico() + "\n\n---- Informe de resultado ----\n");
+    }
+
+    public void abrirLiberacion() throws ClassNotFoundException, Exception {
+        boolean encontrado = false;
+        int contador = 0;
+        ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
+        while(!encontrado && contador < listaPedidos.size()){
+            Pedido p = listaPedidos.get(contador);
+            if(p.getNumeroPedido() == Integer.parseInt(miVentana.getjComboBoxPedidosPendientes().getSelectedItem().toString())){
+                encontrado = true;
+                liberacionSeleccionada = (Liberacion)p;
+            }
+            contador++;
+        }
+        ArrayList<Gestor> listaGestores = Repositorio.repositorio().devolverGestores();
+        boolean gEncontrado = false;
+        int gContador = 0;
+        Gestor g = null;
+        while(!gEncontrado && gContador < listaGestores.size()){
+            Gestor g1 = listaGestores.get(gContador);
+            if(liberacionSeleccionada.getOperador() == g1.getId()){
+                g = g1;
+                gEncontrado = true;
+            }
+            gContador++;
+        }
+        miVentana.getjTextFieldImei().setText(liberacionSeleccionada.getImei());
+        DefaultComboBoxModel dcb = new DefaultComboBoxModel();
+        dcb.addElement(g.getNombre());
+        miVentana.getjComboBoxOperadores().setModel(dcb);
+        miVentana.getjButtonSolicitarCodigo().setEnabled(true);
+    }
+    
+    public boolean mostrarAvisoPedido(Object tipo){
+        boolean respuesta = false;
+        if(tipo instanceof Reparacion){
+            int reply = JOptionPane.showConfirmDialog(miVentana, "Se va a finalizar el pedido " + reparacionSeleccionada.getNumeroPedido() + ". ¿Es correcto?", "Confirma los datos", JOptionPane.YES_NO_OPTION);
+            respuesta = reply == JOptionPane.YES_OPTION;
+        } else{
+            int reply = JOptionPane.showConfirmDialog(miVentana, "Se va a finalizar el pedido " + liberacionSeleccionada.getNumeroPedido() + ". ¿Es correcto?", "Confirma los datos", JOptionPane.YES_NO_OPTION);
+            respuesta = reply == JOptionPane.YES_OPTION;
+        }
+        return respuesta;
     }
 }

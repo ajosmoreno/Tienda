@@ -12,7 +12,10 @@ import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -26,6 +29,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
     private ControladorGestionAdministrador miControlador;
     private boolean añadiendoUsuario;
+    private boolean reparando;
     /**
      * Creates new form GestionAdministrador
      */
@@ -229,6 +233,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jLabelProveedor.setForeground(new java.awt.Color(255, 255, 255));
         jLabelProveedor.setText("Proveedor");
         jPanelUsuarios.add(jLabelProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 90, -1));
+
+        jTextFieldProveedor.setEditable(false);
         jPanelUsuarios.add(jTextFieldProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 200, -1));
 
         jLabelDiagnostico.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -267,7 +273,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonBuscarActionPerformed(evt);
             }
         });
-        jPanelModificarUsuario.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 22, 70, 30));
+        jPanelModificarUsuario.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 30, 30));
 
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -413,6 +419,11 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelUsuarios.add(jTextFieldCodigoLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 200, -1));
 
         jButtonFinalizarPedido.setText("Finalizar Pedido");
+        jButtonFinalizarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFinalizarPedidoActionPerformed(evt);
+            }
+        });
         jPanelUsuarios.add(jButtonFinalizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 500, 130, 90));
 
         jPanelPrincipal.add(jPanelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 760, 590));
@@ -511,35 +522,41 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }
 
     private void jButtonLiberacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLiberacionActionPerformed
-        // TODO add your handling code here:
-        jPanelUsuarios.setVisible(true);
-        jLabelPedidosPendientes.setVisible(true);
-        jComboBoxPedidosPendientes.setVisible(true);
-        jLabelProveedor.setVisible(false);
-        jTextFieldProveedor.setVisible(false);
-        jLabelDiagnostico.setText("Instrucciones");
-        jLabelDiagnostico.setVisible(true);
-        jTextAreaDiagnostico.setVisible(true);
-        jScrollPaneDiagnostico.setVisible(true);
-        jButtonSolicitarCodigo.setVisible(true);
-        jLabelLiberaciones.setText("Liberaciones");
-        jLabelLiberaciones.setVisible(true);
-        jLabelImei.setVisible(true);
-        jComboBoxOperadores.setVisible(true);
-        jLabelOperador.setVisible(true);
-        jButtonSolicitarCodigo.setVisible(true);
-        jButtonVolver.setVisible(true);
-        jTextFieldImei.setVisible(true);
-        jPanelModificarUsuario.setVisible(false);
-        jButtonModificarUsuario.setVisible(false);
-        jButtonEliminarUsuario.setVisible(false);
-        jButtonInsertarUsuario.setVisible(false);
-        jButtonBack.setVisible(false);
-        jTextAreaDiagnostico.setText("");
-        jLabelCodigoLiberacion.setVisible(true);
-        jTextFieldCodigoLiberacion.setVisible(true);
-        jButtonFinalizarPedido.setVisible(true);
-        jTextFieldCodigoLiberacion.setText("");
+        try {
+            limpiarLiberacion();
+            reparando = false;
+            miControlador.cargarLiberaciones();
+            jPanelUsuarios.setVisible(true);
+            jLabelPedidosPendientes.setVisible(true);
+            jComboBoxPedidosPendientes.setVisible(true);
+            jLabelProveedor.setVisible(false);
+            jTextFieldProveedor.setVisible(false);
+            jLabelDiagnostico.setText("Instrucciones");
+            jLabelDiagnostico.setVisible(true);
+            jTextAreaDiagnostico.setVisible(true);
+            jScrollPaneDiagnostico.setVisible(true);
+            jButtonSolicitarCodigo.setVisible(true);
+            jLabelLiberaciones.setText("Liberaciones");
+            jLabelLiberaciones.setVisible(true);
+            jLabelImei.setVisible(true);
+            jComboBoxOperadores.setVisible(true);
+            jLabelOperador.setVisible(true);
+            jButtonSolicitarCodigo.setVisible(true);
+            jButtonVolver.setVisible(true);
+            jTextFieldImei.setVisible(true);
+            jPanelModificarUsuario.setVisible(false);
+            jButtonModificarUsuario.setVisible(false);
+            jButtonEliminarUsuario.setVisible(false);
+            jButtonInsertarUsuario.setVisible(false);
+            jButtonBack.setVisible(false);
+            jTextAreaDiagnostico.setText("");
+            jLabelCodigoLiberacion.setVisible(true);
+            jTextFieldCodigoLiberacion.setVisible(true);
+            jButtonFinalizarPedido.setVisible(true);
+            jTextFieldCodigoLiberacion.setText("");
+        } catch (Exception ex) {
+            mostrarError("Error al cargar las liberaciones pendientes.");
+        }
     }//GEN-LAST:event_jButtonLiberacionActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
@@ -548,35 +565,40 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReparacionActionPerformed
-        // TODO add your handling code here:
-        jPanelUsuarios.setVisible(true);
-        jLabelPedidosPendientes.setVisible(true);
-        jComboBoxPedidosPendientes.setVisible(true);
-        jLabelProveedor.setVisible(true);
-        jTextFieldProveedor.setVisible(true);
-        jLabelDiagnostico.setText("Diagnostico:");
-        jLabelDiagnostico.setVisible(true);
-        jTextAreaDiagnostico.setVisible(true);
-        jScrollPaneDiagnostico.setVisible(true);
-        jButtonSolicitarCodigo.setVisible(false);
-        jLabelLiberaciones.setText("Reparaciones");
-        jLabelLiberaciones.setVisible(true);
-        jButtonVolver.setVisible(true);
-        jLabelImei.setVisible(false);
-        jComboBoxOperadores.setVisible(false);
-        jLabelOperador.setVisible(false);
-        jTextFieldImei.setVisible(false);
-        jPanelModificarUsuario.setVisible(false);
-        jButtonModificarUsuario.setVisible(false);
-        jButtonEliminarUsuario.setVisible(false);
-        jButtonInsertarUsuario.setVisible(false);
-        jButtonBack.setVisible(false);
-        jLabelCodigoLiberacion.setVisible(false);
-        jTextFieldCodigoLiberacion.setVisible(false);
-        jButtonFinalizarPedido.setVisible(false);
-        jTextAreaDiagnostico.setText("");
-        jButtonFinalizarPedido.setVisible(true);
-
+        try {
+            limpiarReparacion();
+            reparando = true;
+            miControlador.cargarReparaciones();
+            jPanelUsuarios.setVisible(true);
+            jLabelPedidosPendientes.setVisible(true);
+            jComboBoxPedidosPendientes.setVisible(true);
+            jLabelProveedor.setVisible(true);
+            jTextFieldProveedor.setVisible(true);
+            jLabelDiagnostico.setText("Diagnostico:");
+            jLabelDiagnostico.setVisible(true);
+            jTextAreaDiagnostico.setVisible(true);
+            jScrollPaneDiagnostico.setVisible(true);
+            jButtonSolicitarCodigo.setVisible(false);
+            jLabelLiberaciones.setText("Reparaciones");
+            jLabelLiberaciones.setVisible(true);
+            jButtonVolver.setVisible(true);
+            jLabelImei.setVisible(false);
+            jComboBoxOperadores.setVisible(false);
+            jLabelOperador.setVisible(false);
+            jTextFieldImei.setVisible(false);
+            jPanelModificarUsuario.setVisible(false);
+            jButtonModificarUsuario.setVisible(false);
+            jButtonEliminarUsuario.setVisible(false);
+            jButtonInsertarUsuario.setVisible(false);
+            jButtonBack.setVisible(false);
+            jLabelCodigoLiberacion.setVisible(false);
+            jTextFieldCodigoLiberacion.setVisible(false);
+            jButtonFinalizarPedido.setVisible(false);
+            jTextAreaDiagnostico.setText("");
+            jButtonFinalizarPedido.setVisible(true);
+        } catch (Exception ex) {
+            mostrarError("Error al cargar las reparaciones pendientes.");
+        }
     }//GEN-LAST:event_jButtonReparacionActionPerformed
 
     private void jButtonGestionPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionPedidosActionPerformed
@@ -584,12 +606,29 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonGestionPedidosActionPerformed
 
     private void jButtonGestionProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionProductoActionPerformed
-        // TODO add your handling code here:
+        miControlador.abrirGestionProductos();
     }//GEN-LAST:event_jButtonGestionProductoActionPerformed
 
     private void jComboBoxPedidosPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPedidosPendientesActionPerformed
-        // TODO add your handling code here:
-
+        if(!jComboBoxPedidosPendientes.getSelectedItem().equals("")){
+            if(reparando){
+                try {
+                    miControlador.abrirReparacion();
+                } catch (Exception ex) {
+                    mostrarError("Error al cargar reparación.");
+                    mostrarError(ex.getMessage());
+                }
+            } else{
+                try {
+                    miControlador.abrirLiberacion();
+                } catch (Exception ex) {
+                    mostrarError("Eror al cargar reparación.");
+                }
+            }
+        } else{
+            jButtonFinalizarPedido.setEnabled(false);
+            limpiarCamposPedidos();
+        }
     }//GEN-LAST:event_jComboBoxPedidosPendientesActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
@@ -615,8 +654,6 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jButtonSolicitarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolicitarCodigoActionPerformed
-        // TODO add your handling code here:
-
         miControlador.asignarCodigoLiberacion();
         jTextAreaDiagnostico.setText("* No es necesario, pero sí altamente recomendable desactivar previamente el PIN de la sim no aceptada, para no confundir con el código de liberación cuando lo pida.\n"
             + "\n"
@@ -626,6 +663,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
             + "\n"
             + "3. Cuando le pida el código de liberación deberá introducir el código de 7 números que tiene y acto seguido pulsar en Confirmar, OK, aceptar o similar. Si no lo pidiera ni aparece ningun campo para introducirlo marque el código y luego pulse sobre Confirmar, OK, aceptar o similar.");
         jTextAreaDiagnostico.setCaretPosition(0);
+        jButtonFinalizarPedido.setEnabled(true);
     }//GEN-LAST:event_jButtonSolicitarCodigoActionPerformed
 
     private void jRadioButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdministradorActionPerformed
@@ -763,6 +801,47 @@ public class GestionAdministrador extends javax.swing.JDialog {
         modificarUsuarioPaneles();
     }//GEN-LAST:event_jButtonModificarUsuarioActionPerformed
 
+    private void jButtonFinalizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinalizarPedidoActionPerformed
+        if(reparando){
+            try {
+                miControlador.repararPedido();
+            } catch (Exception ex) {
+                mostrarError("Error al completar el pedido.");
+            }
+        } else{
+            try {
+                miControlador.liberarPedido();
+            } catch (Exception ex) {
+                mostrarError("Error al completar el pedido.");
+            }
+        }
+    }//GEN-LAST:event_jButtonFinalizarPedidoActionPerformed
+
+    public void limpiarReparacion() throws Exception{
+        miControlador.cargarReparaciones();
+        limpiarCamposPedidos();
+    }
+    
+    public void limpiarLiberacion() throws Exception{
+        miControlador.cargarLiberaciones();
+        limpiarCamposPedidos();
+    }
+    
+    public void limpiarCamposPedidos(){
+        jTextAreaDiagnostico.setText("");
+        jTextFieldProveedor.setText("");
+        jTextFieldImei.setText("");
+        jComboBoxOperadores.setModel(new DefaultComboBoxModel());
+        jTextFieldCodigoLiberacion.setText("");
+        jButtonSolicitarCodigo.setEnabled(false);
+        jTextAreaDiagnostico.setText("");
+        jButtonFinalizarPedido.setEnabled(false);
+    }
+    
+    public JComboBox<String> getjComboBoxPedidosPendientes() {
+        return jComboBoxPedidosPendientes;
+    }
+
     public JTextField getjTextFieldBuscadorNombre() {
         return jTextFieldBuscadorNombre;
     }
@@ -814,6 +893,24 @@ public class GestionAdministrador extends javax.swing.JDialog {
     public JTextField getjTextFieldCodigoLiberacion() {
         return jTextFieldCodigoLiberacion;
     }
+
+    public JTextField getjTextFieldProveedor() {
+        return jTextFieldProveedor;
+    }
+
+    public JButton getjButtonFinalizarPedido() {
+        return jButtonFinalizarPedido;
+    }
+
+    public JComboBox<String> getjComboBoxOperadores() {
+        return jComboBoxOperadores;
+    }
+
+    public JButton getjButtonSolicitarCodigo() {
+        return jButtonSolicitarCodigo;
+    }
+    
+    
 
     /**
      * @param args the command line arguments
@@ -922,7 +1019,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }
 
     public void mostrarMensaje(String mensaje) {
-        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.DEFAULT_OPTION);
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }
 
 
