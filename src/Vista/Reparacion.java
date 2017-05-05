@@ -22,6 +22,9 @@ public class Reparacion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         jLabel7Icon.setIcon(new ImageIcon("Imagenes/Reparacion-iloveimg-resized.jpg"));
+        jButton1Aceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
+        jButton2Borrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
+        jButton3Salir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
     }
 
     /**
@@ -101,31 +104,46 @@ public class Reparacion extends javax.swing.JDialog {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 244, 241, -1));
 
         jButton1Aceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1Aceptar.setText("Aceptar");
+        jButton1Aceptar.setBorder(null);
+        jButton1Aceptar.setBorderPainted(false);
+        jButton1Aceptar.setContentAreaFilled(false);
+        jButton1Aceptar.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButton1Aceptar.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButton1Aceptar.setPreferredSize(new java.awt.Dimension(50, 50));
         jButton1Aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1AceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 371, 98, 36));
+        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 357, 98, 50));
 
         jButton2Borrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2Borrar.setText("Borrar ");
+        jButton2Borrar.setBorder(null);
+        jButton2Borrar.setBorderPainted(false);
+        jButton2Borrar.setContentAreaFilled(false);
+        jButton2Borrar.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButton2Borrar.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButton2Borrar.setPreferredSize(new java.awt.Dimension(50, 50));
         jButton2Borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2BorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 371, 98, 36));
+        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 98, 50));
 
         jButton3Salir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3Salir.setText("Salir");
+        jButton3Salir.setBorder(null);
+        jButton3Salir.setBorderPainted(false);
+        jButton3Salir.setContentAreaFilled(false);
+        jButton3Salir.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButton3Salir.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButton3Salir.setPreferredSize(new java.awt.Dimension(50, 50));
         jButton3Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3SalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 371, 98, 36));
+        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 357, 98, 50));
         getContentPane().add(jLabel7Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
 
         pack();
