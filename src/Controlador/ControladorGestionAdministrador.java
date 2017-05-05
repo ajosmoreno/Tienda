@@ -40,7 +40,7 @@ public class ControladorGestionAdministrador {
         gPedidos.setVisible(true);
     }
         
-    public void buscarCliente() throws SQLException, ClassNotFoundException, Exception {
+    public boolean buscarCliente() throws SQLException, ClassNotFoundException, Exception {
         ArrayList<Cliente> listaClientes = Repositorio.repositorio().devolverClientes();
         boolean encontrado = false;
         int contador = 0;
@@ -73,6 +73,7 @@ public class ControladorGestionAdministrador {
             }
             contador++;
         }
+        return encontrado;
     }
 
     public void modificarUsuario() throws SQLException, Exception {
@@ -122,5 +123,28 @@ public class ControladorGestionAdministrador {
         int codigo = (int)(Math.random()*999999999);
         String codigoliberacion = String.valueOf(codigo);
         miVentana.getjTextFieldCodigoLiberacion().setText(codigoliberacion);
+    }
+    
+    public void registrarUsuario() throws ClassNotFoundException, SQLException, Exception{
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String usuario = miVentana.getjTextFieldUsuario().getText();
+        String contrasenya = miVentana.getjTextFieldPassword().getText();
+        String nombre = miVentana.getjTextFieldNombre().getText();
+        String apellidos = miVentana.getjTextFieldApellidos().getText();
+        String dni = miVentana.getjTextFieldDni().getText();
+        String fechaNacimiento = df.format(miVentana.getjDateChooserNacimiento().getDate());
+        String direccion = miVentana.getjTextFieldDireccion().getText();
+        String telefono = miVentana.getjTextFieldTelefono().getText();
+        int permiso = 0;
+        if(miVentana.getjRadioButtonCliente().isSelected()) permiso = 1;
+        else if (miVentana.getjRadioButtonAdministrador().isSelected()) permiso = 2;
+        ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario +"', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', " + permiso + ");");
+        if(res != null){
+            Repositorio.repositorio().cargarClientes();
+            miVentana.mostrarMensaje("Usuario registrado correctamente.");
+            miVentana.limpiarCampos();
+        }
+        else
+            miVentana.mostrarError("Error al crear el usuario.");
     }
 }
