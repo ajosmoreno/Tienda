@@ -25,7 +25,7 @@ import javax.swing.JTextField;
 public class GestionAdministrador extends javax.swing.JDialog {
 
     private ControladorGestionAdministrador miControlador;
-
+    private boolean añadiendoUsuario;
     /**
      * Creates new form GestionAdministrador
      */
@@ -646,40 +646,61 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonEliminarUsuarioActionPerformed
 
     private void jButtonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarActionPerformed
-        try {
-            miControlador.modificarUsuario();
-        } catch (Exception ex) {
-            mostrarError("Ha ocurrido un error al modificar el usuario.");
+        if(!añadiendoUsuario){
+            try {
+                miControlador.modificarUsuario();
+            } catch (Exception ex) {
+                mostrarError("Ha ocurrido un error al modificar el usuario.");
+            }
+        } else{
+            if(jTextFieldUsuario.getText().equals("") || jTextFieldNombre.getText().equals("") || jTextFieldApellidos.getText().equals("") || jTextFieldPassword.getText().equals("") || jTextFieldDireccion.getText().equals("") || jTextFieldDni.getText().equals("") || jDateChooserNacimiento.getDate() == null || (!jRadioButtonAdministrador.isSelected() && !jRadioButtonCliente.isSelected() && !jRadioButtonInvitado.isSelected())){
+                 mostrarError("Rellena todos los campos.");
+            } else{
+                try{
+                    miControlador.registrarUsuario();
+                } catch (ClassNotFoundException | SQLException ex) {
+                    if(ex.getMessage().contains("Duplicate entry") && ex.getMessage().contains("for key 'usuario'"))
+                        mostrarError("El usuario elegido no está disponible.");
+                    else if(ex.getMessage().contains("Duplicate entry") && ex.getMessage().contains("for key 'dni'"))
+                        mostrarError("El DNI introducido ya pertenece a un usuario.");
+                    else
+                        mostrarError("Ha ocurrido un error desconocido.\n"+ex.getMessage());
+                } catch(Exception ex){
+                    mostrarError(ex.getMessage());
+                }
+            }
         }
     }//GEN-LAST:event_jButtonCambiarActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-
         try {
-            miControlador.buscarCliente();
-            jLabelNombre.setVisible(true);
-            jLabelApellidos.setVisible(true);
-            jLabelDni.setVisible(true);
-            jLabelDireccion.setVisible(true);
-            jLabelTelefono.setVisible(true);
-            jLabelNacimiento.setVisible(true);
-            jLabelUsuario.setVisible(true);
-            jLabelPassword.setVisible(true);
-            jTextFieldNombre.setVisible(true);
-            jTextFieldApellidos.setVisible(true);
-            jTextFieldDni.setVisible(true);
-            jDateChooserNacimiento.setVisible(true);
-            jTextFieldDireccion.setVisible(true);
-            jTextFieldTelefono.setVisible(true);
-            jTextFieldUsuario.setVisible(true);
-            jTextFieldPassword.setVisible(true);
-            jButtonCambiar.setVisible(true);
-            jButtonEliminarUsuario.setVisible(true);
-            jButtonCancelar.setVisible(true);
-            jLabelPermisos.setVisible(true);
-            jRadioButtonCliente.setVisible(true);
-            jRadioButtonInvitado.setVisible(true);
-            jRadioButtonAdministrador.setVisible(true);
+            if(miControlador.buscarCliente()){
+                jLabelNombre.setVisible(true);
+                jLabelApellidos.setVisible(true);
+                jLabelDni.setVisible(true);
+                jLabelDireccion.setVisible(true);
+                jLabelTelefono.setVisible(true);
+                jLabelNacimiento.setVisible(true);
+                jLabelUsuario.setVisible(true);
+                jLabelPassword.setVisible(true);
+                jTextFieldNombre.setVisible(true);
+                jTextFieldApellidos.setVisible(true);
+                jTextFieldDni.setVisible(true);
+                jDateChooserNacimiento.setVisible(true);
+                jTextFieldDireccion.setVisible(true);
+                jTextFieldTelefono.setVisible(true);
+                jTextFieldUsuario.setVisible(true);
+                jTextFieldPassword.setVisible(true);
+                jButtonCambiar.setVisible(true);
+                jButtonEliminarUsuario.setVisible(true);
+                jButtonCancelar.setVisible(true);
+                jLabelPermisos.setVisible(true);
+                jRadioButtonCliente.setVisible(true);
+                jRadioButtonInvitado.setVisible(true);
+                jRadioButtonAdministrador.setVisible(true);
+            } else{
+                mostrarError("No hay ningún cliente con ese nombre de usuario.");
+            }
         } catch (SQLException | ClassNotFoundException ex) {
             mostrarError("Ha ocurrido un error al buscar el usuario.");
         } catch (Exception ex) {
@@ -701,7 +722,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jComboBoxOperadoresActionPerformed
 
     private void jButtonInsertarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarUsuarioActionPerformed
-        // TODO add your handling code here:
+        añadiendoUsuario = true;
         jPanelModificarUsuario.setVisible(true);
         jLabeBuscarNombre.setVisible(false);
         jTextFieldBuscadorNombre.setVisible(false);
@@ -729,11 +750,16 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jRadioButtonCliente.setVisible(true);
         jRadioButtonInvitado.setVisible(true);
         jRadioButtonAdministrador.setVisible(true);
+        jButtonEliminarUsuario.setVisible(false);
+        jButtonCambiar.setText("Añadir usuario");
+        jDateChooserNacimiento.getDateEditor().setEnabled(false);
+        jTextFieldUsuario.setEditable(true);
         limpiarCampos();
     }//GEN-LAST:event_jButtonInsertarUsuarioActionPerformed
 
     private void jButtonModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarUsuarioActionPerformed
-        // TODO add your handling code here:
+        añadiendoUsuario = false;
+        jButtonCambiar.setText("Realizar cambios");
         modificarUsuarioPaneles();
     }//GEN-LAST:event_jButtonModificarUsuarioActionPerformed
 
