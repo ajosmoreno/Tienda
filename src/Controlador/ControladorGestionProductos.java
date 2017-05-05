@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.BaseDeDatos;
+import Modelo.Producto;
 import Modelo.Repositorio;
 import Vista.GestionProductos;
 import Vista.VisorImagen;
@@ -20,6 +21,7 @@ import javax.swing.JOptionPane;
 public class ControladorGestionProductos {
     
     private GestionProductos miVentana;
+    private Producto productoSeleccionado;
     
     public ControladorGestionProductos(GestionProductos miVentana){
         this.miVentana = miVentana;
@@ -69,6 +71,19 @@ public class ControladorGestionProductos {
             miVentana.limpiarCampos();
         } else{
             miVentana.mostrarError("Ha ocurrido un error al añadir el producto.");
+        }
+    }
+    
+    public void mostrarDatosProducto(){
+        if(productoSeleccionado != null){
+            miVentana.getjTextFieldMarca().setText(productoSeleccionado.getMarca());
+            miVentana.getjTextFieldModelo().setText(productoSeleccionado.getModelo());
+            miVentana.getjTextFieldColor().setText(productoSeleccionado.getColor());
+            miVentana.getjTextFieldFoto().setText(productoSeleccionado.getImagen());
+            miVentana.getjTextFieldPrecio().setText(""+productoSeleccionado.getPrecio());
+            miVentana.getjTextFieldStock().setText(""+productoSeleccionado.getStock());
+        } else{
+            miVentana.mostrarError("No hay ningún producto seleccionado.");
         }
     }
 }

@@ -6,8 +6,6 @@
 package Vista;
 
 import Controlador.ControladorInterfazCompra;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -199,15 +197,10 @@ public class InterfazCompra extends javax.swing.JDialog {
     private void jComboBoxModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModeloActionPerformed
         try {
             jComboBoxColor.setModel(new DefaultComboBoxModel());
-                miControlador.vaciarCaracteristicas();
-                miControlador.deshabilitarBotones();
+            miControlador.vaciarCaracteristicas();
+            miControlador.deshabilitarBotones();
             if(jComboBoxModelo.getSelectedIndex() > 0)
                 miControlador.mostrarColores();
-            else{
-                /*jComboBoxColor.setModel(new DefaultComboBoxModel());
-                miControlador.vaciarCaracteristicas();
-                miControlador.deshabilitarBotones();*/
-            }
         } catch (Exception ex) {
             mostrarError("Error al cargar los colores del producto.");
         }

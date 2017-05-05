@@ -9,6 +9,7 @@ import Controlador.ControladorGestionProductos;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -41,7 +42,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
         jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
         jLabelBuscador.setVisible(false);
-        jTextFieldBuscadorProductos.setVisible(false);
+        jComboBoxListaProductos.setVisible(false);
         jButtonBuscar.setVisible(false);
         jLabelMarca.setVisible(false);
         jLabelModelo.setVisible(false);
@@ -77,7 +78,6 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonInsertarProducto = new javax.swing.JButton();
         jButtonVolverAtras = new javax.swing.JButton();
         jLabelBuscador = new javax.swing.JLabel();
-        jTextFieldBuscadorProductos = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
         jLabelModelo = new javax.swing.JLabel();
         jLabelMarca = new javax.swing.JLabel();
@@ -97,6 +97,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextFieldStock = new javax.swing.JTextField();
         jLabelColor = new javax.swing.JLabel();
         jTextFieldColor = new javax.swing.JTextField();
+        jComboBoxListaProductos = new javax.swing.JComboBox<>();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -143,7 +144,6 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelBuscador.setForeground(new java.awt.Color(255, 255, 255));
         jLabelBuscador.setText("Id producto: ");
         getContentPane().add(jLabelBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, 20));
-        getContentPane().add(jTextFieldBuscadorProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 150, -1));
 
         jButtonBuscar.setBorder(null);
         jButtonBuscar.setBorderPainted(false);
@@ -233,6 +233,13 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelColor.setText("Color");
         getContentPane().add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, 20));
         getContentPane().add(jTextFieldColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 140, -1));
+
+        jComboBoxListaProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxListaProductosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBoxListaProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 170, -1));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 670));
 
         pack();
@@ -248,7 +255,7 @@ public class GestionProductos extends javax.swing.JDialog {
         limpiarCampos();
         añadiendo = true;
         jLabelBuscador.setVisible(false);
-        jTextFieldBuscadorProductos.setVisible(false);
+        jComboBoxListaProductos.setVisible(false);
         jButtonBuscar.setVisible(false);
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
@@ -277,7 +284,7 @@ public class GestionProductos extends javax.swing.JDialog {
         limpiarCampos();
         añadiendo = false;
         jLabelBuscador.setVisible(true);
-        jTextFieldBuscadorProductos.setVisible(true);
+        jComboBoxListaProductos.setVisible(true);
         jButtonBuscar.setVisible(true);
         jLabelMarca.setVisible(false);
         jLabelModelo.setVisible(false);
@@ -324,7 +331,7 @@ public class GestionProductos extends javax.swing.JDialog {
     private void jButtonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarProductoActionPerformed
         limpiarCampos();
         jLabelBuscador.setVisible(true);
-        jTextFieldBuscadorProductos.setVisible(true);
+        jComboBoxListaProductos.setVisible(true);
         jButtonBuscar.setVisible(true);
         jLabelMarca.setVisible(false);
         jLabelModelo.setVisible(false);
@@ -349,7 +356,7 @@ public class GestionProductos extends javax.swing.JDialog {
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
         jLabelBuscador.setVisible(false);
-        jTextFieldBuscadorProductos.setVisible(false);
+        jComboBoxListaProductos.setVisible(false);
         jButtonBuscar.setVisible(false);
         jLabelMarca.setVisible(false);
         jLabelModelo.setVisible(false);
@@ -400,6 +407,12 @@ public class GestionProductos extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonBuscarFotoActionPerformed
 
+    private void jComboBoxListaProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxListaProductosActionPerformed
+        if(jComboBoxListaProductos.getSelectedItem().equals("")){
+            
+        }
+    }//GEN-LAST:event_jComboBoxListaProductosActionPerformed
+
     public void limpiarCampos(){
         jTextAreaCarateristicas.setText("");
         jTextFieldColor.setText("");
@@ -408,7 +421,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextFieldModelo.setText("");
         jTextFieldPrecio.setText("");
         jTextFieldStock.setText("");
-        jTextFieldBuscadorProductos.setText("");
+        jComboBoxListaProductos.setModel(new DefaultComboBoxModel());
     }
     
     public void mostrarError(String mensaje) {
@@ -425,10 +438,6 @@ public class GestionProductos extends javax.swing.JDialog {
 
     public JTextArea getjTextAreaCarateristicas() {
         return jTextAreaCarateristicas;
-    }
-
-    public JTextField getjTextFieldBuscadorProductos() {
-        return jTextFieldBuscadorProductos;
     }
 
     public JTextField getjTextFieldColor() {
@@ -504,6 +513,7 @@ public class GestionProductos extends javax.swing.JDialog {
     private javax.swing.JButton jButtonInsertarProducto;
     private javax.swing.JButton jButtonModificarProducto;
     private javax.swing.JButton jButtonVolverAtras;
+    private javax.swing.JComboBox<String> jComboBoxListaProductos;
     private javax.swing.JLabel jLabeStock;
     private javax.swing.JLabel jLabelBuscador;
     private javax.swing.JLabel jLabelCaracteristicas;
@@ -515,7 +525,6 @@ public class GestionProductos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaCarateristicas;
-    private javax.swing.JTextField jTextFieldBuscadorProductos;
     private javax.swing.JTextField jTextFieldColor;
     private javax.swing.JTextField jTextFieldFoto;
     private javax.swing.JTextField jTextFieldMarca;

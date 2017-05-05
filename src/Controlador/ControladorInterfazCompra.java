@@ -67,6 +67,7 @@ public class ControladorInterfazCompra {
 
     public void seleccionarProducto() throws ClassNotFoundException, Exception{
         ArrayList<Producto> listaProductos = Repositorio.repositorio().devolverProductos();
+        productoSeleccionado = null;
         boolean encontrado = false;
         int contador = 0;
         while(!encontrado && contador < listaProductos.size()){
