@@ -369,7 +369,8 @@ public class GestionProductos extends javax.swing.JDialog {
                     try {
                         miControlador.eliminarProducto();
                     } catch (Exception ex) {
-                        mostrarError("Error al eliminar el producto.");
+                        if(ex.getMessage().contains("foreign key constraint")) mostrarError("No puedes eliminar un producto que ha comprado un cliente.\n\nPon el stock a 0 para que no se pueda comprar.");
+                        else mostrarError("Error al eliminar el producto.");
                     }
                 }
             }
@@ -392,6 +393,7 @@ public class GestionProductos extends javax.swing.JDialog {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         if(!jComboBoxListaProductos.getSelectedItem().equals("")){
             try {
+                if(!borrando) jButtonBuscarFoto.setVisible(true);
                 miControlador.seleccionarProducto();
                 miControlador.mostrarDatosProducto();
                 jButtonCancelar.setVisible(true);
@@ -407,7 +409,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jLabelPrecio.setVisible(true);
                 jLabelFoto.setVisible(true);
                 jLabelCaracteristicas.setVisible(true);
-                jButtonBuscarFoto.setVisible(true);
+                
                 jTextFieldStock.setVisible(true);
                 jLabeStock.setVisible(true);
                 jTextFieldColor.setVisible(true);
