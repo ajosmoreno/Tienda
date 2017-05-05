@@ -66,7 +66,7 @@ modelo char(50) not null,
 precio float(6,2) not null,
 color char(20) not null,
 descripcion text not null,
-stock tinyint default 0 not null,
+stock int default 0 not null,
 imagen char(50) not null) ENGINE = INNODB;
 
 CREATE TABLE productosComprados

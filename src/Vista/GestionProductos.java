@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -20,6 +21,7 @@ import javax.swing.JTextField;
 public class GestionProductos extends javax.swing.JDialog {
 
     private ControladorGestionProductos miControlador;
+    private boolean añadiendo;
     /**
      * Creates new form GestionProductos
      */
@@ -55,6 +57,10 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
         jButtonBuscarFoto.setVisible(false);
+        jTextFieldStock.setVisible(false);
+        jLabeStock.setVisible(false);
+        jTextFieldColor.setVisible(false);
+        jLabelColor.setVisible(false);
     }
 
     /**
@@ -87,6 +93,10 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonCancelar = new javax.swing.JButton();
         jButtonAceptar = new javax.swing.JButton();
         jButtonBuscarFoto = new javax.swing.JButton();
+        jLabeStock = new javax.swing.JLabel();
+        jTextFieldStock = new javax.swing.JTextField();
+        jLabelColor = new javax.swing.JLabel();
+        jTextFieldColor = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -148,39 +158,39 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelModelo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelModelo.setText("Modelo: ");
-        getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
+        getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
 
         jLabelMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelMarca.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMarca.setText("Marca: ");
-        getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
+        getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
 
         jLabelCaracteristicas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCaracteristicas.setText("Caracteristicas: ");
-        getContentPane().add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
+        getContentPane().add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
 
         jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPrecio.setText("Precio: ");
-        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
+        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
 
         jLabelFoto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setText("Foto: ");
-        getContentPane().add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
-        getContentPane().add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 270, -1));
-        getContentPane().add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 270, -1));
+        getContentPane().add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
+        getContentPane().add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 270, -1));
+        getContentPane().add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 270, -1));
 
         jTextFieldFoto.setEditable(false);
-        getContentPane().add(jTextFieldFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 270, -1));
-        getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 270, -1));
+        getContentPane().add(jTextFieldFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 270, -1));
+        getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 270, -1));
 
         jTextAreaCarateristicas.setColumns(20);
         jTextAreaCarateristicas.setRows(5);
         jScrollPane1.setViewportView(jTextAreaCarateristicas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 490, 250));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 450, 220));
 
         jButtonCancelar.setToolTipText("Aceptar");
         jButtonCancelar.setBorder(null);
@@ -191,7 +201,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 90, 90));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 90, 90));
 
         jButtonAceptar.setToolTipText("Aceptar");
         jButtonAceptar.setBorder(null);
@@ -202,7 +212,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 90, 90));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 500, 90, 90));
 
         jButtonBuscarFoto.setText("Buscar foto");
         jButtonBuscarFoto.addActionListener(new java.awt.event.ActionListener() {
@@ -210,8 +220,20 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonBuscarFotoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, -1, -1));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
+        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
+
+        jLabeStock.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabeStock.setForeground(new java.awt.Color(255, 255, 255));
+        jLabeStock.setText("Stock:");
+        getContentPane().add(jLabeStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, 20));
+        getContentPane().add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 70, -1));
+
+        jLabelColor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelColor.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelColor.setText("Color");
+        getContentPane().add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, 20));
+        getContentPane().add(jTextFieldColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 140, -1));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -223,7 +245,8 @@ public class GestionProductos extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonVolverAtrasActionPerformed
 
     private void jButtonInsertarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarProductoActionPerformed
-        // TODO add your handling code here:
+        limpiarCampos();
+        añadiendo = true;
         jLabelBuscador.setVisible(false);
         jTextFieldBuscadorProductos.setVisible(false);
         jButtonBuscar.setVisible(false);
@@ -244,10 +267,15 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelFoto.setVisible(true);
         jLabelCaracteristicas.setVisible(true);
         jButtonBuscarFoto.setVisible(true);
+        jTextFieldStock.setVisible(true);
+        jLabeStock.setVisible(true);
+        jTextFieldColor.setVisible(true);
+        jLabelColor.setVisible(true);
     }//GEN-LAST:event_jButtonInsertarProductoActionPerformed
 
     private void jButtonModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarProductoActionPerformed
-        // TODO add your handling code here:
+        limpiarCampos();
+        añadiendo = false;
         jLabelBuscador.setVisible(true);
         jTextFieldBuscadorProductos.setVisible(true);
         jButtonBuscar.setVisible(true);
@@ -265,6 +293,10 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
         jButtonBuscarFoto.setVisible(false);
+        jTextFieldStock.setVisible(false);
+        jLabeStock.setVisible(false);
+        jTextFieldColor.setVisible(false);
+        jLabelColor.setVisible(false);
     }//GEN-LAST:event_jButtonModificarProductoActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
@@ -283,10 +315,14 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelFoto.setVisible(true);
         jLabelCaracteristicas.setVisible(true);
         jButtonBuscarFoto.setVisible(true);
+        jTextFieldStock.setVisible(true);
+        jLabeStock.setVisible(true);
+        jTextFieldColor.setVisible(true);
+        jLabelColor.setVisible(true);
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarProductoActionPerformed
-        // TODO add your handling code here:
+        limpiarCampos();
         jLabelBuscador.setVisible(true);
         jTextFieldBuscadorProductos.setVisible(true);
         jButtonBuscar.setVisible(true);
@@ -304,6 +340,10 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
         jButtonBuscarFoto.setVisible(false);
+        jTextFieldStock.setVisible(false);
+        jLabeStock.setVisible(false);
+        jTextFieldColor.setVisible(false);
+        jLabelColor.setVisible(false);
     }//GEN-LAST:event_jButtonEliminarProductoActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
@@ -325,10 +365,31 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
         jButtonBuscarFoto.setVisible(false);
+        jTextFieldStock.setVisible(false);
+        jLabeStock.setVisible(false);
+        jTextFieldColor.setVisible(false);
+        jLabelColor.setVisible(false);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        // TODO add your handling code here:
+        if(jTextFieldMarca.getText().equals("") || jTextFieldModelo.getText().equals("") || jTextFieldColor.getText().equals("") ||  jTextFieldFoto.getText().equals("") || jTextFieldPrecio.getText().equals("") || jTextFieldStock.getText().equals("") ||jTextAreaCarateristicas.getText().equals("")){
+            mostrarError("Rellena todos los campos.");
+        } else{
+            if(añadiendo){
+                try {
+                    miControlador.añadirProducto();
+                } catch(NumberFormatException ex)
+                {
+                    mostrarError("Introduce un stock o precio correcto.");
+                } catch (Exception ex) {
+                    mostrarError("Ha ocurrido un error al agregar producto.");
+                    mostrarError(ex.getMessage());
+                }
+            } else{
+                mostrarMensaje("modificando");
+            }
+        }
+        
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonBuscarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarFotoActionPerformed
@@ -339,6 +400,17 @@ public class GestionProductos extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonBuscarFotoActionPerformed
 
+    public void limpiarCampos(){
+        jTextAreaCarateristicas.setText("");
+        jTextFieldColor.setText("");
+        jTextFieldFoto.setText("");
+        jTextFieldMarca.setText("");
+        jTextFieldModelo.setText("");
+        jTextFieldPrecio.setText("");
+        jTextFieldStock.setText("");
+        jTextFieldBuscadorProductos.setText("");
+    }
+    
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }
@@ -350,6 +422,36 @@ public class GestionProductos extends javax.swing.JDialog {
     public JTextField getjTextFieldFoto() {
         return jTextFieldFoto;
     }
+
+    public JTextArea getjTextAreaCarateristicas() {
+        return jTextAreaCarateristicas;
+    }
+
+    public JTextField getjTextFieldBuscadorProductos() {
+        return jTextFieldBuscadorProductos;
+    }
+
+    public JTextField getjTextFieldColor() {
+        return jTextFieldColor;
+    }
+
+    public JTextField getjTextFieldMarca() {
+        return jTextFieldMarca;
+    }
+
+    public JTextField getjTextFieldModelo() {
+        return jTextFieldModelo;
+    }
+
+    public JTextField getjTextFieldPrecio() {
+        return jTextFieldPrecio;
+    }
+
+    public JTextField getjTextFieldStock() {
+        return jTextFieldStock;
+    }
+    
+    
     
     /**
      * @param args the command line arguments
@@ -402,8 +504,10 @@ public class GestionProductos extends javax.swing.JDialog {
     private javax.swing.JButton jButtonInsertarProducto;
     private javax.swing.JButton jButtonModificarProducto;
     private javax.swing.JButton jButtonVolverAtras;
+    private javax.swing.JLabel jLabeStock;
     private javax.swing.JLabel jLabelBuscador;
     private javax.swing.JLabel jLabelCaracteristicas;
+    private javax.swing.JLabel jLabelColor;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelFoto;
     private javax.swing.JLabel jLabelMarca;
@@ -412,9 +516,11 @@ public class GestionProductos extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaCarateristicas;
     private javax.swing.JTextField jTextFieldBuscadorProductos;
+    private javax.swing.JTextField jTextFieldColor;
     private javax.swing.JTextField jTextFieldFoto;
     private javax.swing.JTextField jTextFieldMarca;
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldPrecio;
+    private javax.swing.JTextField jTextFieldStock;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,11 +1,15 @@
 package Controlador;
 
+import Modelo.BaseDeDatos;
+import Modelo.Repositorio;
 import Vista.GestionProductos;
 import Vista.VisorImagen;
 import java.awt.Frame;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -47,6 +51,24 @@ public class ControladorGestionProductos {
                 VisorImagen visor = new VisorImagen((Frame)miVentana.getParent(), true, archivoEnImagenes.getName());
                 visor.setVisible(true);
             }
+        }
+    }
+    
+    public void añadirProducto() throws SQLException, Exception{
+        String marca = miVentana.getjTextFieldMarca().getText();
+        String modelo = miVentana.getjTextFieldModelo().getText();
+        Double precio = Double.parseDouble(miVentana.getjTextFieldPrecio().getText().replace(",", "."));
+        int stock = Integer.parseInt(miVentana.getjTextFieldStock().getText());
+        String imagen = miVentana.getjTextFieldFoto().getText();
+        String caracteristicas = miVentana.getjTextAreaCarateristicas().getText();
+        String color = miVentana.getjTextFieldColor().getText();
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO productos (marca, modelo, precio, color, descripcion, stock, imagen) VALUES ('" + marca + "', '" + modelo + "', " + precio + " , '" + color + "', '" + caracteristicas + "', " + stock +", '" + imagen + "');");
+        if(rs != null){
+            Repositorio.repositorio().cargarProductos();
+            miVentana.mostrarMensaje("Producto añadido al catálogo correctamente.");
+            miVentana.limpiarCampos();
+        } else{
+            miVentana.mostrarError("Ha ocurrido un error al añadir el producto.");
         }
     }
 }
