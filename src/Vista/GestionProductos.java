@@ -24,6 +24,9 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonCancelar.setIcon(new ImageIcon("Imagenes/icon/close.png"));
         jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar.png"));
         jLabelFondo.setIcon(new ImageIcon("Imagenes/fondoregistroproductos.jpg"));
+        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
+        jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
+        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
         jLabelBuscador.setVisible(false);
         jTextFieldBuscadorProductos.setVisible(false);
         jButtonBuscar.setVisible(false);
