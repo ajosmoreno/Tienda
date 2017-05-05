@@ -669,7 +669,6 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonCambiarActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-
         try {
             if(miControlador.buscarCliente()){
                 jLabelNombre.setVisible(true);
