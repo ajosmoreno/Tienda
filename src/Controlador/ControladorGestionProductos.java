@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -74,6 +76,16 @@ public class ControladorGestionProductos {
         }
     }
     
+    public void cargarProductos() throws ClassNotFoundException, Exception{
+        ArrayList<Producto> productos = Repositorio.repositorio().devolverProductos();
+        DefaultComboBoxModel dcb = new DefaultComboBoxModel();
+        dcb.addElement("");
+        for(Producto p: productos){
+            dcb.addElement(p.getId());
+        }
+        miVentana.getjComboBoxListaProductos().setModel(dcb);
+    }
+    
     public void mostrarDatosProducto(){
         if(productoSeleccionado != null){
             miVentana.getjTextFieldMarca().setText(productoSeleccionado.getMarca());
@@ -82,8 +94,60 @@ public class ControladorGestionProductos {
             miVentana.getjTextFieldFoto().setText(productoSeleccionado.getImagen());
             miVentana.getjTextFieldPrecio().setText(""+productoSeleccionado.getPrecio());
             miVentana.getjTextFieldStock().setText(""+productoSeleccionado.getStock());
+            miVentana.getjTextAreaCarateristicas().setText(productoSeleccionado.getDescripcion());
         } else{
             miVentana.mostrarError("No hay ningún producto seleccionado.");
         }
+    }
+    
+    public void seleccionarProducto() throws ClassNotFoundException, Exception{
+        ArrayList<Producto> productos = Repositorio.repositorio().devolverProductos();
+        boolean encontrado = false;
+        int contador = 0;
+        productoSeleccionado = null;
+        while(!encontrado && contador < productos.size()){
+            if(Integer.parseInt(miVentana.getjComboBoxListaProductos().getSelectedItem().toString()) == productos.get(contador).getId()){
+                encontrado = true;
+                productoSeleccionado = productos.get(contador);
+            }
+            contador++;
+        }
+    }
+
+    public void modificarProducto() throws SQLException, Exception {
+        String marca = miVentana.getjTextFieldMarca().getText();
+        String modelo = miVentana.getjTextFieldModelo().getText();
+        Double precio = Double.parseDouble(miVentana.getjTextFieldPrecio().getText().replace(",", "."));
+        int stock = Integer.parseInt(miVentana.getjTextFieldStock().getText());
+        String imagen = miVentana.getjTextFieldFoto().getText();
+        String caracteristicas = miVentana.getjTextAreaCarateristicas().getText();
+        String color = miVentana.getjTextFieldColor().getText();
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE productos SET marca = '" + marca + "', modelo = '" + modelo + "', precio = " + precio + ", stock = " + stock + ", imagen = '" + imagen + "', descripcion = '" + caracteristicas + "', color = '" + color + "' WHERE id = " + productoSeleccionado.getId());
+        if(rs != null){
+            Repositorio.repositorio().cargarProductos();
+            miVentana.mostrarMensaje("Producto modificado correctamente.");
+        } else{
+            miVentana.mostrarError("No se ha podido modificar el producto.");
+        }
+    }
+
+    public void eliminarProducto() throws SQLException, Exception {
+        if(mostrarAviso()){
+            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM productos WHERE id = " + productoSeleccionado.getId());
+            if(rs != null){
+                Repositorio.repositorio().cargarProductos();
+                miVentana.mostrarMensaje("Producto eliminado correctamente.");
+                miVentana.limpiarCampos();
+                cargarProductos();
+                miVentana.modificarCampos();
+            } else{
+                miVentana.mostrarError("No se ha podido eliminar el producto.");
+            }
+        }
+    }
+    
+    public boolean mostrarAviso(){
+        int opcion = JOptionPane.showConfirmDialog(miVentana, "Se va a eliminar el producto " + productoSeleccionado.getId() + ", ¿es correcto?", "Atención", JOptionPane.OK_CANCEL_OPTION);
+        return opcion == JOptionPane.OK_OPTION;
     }
 }

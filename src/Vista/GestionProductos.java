@@ -6,11 +6,13 @@
 package Vista;
 
 import Controlador.ControladorGestionProductos;
+import java.awt.Frame;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -23,6 +25,7 @@ public class GestionProductos extends javax.swing.JDialog {
 
     private ControladorGestionProductos miControlador;
     private boolean añadiendo;
+    private boolean borrando;
     /**
      * Creates new form GestionProductos
      */
@@ -183,6 +186,16 @@ public class GestionProductos extends javax.swing.JDialog {
         getContentPane().add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 270, -1));
 
         jTextFieldFoto.setEditable(false);
+        jTextFieldFoto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldFotoMouseClicked(evt);
+            }
+        });
+        jTextFieldFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFotoActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextFieldFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 270, -1));
         getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 270, -1));
 
@@ -192,7 +205,7 @@ public class GestionProductos extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 450, 220));
 
-        jButtonCancelar.setToolTipText("Aceptar");
+        jButtonCancelar.setToolTipText("Cancelar");
         jButtonCancelar.setBorder(null);
         jButtonCancelar.setBorderPainted(false);
         jButtonCancelar.setContentAreaFilled(false);
@@ -254,6 +267,7 @@ public class GestionProductos extends javax.swing.JDialog {
     private void jButtonInsertarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarProductoActionPerformed
         limpiarCampos();
         añadiendo = true;
+        borrando = false;
         jLabelBuscador.setVisible(false);
         jComboBoxListaProductos.setVisible(false);
         jButtonBuscar.setVisible(false);
@@ -281,80 +295,32 @@ public class GestionProductos extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonInsertarProductoActionPerformed
 
     private void jButtonModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarProductoActionPerformed
-        limpiarCampos();
-        añadiendo = false;
-        jLabelBuscador.setVisible(true);
-        jComboBoxListaProductos.setVisible(true);
-        jButtonBuscar.setVisible(true);
-        jLabelMarca.setVisible(false);
-        jLabelModelo.setVisible(false);
-        jLabelPrecio.setVisible(false);
-        jLabelFoto.setVisible(false);
-        jLabelCaracteristicas.setVisible(false);
-        jTextAreaCarateristicas.setVisible(false);
-        jScrollPane1.setVisible(false);
-        jTextFieldMarca.setVisible(false);
-        jTextFieldModelo.setVisible(false);
-        jTextFieldFoto.setVisible(false);
-        jTextFieldPrecio.setVisible(false);
-        jButtonCancelar.setVisible(false);
-        jButtonAceptar.setVisible(false);
-        jButtonBuscarFoto.setVisible(false);
-        jTextFieldStock.setVisible(false);
-        jLabeStock.setVisible(false);
-        jTextFieldColor.setVisible(false);
-        jLabelColor.setVisible(false);
+        try {
+            limpiarCampos();
+            miControlador.cargarProductos();
+            añadiendo = false;
+            borrando = false;
+            modificarCampos();
+        } catch (Exception ex) {
+            mostrarError("Error al cargar productos.");
+        }
     }//GEN-LAST:event_jButtonModificarProductoActionPerformed
 
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
-        jButtonCancelar.setVisible(true);
-        jButtonAceptar.setVisible(true);
-        jTextAreaCarateristicas.setVisible(true);
-        jScrollPane1.setVisible(true);
-        jTextFieldMarca.setVisible(true);
-        jTextFieldModelo.setVisible(true);
-        jTextFieldFoto.setVisible(true);
-        jTextFieldPrecio.setVisible(true);
-        jLabelMarca.setVisible(true);
-        jLabelModelo.setVisible(true);
-        jLabelPrecio.setVisible(true);
-        jLabelFoto.setVisible(true);
-        jLabelCaracteristicas.setVisible(true);
-        jButtonBuscarFoto.setVisible(true);
-        jTextFieldStock.setVisible(true);
-        jLabeStock.setVisible(true);
-        jTextFieldColor.setVisible(true);
-        jLabelColor.setVisible(true);
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
-
     private void jButtonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarProductoActionPerformed
-        limpiarCampos();
-        jLabelBuscador.setVisible(true);
-        jComboBoxListaProductos.setVisible(true);
-        jButtonBuscar.setVisible(true);
-        jLabelMarca.setVisible(false);
-        jLabelModelo.setVisible(false);
-        jLabelPrecio.setVisible(false);
-        jLabelFoto.setVisible(false);
-        jLabelCaracteristicas.setVisible(false);
-        jTextAreaCarateristicas.setVisible(false);
-        jScrollPane1.setVisible(false);
-        jTextFieldMarca.setVisible(false);
-        jTextFieldModelo.setVisible(false);
-        jTextFieldFoto.setVisible(false);
-        jTextFieldPrecio.setVisible(false);
-        jButtonCancelar.setVisible(false);
-        jButtonAceptar.setVisible(false);
-        jButtonBuscarFoto.setVisible(false);
-        jTextFieldStock.setVisible(false);
-        jLabeStock.setVisible(false);
-        jTextFieldColor.setVisible(false);
-        jLabelColor.setVisible(false);
+        try {
+            añadiendo = false;
+            borrando = true;
+            limpiarCampos();
+            miControlador.cargarProductos();
+            modificarCampos();
+        } catch (Exception ex) {
+            mostrarError("Error al cargar productos.");
+        }
     }//GEN-LAST:event_jButtonEliminarProductoActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        // TODO add your handling code here:
+        limpiarCampos();
+        jComboBoxListaProductos.setModel(new DefaultComboBoxModel());
         jLabelBuscador.setVisible(false);
         jComboBoxListaProductos.setVisible(false);
         jButtonBuscar.setVisible(false);
@@ -390,10 +356,22 @@ public class GestionProductos extends javax.swing.JDialog {
                     mostrarError("Introduce un stock o precio correcto.");
                 } catch (Exception ex) {
                     mostrarError("Ha ocurrido un error al agregar producto.");
-                    mostrarError(ex.getMessage());
                 }
             } else{
-                mostrarMensaje("modificando");
+                if(!borrando){
+                    try {
+                        miControlador.modificarProducto();
+                    } catch (Exception ex) {
+                        mostrarError("Error al modificar el producto");
+                        mostrarError(ex.getMessage());
+                    }
+                } else{
+                    try {
+                        miControlador.eliminarProducto();
+                    } catch (Exception ex) {
+                        mostrarError("Error al eliminar el producto.");
+                    }
+                }
             }
         }
         
@@ -408,10 +386,51 @@ public class GestionProductos extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonBuscarFotoActionPerformed
 
     private void jComboBoxListaProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxListaProductosActionPerformed
-        if(jComboBoxListaProductos.getSelectedItem().equals("")){
-            
-        }
+        
     }//GEN-LAST:event_jComboBoxListaProductosActionPerformed
+
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+        if(!jComboBoxListaProductos.getSelectedItem().equals("")){
+            try {
+                miControlador.seleccionarProducto();
+                miControlador.mostrarDatosProducto();
+                jButtonCancelar.setVisible(true);
+                jButtonAceptar.setVisible(true);
+                jTextAreaCarateristicas.setVisible(true);
+                jScrollPane1.setVisible(true);
+                jTextFieldMarca.setVisible(true);
+                jTextFieldModelo.setVisible(true);
+                jTextFieldFoto.setVisible(true);
+                jTextFieldPrecio.setVisible(true);
+                jLabelMarca.setVisible(true);
+                jLabelModelo.setVisible(true);
+                jLabelPrecio.setVisible(true);
+                jLabelFoto.setVisible(true);
+                jLabelCaracteristicas.setVisible(true);
+                jButtonBuscarFoto.setVisible(true);
+                jTextFieldStock.setVisible(true);
+                jLabeStock.setVisible(true);
+                jTextFieldColor.setVisible(true);
+                jLabelColor.setVisible(true);
+            } catch (Exception ex) {
+                mostrarError("Error al cargar producto.");
+            }
+        } else{
+            limpiarCampos();
+            modificarCampos();
+        }
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jTextFieldFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFotoActionPerformed
+        
+    }//GEN-LAST:event_jTextFieldFotoActionPerformed
+
+    private void jTextFieldFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFotoMouseClicked
+        if(!jTextFieldFoto.getText().equals("")){
+            System.out.println("aaaa");
+            new VisorImagen((Frame)this.getParent(), true, jTextFieldFoto.getText()).setVisible(true);
+        }
+    }//GEN-LAST:event_jTextFieldFotoMouseClicked
 
     public void limpiarCampos(){
         jTextAreaCarateristicas.setText("");
@@ -421,7 +440,6 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextFieldModelo.setText("");
         jTextFieldPrecio.setText("");
         jTextFieldStock.setText("");
-        jComboBoxListaProductos.setModel(new DefaultComboBoxModel());
     }
     
     public void mostrarError(String mensaje) {
@@ -459,7 +477,34 @@ public class GestionProductos extends javax.swing.JDialog {
     public JTextField getjTextFieldStock() {
         return jTextFieldStock;
     }
+
+    public JComboBox<String> getjComboBoxListaProductos() {
+        return jComboBoxListaProductos;
+    }
     
+    public void modificarCampos(){
+        jLabelBuscador.setVisible(true);
+            jComboBoxListaProductos.setVisible(true);
+            jButtonBuscar.setVisible(true);
+            jLabelMarca.setVisible(false);
+            jLabelModelo.setVisible(false);
+            jLabelPrecio.setVisible(false);
+            jLabelFoto.setVisible(false);
+            jLabelCaracteristicas.setVisible(false);
+            jTextAreaCarateristicas.setVisible(false);
+            jScrollPane1.setVisible(false);
+            jTextFieldMarca.setVisible(false);
+            jTextFieldModelo.setVisible(false);
+            jTextFieldFoto.setVisible(false);
+            jTextFieldPrecio.setVisible(false);
+            jButtonCancelar.setVisible(false);
+            jButtonAceptar.setVisible(false);
+            jButtonBuscarFoto.setVisible(false);
+            jTextFieldStock.setVisible(false);
+            jLabeStock.setVisible(false);
+            jTextFieldColor.setVisible(false);
+            jLabelColor.setVisible(false);
+    }
     
     
     /**
