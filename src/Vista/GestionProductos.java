@@ -5,7 +5,13 @@
  */
 package Vista;
 
+import Controlador.ControladorGestionProductos;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -13,12 +19,14 @@ import javax.swing.ImageIcon;
  */
 public class GestionProductos extends javax.swing.JDialog {
 
+    private ControladorGestionProductos miControlador;
     /**
      * Creates new form GestionProductos
      */
     public GestionProductos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        miControlador = new ControladorGestionProductos(this);
         setLocationRelativeTo(null);
         jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
         jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
@@ -46,7 +54,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextFieldPrecio.setVisible(false);
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
-
+        jButtonBuscarFoto.setVisible(false);
     }
 
     /**
@@ -78,6 +86,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextAreaCarateristicas = new javax.swing.JTextArea();
         jButtonCancelar = new javax.swing.JButton();
         jButtonAceptar = new javax.swing.JButton();
+        jButtonBuscarFoto = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -162,6 +171,8 @@ public class GestionProductos extends javax.swing.JDialog {
         getContentPane().add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
         getContentPane().add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 270, -1));
         getContentPane().add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 270, -1));
+
+        jTextFieldFoto.setEditable(false);
         getContentPane().add(jTextFieldFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 270, -1));
         getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 270, -1));
 
@@ -192,6 +203,14 @@ public class GestionProductos extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 90, 90));
+
+        jButtonBuscarFoto.setText("Buscar foto");
+        jButtonBuscarFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarFotoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, -1, -1));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         pack();
@@ -224,6 +243,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelPrecio.setVisible(true);
         jLabelFoto.setVisible(true);
         jLabelCaracteristicas.setVisible(true);
+        jButtonBuscarFoto.setVisible(true);
     }//GEN-LAST:event_jButtonInsertarProductoActionPerformed
 
     private void jButtonModificarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarProductoActionPerformed
@@ -244,6 +264,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextFieldPrecio.setVisible(false);
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
+        jButtonBuscarFoto.setVisible(false);
     }//GEN-LAST:event_jButtonModificarProductoActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
@@ -261,6 +282,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelPrecio.setVisible(true);
         jLabelFoto.setVisible(true);
         jLabelCaracteristicas.setVisible(true);
+        jButtonBuscarFoto.setVisible(true);
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarProductoActionPerformed
@@ -281,6 +303,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextFieldPrecio.setVisible(false);
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
+        jButtonBuscarFoto.setVisible(false);
     }//GEN-LAST:event_jButtonEliminarProductoActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
@@ -301,13 +324,33 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextFieldPrecio.setVisible(false);
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
-
+        jButtonBuscarFoto.setVisible(false);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
+    private void jButtonBuscarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarFotoActionPerformed
+        try {
+            miControlador.buscarImagen();
+        } catch (IOException ex) {
+            mostrarError("Error al elegir la foto.");
+        }
+    }//GEN-LAST:event_jButtonBuscarFotoActionPerformed
+
+    public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
+    }
+
+    public JTextField getjTextFieldFoto() {
+        return jTextFieldFoto;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -353,6 +396,7 @@ public class GestionProductos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonBuscarFoto;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEliminarProducto;
     private javax.swing.JButton jButtonInsertarProducto;
