@@ -23,9 +23,11 @@ public class Liberacion extends javax.swing.JDialog {
         initComponents();
        jLabel2Icon.setIcon(new javax.swing.ImageIcon("Imagenes/registroLiberacion-iloveimg-resized.gif"));
         this.setLocationRelativeTo(null);
-        jButton1Aceptar.setIcon(new ImageIcon("Imagenes/botonaceptar2.png"));
-        jButton2Borrar.setIcon(new ImageIcon("Imagenes/"));
-        jButton3Salir.setIcon(new ImageIcon("Imagenes/close2.png"));
+        jButton1Aceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
+        jButton2Borrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
+      /*  jButton3Salir*/
+        jButton3Salir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
+       /* jButton3Salir.setRolloverIcon(rolloverIcon);*/
         
     }
 
@@ -121,13 +123,19 @@ public class Liberacion extends javax.swing.JDialog {
         getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 264, 80, 50));
 
         jButton2Borrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2Borrar.setText("Borrar ");
+        jButton2Borrar.setActionCommand("");
+        jButton2Borrar.setBorder(null);
+        jButton2Borrar.setBorderPainted(false);
+        jButton2Borrar.setContentAreaFilled(false);
+        jButton2Borrar.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButton2Borrar.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButton2Borrar.setPreferredSize(new java.awt.Dimension(50, 50));
         jButton2Borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2BorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 278, 98, 36));
+        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 90, 70));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

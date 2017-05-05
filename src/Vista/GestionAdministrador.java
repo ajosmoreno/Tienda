@@ -40,9 +40,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelUsuarios.setVisible(false);
         setLocationRelativeTo(null);
         jLabelFondoPrincipal.setIcon(new ImageIcon("Imagenes/fondojpanelprincipal.PNG"));
-        jButtonVolver.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
-        jButtonCancelar.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
-        jButtonBack.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
+        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
+        jButtonCancelar.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
+        jButtonBack.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
 
     }
 

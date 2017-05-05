@@ -31,9 +31,9 @@ public class InterfazCompra extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         jLabelFondo.setIcon(new ImageIcon("Imagenes/fondocatalogo.jpg"));
-        jButtonAñadirCesta.setIcon(new ImageIcon("Imagenes/botonañadirproducto.png"));
-        jButtonCestaCompra.setIcon(new ImageIcon("Imagenes/botonircesta.png"));
-        jButtonVolver.setIcon(new ImageIcon("Imagenes/botonvolver.png"));
+        jButtonAñadirCesta.setIcon(new ImageIcon("Imagenes/icon/botonañadirproducto.png"));
+        jButtonCestaCompra.setIcon(new ImageIcon("Imagenes/icon/botonircesta.png"));
+        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         miControlador = new ControladorInterfazCompra(this);
         try {
             miControlador.mostrarMarcas();
