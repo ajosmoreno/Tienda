@@ -5,7 +5,9 @@ import Modelo.Gestor;
 import Modelo.Producto;
 import Modelo.Repositorio;
 import Modelo.Sesion;
+import Vista.CestaCompra;
 import Vista.InterfazCompra;
+import java.awt.Frame;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -119,6 +121,15 @@ public class ControladorInterfazCompra {
             
         } else{
             miVentana.mostrarError("No puedes comprar el producto porque no eres cliente.");
+        }
+    }
+
+    public void abrirCesta() {
+        if(Sesion.miCliente().getCliente().getPermisos() == 1){
+            CestaCompra cesta = new CestaCompra((Frame)miVentana.getParent(), true);
+            cesta.setVisible(true);
+        } else{
+            miVentana.mostrarError("No puedes ir a la cesta porque no eres cliente.");
         }
     }
 }

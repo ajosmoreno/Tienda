@@ -212,7 +212,7 @@ public class InterfazCompra extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jButtonCestaCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCestaCompraActionPerformed
-        // TODO add your handling code here:
+        miControlador.abrirCesta();
     }//GEN-LAST:event_jButtonCestaCompraActionPerformed
 
     private void jComboBoxMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcaActionPerformed
