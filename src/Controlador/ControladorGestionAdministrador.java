@@ -156,7 +156,7 @@ public class ControladorGestionAdministrador {
         ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
         dcb.addElement("");
         for(Pedido p: listaPedidos){
-            if(p instanceof Reparacion && p.getEstadoPedido().equals("Procesando")){
+            if(p instanceof Reparacion && p.getEstadoPedido().equals("Pagado")){
                 dcb.addElement(p.getNumeroPedido());
             }
         }
@@ -168,7 +168,7 @@ public class ControladorGestionAdministrador {
         ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
         dcb.addElement("");
         for(Pedido p: listaPedidos){
-            if(p instanceof Liberacion && p.getEstadoPedido().equals("Procesando")){
+            if(p instanceof Liberacion && p.getEstadoPedido().equals("Pagado")){
                 dcb.addElement(p.getNumeroPedido());
             }
         }
@@ -185,7 +185,7 @@ public class ControladorGestionAdministrador {
                     miVentana.mostrarMensaje("Pedido completado.");
                     miVentana.limpiarReparacion();
                 } else{
-                    ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Procesando' WHERE numeroPedido = " + reparacionSeleccionada.getNumeroPedido());
+                    ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Pagado' WHERE numeroPedido = " + reparacionSeleccionada.getNumeroPedido());
                     if(rsError != null)
                         miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.");
                     else
@@ -205,7 +205,7 @@ public class ControladorGestionAdministrador {
                     miVentana.mostrarMensaje("Pedido completado.");
                     miVentana.limpiarReparacion();
                 } else{
-                    ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Procesando' WHERE numeroPedido = " + liberacionSeleccionada.getNumeroPedido());
+                    ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Pagado' WHERE numeroPedido = " + liberacionSeleccionada.getNumeroPedido());
                     if(rsError != null)
                         miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.");
                     else

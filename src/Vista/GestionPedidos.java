@@ -1,7 +1,12 @@
 package Vista;
 
 import Controlador.ControladorGestionPedidos;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,13 +21,15 @@ import javax.swing.ImageIcon;
  */
 public class GestionPedidos extends javax.swing.JDialog {
 
+    private ControladorGestionPedidos miControlador;
+    private boolean pendientes;
     /**
      * Creates new form GestionPedidos
      */
     public GestionPedidos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-       
         initComponents();
+        miControlador = new ControladorGestionPedidos(this);
         jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
         jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
         jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
@@ -37,9 +44,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
-        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
-        
-        
+        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));        
     }
     
     
@@ -77,6 +82,11 @@ public class GestionPedidos extends javax.swing.JDialog {
         getContentPane().add(jButtonComprobarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 107, 230, 40));
 
         jButtonCancelarPedido.setText("Cancelar Pedido");
+        jButtonCancelarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarPedidoActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonCancelarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 158, 39));
 
         jButtonListarPedidos.setText("Listar Pedidos");
@@ -148,29 +158,51 @@ public class GestionPedidos extends javax.swing.JDialog {
         getContentPane().add(jScrollPanePedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 620, 270));
 
         jButtonRealizar.setText("Realizar Pedido");
+        jButtonRealizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRealizarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonRealizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 149, 39));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonComprobarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComprobarPedidoActionPerformed
-        // TODO add your handling code here:
+        pendientes = true;
         jTextFieldNombreCliente.setVisible(true);
         jLabelNombreCliente.setVisible(true);
         jButtonBuscar.setVisible(true);
-        //jTablePedidos.setVisible(false);
-        //jScrollPanePedidos.setVisible(false);
-        jButtonCancelarPedido.setVisible(true);
-        jButtonRealizar.setVisible(true);
-        
+        jTablePedidos.setVisible(false);
+        jScrollPanePedidos.setVisible(false);
     }//GEN-LAST:event_jButtonComprobarPedidoActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
-        jScrollPanePedidos.setVisible(true);
-        jTablePedidos.setVisible(true);
-        
-     
+        if(!jTextFieldNombreCliente.getText().equals("")){
+            jScrollPanePedidos.setVisible(true);
+            jTablePedidos.setVisible(true);
+            if(pendientes){
+                jButtonCancelarPedido.setVisible(true);
+                jButtonRealizar.setVisible(true);
+                try {
+                    miControlador.mostarPendientes();
+                } catch (Exception ex) {
+                    mostrarError("Error al mostrar pedidos pendientes del cliente.");
+                }
+            } else{
+                try {
+                    miControlador.mostrarPedidos();
+                } catch (Exception ex) {
+                    mostrarError("Error al mostrar la lista de pedidos.");
+                }
+            }
+        } else{
+            mostrarError("Introduce un nombre de usuario.");
+            jScrollPanePedidos.setVisible(false);
+            jTablePedidos.setVisible(false);
+            jButtonRealizar.setVisible(false);
+            jButtonCancelarPedido.setVisible(false);
+        }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverAtrasActionPerformed
@@ -180,7 +212,7 @@ public class GestionPedidos extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonVolverAtrasActionPerformed
 
     private void jButtonListarPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarPedidosActionPerformed
-        // TODO add your handling code here:
+        pendientes = false;
         jTextFieldNombreCliente.setVisible(true);
         jLabelNombreCliente.setVisible(true);
         jButtonBuscar.setVisible(true);
@@ -188,9 +220,42 @@ public class GestionPedidos extends javax.swing.JDialog {
         jScrollPanePedidos.setVisible(false);
         jButtonRealizar.setVisible(false);
         jButtonCancelarPedido.setVisible(false);
-        
     }//GEN-LAST:event_jButtonListarPedidosActionPerformed
 
+    private void jButtonRealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRealizarActionPerformed
+        try {
+            miControlador.completarPedidos();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al completar los pedidos.");
+        }
+    }//GEN-LAST:event_jButtonRealizarActionPerformed
+
+    private void jButtonCancelarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarPedidoActionPerformed
+        try {
+            miControlador.cancelarPedidos();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al cancelar los pedidos.");
+        }
+    }//GEN-LAST:event_jButtonCancelarPedidoActionPerformed
+
+    public void mostrarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
+    }
+    
+    public void mostrarError(String mensaje){
+        JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public JTable getjTablePedidos() {
+        return jTablePedidos;
+    }
+
+    public JTextField getjTextFieldNombreCliente() {
+        return jTextFieldNombreCliente;
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */

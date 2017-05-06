@@ -5,25 +5,140 @@
  */
 package Controlador;
 
-import Vista.GestionAdministrador;
+import Modelo.BaseDeDatos;
+import Modelo.Compra;
+import Modelo.Liberacion;
+import Modelo.Pedido;
+import Modelo.Reparacion;
+import Modelo.Repositorio;
 import Vista.GestionPedidos;
-import Vista.PanelPrincipal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Antonio
  */
 public class ControladorGestionPedidos {
-    
-     private GestionPedidos miGestor;
-     
-     
-     public ControladorGestionPedidos(GestionPedidos miGestor) {
-        this.miGestor = miGestor;
+
+    private GestionPedidos miVentana;
+
+    public ControladorGestionPedidos(GestionPedidos miVentana) {
+        this.miVentana = miVentana;
+    }
+
+    public void mostarPendientes() throws ClassNotFoundException, Exception {
+        DefaultTableModel dtm = new DefaultTableModel(){
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                if(columnIndex == 0 || columnIndex == 6) return Boolean.class;
+                else return super.getColumnClass(columnIndex);
+            }
+            @Override
+            public boolean isCellEditable(int row, int col) {
+                return col == 0 || col == 6;
+            }
+        };
+        dtm.addColumn("");
+        dtm.addColumn("Número de pedido");
+        dtm.addColumn("Fecha");
+        dtm.addColumn("Forma de pago");
+        dtm.addColumn("Estado de pedido");
+        dtm.addColumn("Total");
+        dtm.addColumn("Completar pedido");
+        for(Pedido p: Repositorio.repositorio().devolverPedidos()){
+            if(!p.getEstadoPedido().equals("Completado") && !p.getEstadoPedido().equals("Cancelado") && p instanceof Compra){
+                Object[] fila = {false, p.getNumeroPedido(), p.getFecha(), p.getTipoPago(), p.getEstadoPedido(), p.getTotal(), false};
+                dtm.addRow(fila);
+            }
+        }
+        miVentana.getjTablePedidos().setModel(dtm);
+        miVentana.getjTablePedidos().getColumn("").setPreferredWidth(25);
+        miVentana.getjTablePedidos().getColumn("Número de pedido").setPreferredWidth(35);
+        miVentana.getjTablePedidos().getColumn("Fecha").setPreferredWidth(115);
+        miVentana.getjTablePedidos().getColumn("Forma de pago").setPreferredWidth(100);
+        miVentana.getjTablePedidos().getColumn("Estado de pedido").setPreferredWidth(100);
+        miVentana.getjTablePedidos().getColumn("Completar pedido").setPreferredWidth(100);
+    }
+
+    public void completarPedidos() throws SQLException, Exception {
+        boolean correcto = false;
+        for(int i = 0; i < miVentana.getjTablePedidos().getRowCount(); i++){
+            boolean seleccionado = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 0);
+            boolean completar = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 6);
+            int pedido = (Integer)miVentana.getjTablePedidos().getValueAt(i, 1);
+            if(seleccionado && completar){
+                ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + pedido);
+                if(rs != null){
+                    correcto = true;
+                } else{
+                    miVentana.mostrarError("Error al completar pedido " + pedido);
+                }
+            }
+        }
+        if(correcto){
+            Repositorio.repositorio().cargarProductos();
+            Repositorio.repositorio().cargarPedidos();
+            Repositorio.repositorio().cargarClientes();
+            miVentana.mostrarMensaje("Los pedidos seleccionados han sido completados.");
+            mostarPendientes();
+        } else{
+            miVentana.mostrarError("No se ha completado ningún pedido.");
+        }
     }
     
-     
-     
-   
-    
+    public void cancelarPedidos() throws SQLException, Exception{
+        boolean correcto = false;
+        for(int i = 0; i < miVentana.getjTablePedidos().getRowCount(); i++){
+            boolean seleccionado = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 0);
+            boolean completar = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 6);
+            int pedido = (Integer)miVentana.getjTablePedidos().getValueAt(i, 1);
+            if(seleccionado && !completar){
+                ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Cancelado' WHERE numeroPedido = " + pedido);
+                if(rs != null){
+                    correcto = true;
+                } else{
+                    miVentana.mostrarError("Error al cancelar pedido " + pedido);
+                }
+            }
+        }
+        if(correcto){
+            Repositorio.repositorio().cargarProductos();
+            Repositorio.repositorio().cargarPedidos();
+            Repositorio.repositorio().cargarClientes();
+            miVentana.mostrarMensaje("Los pedidos seleccionados han sido cancelados.");
+            mostarPendientes();
+        } else{
+            miVentana.mostrarError("No se ha cancelado ningún pedido.");
+        }
+    }
+
+    public void mostrarPedidos() throws ClassNotFoundException, Exception {
+        DefaultTableModel dtm = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int col) {
+                return false;
+            }
+        };
+        dtm.addColumn("Número de pedido");
+        dtm.addColumn("Fecha");
+        dtm.addColumn("Forma de pago");
+        dtm.addColumn("Estado de pedido");
+        dtm.addColumn("Tipo");
+        dtm.addColumn("Total");
+        for(Pedido p: Repositorio.repositorio().devolverPedidos()){
+            String tipo = "";
+            if(p instanceof Compra) tipo = "Compra";
+            else if(p instanceof Reparacion) tipo = "Reparación";
+            else if(p instanceof Liberacion) tipo = "Liberación";
+            Object[] fila = {p.getNumeroPedido(), p.getFecha(), p.getTipoPago(), p.getEstadoPedido(), tipo, p.getTotal()};
+            dtm.addRow(fila);
+        }
+        miVentana.getjTablePedidos().setModel(dtm);
+        miVentana.getjTablePedidos().getColumn("Número de pedido").setPreferredWidth(35);
+        miVentana.getjTablePedidos().getColumn("Fecha").setPreferredWidth(115);
+        miVentana.getjTablePedidos().getColumn("Forma de pago").setPreferredWidth(100);
+        miVentana.getjTablePedidos().getColumn("Estado de pedido").setPreferredWidth(100);
+    }
 }
