@@ -150,7 +150,7 @@ public class ControladorCestaCompra {
                     if(Integer.parseInt(stockProducto.getString("stock")) > 0){
                         ResultSet productoComprado = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO productoscomprados (numeroPedido, idProducto) VALUES (" + rsPedido.getString("numeroPedido") + ", " + p.getId() + ");");
                         if(productoComprado != null){
-                            ResultSet bajarStock = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE productos SET stock = stock - 1 WHERE id = " + p.getId());
+                            BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE productos SET stock = stock - 1 WHERE id = " + p.getId());
                             ResultSet eliminarProductoCesta = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM cesta WHERE idCliente = " + idCliente + " AND idProducto = " + p.getId());
                             if(eliminarProductoCesta == null){
                                 miVentana.mostrarError("No se ha podido eliminar el producto " + p.getMarca() + " " + p.getModelo() + " " + p.getColor() + " de la cesta.\n\nEl pedido de ese producto si se ha procesado, solo que volverá a aparecer en la cesta.");

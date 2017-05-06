@@ -53,7 +53,7 @@ public class InterfazCompra extends javax.swing.JDialog {
     }
 
     public void mostrarMensaje(String mensaje){
-        JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.DEFAULT_OPTION);
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }
     
     public void mostrarError(String mensaje){
