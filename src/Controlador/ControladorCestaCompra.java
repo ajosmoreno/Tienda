@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -128,8 +129,8 @@ public class ControladorCestaCompra {
         generarPedido("Efectivo");
     }
 
-    public void pagarTarjeta() {
-        
+    public void pagarTarjeta() throws Exception {
+        generarPedido("Tarjeta");
     }
     
     public void generarPedido(String tipoPago) throws SQLException, Exception{
@@ -160,9 +161,24 @@ public class ControladorCestaCompra {
                             miVentana.mostrarError("No se ha podido procesar el producto " + p.getMarca() + " " + p.getModelo() + " " + p.getColor() + " de la cesta.\n\nInténtelo de nuevo en otro pedido.");
                         }
                     }else{
-                        ResultSet rsAgotado = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM cesta WHERE idCliente = " + idCliente + " AND idProducto = " + p.getId());
+                        BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM cesta WHERE idCliente = " + idCliente + " AND idProducto = " + p.getId());
                         miVentana.mostrarError("Mientras añadias otros productos, el producto " + p.getMarca() + " " + p.getModelo() + " " + p.getColor() + " se ha agotado.\n\nEste producto no se procesará.");
                     }
+                }
+                if(tipoPago.equals("Efectivo") && correcto)
+                    miVentana.mostrarMensaje("El pedido ha sido procesado, puede pasar a recogerlo en la caja dando este número " + rsPedido.getString("numeroPedido") + ".");
+                else if(tipoPago.equals("Tarjeta") && correcto){
+                    miVentana.mostrarMensaje("Introduzca su tarjeta de crédito/débito en el lector y pulse aceptar.");
+                    JOptionPane.showInputDialog("Introduzca el pin de la tarjeta");
+                    ResultSet pagado = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Pagado' WHERE numeroPedido = " + rsPedido.getString("numeroPedido") + ";");
+                    if(pagado != null){
+                        miVentana.mostrarMensaje("El pedido ha sido procesado y pagado, puede pasar a recogerlo en la caja dando este número " + rsPedido.getString("numeroPedido") + ".");
+                    } else
+                        miVentana.mostrarError("No se ha podido validar la tarjeta, puede pasar a recogerlo en la caja dando este número " + rsPedido.getString("numeroPedido") + " y pagarlo en caja.");
+                } else{
+                    BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM compras WHERE numeroPedido = " + rsPedido.getString("numeroPedido"));
+                    BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM pedidos WHERE numeroPedido = " + rsPedido.getString("numeroPedido"));
+                    miVentana.mostrarMensaje("No se ha comprado ningún producto.");
                 }
                 Sesion.miCliente().getCliente().setCesta(Repositorio.repositorio().cestaPorCliente(Sesion.miCliente().getCliente().getId()));
                 cargarCesta();
@@ -174,16 +190,6 @@ public class ControladorCestaCompra {
                     if(p.getCliente() == Sesion.miCliente().getCliente().getId()){
                         Sesion.miCliente().getCliente().getPedidosRealizados().add(p);
                     }
-                }
-                if(tipoPago.equals("Efectivo") && correcto)
-                    miVentana.mostrarMensaje("El pedido ha sido procesado, puede pasar a recogerlo en la caja dando este número " + rsPedido.getString("numeroPedido") + ".");
-                else if(tipoPago.equals("Tarjeta") && correcto){
-                    miVentana.mostrarMensaje("Introduzca su tarjeta de crédito/débito en el lector y pulse aceptar.");
-                } else{
-                    BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM compras WHERE numeroPedido = " + rsPedido.getString("numeroPedido"));
-                    BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM pedidos WHERE numeroPedido = " + rsPedido.getString("numeroPedido"));
-                    
-                    miVentana.mostrarMensaje("No se ha comprado ningún producto.");
                 }
             } else{
                 miVentana.mostrarError("No se ha podigo generar la compra.");

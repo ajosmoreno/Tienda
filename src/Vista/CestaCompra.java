@@ -170,7 +170,11 @@ public class CestaCompra extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonBorrarProductoActionPerformed
 
     private void jButtonPagarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagarTarjetaActionPerformed
-        miControlador.pagarTarjeta();
+        try {
+            miControlador.pagarTarjeta();
+        } catch (Exception ex) {
+            mostrarError("Error al pagar con tarjeta.");
+        }
     }//GEN-LAST:event_jButtonPagarTarjetaActionPerformed
 
     private void jButtonVolverMouseEntered(java.awt.event.MouseEvent evt) {                                                   
