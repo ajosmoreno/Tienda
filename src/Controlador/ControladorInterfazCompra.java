@@ -110,7 +110,10 @@ public class ControladorInterfazCompra {
     }
     
     public void añadirCesta() throws SQLException, Exception{
-        if(Sesion.miCliente().getCliente().getPermisos() == 1){
+        ResultSet consultaStock = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT stock FROM productos WHERE id = " + productoSeleccionado.getId());
+        consultaStock.next();
+        int stock = Integer.parseInt(consultaStock.getString("stock"));
+        if(Sesion.miCliente().getCliente().getPermisos() == 1 && stock > 0){
             ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO cesta VALUES (" + Sesion.miCliente().getCliente().getId() + ", " + productoSeleccionado.getId() + ");");
             if(rs != null){
                 Sesion.miCliente().getCliente().getCesta().add(productoSeleccionado);
@@ -120,7 +123,7 @@ public class ControladorInterfazCompra {
             }
             
         } else{
-            miVentana.mostrarError("No puedes comprar el producto porque no eres cliente.");
+            miVentana.mostrarError("No puedes comprar el producto porque no eres cliente o se ha acabado el stock.");
         }
     }
 

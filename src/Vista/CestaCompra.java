@@ -5,8 +5,14 @@
  */
 package Vista;
 
+import Controlador.ControladorCestaCompra;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -14,12 +20,15 @@ import javax.swing.JOptionPane;
  */
 public class CestaCompra extends javax.swing.JDialog {
 
+    private ControladorCestaCompra miControlador;
     /**
      * Creates new form CestaCompra
      */
     public CestaCompra(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        miControlador = new ControladorCestaCompra(this);
+        miControlador.cargarCesta();
         setLocationRelativeTo(null);
         jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
@@ -36,17 +45,19 @@ public class CestaCompra extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableCesta = new javax.swing.JTable();
         jButtonPagoEfectivo = new javax.swing.JButton();
         jButtonPagarTarjeta = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
         jButtonBorrarProducto = new javax.swing.JButton();
+        jLabelTotal = new javax.swing.JLabel();
+        jLabelPrecioTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cesta de Compra");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCesta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -72,11 +83,11 @@ public class CestaCompra extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(10);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(20);
+        jScrollPane1.setViewportView(jTableCesta);
+        if (jTableCesta.getColumnModel().getColumnCount() > 0) {
+            jTableCesta.getColumnModel().getColumn(0).setMinWidth(10);
+            jTableCesta.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jTableCesta.getColumnModel().getColumn(0).setMaxWidth(20);
         }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 777, 310));
@@ -90,11 +101,21 @@ public class CestaCompra extends javax.swing.JDialog {
         getContentPane().add(jButtonPagoEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, 50));
 
         jButtonPagarTarjeta.setText("Realizar pago con tarjeta");
+        jButtonPagarTarjeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPagarTarjetaActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonPagarTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, 50));
 
         jButtonVolver.setBorder(null);
         jButtonVolver.setBorderPainted(false);
         jButtonVolver.setContentAreaFilled(false);
+        jButtonVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonVolverMouseEntered(evt);
+            }
+        });
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);
@@ -103,7 +124,21 @@ public class CestaCompra extends javax.swing.JDialog {
         getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 90, 90));
 
         jButtonBorrarProducto.setText("Borrar producto");
+        jButtonBorrarProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonBorrarProductoMouseEntered(evt);
+            }
+        });
+        jButtonBorrarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarProductoActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonBorrarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, -1, 50));
+
+        jLabelTotal.setText("TOTAL:");
+        getContentPane().add(jLabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, 20));
+        getContentPane().add(jLabelPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 100, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -114,11 +149,62 @@ public class CestaCompra extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jButtonPagoEfectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagoEfectivoActionPerformed
-        // TODO add your handling code here:
-        
-        
+        try {
+            miControlador.pagarEfectivo();
+        } catch (Exception ex) {
+            mostrarError("Error al procesar el pedido");
+            mostrarError(ex.getMessage());
+        }
     }//GEN-LAST:event_jButtonPagoEfectivoActionPerformed
 
+    private void jButtonBorrarProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBorrarProductoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonBorrarProductoMouseEntered
+
+    private void jButtonBorrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarProductoActionPerformed
+        try {
+            miControlador.borrarProductos();
+        } catch (Exception ex) {
+            mostrarError("Error al borrar los productos de la cesta.");
+        }
+    }//GEN-LAST:event_jButtonBorrarProductoActionPerformed
+
+    private void jButtonPagarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagarTarjetaActionPerformed
+        miControlador.pagarTarjeta();
+    }//GEN-LAST:event_jButtonPagarTarjetaActionPerformed
+
+    private void jButtonVolverMouseEntered(java.awt.event.MouseEvent evt) {                                                   
+        // TODO add your handling code here:
+    }  
+   
+    public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
+    }
+    
+    public JTable getjTableCesta() {
+        return jTableCesta;
+    }
+
+    public JButton getjButtonBorrarProducto() {
+        return jButtonBorrarProducto;
+    }
+
+    public JButton getjButtonPagarTarjeta() {
+        return jButtonPagarTarjeta;
+    }
+
+    public JButton getjButtonPagoEfectivo() {
+        return jButtonPagoEfectivo;
+    }
+
+    public JLabel getjLabelPrecioTotal() {
+        return jLabelPrecioTotal;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -166,7 +252,9 @@ public class CestaCompra extends javax.swing.JDialog {
     private javax.swing.JButton jButtonPagarTarjeta;
     private javax.swing.JButton jButtonPagoEfectivo;
     private javax.swing.JButton jButtonVolver;
+    private javax.swing.JLabel jLabelPrecioTotal;
+    private javax.swing.JLabel jLabelTotal;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableCesta;
     // End of variables declaration//GEN-END:variables
 }
