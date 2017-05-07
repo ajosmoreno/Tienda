@@ -104,14 +104,7 @@ public class ControladorGestionProductos {
         ArrayList<Producto> productos = Repositorio.repositorio().devolverProductos();
         boolean encontrado = false;
         int contador = 0;
-        productoSeleccionado = null;
-        while(!encontrado && contador < productos.size()){
-            if(Integer.parseInt(miVentana.getjComboBoxListaProductos().getSelectedItem().toString()) == productos.get(contador).getId()){
-                encontrado = true;
-                productoSeleccionado = productos.get(contador);
-            }
-            contador++;
-        }
+        productoSeleccionado = Repositorio.repositorio().productoPorID(Integer.parseInt(miVentana.getjComboBoxListaProductos().getSelectedItem().toString()));
     }
 
     public void modificarProducto() throws SQLException, Exception {

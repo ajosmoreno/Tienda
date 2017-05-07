@@ -42,16 +42,7 @@ public class Repositorio {
             rsPedidosCompras.next();
             ResultSet rsProductosCompra = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM productosComprados WHERE numeroPedido = " + rsCompras.getString("numeroPedido"));
             while (rsProductosCompra.next()) {
-                boolean productoEncontrado = false;
-                int contadorProductos = 0;
-                while (!productoEncontrado && contadorProductos < listaProductos.size()) {
-                    Producto p = listaProductos.get(contadorProductos);
-                    if (p.getId() == Integer.parseInt(rsProductosCompra.getString("idProducto"))) {
-                        productos.add(p);
-                        productoEncontrado = true;
-                    }
-                    contadorProductos++;
-                }
+                productos.add(productoPorID(Integer.parseInt(rsProductosCompra.getString("idProducto"))));
             }
             Compra c = new Compra(Integer.parseInt(rsPedidosCompras.getString("numeroPedido")), rsPedidosCompras.getString("fecha"), Integer.parseInt(rsPedidosCompras.getString("idCliente")), Double.parseDouble(rsPedidosCompras.getString("subtotal")), Double.parseDouble(rsPedidosCompras.getString("total")), rsPedidosCompras.getString("tipoPago"), rsPedidosCompras.getString("estadoPedido"), productos);
             listaPedidos.add(c);
@@ -102,18 +93,39 @@ public class Repositorio {
         ArrayList<Producto> cesta = new ArrayList<Producto>();
         ResultSet rsCesta = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM cesta WHERE idCliente = " + idCliente);
         while (rsCesta.next()) {
-            boolean encontrado = false;
-            int contador = 0;
-            while (!encontrado && contador < listaProductos.size()) {
-                Producto p = listaProductos.get(contador);
-                if (p.getId() == Integer.parseInt(rsCesta.getString("idProducto"))) {
-                    encontrado = true;
-                    cesta.add(p);
-                }
-                contador++;
-            }
+            cesta.add(productoPorID(Integer.parseInt(rsCesta.getString("idProducto"))));
         }
         return cesta;
+    }
+    
+    public Producto productoPorID(int idProducto){
+        Producto producto = null;
+        boolean encontrado = false;
+        int contador = 0;
+        while(!encontrado && contador < listaProductos.size()){
+            Producto p = listaProductos.get(contador);
+            if(p.getId() == idProducto){
+                producto = p;
+                encontrado = true;
+            }
+            contador++;
+        }
+        return producto;
+    }
+    
+    public Cliente clientePorUsuario(String usuario){
+        Cliente cliente = null;
+        boolean encontrado = false;
+        int contador = 0;
+        while(!encontrado && contador < listaClientes.size()){
+            Cliente c = listaClientes.get(contador);
+            if(c.getNombreUsuario().equals(usuario)){
+                encontrado = true;
+                cliente = c;
+            }
+            contador++;
+        }
+        return cliente;
     }
 
     public void inicializarDatos() throws ClassNotFoundException, SQLException, Exception {
