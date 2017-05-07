@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.BaseDeDatos;
+import Modelo.Cliente;
 import Modelo.Compra;
 import Modelo.Liberacion;
 import Modelo.Pedido;
@@ -28,7 +29,7 @@ public class ControladorGestionPedidos {
         this.miVentana = miVentana;
     }
 
-    public void mostarPendientes() throws ClassNotFoundException, Exception {
+    public boolean mostarPendientes() throws ClassNotFoundException, Exception {
         DefaultTableModel dtm = new DefaultTableModel(){
             @Override
             public Class<?> getColumnClass(int columnIndex) {
@@ -41,25 +42,32 @@ public class ControladorGestionPedidos {
             }
         };
         dtm.addColumn("");
-        dtm.addColumn("Número de pedido");
+        dtm.addColumn("ID");
         dtm.addColumn("Fecha");
         dtm.addColumn("Forma de pago");
         dtm.addColumn("Estado de pedido");
         dtm.addColumn("Total");
         dtm.addColumn("Completar pedido");
-        for(Pedido p: Repositorio.repositorio().devolverPedidos()){
-            if(!p.getEstadoPedido().equals("Completado") && !p.getEstadoPedido().equals("Cancelado") && p instanceof Compra){
-                Object[] fila = {false, p.getNumeroPedido(), p.getFecha(), p.getTipoPago(), p.getEstadoPedido(), p.getTotal(), false};
-                dtm.addRow(fila);
+        Cliente c = Repositorio.repositorio().clientePorUsuario(miVentana.getjTextFieldNombreCliente().getText());
+        if(c != null){
+            for(Pedido p: Repositorio.repositorio().devolverPedidos()){
+
+                    if(!p.getEstadoPedido().equals("Completado") && !p.getEstadoPedido().equals("Cancelado") && p instanceof Compra && p.getCliente() == c.getId()){
+                        Object[] fila = {false, p.getNumeroPedido(), p.getFecha(), p.getTipoPago(), p.getEstadoPedido(), p.getTotal(), false};
+                        dtm.addRow(fila);
+                    }
             }
+        } else{
+            miVentana.mostrarError("El usuario introducido no existe.");
         }
         miVentana.getjTablePedidos().setModel(dtm);
         miVentana.getjTablePedidos().getColumn("").setPreferredWidth(25);
-        miVentana.getjTablePedidos().getColumn("Número de pedido").setPreferredWidth(35);
+        miVentana.getjTablePedidos().getColumn("ID").setPreferredWidth(35);
         miVentana.getjTablePedidos().getColumn("Fecha").setPreferredWidth(115);
         miVentana.getjTablePedidos().getColumn("Forma de pago").setPreferredWidth(100);
         miVentana.getjTablePedidos().getColumn("Estado de pedido").setPreferredWidth(100);
         miVentana.getjTablePedidos().getColumn("Completar pedido").setPreferredWidth(100);
+        return c != null;
     }
 
     public void completarPedidos() throws SQLException, Exception {
@@ -114,31 +122,39 @@ public class ControladorGestionPedidos {
         }
     }
 
-    public void mostrarPedidos() throws ClassNotFoundException, Exception {
+    public boolean mostrarPedidos() throws ClassNotFoundException, Exception {
         DefaultTableModel dtm = new DefaultTableModel(){
             @Override
             public boolean isCellEditable(int row, int col) {
                 return false;
             }
         };
-        dtm.addColumn("Número de pedido");
+        dtm.addColumn("ID");
         dtm.addColumn("Fecha");
         dtm.addColumn("Forma de pago");
         dtm.addColumn("Estado de pedido");
         dtm.addColumn("Tipo");
         dtm.addColumn("Total");
-        for(Pedido p: Repositorio.repositorio().devolverPedidos()){
-            String tipo = "";
-            if(p instanceof Compra) tipo = "Compra";
-            else if(p instanceof Reparacion) tipo = "Reparación";
-            else if(p instanceof Liberacion) tipo = "Liberación";
-            Object[] fila = {p.getNumeroPedido(), p.getFecha(), p.getTipoPago(), p.getEstadoPedido(), tipo, p.getTotal()};
-            dtm.addRow(fila);
+        Cliente c = Repositorio.repositorio().clientePorUsuario(miVentana.getjTextFieldNombreCliente().getText());
+        if(c != null){
+            for(Pedido p: Repositorio.repositorio().devolverPedidos()){
+                String tipo = "";
+                if(p instanceof Compra) tipo = "Compra";
+                else if(p instanceof Reparacion) tipo = "Reparación";
+                else if(p instanceof Liberacion) tipo = "Liberación";
+                if(p.getCliente() == c.getId()){
+                    Object[] fila = {p.getNumeroPedido(), p.getFecha(), p.getTipoPago(), p.getEstadoPedido(), tipo, p.getTotal()};
+                    dtm.addRow(fila);
+                }
+            }
+        } else{
+            miVentana.mostrarError("El usuario introducido no existe.");
         }
         miVentana.getjTablePedidos().setModel(dtm);
-        miVentana.getjTablePedidos().getColumn("Número de pedido").setPreferredWidth(35);
+        miVentana.getjTablePedidos().getColumn("ID").setPreferredWidth(35);
         miVentana.getjTablePedidos().getColumn("Fecha").setPreferredWidth(115);
         miVentana.getjTablePedidos().getColumn("Forma de pago").setPreferredWidth(100);
         miVentana.getjTablePedidos().getColumn("Estado de pedido").setPreferredWidth(100);
+        return c != null;
     }
 }

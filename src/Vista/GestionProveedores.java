@@ -102,6 +102,11 @@ public class GestionProveedores extends javax.swing.JDialog {
         getContentPane().add(jTextFieldEmailProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 170, -1));
 
         jButtonVolverAtras.setToolTipText("Volver atras");
+        jButtonVolverAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverAtrasActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 90, 90));
 
         jButtonAceptar.setToolTipText("Volver atras");
@@ -110,6 +115,10 @@ public class GestionProveedores extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverAtrasActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonVolverAtrasActionPerformed
 
     /**
      * @param args the command line arguments

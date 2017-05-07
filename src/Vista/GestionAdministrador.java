@@ -531,41 +531,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }
 
     private void jButtonGestionProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionProveedorActionPerformed
-        try {
-            limpiarLiberacion();
-            reparando = false;
-            miControlador.cargarLiberaciones();
-            jPanelUsuarios.setVisible(true);
-            jLabelPedidosPendientes.setVisible(true);
-            jComboBoxPedidosPendientes.setVisible(true);
-            jLabelProveedor.setVisible(false);
-            jTextFieldProveedor.setVisible(false);
-            jLabelDiagnostico.setText("Instrucciones");
-            jLabelDiagnostico.setVisible(true);
-            jTextAreaDiagnostico.setVisible(true);
-            jScrollPaneDiagnostico.setVisible(true);
-            jButtonSolicitarCodigo.setVisible(true);
-            jLabelLiberaciones.setText("Liberaciones");
-            jLabelLiberaciones.setVisible(true);
-            jLabelImei.setVisible(true);
-            jComboBoxOperadores.setVisible(true);
-            jLabelOperador.setVisible(true);
-            jButtonSolicitarCodigo.setVisible(true);
-            jButtonVolver.setVisible(true);
-            jTextFieldImei.setVisible(true);
-            jPanelModificarUsuario.setVisible(false);
-            jButtonModificarUsuario.setVisible(false);
-            jButtonEliminarUsuario.setVisible(false);
-            jButtonInsertarUsuario.setVisible(false);
-            jButtonBack.setVisible(false);
-            jTextAreaDiagnostico.setText("");
-            jLabelCodigoLiberacion.setVisible(true);
-            jTextFieldCodigoLiberacion.setVisible(true);
-            jButtonFinalizarPedido.setVisible(true);
-            jTextFieldCodigoLiberacion.setText("");
-        } catch (Exception ex) {
-            mostrarError("Error al cargar las liberaciones pendientes.");
-        }
+        miControlador.abrirGestionProveedores();
     }//GEN-LAST:event_jButtonGestionProveedorActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
@@ -827,7 +793,41 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonFinalizarPedidoActionPerformed
 
     private void jButtonLiberacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLiberacionActionPerformed
-        // TODO add your handling code here:
+        try {
+            limpiarLiberacion();
+            reparando = false;
+            miControlador.cargarLiberaciones();
+            jPanelUsuarios.setVisible(true);
+            jLabelPedidosPendientes.setVisible(true);
+            jComboBoxPedidosPendientes.setVisible(true);
+            jLabelProveedor.setVisible(false);
+            jTextFieldProveedor.setVisible(false);
+            jLabelDiagnostico.setText("Instrucciones");
+            jLabelDiagnostico.setVisible(true);
+            jTextAreaDiagnostico.setVisible(true);
+            jScrollPaneDiagnostico.setVisible(true);
+            jButtonSolicitarCodigo.setVisible(true);
+            jLabelLiberaciones.setText("Liberaciones");
+            jLabelLiberaciones.setVisible(true);
+            jLabelImei.setVisible(true);
+            jComboBoxOperadores.setVisible(true);
+            jLabelOperador.setVisible(true);
+            jButtonSolicitarCodigo.setVisible(true);
+            jButtonVolver.setVisible(true);
+            jTextFieldImei.setVisible(true);
+            jPanelModificarUsuario.setVisible(false);
+            jButtonModificarUsuario.setVisible(false);
+            jButtonEliminarUsuario.setVisible(false);
+            jButtonInsertarUsuario.setVisible(false);
+            jButtonBack.setVisible(false);
+            jTextAreaDiagnostico.setText("");
+            jLabelCodigoLiberacion.setVisible(true);
+            jTextFieldCodigoLiberacion.setVisible(true);
+            jButtonFinalizarPedido.setVisible(true);
+            jTextFieldCodigoLiberacion.setText("");
+        } catch (Exception ex) {
+            mostrarError("Error al cargar las liberaciones pendientes.");
+        }
     }//GEN-LAST:event_jButtonLiberacionActionPerformed
 
     public void limpiarReparacion() throws Exception{

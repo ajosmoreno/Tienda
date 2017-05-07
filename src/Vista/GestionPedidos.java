@@ -179,19 +179,26 @@ public class GestionPedidos extends javax.swing.JDialog {
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         if(!jTextFieldNombreCliente.getText().equals("")){
-            jScrollPanePedidos.setVisible(true);
-            jTablePedidos.setVisible(true);
+            
             if(pendientes){
-                jButtonCancelarPedido.setVisible(true);
-                jButtonRealizar.setVisible(true);
+                
                 try {
-                    miControlador.mostarPendientes();
+                    if(miControlador.mostarPendientes()){
+                        jButtonCancelarPedido.setVisible(true);
+                        jButtonRealizar.setVisible(true);
+                        jScrollPanePedidos.setVisible(true);
+                        jTablePedidos.setVisible(true);
+                    }
                 } catch (Exception ex) {
                     mostrarError("Error al mostrar pedidos pendientes del cliente.");
+                    ex.printStackTrace();
                 }
             } else{
                 try {
-                    miControlador.mostrarPedidos();
+                    if(miControlador.mostrarPedidos()){
+                        jScrollPanePedidos.setVisible(true);
+                        jTablePedidos.setVisible(true);
+                    }
                 } catch (Exception ex) {
                     mostrarError("Error al mostrar la lista de pedidos.");
                 }
