@@ -72,7 +72,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
         buttonGrouppermisos = new javax.swing.ButtonGroup();
         jPanelPrincipal = new javax.swing.JPanel();
-        jButtonLiberacion = new javax.swing.JButton();
+        jButtonGestionProveedor = new javax.swing.JButton();
         jButtonReparacion = new javax.swing.JButton();
         jButtonGestionUsuarios = new javax.swing.JButton();
         jButtonGestionPedidos = new javax.swing.JButton();
@@ -126,6 +126,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jTextFieldCodigoLiberacion = new javax.swing.JTextField();
         jButtonFinalizarPedido = new javax.swing.JButton();
         jButtonGestionProducto = new javax.swing.JButton();
+        jButtonLiberacion = new javax.swing.JButton();
         jLabelFondoPrincipal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -135,13 +136,13 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelPrincipal.setOpaque(false);
         jPanelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonLiberacion.setText("Realizar Liberacion");
-        jButtonLiberacion.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGestionProveedor.setText("Gestionar Proveedores");
+        jButtonGestionProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLiberacionActionPerformed(evt);
+                jButtonGestionProveedorActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 170, 60));
+        jPanelPrincipal.add(jButtonGestionProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 170, 60));
 
         jButtonReparacion.setText("Realizar Reparacion");
         jButtonReparacion.addActionListener(new java.awt.event.ActionListener() {
@@ -436,6 +437,14 @@ public class GestionAdministrador extends javax.swing.JDialog {
         });
         jPanelPrincipal.add(jButtonGestionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 170, 60));
 
+        jButtonLiberacion.setText("Realizar Liberacion");
+        jButtonLiberacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLiberacionActionPerformed(evt);
+            }
+        });
+        jPanelPrincipal.add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 170, 60));
+
         getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 590));
 
         jLabelFondoPrincipal.setOpaque(true);
@@ -521,7 +530,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jTextFieldPassword.setText("");
     }
 
-    private void jButtonLiberacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLiberacionActionPerformed
+    private void jButtonGestionProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionProveedorActionPerformed
         try {
             limpiarLiberacion();
             reparando = false;
@@ -557,7 +566,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         } catch (Exception ex) {
             mostrarError("Error al cargar las liberaciones pendientes.");
         }
-    }//GEN-LAST:event_jButtonLiberacionActionPerformed
+    }//GEN-LAST:event_jButtonGestionProveedorActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
@@ -817,6 +826,10 @@ public class GestionAdministrador extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonFinalizarPedidoActionPerformed
 
+    private void jButtonLiberacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLiberacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLiberacionActionPerformed
+
     public void limpiarReparacion() throws Exception{
         miControlador.cargarReparaciones();
         limpiarCamposPedidos();
@@ -964,6 +977,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JButton jButtonFinalizarPedido;
     private javax.swing.JButton jButtonGestionPedidos;
     private javax.swing.JButton jButtonGestionProducto;
+    private javax.swing.JButton jButtonGestionProveedor;
     private javax.swing.JButton jButtonGestionUsuarios;
     private javax.swing.JButton jButtonInsertarUsuario;
     private javax.swing.JButton jButtonLiberacion;
