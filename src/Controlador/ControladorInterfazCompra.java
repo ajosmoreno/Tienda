@@ -8,6 +8,10 @@ import Modelo.Sesion;
 import Vista.CestaCompra;
 import Vista.InterfazCompra;
 import java.awt.Frame;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -84,9 +88,23 @@ public class ControladorInterfazCompra {
     public void mostrarCaracteristicas() throws ClassNotFoundException, Exception { 
         miVentana.getjTextAreaCaracteristicas().setText(productoSeleccionado.getDescripcion());
         miVentana.getjLabelPrecioTotal().setText("" + productoSeleccionado.getPrecio() + "€");
-        miVentana.getjLabelImagen().setIcon(new ImageIcon("Imagenes/Productos/" + productoSeleccionado.getImagen()));
+        ImageIcon imageIcon = new ImageIcon("Imagenes/Productos/" + productoSeleccionado.getImagen());
+        Image image = getScaledImage(imageIcon.getImage(), 380, 380);
+        imageIcon = new ImageIcon(image);
+        miVentana.getjLabelImagen().setIcon(imageIcon);
         if(productoSeleccionado.getStock() < 1)
             miVentana.getjButtonAñadirCesta().setToolTipText("No hay stock de este producto.");
+    }
+    
+    private Image getScaledImage(Image srcImg, int w, int h){
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
     }
     
     public void vaciarCaracteristicas(){

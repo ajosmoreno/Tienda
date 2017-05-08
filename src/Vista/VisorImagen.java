@@ -1,5 +1,9 @@
 package Vista;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
 /**
@@ -19,9 +23,23 @@ public class VisorImagen extends javax.swing.JDialog {
     public VisorImagen(java.awt.Frame parent, boolean modal, String imagen) {
         super(parent, modal);
         initComponents();
-        jLabelImagen.setIcon(new ImageIcon("Imagenes/Productos/" + imagen));
+        ImageIcon imageIcon = new ImageIcon("Imagenes/Productos/" + imagen);
+        Image image = getScaledImage(imageIcon.getImage(), 380, 380);
+        imageIcon = new ImageIcon(image);
+        jLabelImagen.setIcon(imageIcon);
     }
+    
+    private Image getScaledImage(Image srcImg, int w, int h){
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
 
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
