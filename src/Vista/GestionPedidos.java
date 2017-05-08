@@ -44,7 +44,8 @@ public class GestionPedidos extends javax.swing.JDialog {
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
-        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));        
+        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png")); 
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/FondoGestionPedidos.jpg"));
     }
     
     
@@ -67,6 +68,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         jScrollPanePedidos = new javax.swing.JScrollPane();
         jTablePedidos = new javax.swing.JTable();
         jButtonRealizar = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Gestion de Pedidos"); // NOI18N
@@ -108,8 +110,10 @@ public class GestionPedidos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 90, 90));
 
+        jLabelNombreCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombreCliente.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreCliente.setText("Nombre Cliente: ");
-        getContentPane().add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
+        getContentPane().add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 120, 20));
         getContentPane().add(jTextFieldNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 169, -1));
 
         jButtonBuscar.setBorder(null);
@@ -164,6 +168,7 @@ public class GestionPedidos extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButtonRealizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 149, 39));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -312,6 +317,7 @@ public class GestionPedidos extends javax.swing.JDialog {
     private javax.swing.JButton jButtonListarPedidos;
     private javax.swing.JButton jButtonRealizar;
     private javax.swing.JButton jButtonVolverAtras;
+    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelNombreCliente;
     private javax.swing.JScrollPane jScrollPanePedidos;
     private javax.swing.JTable jTablePedidos;
