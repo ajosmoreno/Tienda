@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.ControladorOpciones;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Opciones extends javax.swing.JDialog {
     public Opciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/opciones-iloveimg-resized.jpg"));
         setLocationRelativeTo(null);
         miControlador = new ControladorOpciones(this);
         if(miControlador.esInvitado()){
@@ -46,38 +48,49 @@ public class Opciones extends javax.swing.JDialog {
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonVerCatalogo.setText("Ver Catalogo");
+        jButtonVerCatalogo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonVerCatalogo.setBorderPainted(false);
         jButtonVerCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVerCatalogoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVerCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 123, 41));
+        getContentPane().add(jButtonVerCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 123, 41));
 
         jButtonGestion.setText("Gestion de Pedidos");
-        getContentPane().add(jButtonGestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, 41));
+        jButtonGestion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonGestion.setBorderPainted(false);
+        getContentPane().add(jButtonGestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 120, 41));
 
         jButtonReparacion.setText("Reparación");
+        jButtonReparacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonReparacion.setBorderPainted(false);
         jButtonReparacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReparacionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 123, 41));
+        getContentPane().add(jButtonReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 123, 41));
 
         jButtonLiberacion.setText("Liberación");
-        getContentPane().add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 123, 41));
+        jButtonLiberacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonLiberacion.setBorderPainted(false);
+        getContentPane().add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 123, 41));
 
         jButtonVolver.setText("Volver al menú principal");
+        jButtonVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonVolver.setBorderPainted(false);
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, 41));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 150, 41));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
