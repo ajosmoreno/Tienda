@@ -22,12 +22,12 @@ public class Reparacion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         jLabel7Icon.setIcon(new ImageIcon("Imagenes/Reparacion-iloveimg-resized.jpg"));
-        jButton1Aceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
-        jButton1Aceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
-        jButton1Aceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
-        jButton2Borrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
-        jButton2Borrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
-        jButton2Borrar.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
+        jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
+        jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
+        jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
+        jButtonBorrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
+        jButtonBorrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
+        jButtonBorrar.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
         jButton3Salir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
         jButton3Salir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
         jButton3Salir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
@@ -42,20 +42,20 @@ public class Reparacion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1Nombre = new javax.swing.JTextField();
-        jTextField2Apellidos = new javax.swing.JTextField();
-        jTextField3Direccion = new javax.swing.JTextField();
-        jTextField4Telefono = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1Observaciones = new javax.swing.JTextArea();
-        jButton1Aceptar = new javax.swing.JButton();
-        jButton2Borrar = new javax.swing.JButton();
+        jLabelRegistroReparacion = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelApellidos = new javax.swing.JLabel();
+        jLabelDireccion = new javax.swing.JLabel();
+        jLabelTelefono = new javax.swing.JLabel();
+        jLabelObservaciones = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldApellidos = new javax.swing.JTextField();
+        jTextFieldDireccion = new javax.swing.JTextField();
+        jTextFieldTelefono = new javax.swing.JTextField();
+        jScrollPaneObservaciones = new javax.swing.JScrollPane();
+        jTextAreaObservaciones = new javax.swing.JTextArea();
+        jButtonAceptar = new javax.swing.JButton();
+        jButtonBorrar = new javax.swing.JButton();
         jButton3Salir = new javax.swing.JButton();
         jLabel7Icon = new javax.swing.JLabel();
 
@@ -63,81 +63,84 @@ public class Reparacion extends javax.swing.JDialog {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("    Registro Reparación");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 11, 267, -1));
+        jLabelRegistroReparacion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelRegistroReparacion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRegistroReparacion.setText("    Registro Reparación");
+        getContentPane().add(jLabelRegistroReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 11, 267, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nombre:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 71, -1, -1));
+        jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setText("Nombre:");
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 71, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Apellidos:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 109, -1, -1));
+        jLabelApellidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelApellidos.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelApellidos.setText("Apellidos:");
+        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 109, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Dirección:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 151, -1, -1));
+        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDireccion.setText("Dirección:");
+        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 151, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Teléfono:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 193, -1, -1));
+        jLabelTelefono.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTelefono.setText("Teléfono:");
+        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 193, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Observaciones:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 244, -1, -1));
+        jLabelObservaciones.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelObservaciones.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelObservaciones.setText("Observaciones:");
+        getContentPane().add(jLabelObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 244, -1, -1));
 
-        jTextField1Nombre.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1NombreActionPerformed(evt);
+                jTextFieldNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 65, 241, -1));
-        getContentPane().add(jTextField2Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 106, 241, -1));
-        getContentPane().add(jTextField3Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 148, 241, -1));
-        getContentPane().add(jTextField4Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 187, 241, -1));
+        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 65, 241, -1));
+        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 106, 241, -1));
+        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 148, 241, -1));
+        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 187, 241, -1));
 
-        jTextArea1Observaciones.setColumns(20);
-        jTextArea1Observaciones.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1Observaciones);
+        jTextAreaObservaciones.setColumns(20);
+        jTextAreaObservaciones.setRows(5);
+        jScrollPaneObservaciones.setViewportView(jTextAreaObservaciones);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 244, 241, -1));
+        getContentPane().add(jScrollPaneObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 244, 241, -1));
 
-        jButton1Aceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1Aceptar.setBorder(null);
-        jButton1Aceptar.setBorderPainted(false);
-        jButton1Aceptar.setContentAreaFilled(false);
-        jButton1Aceptar.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButton1Aceptar.setMinimumSize(new java.awt.Dimension(50, 50));
-        jButton1Aceptar.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton1Aceptar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAceptar.setToolTipText("Aceptar");
+        jButtonAceptar.setBorder(null);
+        jButtonAceptar.setBorderPainted(false);
+        jButtonAceptar.setContentAreaFilled(false);
+        jButtonAceptar.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButtonAceptar.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButtonAceptar.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1AceptarActionPerformed(evt);
+                jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 347, 98, 60));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 347, 98, 60));
 
-        jButton2Borrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2Borrar.setBorder(null);
-        jButton2Borrar.setBorderPainted(false);
-        jButton2Borrar.setContentAreaFilled(false);
-        jButton2Borrar.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButton2Borrar.setMinimumSize(new java.awt.Dimension(50, 50));
-        jButton2Borrar.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton2Borrar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBorrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonBorrar.setToolTipText("Borrar Todo");
+        jButtonBorrar.setBorder(null);
+        jButtonBorrar.setBorderPainted(false);
+        jButtonBorrar.setContentAreaFilled(false);
+        jButtonBorrar.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButtonBorrar.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButtonBorrar.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2BorrarActionPerformed(evt);
+                jButtonBorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 98, 60));
+        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 98, 60));
 
         jButton3Salir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton3Salir.setToolTipText("Salir");
         jButton3Salir.setBorder(null);
         jButton3Salir.setBorderPainted(false);
         jButton3Salir.setContentAreaFilled(false);
@@ -156,21 +159,21 @@ public class Reparacion extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1NombreActionPerformed
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1NombreActionPerformed
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
-    private void jButton1AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AceptarActionPerformed
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1AceptarActionPerformed
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
 
-    private void jButton2BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2BorrarActionPerformed
+    private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2BorrarActionPerformed
+    }//GEN-LAST:event_jButtonBorrarActionPerformed
 
     private void jButton3SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3SalirActionPerformed
         
-          System.exit(0);
+          this.dispose();
     }//GEN-LAST:event_jButton3SalirActionPerformed
 
     /**
@@ -216,21 +219,21 @@ public class Reparacion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1Aceptar;
-    private javax.swing.JButton jButton2Borrar;
     private javax.swing.JButton jButton3Salir;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jButtonAceptar;
+    private javax.swing.JButton jButtonBorrar;
     private javax.swing.JLabel jLabel7Icon;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1Observaciones;
-    private javax.swing.JTextField jTextField1Nombre;
-    private javax.swing.JTextField jTextField2Apellidos;
-    private javax.swing.JTextField jTextField3Direccion;
-    private javax.swing.JTextField jTextField4Telefono;
+    private javax.swing.JLabel jLabelApellidos;
+    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelObservaciones;
+    private javax.swing.JLabel jLabelRegistroReparacion;
+    private javax.swing.JLabel jLabelTelefono;
+    private javax.swing.JScrollPane jScrollPaneObservaciones;
+    private javax.swing.JTextArea jTextAreaObservaciones;
+    private javax.swing.JTextField jTextFieldApellidos;
+    private javax.swing.JTextField jTextFieldDireccion;
+    private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,17 +22,17 @@ public class Liberacion extends javax.swing.JDialog {
     public Liberacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-       jLabel2Icon.setIcon(new javax.swing.ImageIcon("Imagenes/registroLiberacion-iloveimg-resized.gif"));
+       jLabelFondo.setIcon(new javax.swing.ImageIcon("Imagenes/registroLiberacion-iloveimg-resized.gif"));
         this.setLocationRelativeTo(null);
-        jButton1Aceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
-        jButton1Aceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
-        jButton1Aceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
-        jButton2Borrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
-        jButton2Borrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
-        jButton2Borrar.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
-        jButton3Salir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
-        jButton3Salir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
-        jButton3Salir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
+        jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
+        jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
+        jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
+        jButtonBorrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
+        jButtonBorrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
+        jButtonBorrar.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
+        jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
+        jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
+        jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
         
     }
 
@@ -45,157 +45,160 @@ public class Liberacion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1Nombre = new javax.swing.JLabel();
-        jLabel2Apellidos = new javax.swing.JLabel();
-        jLabel3Direccion = new javax.swing.JLabel();
-        jLabel4Telefono = new javax.swing.JLabel();
-        jLabel5Imei = new javax.swing.JLabel();
-        jTextField1Nombre = new javax.swing.JTextField();
-        jTextField2Apellidos = new javax.swing.JTextField();
-        jTextField3Direccion = new javax.swing.JTextField();
-        jTextField4Telefono = new javax.swing.JTextField();
-        jTextField5Imei = new javax.swing.JTextField();
-        jButton1Aceptar = new javax.swing.JButton();
-        jButton2Borrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton3Salir = new javax.swing.JButton();
-        jLabel2Icon = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelApellidos = new javax.swing.JLabel();
+        jLabelDireccion = new javax.swing.JLabel();
+        jLabelTelefono = new javax.swing.JLabel();
+        jLabelImei = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldApellidos = new javax.swing.JTextField();
+        jTextFieldDireccion = new javax.swing.JTextField();
+        jTextFieldTelefono = new javax.swing.JTextField();
+        jTextFieldImei = new javax.swing.JTextField();
+        jButtonAceptar = new javax.swing.JButton();
+        jButtonBorrar = new javax.swing.JButton();
+        jLabelRegistro = new javax.swing.JLabel();
+        jButtonSalir = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1Nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1Nombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1Nombre.setText("Nombre:");
-        getContentPane().add(jLabel1Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 20));
+        jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setText("Nombre:");
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 20));
 
-        jLabel2Apellidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2Apellidos.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2Apellidos.setText("Apellidos:");
-        getContentPane().add(jLabel2Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+        jLabelApellidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelApellidos.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelApellidos.setText("Apellidos:");
+        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
-        jLabel3Direccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3Direccion.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3Direccion.setText("Dirección:");
-        getContentPane().add(jLabel3Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDireccion.setText("Dirección:");
+        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
 
-        jLabel4Telefono.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4Telefono.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4Telefono.setText("Teléfono:");
-        getContentPane().add(jLabel4Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        jLabelTelefono.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTelefono.setText("Teléfono:");
+        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
-        jLabel5Imei.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5Imei.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5Imei.setText("Imei:");
-        getContentPane().add(jLabel5Imei, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+        jLabelImei.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelImei.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelImei.setText("Imei:");
+        getContentPane().add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
-        jTextField1Nombre.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1NombreActionPerformed(evt);
+                jTextFieldNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 68, 201, -1));
+        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 68, 201, -1));
 
-        jTextField2Apellidos.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ApellidosActionPerformed(evt);
+                jTextFieldApellidosActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 106, 201, -1));
+        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 106, 201, -1));
 
-        jTextField3Direccion.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3DireccionActionPerformed(evt);
+                jTextFieldDireccionActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 144, 201, -1));
-        getContentPane().add(jTextField4Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 182, 201, -1));
-        getContentPane().add(jTextField5Imei, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 220, 201, -1));
+        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 144, 201, -1));
+        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 182, 201, -1));
+        getContentPane().add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 220, 201, -1));
 
-        jButton1Aceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1Aceptar.setBorder(null);
-        jButton1Aceptar.setBorderPainted(false);
-        jButton1Aceptar.setContentAreaFilled(false);
-        jButton1Aceptar.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButton1Aceptar.setMinimumSize(new java.awt.Dimension(50, 50));
-        jButton1Aceptar.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton1Aceptar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAceptar.setToolTipText("Aceptar");
+        jButtonAceptar.setBorder(null);
+        jButtonAceptar.setBorderPainted(false);
+        jButtonAceptar.setContentAreaFilled(false);
+        jButtonAceptar.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButtonAceptar.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButtonAceptar.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1AceptarActionPerformed(evt);
+                jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1Aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 264, 90, 70));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 264, 90, 70));
 
-        jButton2Borrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2Borrar.setBorder(null);
-        jButton2Borrar.setBorderPainted(false);
-        jButton2Borrar.setContentAreaFilled(false);
-        jButton2Borrar.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButton2Borrar.setMinimumSize(new java.awt.Dimension(50, 50));
-        jButton2Borrar.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton2Borrar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBorrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonBorrar.setToolTipText("Borrar Todo");
+        jButtonBorrar.setBorder(null);
+        jButtonBorrar.setBorderPainted(false);
+        jButtonBorrar.setContentAreaFilled(false);
+        jButtonBorrar.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButtonBorrar.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButtonBorrar.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2BorrarActionPerformed(evt);
+                jButtonBorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 100, 80));
+        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 100, 80));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText(" Registro Liberación");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 11, 190, -1));
+        jLabelRegistro.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRegistro.setText(" Registro Liberación");
+        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 11, 190, -1));
 
-        jButton3Salir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3Salir.setBorder(null);
-        jButton3Salir.setBorderPainted(false);
-        jButton3Salir.setContentAreaFilled(false);
-        jButton3Salir.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButton3Salir.setMinimumSize(new java.awt.Dimension(50, 50));
-        jButton3Salir.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton3Salir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSalir.setToolTipText("Salir");
+        jButtonSalir.setBorder(null);
+        jButtonSalir.setBorderPainted(false);
+        jButtonSalir.setContentAreaFilled(false);
+        jButtonSalir.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButtonSalir.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButtonSalir.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButtonSalir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jButton3SalirMouseMoved(evt);
+                jButtonSalirMouseMoved(evt);
             }
         });
-        jButton3Salir.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3SalirActionPerformed(evt);
+                jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 100, 70));
-        getContentPane().add(jLabel2Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 360));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 100, 70));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1NombreActionPerformed
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1NombreActionPerformed
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
-    private void jTextField3DireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3DireccionActionPerformed
+    private void jTextFieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDireccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3DireccionActionPerformed
+    }//GEN-LAST:event_jTextFieldDireccionActionPerformed
 
-    private void jTextField2ApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ApellidosActionPerformed
+    private void jTextFieldApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldApellidosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ApellidosActionPerformed
+    }//GEN-LAST:event_jTextFieldApellidosActionPerformed
 
-    private void jButton1AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AceptarActionPerformed
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1AceptarActionPerformed
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
 
-    private void jButton2BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2BorrarActionPerformed
+    private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2BorrarActionPerformed
+    }//GEN-LAST:event_jButtonBorrarActionPerformed
 
-    private void jButton3SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3SalirActionPerformed
-          System.exit(0);
-    }//GEN-LAST:event_jButton3SalirActionPerformed
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+          this.dispose();
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButton3SalirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3SalirMouseMoved
+    private void jButtonSalirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3SalirMouseMoved
+    }//GEN-LAST:event_jButtonSalirMouseMoved
 
     /**
      * @param args the command line arguments
@@ -240,20 +243,20 @@ public class Liberacion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1Aceptar;
-    private javax.swing.JButton jButton2Borrar;
-    private javax.swing.JButton jButton3Salir;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel1Nombre;
-    private javax.swing.JLabel jLabel2Apellidos;
-    private javax.swing.JLabel jLabel2Icon;
-    private javax.swing.JLabel jLabel3Direccion;
-    private javax.swing.JLabel jLabel4Telefono;
-    private javax.swing.JLabel jLabel5Imei;
-    private javax.swing.JTextField jTextField1Nombre;
-    private javax.swing.JTextField jTextField2Apellidos;
-    private javax.swing.JTextField jTextField3Direccion;
-    private javax.swing.JTextField jTextField4Telefono;
-    private javax.swing.JTextField jTextField5Imei;
+    private javax.swing.JButton jButtonAceptar;
+    private javax.swing.JButton jButtonBorrar;
+    private javax.swing.JButton jButtonSalir;
+    private javax.swing.JLabel jLabelApellidos;
+    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JLabel jLabelImei;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelRegistro;
+    private javax.swing.JLabel jLabelTelefono;
+    private javax.swing.JTextField jTextFieldApellidos;
+    private javax.swing.JTextField jTextFieldDireccion;
+    private javax.swing.JTextField jTextFieldImei;
+    private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
 }
