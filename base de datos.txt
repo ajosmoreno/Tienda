@@ -36,7 +36,7 @@ ON UPDATE CASCADE ON DELETE NO ACTION) ENGINE = INNODB;
 
 CREATE TABLE gestores
 (id int unsigned auto_increment primary key,
-nombre char(50) not null,
+nombre char(50) unique not null,
 direccion char(50) not null,
 telefono char(9) not null,
 email char(50) not null,

@@ -128,6 +128,21 @@ public class Repositorio {
         return cliente;
     }
     
+    public Gestor gestorPorNombre(String nombre){
+        Gestor gestor = null;
+        boolean encontrado = false;
+        int contador = 0;
+        while(!encontrado && contador < listaGestores.size()){
+            Gestor g = listaGestores.get(contador);
+            if(g.getNombre().equals(nombre)){
+                encontrado = true;
+                gestor = g;
+            }
+            contador++;
+        }
+        return gestor;
+    }
+    
     public int posicionClienteEnLista(Cliente c){
         int pos = -1;
         boolean encontrado = false;
@@ -174,5 +189,18 @@ public class Repositorio {
 
     public ArrayList<Gestor> devolverGestores() {
         return listaGestores;
+    }
+
+    public boolean añadirGestor(String nombre, String direccion, String telefono, String email, String tipo) throws SQLException, Exception {
+        boolean añadido = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO gestores (nombre, direccion, telefono, email, tipo) VALUES ('" + nombre + "', '" + direccion + "', '" + telefono + "', '" + email + "', '" + tipo + "');");
+        if(rs != null){
+            rs.next();
+            Gestor g = new Gestor(Integer.parseInt(rs.getString("id")), nombre, direccion, telefono, email, tipo);
+            listaGestores.add(g);
+            añadido = true;
+            System.out.println(g.getId());
+        }
+        return añadido;
     }
 }

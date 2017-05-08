@@ -5,8 +5,14 @@
  */
 package Vista;
 
+import Controlador.ControladorGestionGestores;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -14,12 +20,16 @@ import javax.swing.ImageIcon;
  */
 public class GestionGestores extends javax.swing.JDialog {
 
+    private ControladorGestionGestores miControlador;
+    private boolean añadiendo;
+    private boolean borrando;
     /**
      * Creates new form GestionProveedores
      */
     public GestionGestores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        miControlador = new ControladorGestionGestores(this);
         jLabelFondo.setIcon(new ImageIcon("Imagenes/FondoGestionGestores.png"));
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
@@ -45,7 +55,6 @@ public class GestionGestores extends javax.swing.JDialog {
         jLabelGestor.setVisible(false);
         jComboBoxGestores.setVisible(false);
         jButtonBorrarCampos.setVisible(false);
-        
     }
 
     /**
@@ -81,7 +90,6 @@ public class GestionGestores extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(760, 540));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(760, 540));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -156,6 +164,11 @@ public class GestionGestores extends javax.swing.JDialog {
         jButtonAceptar.setBorder(null);
         jButtonAceptar.setBorderPainted(false);
         jButtonAceptar.setContentAreaFilled(false);
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 90, 90));
 
         jLabelGestor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -195,8 +208,8 @@ public class GestionGestores extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonVolverAtrasActionPerformed
 
     private void jButtonInsertarGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarGestorActionPerformed
-        // TODO add your handling code here:
-        
+        añadiendo = true;
+        borrando = false;
         jLabelTipoGestor.setVisible(true);
         jLabelNombreGestor.setVisible(true);
         jLabelDireccionGestor.setVisible(true);
@@ -214,49 +227,64 @@ public class GestionGestores extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonInsertarGestorActionPerformed
 
     private void jComboBoxGestoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGestoresActionPerformed
-        // TODO add your handling code here:
+        if(!jComboBoxGestores.getSelectedItem().equals("")){
+            try {
+                miControlador.mostrarGestor();
+            } catch (Exception ex) {
+                mostrarError("Ha ocurrido un error al mostrar el gestor.");
+            }
+        }
     }//GEN-LAST:event_jComboBoxGestoresActionPerformed
 
     private void jButtonModificarGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarGestorActionPerformed
-        // TODO add your handling code here:
-        jLabelTipoGestor.setVisible(true);
-        jLabelNombreGestor.setVisible(true);
-        jLabelDireccionGestor.setVisible(true);
-        jLabelTelefonoGestor.setVisible(true);
-        jLabelEmailGestor.setVisible(true);
-        jComboBoxTipoGestor.setVisible(true);
-        jTextFieldNombreGestor.setVisible(true);
-        jTextFieldDireccionGestor.setVisible(true);
-        jTextFieldTelefonoGestor.setVisible(true);
-        jTextFieldEmailGestor.setVisible(true);
-        jButtonAceptar.setVisible(true);
-        jLabelGestor.setVisible(true);
-        jComboBoxGestores.setVisible(true);
-        jButtonBorrarCampos.setVisible(true);
+        try {
+            miControlador.cargarGestores();
+            añadiendo = false;
+            borrando = false;
+            jLabelTipoGestor.setVisible(true);
+            jLabelNombreGestor.setVisible(true);
+            jLabelDireccionGestor.setVisible(true);
+            jLabelTelefonoGestor.setVisible(true);
+            jLabelEmailGestor.setVisible(true);
+            jComboBoxTipoGestor.setVisible(true);
+            jTextFieldNombreGestor.setVisible(true);
+            jTextFieldDireccionGestor.setVisible(true);
+            jTextFieldTelefonoGestor.setVisible(true);
+            jTextFieldEmailGestor.setVisible(true);
+            jButtonAceptar.setVisible(true);
+            jLabelGestor.setVisible(true);
+            jComboBoxGestores.setVisible(true);
+            jButtonBorrarCampos.setVisible(true);
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al cargar los gestores.");
+        }
     }//GEN-LAST:event_jButtonModificarGestorActionPerformed
 
     private void jButtonEliminarGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarGestorActionPerformed
-        // TODO add your handling code here:
-        jLabelTipoGestor.setVisible(true);
-        jLabelNombreGestor.setVisible(true);
-        jLabelDireccionGestor.setVisible(true);
-        jLabelTelefonoGestor.setVisible(true);
-        jLabelEmailGestor.setVisible(true);
-        jComboBoxTipoGestor.setVisible(true);
-        jTextFieldNombreGestor.setVisible(true);
-        jTextFieldDireccionGestor.setVisible(true);
-        jTextFieldTelefonoGestor.setVisible(true);
-        jTextFieldEmailGestor.setVisible(true);
-        jButtonAceptar.setVisible(true);
-        jLabelGestor.setVisible(true);
-        jComboBoxGestores.setVisible(true);
-        jButtonBorrarCampos.setVisible(true);
+        try {
+            miControlador.cargarGestores();
+            añadiendo = false;
+            borrando = true;
+            jLabelTipoGestor.setVisible(true);
+            jLabelNombreGestor.setVisible(true);
+            jLabelDireccionGestor.setVisible(true);
+            jLabelTelefonoGestor.setVisible(true);
+            jLabelEmailGestor.setVisible(true);
+            jComboBoxTipoGestor.setVisible(true);
+            jTextFieldNombreGestor.setVisible(true);
+            jTextFieldDireccionGestor.setVisible(true);
+            jTextFieldTelefonoGestor.setVisible(true);
+            jTextFieldEmailGestor.setVisible(true);
+            jButtonAceptar.setVisible(true);
+            jLabelGestor.setVisible(true);
+            jComboBoxGestores.setVisible(true);
+            jButtonBorrarCampos.setVisible(true);
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al cargar los gestores.");
+        }
     }//GEN-LAST:event_jButtonEliminarGestorActionPerformed
 
     private void jButtonBorrarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarCamposActionPerformed
-        // TODO add your handling code here:
-        
-        
         jTextFieldNombreGestor.setText("");
         jTextFieldDireccionGestor.setText("");
         jTextFieldTelefonoGestor.setText("");
@@ -264,6 +292,56 @@ public class GestionGestores extends javax.swing.JDialog {
         jComboBoxGestores.setModel(new DefaultComboBoxModel());
     }//GEN-LAST:event_jButtonBorrarCamposActionPerformed
 
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
+        if(añadiendo){
+            try {
+                miControlador.añadirGestor();
+            } catch (Exception ex) {
+                mostrarError("Ha ocurrido un error al añadir el gestor.");
+            }
+        } else{
+            if(borrando){
+                miControlador.borrarGestor();
+            } else{
+                
+            }
+        }
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
+
+    public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
+    }
+    
+    public JComboBox<String> getjComboBoxGestores() {
+        return jComboBoxGestores;
+    }
+
+    public JComboBox<String> getjComboBoxTipoGestor() {
+        return jComboBoxTipoGestor;
+    }
+
+    public JTextField getjTextFieldDireccionGestor() {
+        return jTextFieldDireccionGestor;
+    }
+
+    public JTextField getjTextFieldEmailGestor() {
+        return jTextFieldEmailGestor;
+    }
+
+    public JTextField getjTextFieldNombreGestor() {
+        return jTextFieldNombreGestor;
+    }
+
+    public JTextField getjTextFieldTelefonoGestor() {
+        return jTextFieldTelefonoGestor;
+    }
+
+    
+    
     /**
      * @param args the command line arguments
      */
