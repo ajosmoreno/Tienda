@@ -113,6 +113,7 @@ public class GestionProductos extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion de productos");
         setMinimumSize(new java.awt.Dimension(1000, 700));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonModificarProducto.setText("Modificar producto");
