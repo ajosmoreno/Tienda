@@ -59,8 +59,8 @@ public class ControladorCestaCompra {
         double total = 0;
         for(Producto p: cesta){
             total += p.getPrecio();
-            ImageIcon imageIcon = new ImageIcon("Imagenes/Productos/" + p.getImagen()); // load the image to a imageIcon
-            Image image = getScaledImage(imageIcon.getImage(), 190, 95); // transform it 
+            ImageIcon imageIcon = new ImageIcon("Imagenes/Productos/" + p.getImagen());
+            Image image = getScaledImage(imageIcon.getImage(), 190, 95);
             imageIcon = new ImageIcon(image);
             Object[] fila = { true, p.getMarca(), p.getModelo(), p.getColor(), imageIcon, p.getPrecio()};
             dtm.addRow(fila);
@@ -104,17 +104,14 @@ public class ControladorCestaCompra {
                 boolean seleccionado = (Boolean)miVentana.getjTableCesta().getValueAt(i, 0);
                 if(!seleccionado){
                     Producto p = Sesion.miCliente().getCliente().getCesta().get(i);
-                    ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM cesta WHERE idCliente = " + Sesion.miCliente().getCliente().getId() + " AND idProducto = " + p.getId());
-                    if(rs != null){
-                        borrado = true;
-                    } else{
+                    if(Repositorio.repositorio().eliminarProductoCesta(Sesion.miCliente().getCliente(), p)) borrado = true;
+                    else
                         miVentana.mostrarError("No se ha podido eliminar un producto " + i + " de la cesta.");
-                    }
                 }
             }
             if(borrado){
-                Sesion.miCliente().getCliente().setCesta(Repositorio.repositorio().cestaPorCliente(Sesion.miCliente().getCliente().getId()));
                 Repositorio.repositorio().cargarClientes();
+                Sesion.miCliente().setCliente(Repositorio.repositorio().clientePorUsuario(Sesion.miCliente().getCliente().getNombreUsuario()));
                 cargarCesta();
             }
         }

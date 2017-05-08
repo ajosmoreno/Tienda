@@ -166,6 +166,7 @@ public class CestaCompra extends javax.swing.JDialog {
             miControlador.borrarProductos();
         } catch (Exception ex) {
             mostrarError("Error al borrar los productos de la cesta.");
+            mostrarError(ex.getMessage());
         }
     }//GEN-LAST:event_jButtonBorrarProductoActionPerformed
 

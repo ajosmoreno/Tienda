@@ -97,14 +97,14 @@ public class Repositorio {
         }
         return cesta;
     }
-    
-    public Producto productoPorID(int idProducto){
+
+    public Producto productoPorID(int idProducto) {
         Producto producto = null;
         boolean encontrado = false;
         int contador = 0;
-        while(!encontrado && contador < listaProductos.size()){
+        while (!encontrado && contador < listaProductos.size()) {
             Producto p = listaProductos.get(contador);
-            if(p.getId() == idProducto){
+            if (p.getId() == idProducto) {
                 producto = p;
                 encontrado = true;
             }
@@ -112,20 +112,38 @@ public class Repositorio {
         }
         return producto;
     }
-    
-    public Cliente clientePorUsuario(String usuario){
+
+    public Cliente clientePorUsuario(String usuario) {
         Cliente cliente = null;
         boolean encontrado = false;
         int contador = 0;
-        while(!encontrado && contador < listaClientes.size()){
+        while (!encontrado && contador < listaClientes.size()) {
             Cliente c = listaClientes.get(contador);
-            if(c.getNombreUsuario().equals(usuario)){
+            if (c.getNombreUsuario().equals(usuario)) {
                 encontrado = true;
                 cliente = c;
             }
             contador++;
         }
         return cliente;
+    }
+    
+    public int posicionClienteEnLista(Cliente c){
+        int pos = -1;
+        boolean encontrado = false;
+        int contador = 0;
+        while(!encontrado && contador < listaClientes.size()){
+            Cliente cl = listaClientes.get(contador);
+            if(c.getId() == cl.getId())
+                pos = contador;
+            contador++;
+        }
+        return pos;
+    }
+
+    public boolean eliminarProductoCesta(Cliente c, Producto p) throws SQLException, Exception {
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM cesta WHERE idCliente = " + c.getId() + " AND idProducto = " + p.getId());
+        return rs != null;
     }
 
     public void inicializarDatos() throws ClassNotFoundException, SQLException, Exception {
