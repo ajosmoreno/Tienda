@@ -67,6 +67,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelBienvenido.setFont(new java.awt.Font("Tahoma", 3, 22)); // NOI18N
@@ -79,6 +84,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabelUsuario.setText("Usuario :");
         getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 60, 40));
         getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 210, -1));
+
+        jPasswordFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldUsuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 210, -1));
 
         jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -114,6 +125,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jButtonInvitado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInvitadoActionPerformed(evt);
+            }
+        });
+        jButtonInvitado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonInvitadoKeyPressed(evt);
             }
         });
         getContentPane().add(jButtonInvitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 160, 40));
@@ -180,6 +196,18 @@ public class PanelPrincipal extends javax.swing.JFrame {
             mostrarError(ex.getMessage());
         }
     }//GEN-LAST:event_formWindowClosing
+
+    private void jButtonInvitadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonInvitadoKeyPressed
+        
+    }//GEN-LAST:event_jButtonInvitadoKeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        
+    }//GEN-LAST:event_formKeyPressed
+
+    private void jPasswordFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldUsuarioActionPerformed
+        jButtonEntrarActionPerformed(null);
+    }//GEN-LAST:event_jPasswordFieldUsuarioActionPerformed
 
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
