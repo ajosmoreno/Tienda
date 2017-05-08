@@ -134,7 +134,7 @@ public class ControladorCestaCompra {
         int idCliente = Sesion.miCliente().getCliente().getId();
         double total = Double.parseDouble(miVentana.getjLabelPrecioTotal().getText().replace("€", ""));
         double subtotal = total * 0.79;
-        ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + subtotal + ", " + total + ", '" + tipoPago + "', 'Procesando');");
+        ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + subtotal + ", " + total + ", '" + tipoPago + "', 'Sin pagar');");
         if(rsPedido != null){
             rsPedido.next();
             ResultSet rsCompra = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO compras VALUES (" + rsPedido.getString("numeroPedido") + ");");
