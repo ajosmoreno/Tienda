@@ -10,7 +10,7 @@ import Modelo.Repositorio;
 import Vista.GestionAdministrador;
 import Vista.GestionPedidos;
 import Vista.GestionProductos;
-import Vista.GestionProveedores;
+import Vista.GestionGestores;
 import java.awt.Frame;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -294,7 +294,7 @@ public class ControladorGestionAdministrador {
     }
     
     public void abrirGestionProveedores(){
-        GestionProveedores gProveedores = new GestionProveedores((Frame)miVentana.getParent(), true);
+        GestionGestores gProveedores = new GestionGestores((Frame)miVentana.getParent(), true);
         gProveedores.setVisible(true);
     }
 }
