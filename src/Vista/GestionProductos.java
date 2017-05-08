@@ -34,6 +34,9 @@ public class GestionProductos extends javax.swing.JDialog {
         initComponents();
         miControlador = new ControladorGestionProductos(this);
         setLocationRelativeTo(null);
+        jButtonBuscarFoto.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
+        jButtonBuscarFoto.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
+        jButtonBuscarFoto.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
         jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
         jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
         jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
@@ -231,13 +234,15 @@ public class GestionProductos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 500, 90, 90));
 
-        jButtonBuscarFoto.setText("Buscar foto");
+        jButtonBuscarFoto.setBorder(null);
+        jButtonBuscarFoto.setBorderPainted(false);
+        jButtonBuscarFoto.setContentAreaFilled(false);
         jButtonBuscarFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBuscarFotoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
+        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, 50, 40));
 
         jLabeStock.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabeStock.setForeground(new java.awt.Color(255, 255, 255));
@@ -247,7 +252,7 @@ public class GestionProductos extends javax.swing.JDialog {
 
         jLabelColor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelColor.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelColor.setText("Color");
+        jLabelColor.setText("Color:");
         getContentPane().add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, 20));
         getContentPane().add(jTextFieldColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 140, -1));
 
