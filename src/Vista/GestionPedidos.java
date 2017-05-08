@@ -73,7 +73,8 @@ public class GestionPedidos extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Gestion de Pedidos"); // NOI18N
         setUndecorated(true);
-        setSize(new java.awt.Dimension(920, 800));
+        setPreferredSize(new java.awt.Dimension(989, 586));
+        setSize(new java.awt.Dimension(989, 586));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonComprobarPedido.setText("Comprobar Pedidos Pendientes");
@@ -169,7 +170,7 @@ public class GestionPedidos extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButtonRealizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 149, 39));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 989, 586));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

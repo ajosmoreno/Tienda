@@ -88,8 +88,9 @@ public class GestionGestores extends javax.swing.JDialog {
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(760, 540));
+        setMinimumSize(new java.awt.Dimension(989, 586));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(989, 586));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -198,7 +199,9 @@ public class GestionGestores extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButtonBorrarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 90, 90));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 540));
+
+        jLabelFondo.setMinimumSize(new java.awt.Dimension(989, 586));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 989, 586));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

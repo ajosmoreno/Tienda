@@ -112,8 +112,10 @@ public class GestionProductos extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestion de productos");
-        setMinimumSize(new java.awt.Dimension(1000, 700));
+        setMinimumSize(new java.awt.Dimension(989, 586));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(989, 586));
+        setSize(new java.awt.Dimension(989, 586));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonModificarProducto.setText("Modificar producto");
@@ -154,7 +156,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelBuscador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelBuscador.setForeground(new java.awt.Color(255, 255, 255));
         jLabelBuscador.setText("Id producto: ");
-        getContentPane().add(jLabelBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, 20));
+        getContentPane().add(jLabelBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, 20));
 
         jButtonBuscar.setBorder(null);
         jButtonBuscar.setBorderPainted(false);
@@ -164,34 +166,34 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 40, 40));
+        getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
 
         jLabelModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelModelo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelModelo.setText("Modelo: ");
-        getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
+        getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, -1));
 
         jLabelMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelMarca.setForeground(new java.awt.Color(255, 255, 255));
         jLabelMarca.setText("Marca: ");
-        getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
+        getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
 
         jLabelCaracteristicas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCaracteristicas.setText("Caracteristicas: ");
-        getContentPane().add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
+        getContentPane().add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
 
         jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPrecio.setText("Precio: ");
-        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
+        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
 
         jLabelFoto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFoto.setText("Foto: ");
-        getContentPane().add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
-        getContentPane().add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 270, -1));
-        getContentPane().add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 270, -1));
+        getContentPane().add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+        getContentPane().add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 270, -1));
+        getContentPane().add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 270, -1));
 
         jTextFieldFoto.setEditable(false);
         jTextFieldFoto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,14 +206,14 @@ public class GestionProductos extends javax.swing.JDialog {
                 jTextFieldFotoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 270, -1));
-        getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 270, -1));
+        getContentPane().add(jTextFieldFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 270, -1));
+        getContentPane().add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 270, -1));
 
         jTextAreaCarateristicas.setColumns(20);
         jTextAreaCarateristicas.setRows(5);
         jScrollPane1.setViewportView(jTextAreaCarateristicas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 450, 220));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 450, 220));
 
         jButtonCancelar.setToolTipText("Cancelar");
         jButtonCancelar.setBorder(null);
@@ -222,7 +224,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 90, 90));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 90, 90));
 
         jButtonAceptar.setToolTipText("Aceptar");
         jButtonAceptar.setBorder(null);
@@ -233,7 +235,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 500, 90, 90));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, 90, 90));
 
         jButtonBuscarFoto.setBorder(null);
         jButtonBuscarFoto.setBorderPainted(false);
@@ -243,27 +245,29 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonBuscarFotoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, 50, 40));
+        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 50, 40));
 
         jLabeStock.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabeStock.setForeground(new java.awt.Color(255, 255, 255));
         jLabeStock.setText("Stock:");
-        getContentPane().add(jLabeStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, 20));
-        getContentPane().add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 70, -1));
+        getContentPane().add(jLabeStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, 20));
+        getContentPane().add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 70, -1));
 
         jLabelColor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelColor.setForeground(new java.awt.Color(255, 255, 255));
         jLabelColor.setText("Color:");
-        getContentPane().add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, 20));
-        getContentPane().add(jTextFieldColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 140, -1));
+        getContentPane().add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, 20));
+        getContentPane().add(jTextFieldColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 140, -1));
 
         jComboBoxListaProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxListaProductosActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBoxListaProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 170, -1));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 670));
+        getContentPane().add(jComboBoxListaProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 170, -1));
+
+        jLabelFondo.setMinimumSize(new java.awt.Dimension(989, 586));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 989, 586));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

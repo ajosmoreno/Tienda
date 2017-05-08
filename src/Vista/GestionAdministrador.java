@@ -381,7 +381,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jRadioButtonCliente.setText("Cliente");
         jPanelModificarUsuario.add(jRadioButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
-        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 600, 590));
+        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 600, 590));
 
         jButtonSolicitarCodigo.setText("Solicitar Código");
         jButtonSolicitarCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -426,7 +426,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonFinalizarPedidoActionPerformed(evt);
             }
         });
-        jPanelUsuarios.add(jButtonFinalizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 500, 130, 90));
+        jPanelUsuarios.add(jButtonFinalizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 500, 130, 60));
 
         jPanelPrincipal.add(jPanelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 760, 590));
 
