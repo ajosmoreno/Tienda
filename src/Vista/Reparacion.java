@@ -23,7 +23,7 @@ public class Reparacion extends javax.swing.JDialog {
         initComponents();
         jLabel7Icon.setIcon(new ImageIcon("Imagenes/Reparacion-iloveimg-resized.jpg"));
         jButton1Aceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
-         jButton1Aceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
+        jButton1Aceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
         jButton1Aceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
         jButton2Borrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
         jButton2Borrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));

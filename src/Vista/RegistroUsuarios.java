@@ -28,7 +28,16 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         initComponents();
         miControlador = new ControladorRegistro(this);
         setLocationRelativeTo(null);
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondoregistro.png"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/registroUsuario1.jpg"));
+        jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
+        jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
+        jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
+        jButtonBorrarTodo.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
+        jButtonBorrarTodo.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
+        jButtonBorrarTodo.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
+        jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
+        jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
+        jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
     }    
 
     /**
@@ -65,6 +74,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Usuarios");
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -110,31 +120,37 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 322, 157, -1));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setBorder(null);
+        jButtonAceptar.setBorderPainted(false);
+        jButtonAceptar.setContentAreaFilled(false);
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, 100, 40));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 100, 60));
 
         jButtonBorrarTodo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonBorrarTodo.setText("Borrar todo");
+        jButtonBorrarTodo.setBorder(null);
+        jButtonBorrarTodo.setBorderPainted(false);
+        jButtonBorrarTodo.setContentAreaFilled(false);
         jButtonBorrarTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBorrarTodoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBorrarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 110, 40));
+        getContentPane().add(jButtonBorrarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 110, 60));
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonSalir.setText("Salir");
+        jButtonSalir.setBorder(null);
+        jButtonSalir.setBorderPainted(false);
+        jButtonSalir.setContentAreaFilled(false);
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 70, 40));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 90, 60));
 
         jLabelFechaNacimiento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelFechaNacimiento.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,7 +172,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelDni.setText("DNI:");
         getContentPane().add(jLabelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
         getContentPane().add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 247, 157, -1));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 560));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
