@@ -183,7 +183,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
 
         jLabelFondo.setBackground(new java.awt.Color(0, 0, 255));
         jLabelFondo.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 620));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
