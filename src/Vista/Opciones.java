@@ -64,6 +64,11 @@ public class Opciones extends javax.swing.JDialog {
         jButtonGestion.setText("Gestion de Pedidos");
         jButtonGestion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonGestion.setBorderPainted(false);
+        jButtonGestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGestionActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonGestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 120, 41));
 
         jButtonReparacion.setText("Reparación");
@@ -79,6 +84,11 @@ public class Opciones extends javax.swing.JDialog {
         jButtonLiberacion.setText("Liberación");
         jButtonLiberacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonLiberacion.setBorderPainted(false);
+        jButtonLiberacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLiberacionActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 123, 41));
 
         jButtonVolver.setText("Volver al menú principal");
@@ -97,6 +107,8 @@ public class Opciones extends javax.swing.JDialog {
 
     private void jButtonReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReparacionActionPerformed
         // TODO add your handling code here:
+        miControlador.abrirReparacion();
+        
     }//GEN-LAST:event_jButtonReparacionActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
@@ -106,6 +118,16 @@ public class Opciones extends javax.swing.JDialog {
     private void jButtonVerCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerCatalogoActionPerformed
         miControlador.abrirCatalogo();
     }//GEN-LAST:event_jButtonVerCatalogoActionPerformed
+
+    private void jButtonGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionActionPerformed
+        // TODO add your handling code here:
+        miControlador.abrirGestionPedidos();
+    }//GEN-LAST:event_jButtonGestionActionPerformed
+
+    private void jButtonLiberacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLiberacionActionPerformed
+        // TODO add your handling code here:
+        miControlador.abrirLiberacion();
+    }//GEN-LAST:event_jButtonLiberacionActionPerformed
 
     /**
      * @param args the command line arguments
