@@ -20,12 +20,16 @@ public class GestionGestores extends javax.swing.JDialog {
     public GestionGestores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/FondoGestionGestores.png"));
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
         jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
         jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
         jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
         jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
+        jButtonBorrarCampos.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
+        jButtonBorrarCampos.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
+        jButtonBorrarCampos.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
         setLocationRelativeTo(null);
         jLabelTipoGestor.setVisible(false);
         jLabelNombreGestor.setVisible(false);
@@ -40,7 +44,7 @@ public class GestionGestores extends javax.swing.JDialog {
         jButtonAceptar.setVisible(false);
         jLabelGestor.setVisible(false);
         jComboBoxGestores.setVisible(false);
-        
+        jButtonBorrarCampos.setVisible(false);
         
     }
 
@@ -75,6 +79,10 @@ public class GestionGestores extends javax.swing.JDialog {
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(760, 540));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(760, 540));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonInsertarGestor.setText("Añadir gestor");
@@ -83,7 +91,7 @@ public class GestionGestores extends javax.swing.JDialog {
                 jButtonInsertarGestorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonInsertarGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 160, 50));
+        getContentPane().add(jButtonInsertarGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 160, 50));
 
         jButtonModificarGestor.setText("Modificar gestor");
         jButtonModificarGestor.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +99,7 @@ public class GestionGestores extends javax.swing.JDialog {
                 jButtonModificarGestorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonModificarGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 160, 50));
+        getContentPane().add(jButtonModificarGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 160, 50));
 
         jButtonEliminarGestor.setText("Eliminar gestor");
         jButtonEliminarGestor.addActionListener(new java.awt.event.ActionListener() {
@@ -99,63 +107,85 @@ public class GestionGestores extends javax.swing.JDialog {
                 jButtonEliminarGestorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonEliminarGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 160, 50));
+        getContentPane().add(jButtonEliminarGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 160, 50));
 
         jComboBoxTipoGestor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor", "Operador" }));
-        getContentPane().add(jComboBoxTipoGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 173, -1));
+        getContentPane().add(jComboBoxTipoGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 173, -1));
 
+        jLabelTipoGestor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelTipoGestor.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTipoGestor.setText("Tipo gestor: ");
-        getContentPane().add(jLabelTipoGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, -1, -1));
+        getContentPane().add(jLabelTipoGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 90, -1));
 
+        jLabelNombreGestor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelNombreGestor.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreGestor.setText("Nombre: ");
-        getContentPane().add(jLabelNombreGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, 20));
-        getContentPane().add(jTextFieldNombreGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 170, -1));
-        getContentPane().add(jTextFieldDireccionGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 170, -1));
+        getContentPane().add(jLabelNombreGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 70, 20));
+        getContentPane().add(jTextFieldNombreGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 170, -1));
+        getContentPane().add(jTextFieldDireccionGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 170, -1));
 
+        jLabelDireccionGestor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelDireccionGestor.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDireccionGestor.setText("Direccion: ");
-        getContentPane().add(jLabelDireccionGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, 20));
+        getContentPane().add(jLabelDireccionGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 70, 20));
 
+        jLabelTelefonoGestor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelTelefonoGestor.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTelefonoGestor.setText("Telefono: ");
-        getContentPane().add(jLabelTelefonoGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 50, 20));
-        getContentPane().add(jTextFieldTelefonoGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 170, -1));
+        getContentPane().add(jLabelTelefonoGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 70, 20));
+        getContentPane().add(jTextFieldTelefonoGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 170, -1));
 
+        jLabelEmailGestor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelEmailGestor.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmailGestor.setText("Email: ");
-        getContentPane().add(jLabelEmailGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, 20));
-        getContentPane().add(jTextFieldEmailGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 170, -1));
+        getContentPane().add(jLabelEmailGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 50, 20));
+        getContentPane().add(jTextFieldEmailGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 170, -1));
 
         jButtonVolverAtras.setToolTipText("Volver atras");
+        jButtonVolverAtras.setBorder(null);
+        jButtonVolverAtras.setBorderPainted(false);
+        jButtonVolverAtras.setContentAreaFilled(false);
         jButtonVolverAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 90, 90));
+        getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 90, 90));
 
-        jButtonAceptar.setToolTipText("Volver atras");
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 90, 90));
+        jButtonAceptar.setToolTipText("Aceptar");
+        jButtonAceptar.setBorder(null);
+        jButtonAceptar.setBorderPainted(false);
+        jButtonAceptar.setContentAreaFilled(false);
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 90, 90));
 
+        jLabelGestor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelGestor.setForeground(new java.awt.Color(255, 255, 255));
         jLabelGestor.setText("Gestor:");
-        getContentPane().add(jLabelGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+        getContentPane().add(jLabelGestor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 60, -1));
 
         jComboBoxGestores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxGestoresActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBoxGestores, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 170, -1));
+        getContentPane().add(jComboBoxGestores, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 170, -1));
 
-        jLabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
+        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitulo.setText("Gestores");
-        getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 100, 50));
+        getContentPane().add(jLabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 160, 50));
 
         jButtonBorrarCampos.setToolTipText("Borrar datos");
+        jButtonBorrarCampos.setBorder(null);
+        jButtonBorrarCampos.setBorderPainted(false);
+        jButtonBorrarCampos.setContentAreaFilled(false);
         jButtonBorrarCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBorrarCamposActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBorrarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 90, 90));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 440));
+        getContentPane().add(jButtonBorrarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 90, 90));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,6 +210,7 @@ public class GestionGestores extends javax.swing.JDialog {
         jButtonAceptar.setVisible(true);
         jLabelGestor.setVisible(false);
         jComboBoxGestores.setVisible(false);
+        jButtonBorrarCampos.setVisible(true);
     }//GEN-LAST:event_jButtonInsertarGestorActionPerformed
 
     private void jComboBoxGestoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGestoresActionPerformed
@@ -201,6 +232,7 @@ public class GestionGestores extends javax.swing.JDialog {
         jButtonAceptar.setVisible(true);
         jLabelGestor.setVisible(true);
         jComboBoxGestores.setVisible(true);
+        jButtonBorrarCampos.setVisible(true);
     }//GEN-LAST:event_jButtonModificarGestorActionPerformed
 
     private void jButtonEliminarGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarGestorActionPerformed
@@ -218,6 +250,7 @@ public class GestionGestores extends javax.swing.JDialog {
         jButtonAceptar.setVisible(true);
         jLabelGestor.setVisible(true);
         jComboBoxGestores.setVisible(true);
+        jButtonBorrarCampos.setVisible(true);
     }//GEN-LAST:event_jButtonEliminarGestorActionPerformed
 
     private void jButtonBorrarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarCamposActionPerformed
