@@ -81,43 +81,49 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelRegistro.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelRegistro.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRegistro.setText("REGISTRO DE USUARIOS");
-        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, 33));
+        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, 33));
 
-        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelUsuario.setText("Usuario:");
-        getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 98, -1, -1));
+        jLabelUsuario.setText("Usuario");
+        getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, 30));
 
-        jLabelContraseña.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelContraseña.setBackground(new java.awt.Color(0, 0, 255));
+        jLabelContraseña.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelContraseña.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelContraseña.setText("Contraseña:");
-        getContentPane().add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 136, -1, -1));
-        getContentPane().add(jTextFieldNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 95, 157, -1));
-        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 133, 157, -1));
+        jLabelContraseña.setText("Contraseña");
+        getContentPane().add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, 20));
+        getContentPane().add(jTextFieldNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 157, -1));
+        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 157, -1));
 
-        jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelNombre.setBackground(new java.awt.Color(0, 0, 255));
+        jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombre.setText("Nombre: ");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 174, -1, -1));
+        jLabelNombre.setText("Nombre");
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, 20));
 
-        jLabelApellidos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelApellidos.setBackground(new java.awt.Color(0, 0, 255));
+        jLabelApellidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelApellidos.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelApellidos.setText("Apellidos:");
-        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 212, -1, -1));
+        jLabelApellidos.setText("Apellidos");
+        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, 20));
 
-        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelDireccion.setBackground(new java.awt.Color(0, 0, 255));
+        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelDireccion.setText("Dirección:");
-        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 322, -1, -1));
+        jLabelDireccion.setText("Dirección");
+        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 60, 20));
 
-        jLabelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelTelefono.setBackground(new java.awt.Color(0, 0, 255));
+        jLabelTelefono.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTelefono.setText("Telefono:");
-        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 363, -1, -1));
-        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 171, 157, -1));
-        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 209, 157, -1));
-        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 360, 157, -1));
-        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 322, 157, -1));
+        jLabelTelefono.setText("Telefono");
+        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, 30));
+        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 157, -1));
+        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 157, -1));
+        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 157, -1));
+        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 157, -1));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAceptar.setBorder(null);
@@ -128,7 +134,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 100, 60));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 100, 60));
 
         jButtonBorrarTodo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonBorrarTodo.setBorder(null);
@@ -139,7 +145,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
                 jButtonBorrarTodoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBorrarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 110, 60));
+        getContentPane().add(jButtonBorrarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, 100, 60));
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonSalir.setBorder(null);
@@ -150,12 +156,13 @@ public class RegistroUsuarios extends javax.swing.JDialog {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 90, 60));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 90, 60));
 
-        jLabelFechaNacimiento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelFechaNacimiento.setBackground(new java.awt.Color(0, 0, 255));
+        jLabelFechaNacimiento.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelFechaNacimiento.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFechaNacimiento.setText("Fecha de nacimiento: ");
-        getContentPane().add(jLabelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 284, -1, -1));
+        jLabelFechaNacimiento.setText("Fecha de nacimiento ");
+        getContentPane().add(jLabelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, 30));
 
         jDateChooserNacimiento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -165,14 +172,18 @@ public class RegistroUsuarios extends javax.swing.JDialog {
                 jDateChooserNacimientoKeyTyped(evt);
             }
         });
-        getContentPane().add(jDateChooserNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 284, 160, -1));
+        getContentPane().add(jDateChooserNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, 160, -1));
 
-        jLabelDni.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelDni.setBackground(new java.awt.Color(0, 0, 255));
+        jLabelDni.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelDni.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelDni.setText("DNI:");
-        getContentPane().add(jLabelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
-        getContentPane().add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 247, 157, -1));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 610));
+        jLabelDni.setText("DNI");
+        getContentPane().add(jLabelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 30, 30));
+        getContentPane().add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 157, -1));
+
+        jLabelFondo.setBackground(new java.awt.Color(0, 0, 255));
+        jLabelFondo.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
