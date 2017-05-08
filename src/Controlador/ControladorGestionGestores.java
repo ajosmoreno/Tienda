@@ -31,8 +31,13 @@ public class ControladorGestionGestores {
         }
     }
 
-    public void borrarGestor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void borrarGestor() throws ClassNotFoundException, Exception {
+        if(Repositorio.repositorio().eliminarGestor(miVentana.getjComboBoxGestores().getSelectedItem().toString())){
+            miVentana.mostrarMensaje("Gestor eliminado correctamente");
+            miVentana.limpiarCampos();
+        } else{
+            miVentana.mostrarError("No se ha podido eliminar el gestor.");
+        }
     }
 
     public void cargarGestores() throws ClassNotFoundException, Exception {
@@ -58,5 +63,20 @@ public class ControladorGestionGestores {
             else miVentana.getjComboBoxTipoGestor().setSelectedIndex(1);
         }
         return mostrado;
+    }
+
+    public void modificarGestor() throws ClassNotFoundException, Exception {
+        String nombre = miVentana.getjTextFieldNombreGestor().getText();
+        String direccion = miVentana.getjTextFieldDireccionGestor().getText();
+        String telefono = miVentana.getjTextFieldTelefonoGestor().getText();
+        String email = miVentana.getjTextFieldEmailGestor().getText();
+        String tipo = miVentana.getjComboBoxTipoGestor().getSelectedItem().toString();
+        if(Repositorio.repositorio().modificarGestor(Repositorio.repositorio().gestorPorNombre(miVentana.getjComboBoxGestores().getSelectedItem().toString()).getId(), nombre, direccion, telefono, email, tipo)){
+            cargarGestores();
+            miVentana.getjComboBoxGestores().setSelectedItem(nombre);
+        } else{
+            miVentana.mostrarError("No se ha podido modificar el gestor.");
+        }
+        
     }
 }

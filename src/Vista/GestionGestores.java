@@ -232,7 +232,9 @@ public class GestionGestores extends javax.swing.JDialog {
     private void jComboBoxGestoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGestoresActionPerformed
         if(!jComboBoxGestores.getSelectedItem().equals("")){
             try {
-                miControlador.mostrarGestor();
+                if(!miControlador.mostrarGestor())
+                    mostrarError("No se ha podido mostrar los datos del gestor.");
+                
             } catch (Exception ex) {
                 mostrarError("Ha ocurrido un error al mostrar el gestor.");
             }
@@ -288,25 +290,51 @@ public class GestionGestores extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonEliminarGestorActionPerformed
 
     private void jButtonBorrarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarCamposActionPerformed
-        jTextFieldNombreGestor.setText("");
-        jTextFieldDireccionGestor.setText("");
-        jTextFieldTelefonoGestor.setText("");
-        jTextFieldEmailGestor.setText("");
-        jComboBoxGestores.setModel(new DefaultComboBoxModel());
+        limpiarCampos();
     }//GEN-LAST:event_jButtonBorrarCamposActionPerformed
 
+    public void limpiarCampos(){
+        try {
+            jTextFieldNombreGestor.setText("");
+            jTextFieldDireccionGestor.setText("");
+            jTextFieldTelefonoGestor.setText("");
+            jTextFieldEmailGestor.setText("");
+            miControlador.cargarGestores();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al limpiar los campos.");
+        }
+    }
+    
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        if(añadiendo){
-            try {
-                miControlador.añadirGestor();
-            } catch (Exception ex) {
-                mostrarError("Ha ocurrido un error al añadir el gestor.");
-            }
-        } else{
-            if(borrando){
-                miControlador.borrarGestor();
+        if(jTextFieldNombreGestor.getText().equals("") || jTextFieldDireccionGestor.getText().equals("") || jTextFieldEmailGestor.getText().equals("") || jTextFieldTelefonoGestor.getText().equals(""))
+            mostrarError("Rellena todos los campos.");
+        else{
+            if(añadiendo){
+                try {
+                    miControlador.añadirGestor();
+                } catch (Exception ex) {
+                    if(ex.getMessage().contains("Duplicate entry") && ex.getMessage().contains("for key 'nombre'"))
+                        mostrarError("Ya existe un gestor con ese nombre.");
+                    else
+                        mostrarError("Ha ocurrido un error al añadir el gestor.");
+                }
             } else{
-                
+                if(borrando){
+                    try {
+                        miControlador.borrarGestor();
+                    } catch (Exception ex) {
+                        mostrarError("Ha ocurrido un error al eliminar el gestor.");
+                    }
+                } else{
+                    try {
+                        miControlador.modificarGestor();
+                    } catch (Exception ex) {
+                        if(ex.getMessage().contains("Duplicate entry") && ex.getMessage().contains("for key 'nombre'"))
+                            mostrarError("Ya existe un gestor con ese nombre.");
+                        else
+                            mostrarError("Ha ocurrido un error al añadir el gestor.");
+                    }
+                }
             }
         }
     }//GEN-LAST:event_jButtonAceptarActionPerformed

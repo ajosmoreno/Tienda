@@ -199,8 +199,27 @@ public class Repositorio {
             Gestor g = new Gestor(Integer.parseInt(rs.getString("id")), nombre, direccion, telefono, email, tipo);
             listaGestores.add(g);
             añadido = true;
-            System.out.println(g.getId());
         }
         return añadido;
+    }
+
+    public boolean modificarGestor(int id, String nombre, String direccion, String telefono, String email, String tipo) throws SQLException, Exception {
+        boolean añadido = false;
+        ResultSet rsModificar = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE gestores SET nombre = '" + nombre + "', direccion = '" + direccion + "', telefono = '" + telefono + "', email = '" + email + "', tipo = '" + tipo + "' WHERE id = " + id);
+        if(rsModificar != null){
+            añadido = true;
+            cargarGestores();
+        }
+        return añadido;
+    }
+    
+    public boolean eliminarGestor(String nombre) throws SQLException, Exception{
+        boolean eliminado = false;
+        ResultSet rsEliminar = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM gestores WHERE nombre = '" + nombre + "';");
+        if(rsEliminar != null){
+            eliminado = true;
+            cargarGestores();
+        }
+        return eliminado;
     }
 }
