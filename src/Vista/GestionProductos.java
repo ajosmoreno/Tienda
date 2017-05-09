@@ -47,7 +47,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar.png"));
         jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/2botonaceptar.png"));
         jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/1botonaceptar.png"));
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondoregistroproductos.jpg"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/gestionAdmin.jpg"));
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
         jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
@@ -152,8 +152,8 @@ public class GestionProductos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 370, 90, 90));
 
-        jLabelBuscador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelBuscador.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelBuscador.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelBuscador.setForeground(new java.awt.Color(51, 51, 51));
         jLabelBuscador.setText("Id producto: ");
         getContentPane().add(jLabelBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, 20));
 
@@ -167,28 +167,28 @@ public class GestionProductos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
 
-        jLabelModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelModelo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelModelo.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelModelo.setForeground(new java.awt.Color(51, 51, 51));
         jLabelModelo.setText("Modelo: ");
         getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, -1));
 
-        jLabelMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelMarca.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMarca.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelMarca.setForeground(new java.awt.Color(51, 51, 51));
         jLabelMarca.setText("Marca: ");
         getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
 
-        jLabelCaracteristicas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCaracteristicas.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelCaracteristicas.setForeground(new java.awt.Color(51, 51, 51));
         jLabelCaracteristicas.setText("Caracteristicas: ");
         getContentPane().add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
 
-        jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPrecio.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelPrecio.setForeground(new java.awt.Color(51, 51, 51));
         jLabelPrecio.setText("Precio: ");
         getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
 
-        jLabelFoto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelFoto.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFoto.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelFoto.setForeground(new java.awt.Color(51, 51, 51));
         jLabelFoto.setText("Foto: ");
         getContentPane().add(jLabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
         getContentPane().add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 270, -1));
@@ -212,7 +212,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextAreaCarateristicas.setRows(5);
         jScrollPaneCaracteristicas.setViewportView(jTextAreaCarateristicas);
 
-        getContentPane().add(jScrollPaneCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 450, 220));
+        getContentPane().add(jScrollPaneCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 400, 220));
 
         jButtonCancelar.setToolTipText("Cancelar");
         jButtonCancelar.setBorder(null);
@@ -246,14 +246,14 @@ public class GestionProductos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 50, 40));
 
-        jLabeStock.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabeStock.setForeground(new java.awt.Color(255, 255, 255));
+        jLabeStock.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabeStock.setForeground(new java.awt.Color(51, 51, 51));
         jLabeStock.setText("Stock:");
         getContentPane().add(jLabeStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, 20));
         getContentPane().add(jTextFieldStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 70, -1));
 
-        jLabelColor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelColor.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelColor.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelColor.setForeground(new java.awt.Color(51, 51, 51));
         jLabelColor.setText("Color:");
         getContentPane().add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, 20));
         getContentPane().add(jTextFieldColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 140, -1));

@@ -45,7 +45,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
         jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png")); 
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/FondoGestionPedidos.jpg"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/gestionAdmin.jpg"));
     }
     
     
@@ -73,7 +73,6 @@ public class GestionPedidos extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Gestion de Pedidos"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(989, 586));
         setSize(new java.awt.Dimension(989, 586));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -112,8 +111,8 @@ public class GestionPedidos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 90, 90));
 
-        jLabelNombreCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombreCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombreCliente.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelNombreCliente.setForeground(new java.awt.Color(51, 51, 51));
         jLabelNombreCliente.setText("Nombre Cliente: ");
         getContentPane().add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 120, 20));
         getContentPane().add(jTextFieldNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 169, -1));

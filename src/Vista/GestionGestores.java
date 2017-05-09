@@ -30,7 +30,7 @@ public class GestionGestores extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         miControlador = new ControladorGestionGestores(this);
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/FondoGestionGestores.png"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/gestionAdmin.jpg"));
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
         jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
