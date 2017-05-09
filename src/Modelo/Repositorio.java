@@ -127,14 +127,14 @@ public class Repositorio {
         }
         return cliente;
     }
-    
-    public Gestor gestorPorNombre(String nombre){
+
+    public Gestor gestorPorNombre(String nombre) {
         Gestor gestor = null;
         boolean encontrado = false;
         int contador = 0;
-        while(!encontrado && contador < listaGestores.size()){
+        while (!encontrado && contador < listaGestores.size()) {
             Gestor g = listaGestores.get(contador);
-            if(g.getNombre().equals(nombre)){
+            if (g.getNombre().equals(nombre)) {
                 encontrado = true;
                 gestor = g;
             }
@@ -142,15 +142,16 @@ public class Repositorio {
         }
         return gestor;
     }
-    
-    public int posicionClienteEnLista(Cliente c){
+
+    public int posicionClienteEnLista(Cliente c) {
         int pos = -1;
         boolean encontrado = false;
         int contador = 0;
-        while(!encontrado && contador < listaClientes.size()){
+        while (!encontrado && contador < listaClientes.size()) {
             Cliente cl = listaClientes.get(contador);
-            if(c.getId() == cl.getId())
+            if (c.getId() == cl.getId()) {
                 pos = contador;
+            }
             contador++;
         }
         return pos;
@@ -194,7 +195,7 @@ public class Repositorio {
     public boolean añadirGestor(String nombre, String direccion, String telefono, String email, String tipo) throws SQLException, Exception {
         boolean añadido = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO gestores (nombre, direccion, telefono, email, tipo) VALUES ('" + nombre + "', '" + direccion + "', '" + telefono + "', '" + email + "', '" + tipo + "');");
-        if(rs != null){
+        if (rs != null) {
             rs.next();
             Gestor g = new Gestor(Integer.parseInt(rs.getString("id")), nombre, direccion, telefono, email, tipo);
             listaGestores.add(g);
@@ -206,17 +207,17 @@ public class Repositorio {
     public boolean modificarGestor(int id, String nombre, String direccion, String telefono, String email, String tipo) throws SQLException, Exception {
         boolean añadido = false;
         ResultSet rsModificar = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE gestores SET nombre = '" + nombre + "', direccion = '" + direccion + "', telefono = '" + telefono + "', email = '" + email + "', tipo = '" + tipo + "' WHERE id = " + id);
-        if(rsModificar != null){
+        if (rsModificar != null) {
             añadido = true;
             cargarGestores();
         }
         return añadido;
     }
-    
-    public boolean eliminarGestor(String nombre) throws SQLException, Exception{
+
+    public boolean eliminarGestor(String nombre) throws SQLException, Exception {
         boolean eliminado = false;
         ResultSet rsEliminar = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM gestores WHERE nombre = '" + nombre + "';");
-        if(rsEliminar != null){
+        if (rsEliminar != null) {
             eliminado = true;
             cargarGestores();
         }
@@ -225,12 +226,58 @@ public class Repositorio {
 
     public boolean registrarUsuario(String usuario, String contrasenya, String nombre, String apellidos, String dni, String fechaNacimiento, String direccion, String telefono, int permisos) throws SQLException, Exception {
         boolean registrado = false;
-        ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario +"', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', " + permisos + ");");
-        if(res != null){
+        ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario + "', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', " + permisos + ");");
+        if (res != null) {
             cargarClientes();
             registrado = true;
         }
         return registrado;
     }
+
+    public int generarPedido(int idCliente, double subtotal, double total, String tipoPago) throws SQLException, Exception {
+        int pedidoGenerado = 0;
+        ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + subtotal + ", " + total + ", '" + tipoPago + "', 'Sin pagar');");
+        if(rsPedido != null){
+            rsPedido.next();
+            ResultSet rsCompra = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO compras VALUES (" + rsPedido.getString("numeroPedido") + ");");
+            if(rsCompra != null){
+                ArrayList<Producto> cestaCliente = Sesion.miCliente().getCliente().getCesta();
+                for(Producto p: cestaCliente){
+                    ResultSet stockProducto = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT stock FROM productos WHERE id = " + p.getId());
+                    stockProducto.next();
+                    if(Integer.parseInt(stockProducto.getString("stock")) > 0){
+                        System.out.println("INSERT INTO productoscomprados (numeroPedido, idProducto) VALUES (" + rsPedido.getString("numeroPedido") + ", " + p.getId() + ");");
+                        ResultSet productoComprado = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO productoscomprados (numeroPedido, idProducto) VALUES (" + rsPedido.getString("numeroPedido") + ", " + p.getId() + ");");
+                        if(productoComprado != null){
+                            BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE productos SET stock = stock - 1 WHERE id = " + p.getId());
+                            ResultSet eliminarProductoCesta = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM cesta WHERE idCliente = " + idCliente + " AND idProducto = " + p.getId());
+                            if(eliminarProductoCesta == null){
+                                throw new Exception("No se ha podido eliminar el producto " + p.getMarca() + " " + p.getModelo() + " " + p.getColor() + " de la cesta.\n\nEl pedido de ese producto si se ha procesado, solo que volverá a aparecer en la cesta.");
+                            } else{
+                                pedidoGenerado = Integer.parseInt(rsPedido.getString("numeroPedido"));
+                            }
+                        } else{
+                            System.out.println("no comprado");
+                            throw new Exception("No se ha podido procesar el producto " + p.getMarca() + " " + p.getModelo() + " " + p.getColor() + " de la cesta.\n\nInténtelo de nuevo en otro pedido.");
+                        }
+                    } else{
+                        throw new Exception("El producto se ha agotado mientras gestionabas la cesta.");
+                    }
+                }
+            } else{
+                throw new Exception("No se ha podido generar la compra.");
+            }
+        }
+        if(pedidoGenerado > 0){
+            cargarProductos();
+            cargarPedidos();
+            cargarClientes();
+        }
+        return pedidoGenerado;
+    }
     
+    public boolean pagarPedido(int numeroPedido) throws SQLException, Exception{
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Pagado' WHERE numeroPedido = " + numeroPedido + ";");
+        return rs != null;
+    }
 }

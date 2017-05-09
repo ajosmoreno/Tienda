@@ -6,8 +6,6 @@
 package Vista;
 
 import Controlador.ControladorCestaCompra;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -154,7 +152,6 @@ public class CestaCompra extends javax.swing.JDialog {
             miControlador.pagarEfectivo();
         } catch (Exception ex) {
             mostrarError("Error al procesar el pedido");
-            mostrarError(ex.getMessage());
         }
     }//GEN-LAST:event_jButtonPagoEfectivoActionPerformed
 
@@ -167,7 +164,6 @@ public class CestaCompra extends javax.swing.JDialog {
             miControlador.borrarProductos();
         } catch (Exception ex) {
             mostrarError("Error al borrar los productos de la cesta.");
-            mostrarError(ex.getMessage());
         }
     }//GEN-LAST:event_jButtonBorrarProductoActionPerformed
 
