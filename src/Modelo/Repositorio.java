@@ -336,4 +336,93 @@ public class Repositorio {
         }
         return liberado;
     }
+    
+    public boolean completarPedido(int numeroPedido) throws SQLException, Exception{
+        boolean completado = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + numeroPedido);
+        if(rs != null){
+            completado = true;
+            Repositorio.repositorio().cargarProductos();
+            Repositorio.repositorio().cargarPedidos();
+            Repositorio.repositorio().cargarClientes();
+        }   
+        return completado;
+    }
+    
+    public boolean cancelarPedido(int numerPedido) throws SQLException, Exception{
+        boolean eliminado = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Cancelado' WHERE numeroPedido = " + numerPedido);
+        if(rs != null){
+            eliminado = true;
+            Repositorio.repositorio().cargarProductos();
+            Repositorio.repositorio().cargarPedidos();
+            Repositorio.repositorio().cargarClientes();
+        }
+        return eliminado;
+    }
+    
+    public boolean modificarProducto(int id, String marca, String modelo, Double precio, int stock, String imagen, String caracteristicas, String color) throws SQLException, Exception{
+        boolean modificado = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE productos SET marca = '" + marca + "', modelo = '" + modelo + "', precio = " + precio + ", stock = " + stock + ", imagen = '" + imagen + "', descripcion = '" + caracteristicas + "', color = '" + color + "' WHERE id = " + id);
+        if(rs != null){
+            modificado = true;
+            cargarProductos();
+            cargarPedidos();
+        }
+        return modificado;
+    }
+    
+    public boolean eliminarProducto(int id) throws SQLException, Exception{
+        boolean eliminado = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM productos WHERE id = " + id);
+        if(rs != null){
+            eliminado = true;
+            cargarProductos();
+        }
+        return eliminado;
+    }
+    
+    public boolean añadirProducto(String marca, String modelo, Double precio, String color, String caracteristicas, int stock, String imagen) throws SQLException, Exception{
+        boolean añadido = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO productos (marca, modelo, precio, color, descripcion, stock, imagen) VALUES ('" + marca + "', '" + modelo + "', " + precio + " , '" + color + "', '" + caracteristicas + "', " + stock +", '" + imagen + "');");
+        if(rs != null){
+            añadido = true;
+            cargarProductos();
+        }
+        return añadido;
+    }
+    
+    public ArrayList<String> obtenerMarcasProductos() throws SQLException, Exception{
+        ArrayList<String> lista = new ArrayList<String>();
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT distinct marca FROM productos;");
+        while(rs.next()){
+            lista.add(rs.getString("marca"));
+        }
+        return lista;
+    }
+    
+    public ArrayList<String> obtenerModelosProductos(String marca) throws SQLException, Exception{
+        ArrayList<String> lista = new ArrayList<String>();
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT modelo FROM productos WHERE marca = '" + marca + "' GROUP BY modelo;");
+        while(rs.next()){
+            lista.add(rs.getString("modelo"));
+        }
+        return lista;
+    }
+    
+    public boolean productoDisponible(int id) throws SQLException, Exception{
+        ResultSet consultaStock = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT stock FROM productos WHERE id = " + id);
+        consultaStock.next();
+        return Integer.parseInt(consultaStock.getString("stock")) > 0;
+    }
+    
+    public boolean añadirProductoCesta(int idCliente, Producto producto) throws SQLException, Exception{
+        boolean añadido = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO cesta VALUES (" + idCliente + ", " + producto.getId() + ");");
+        if(rs != null){
+            añadido = true;
+            Sesion.miCliente().getCliente().getCesta().add(producto);
+        }
+        return añadido;
+    }
 }

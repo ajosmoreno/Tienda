@@ -1,7 +1,5 @@
 package Controlador;
 
-import Modelo.BaseDeDatos;
-import Modelo.Pedido;
 import Modelo.Producto;
 import Modelo.Repositorio;
 import Modelo.Sesion;
@@ -10,7 +8,6 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;

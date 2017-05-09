@@ -5,7 +5,6 @@
  */
 package Controlador;
 
-import Modelo.BaseDeDatos;
 import Modelo.Cliente;
 import Modelo.Compra;
 import Modelo.Liberacion;
@@ -13,7 +12,6 @@ import Modelo.Pedido;
 import Modelo.Reparacion;
 import Modelo.Repositorio;
 import Vista.GestionPedidos;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
@@ -77,8 +75,7 @@ public class ControladorGestionPedidos {
             boolean completar = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 6);
             int pedido = (Integer)miVentana.getjTablePedidos().getValueAt(i, 1);
             if(seleccionado && completar){
-                ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + pedido);
-                if(rs != null){
+                if(Repositorio.repositorio().completarPedido(pedido)){
                     correcto = true;
                 } else{
                     miVentana.mostrarError("Error al completar pedido " + pedido);
@@ -86,9 +83,6 @@ public class ControladorGestionPedidos {
             }
         }
         if(correcto){
-            Repositorio.repositorio().cargarProductos();
-            Repositorio.repositorio().cargarPedidos();
-            Repositorio.repositorio().cargarClientes();
             miVentana.mostrarMensaje("Los pedidos seleccionados han sido completados.");
             mostarPendientes();
         } else{
@@ -103,8 +97,7 @@ public class ControladorGestionPedidos {
             boolean completar = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 6);
             int pedido = (Integer)miVentana.getjTablePedidos().getValueAt(i, 1);
             if(seleccionado && !completar){
-                ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Cancelado' WHERE numeroPedido = " + pedido);
-                if(rs != null){
+                if(Repositorio.repositorio().cancelarPedido(pedido)){
                     correcto = true;
                 } else{
                     miVentana.mostrarError("Error al cancelar pedido " + pedido);
@@ -112,9 +105,6 @@ public class ControladorGestionPedidos {
             }
         }
         if(correcto){
-            Repositorio.repositorio().cargarProductos();
-            Repositorio.repositorio().cargarPedidos();
-            Repositorio.repositorio().cargarClientes();
             miVentana.mostrarMensaje("Los pedidos seleccionados han sido cancelados.");
             mostarPendientes();
         } else{

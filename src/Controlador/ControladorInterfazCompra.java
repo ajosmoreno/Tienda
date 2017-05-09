@@ -1,7 +1,5 @@
 package Controlador;
 
-import Modelo.BaseDeDatos;
-import Modelo.Gestor;
 import Modelo.Producto;
 import Modelo.Repositorio;
 import Modelo.Sesion;
@@ -12,12 +10,10 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *
@@ -36,11 +32,10 @@ public class ControladorInterfazCompra {
     }
     
     public void mostrarMarcas() throws SQLException, Exception{
-        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT distinct marca FROM productos;");
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();
         dcb.addElement("");
-        while(rs.next()){
-            dcb.addElement(rs.getString("marca"));
+        for(String marca: Repositorio.repositorio().obtenerMarcasProductos()){
+            dcb.addElement(marca);
         }
         miVentana.getjComboBoxMarca().setModel(dcb);
     }
@@ -49,9 +44,8 @@ public class ControladorInterfazCompra {
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();    
         if(!miVentana.getjComboBoxMarca().getSelectedItem().equals("")){
             dcb.addElement("");
-            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT modelo FROM productos WHERE marca = '" + miVentana.getjComboBoxMarca().getSelectedItem() + "' GROUP BY modelo;");
-            while(rs.next()){
-                dcb.addElement(rs.getString("modelo"));
+            for(String modelo: Repositorio.repositorio().obtenerModelosProductos(miVentana.getjComboBoxMarca().getSelectedItem().toString())){
+                dcb.addElement(modelo);
             }
         }
         miVentana.getjComboBoxModelo().setModel(dcb);
@@ -128,20 +122,15 @@ public class ControladorInterfazCompra {
     }
     
     public void añadirCesta() throws SQLException, Exception{
-        ResultSet consultaStock = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT stock FROM productos WHERE id = " + productoSeleccionado.getId());
-        consultaStock.next();
-        int stock = Integer.parseInt(consultaStock.getString("stock"));
-        if(Sesion.miCliente().getCliente().getPermisos() == 1 && stock > 0){
-            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO cesta VALUES (" + Sesion.miCliente().getCliente().getId() + ", " + productoSeleccionado.getId() + ");");
-            if(rs != null){
-                Sesion.miCliente().getCliente().getCesta().add(productoSeleccionado);
+        if(Sesion.miCliente().getCliente().getPermisos() == 1 && Repositorio.repositorio().productoDisponible(productoSeleccionado.getId())){
+            if(Repositorio.repositorio().añadirProductoCesta(Sesion.miCliente().getCliente().getId(), productoSeleccionado)){
                 miVentana.mostrarMensaje("Producto añadido correctamente a la cesta.");
             } else{
                 miVentana.mostrarError("No se ha podido añadir el producto a la cesta.");
             }
             
         } else{
-            miVentana.mostrarError("No puedes comprar el producto porque no eres cliente o se ha acabado el stock.");
+            miVentana.mostrarError("No puedes comprar el producto porque no eres cliente o se ha agotado.");
         }
     }
 

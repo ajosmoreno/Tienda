@@ -1,6 +1,5 @@
 package Controlador;
 
-import Modelo.BaseDeDatos;
 import Modelo.Producto;
 import Modelo.Repositorio;
 import Vista.GestionProductos;
@@ -9,7 +8,6 @@ import java.awt.Frame;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
@@ -66,9 +64,7 @@ public class ControladorGestionProductos {
         String imagen = miVentana.getjTextFieldFoto().getText();
         String caracteristicas = miVentana.getjTextAreaCarateristicas().getText();
         String color = miVentana.getjTextFieldColor().getText();
-        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO productos (marca, modelo, precio, color, descripcion, stock, imagen) VALUES ('" + marca + "', '" + modelo + "', " + precio + " , '" + color + "', '" + caracteristicas + "', " + stock +", '" + imagen + "');");
-        if(rs != null){
-            Repositorio.repositorio().cargarProductos();
+        if(Repositorio.repositorio().añadirProducto(marca, modelo, precio, color, caracteristicas, stock, imagen)){
             miVentana.mostrarMensaje("Producto añadido al catálogo correctamente.");
             miVentana.limpiarCampos();
         } else{
@@ -101,9 +97,6 @@ public class ControladorGestionProductos {
     }
     
     public void seleccionarProducto() throws ClassNotFoundException, Exception{
-        ArrayList<Producto> productos = Repositorio.repositorio().devolverProductos();
-        boolean encontrado = false;
-        int contador = 0;
         productoSeleccionado = Repositorio.repositorio().productoPorID(Integer.parseInt(miVentana.getjComboBoxListaProductos().getSelectedItem().toString()));
     }
 
@@ -115,9 +108,7 @@ public class ControladorGestionProductos {
         String imagen = miVentana.getjTextFieldFoto().getText();
         String caracteristicas = miVentana.getjTextAreaCarateristicas().getText();
         String color = miVentana.getjTextFieldColor().getText();
-        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE productos SET marca = '" + marca + "', modelo = '" + modelo + "', precio = " + precio + ", stock = " + stock + ", imagen = '" + imagen + "', descripcion = '" + caracteristicas + "', color = '" + color + "' WHERE id = " + productoSeleccionado.getId());
-        if(rs != null){
-            Repositorio.repositorio().cargarProductos();
+        if(Repositorio.repositorio().modificarProducto(productoSeleccionado.getId(), marca, modelo, precio, stock, imagen, caracteristicas, color)){
             miVentana.mostrarMensaje("Producto modificado correctamente.");
         } else{
             miVentana.mostrarError("No se ha podido modificar el producto.");
@@ -126,9 +117,7 @@ public class ControladorGestionProductos {
 
     public void eliminarProducto() throws SQLException, Exception {
         if(mostrarAviso()){
-            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM productos WHERE id = " + productoSeleccionado.getId());
-            if(rs != null){
-                Repositorio.repositorio().cargarProductos();
+            if(Repositorio.repositorio().eliminarProducto(productoSeleccionado.getId())){
                 miVentana.mostrarMensaje("Producto eliminado correctamente.");
                 miVentana.limpiarCampos();
                 cargarProductos();
