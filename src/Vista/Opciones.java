@@ -21,7 +21,7 @@ public class Opciones extends javax.swing.JDialog {
     public Opciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/opciones.jpg"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/robot.jpg"));
         setLocationRelativeTo(null);
         miControlador = new ControladorOpciones(this);
         if(miControlador.esInvitado()){
@@ -54,54 +54,49 @@ public class Opciones extends javax.swing.JDialog {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonVerCatalogo.setText("Ver Catalogo");
-        jButtonVerCatalogo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonVerCatalogo.setBorderPainted(false);
         jButtonVerCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVerCatalogoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVerCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 123, 41));
+        getContentPane().add(jButtonVerCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 140, 41));
 
         jButtonGestion.setText("Gestion de Pedidos");
-        jButtonGestion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonGestion.setBorderPainted(false);
         jButtonGestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGestionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonGestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 120, 41));
+        getContentPane().add(jButtonGestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 140, 41));
 
         jButtonReparacion.setText("Reparación");
-        jButtonReparacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonReparacion.setBorderPainted(false);
         jButtonReparacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReparacionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 123, 41));
+        getContentPane().add(jButtonReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 140, 41));
 
         jButtonLiberacion.setText("Liberación");
-        jButtonLiberacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonLiberacion.setBorderPainted(false);
         jButtonLiberacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLiberacionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 123, 41));
+        getContentPane().add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 140, 41));
 
         jButtonVolver.setText("Volver al menú principal");
-        jButtonVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonVolver.setBorderPainted(false);
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 150, 41));
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 170, 41));
 
         jLabelFondo.setMinimumSize(new java.awt.Dimension(841, 483));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 841, 483));

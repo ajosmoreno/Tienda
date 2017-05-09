@@ -28,7 +28,7 @@ public class InterfazCompra extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-       
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/catalogo.jpg"));
         jButtonAñadirCesta.setIcon(new ImageIcon("Imagenes/icon/cestaañadirnormal.png"));
         jButtonAñadirCesta.setPressedIcon(new ImageIcon("Imagenes/icon/cestaañadirpressed.png"));
         jButtonAñadirCesta.setRolloverIcon(new ImageIcon("Imagenes/icon/cestaañadirrollover.png"));
@@ -92,6 +92,7 @@ public class InterfazCompra extends javax.swing.JDialog {
         jButtonVolver = new javax.swing.JButton();
         jButtonCestaCompra = new javax.swing.JButton();
         jLabelModelo = new javax.swing.JLabel();
+        jLabelFondo = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -99,19 +100,17 @@ public class InterfazCompra extends javax.swing.JDialog {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCatalogo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelCatalogo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCatalogo.setFont(new java.awt.Font("Comic Sans MS", 1, 39)); // NOI18N
+        jLabelCatalogo.setForeground(new java.awt.Color(204, 204, 204));
         jLabelCatalogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCatalogo.setText("Catalogo");
-        getContentPane().add(jLabelCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 260, 53));
+        jLabelCatalogo.setText("Catálogo");
+        getContentPane().add(jLabelCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 280, 60));
 
-        jLabelMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelMarca.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMarca.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelMarca.setText("Marca: ");
         getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 70, 20));
 
-        jLabelColor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelColor.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelColor.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelColor.setText("Color:");
         getContentPane().add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 70, 24));
 
@@ -148,14 +147,12 @@ public class InterfazCompra extends javax.swing.JDialog {
         });
         getContentPane().add(jComboBoxColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 118, -1));
 
-        jLabelCaracteristicas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelCaracteristicas.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCaracteristicas.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelCaracteristicas.setText("Caracteristicas: ");
         getContentPane().add(jLabelCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
         getContentPane().add(jLabelImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 380, 380));
 
-        jLabelPrecio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPrecio.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabelPrecio.setText("Precio: ");
         getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
@@ -195,10 +192,10 @@ public class InterfazCompra extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonCestaCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 110, 90));
 
-        jLabelModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelModelo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelModelo.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelModelo.setText("Modelo:");
         getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, 24));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -348,6 +345,7 @@ public class InterfazCompra extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelCaracteristicas;
     private javax.swing.JLabel jLabelCatalogo;
     private javax.swing.JLabel jLabelColor;
+    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelImagen;
     private javax.swing.JLabel jLabelMarca;
     private javax.swing.JLabel jLabelModelo;
