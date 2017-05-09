@@ -60,7 +60,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelFoto.setVisible(false);
         jLabelCaracteristicas.setVisible(false);
         jTextAreaCarateristicas.setVisible(false);
-        jScrollPane1.setVisible(false);
+        jScrollPaneCaracteristicas.setVisible(false);
         jTextFieldMarca.setVisible(false);
         jTextFieldModelo.setVisible(false);
         jTextFieldFoto.setVisible(false);
@@ -98,7 +98,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextFieldModelo = new javax.swing.JTextField();
         jTextFieldFoto = new javax.swing.JTextField();
         jTextFieldPrecio = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneCaracteristicas = new javax.swing.JScrollPane();
         jTextAreaCarateristicas = new javax.swing.JTextArea();
         jButtonCancelar = new javax.swing.JButton();
         jButtonAceptar = new javax.swing.JButton();
@@ -114,7 +114,6 @@ public class GestionProductos extends javax.swing.JDialog {
         setTitle("Gestion de productos");
         setMinimumSize(new java.awt.Dimension(989, 586));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(989, 586));
         setSize(new java.awt.Dimension(989, 586));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -211,9 +210,9 @@ public class GestionProductos extends javax.swing.JDialog {
 
         jTextAreaCarateristicas.setColumns(20);
         jTextAreaCarateristicas.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaCarateristicas);
+        jScrollPaneCaracteristicas.setViewportView(jTextAreaCarateristicas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 450, 220));
+        getContentPane().add(jScrollPaneCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 450, 220));
 
         jButtonCancelar.setToolTipText("Cancelar");
         jButtonCancelar.setBorder(null);
@@ -291,7 +290,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonCancelar.setVisible(true);
         jButtonAceptar.setVisible(true);
         jTextAreaCarateristicas.setVisible(true);
-        jScrollPane1.setVisible(true);
+        jScrollPaneCaracteristicas.setVisible(true);
         jTextFieldMarca.setVisible(true);
         jTextFieldModelo.setVisible(true);
         jTextFieldFoto.setVisible(true);
@@ -344,7 +343,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelFoto.setVisible(false);
         jLabelCaracteristicas.setVisible(false);
         jTextAreaCarateristicas.setVisible(false);
-        jScrollPane1.setVisible(false);
+        jScrollPaneCaracteristicas.setVisible(false);
         jTextFieldMarca.setVisible(false);
         jTextFieldModelo.setVisible(false);
         jTextFieldFoto.setVisible(false);
@@ -413,7 +412,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonCancelar.setVisible(true);
                 jButtonAceptar.setVisible(true);
                 jTextAreaCarateristicas.setVisible(true);
-                jScrollPane1.setVisible(true);
+                jScrollPaneCaracteristicas.setVisible(true);
                 jTextFieldMarca.setVisible(true);
                 jTextFieldModelo.setVisible(true);
                 jTextFieldFoto.setVisible(true);
@@ -508,7 +507,7 @@ public class GestionProductos extends javax.swing.JDialog {
             jLabelFoto.setVisible(false);
             jLabelCaracteristicas.setVisible(false);
             jTextAreaCarateristicas.setVisible(false);
-            jScrollPane1.setVisible(false);
+            jScrollPaneCaracteristicas.setVisible(false);
             jTextFieldMarca.setVisible(false);
             jTextFieldModelo.setVisible(false);
             jTextFieldFoto.setVisible(false);
@@ -584,7 +583,7 @@ public class GestionProductos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelMarca;
     private javax.swing.JLabel jLabelModelo;
     private javax.swing.JLabel jLabelPrecio;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPaneCaracteristicas;
     private javax.swing.JTextArea jTextAreaCarateristicas;
     private javax.swing.JTextField jTextFieldColor;
     private javax.swing.JTextField jTextFieldFoto;

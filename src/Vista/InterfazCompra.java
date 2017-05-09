@@ -81,7 +81,7 @@ public class InterfazCompra extends javax.swing.JDialog {
         jLabelImagen = new javax.swing.JLabel();
         jLabelPrecio = new javax.swing.JLabel();
         jLabelPrecioTotal = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneCaracteristicas = new javax.swing.JScrollPane();
         jTextAreaCaracteristicas = new javax.swing.JTextArea();
         jButtonVolver = new javax.swing.JButton();
         jButtonCestaCompra = new javax.swing.JButton();
@@ -158,9 +158,9 @@ public class InterfazCompra extends javax.swing.JDialog {
         jTextAreaCaracteristicas.setEditable(false);
         jTextAreaCaracteristicas.setColumns(20);
         jTextAreaCaracteristicas.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaCaracteristicas);
+        jScrollPaneCaracteristicas.setViewportView(jTextAreaCaracteristicas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 290, 290));
+        getContentPane().add(jScrollPaneCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 290, 290));
 
         jButtonVolver.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVolver.setToolTipText("Volver atras");
@@ -346,7 +346,7 @@ public class InterfazCompra extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JLabel jLabelPrecioTotal;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPaneCaracteristicas;
     private javax.swing.JTextArea jTextAreaCaracteristicas;
     // End of variables declaration//GEN-END:variables
 

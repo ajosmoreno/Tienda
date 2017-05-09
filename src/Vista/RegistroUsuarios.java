@@ -53,23 +53,23 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelRegistro = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelContraseña = new javax.swing.JLabel();
-        jTextFieldNombreUsuario = new javax.swing.JTextField();
-        jPasswordFieldUsuario = new javax.swing.JPasswordField();
         jLabelNombre = new javax.swing.JLabel();
         jLabelApellidos = new javax.swing.JLabel();
         jLabelDireccion = new javax.swing.JLabel();
         jLabelTelefono = new javax.swing.JLabel();
+        jTextFieldNombreUsuario = new javax.swing.JTextField();
+        jPasswordFieldUsuario = new javax.swing.JPasswordField();
         jTextFieldNombre = new javax.swing.JTextField();
-        jTextFieldApellidos = new javax.swing.JTextField();
         jTextFieldTelefono = new javax.swing.JTextField();
+        jTextFieldApellidos = new javax.swing.JTextField();
         jTextFieldDireccion = new javax.swing.JTextField();
+        jTextFieldDni = new javax.swing.JTextField();
         jButtonAceptar = new javax.swing.JButton();
         jButtonBorrarTodo = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
         jLabelFechaNacimiento = new javax.swing.JLabel();
         jDateChooserNacimiento = new com.toedter.calendar.JDateChooser();
         jLabelDni = new javax.swing.JLabel();
-        jTextFieldDni = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -94,8 +94,6 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelContraseña.setForeground(new java.awt.Color(255, 255, 255));
         jLabelContraseña.setText("Contraseña");
         getContentPane().add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, 20));
-        getContentPane().add(jTextFieldNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 157, -1));
-        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 157, -1));
 
         jLabelNombre.setBackground(new java.awt.Color(0, 0, 255));
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -120,10 +118,13 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTelefono.setText("Telefono");
         getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, 30));
+        getContentPane().add(jTextFieldNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 157, -1));
+        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 157, -1));
         getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 157, -1));
-        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 157, -1));
         getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 157, -1));
+        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 157, -1));
         getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 157, -1));
+        getContentPane().add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 157, -1));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAceptar.setBorder(null);
@@ -179,7 +180,6 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelDni.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDni.setText("DNI");
         getContentPane().add(jLabelDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 30, 30));
-        getContentPane().add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 157, -1));
 
         jLabelFondo.setBackground(new java.awt.Color(0, 0, 255));
         jLabelFondo.setForeground(new java.awt.Color(255, 255, 255));

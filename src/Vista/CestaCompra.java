@@ -44,7 +44,7 @@ public class CestaCompra extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneCesta = new javax.swing.JScrollPane();
         jTableCesta = new javax.swing.JTable();
         jButtonPagoEfectivo = new javax.swing.JButton();
         jButtonPagarTarjeta = new javax.swing.JButton();
@@ -84,14 +84,14 @@ public class CestaCompra extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTableCesta);
+        jScrollPaneCesta.setViewportView(jTableCesta);
         if (jTableCesta.getColumnModel().getColumnCount() > 0) {
             jTableCesta.getColumnModel().getColumn(0).setMinWidth(10);
             jTableCesta.getColumnModel().getColumn(0).setPreferredWidth(20);
             jTableCesta.getColumnModel().getColumn(0).setMaxWidth(20);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 777, 310));
+        getContentPane().add(jScrollPaneCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 777, 310));
 
         jButtonPagoEfectivo.setText("Realizar pago en efectivo");
         jButtonPagoEfectivo.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +260,7 @@ public class CestaCompra extends javax.swing.JDialog {
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabelPrecioTotal;
     private javax.swing.JLabel jLabelTotal;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPaneCesta;
     private javax.swing.JTable jTableCesta;
     // End of variables declaration//GEN-END:variables
 }

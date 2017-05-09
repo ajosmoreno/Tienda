@@ -21,16 +21,16 @@ public class Reparacion extends javax.swing.JDialog {
     public Reparacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jLabel7Icon.setIcon(new ImageIcon("Imagenes/Reparacion-iloveimg-resized.jpg"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/Reparacion-iloveimg-resized.jpg"));
         jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
         jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
         jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
         jButtonBorrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
         jButtonBorrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
         jButtonBorrar.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
-        jButton3Salir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
-        jButton3Salir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
-        jButton3Salir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
+        jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
+        jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
+        jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
     }
 
     /**
@@ -56,8 +56,8 @@ public class Reparacion extends javax.swing.JDialog {
         jTextAreaObservaciones = new javax.swing.JTextArea();
         jButtonAceptar = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
-        jButton3Salir = new javax.swing.JButton();
-        jLabel7Icon = new javax.swing.JLabel();
+        jButtonSalir = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -139,21 +139,21 @@ public class Reparacion extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 98, 60));
 
-        jButton3Salir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3Salir.setToolTipText("Salir");
-        jButton3Salir.setBorder(null);
-        jButton3Salir.setBorderPainted(false);
-        jButton3Salir.setContentAreaFilled(false);
-        jButton3Salir.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButton3Salir.setMinimumSize(new java.awt.Dimension(50, 50));
-        jButton3Salir.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButton3Salir.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSalir.setToolTipText("Salir");
+        jButtonSalir.setBorder(null);
+        jButtonSalir.setBorderPainted(false);
+        jButtonSalir.setContentAreaFilled(false);
+        jButtonSalir.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButtonSalir.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButtonSalir.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3SalirActionPerformed(evt);
+                jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 347, 98, 60));
-        getContentPane().add(jLabel7Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 347, 98, 60));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
 
         pack();
         setLocationRelativeTo(null);
@@ -169,12 +169,17 @@ public class Reparacion extends javax.swing.JDialog {
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
+        jTextFieldNombre.setText("");
+        jTextFieldApellidos.setText("");
+        jTextFieldDireccion.setText("");
+        jTextFieldTelefono.setText("");
+        jTextAreaObservaciones.setText("");
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
-    private void jButton3SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3SalirActionPerformed
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         
           this.dispose();
-    }//GEN-LAST:event_jButton3SalirActionPerformed
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,12 +224,12 @@ public class Reparacion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3Salir;
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonBorrar;
-    private javax.swing.JLabel jLabel7Icon;
+    private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabelApellidos;
     private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelObservaciones;
     private javax.swing.JLabel jLabelRegistroReparacion;
