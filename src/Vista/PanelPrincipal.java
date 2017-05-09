@@ -26,7 +26,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     public PanelPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondoprincipal.jpg"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/panelPrincipal.jpg"));
         miControlador = new ControladorPrincipal(this);
         try {
             miControlador.inicializarDatos();
@@ -74,33 +74,33 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelBienvenido.setFont(new java.awt.Font("Tahoma", 3, 22)); // NOI18N
+        jLabelBienvenido.setFont(new java.awt.Font("Comic Sans MS", 3, 48)); // NOI18N
         jLabelBienvenido.setForeground(new java.awt.Color(255, 255, 255));
         jLabelBienvenido.setText("Bienvenido");
-        getContentPane().add(jLabelBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 138, 54));
+        getContentPane().add(jLabelBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 250, 54));
 
-        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelUsuario.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsuario.setText("Usuario :");
-        getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 60, 40));
-        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 210, -1));
+        getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 70, 40));
+        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 210, -1));
 
         jPasswordFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 210, -1));
+        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 210, -1));
 
-        jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Contraseña :");
-        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 90, 30));
+        getContentPane().add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 100, 30));
 
-        jLabelRegistro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelRegistro.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabelRegistro.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRegistro.setText("¿Aun no estas registrado?");
-        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 170, 20));
+        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 180, 20));
 
         jButtonRegistro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonRegistro.setText("Registrar");
@@ -109,7 +109,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButtonRegistroActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 110, 40));
+        getContentPane().add(jButtonRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 110, 40));
 
         jButtonEntrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonEntrar.setText("Entrar");
@@ -118,7 +118,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButtonEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 100, 40));
+        getContentPane().add(jButtonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 100, 40));
 
         jButtonInvitado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonInvitado.setText("Entrar como invitado");
@@ -132,7 +132,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButtonInvitadoKeyPressed(evt);
             }
         });
-        getContentPane().add(jButtonInvitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 160, 40));
+        getContentPane().add(jButtonInvitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 160, 40));
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonSalir.setText("Salir");
@@ -141,8 +141,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 80, 40));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 80, 40));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
