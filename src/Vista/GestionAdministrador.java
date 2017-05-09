@@ -43,7 +43,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         //jPanelModificarUsuario.setBackground(new Color(0,0,0,255));
         jPanelUsuarios.setVisible(false);
         setLocationRelativeTo(null);
-        jLabelFondoPrincipal.setIcon(new ImageIcon("Imagenes/fondojpanelprincipal.PNG"));
+        jLabelFondoPrincipal.setIcon(new ImageIcon("Imagenes/gestionAdmin.jpg"));
         jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
         jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
         jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
