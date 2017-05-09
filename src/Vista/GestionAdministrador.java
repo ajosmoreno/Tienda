@@ -44,18 +44,15 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jPanelUsuarios.setVisible(false);
         setLocationRelativeTo(null);
         jLabelFondoPrincipal.setIcon(new ImageIcon("Imagenes/fondojpanelprincipal.PNG"));
-        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
-        jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
-        jButtonCancelar.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonCancelar.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonCancelar.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
-        jButtonCancelar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
-        jButtonBack.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonBack.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonBack.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
-        jButtonBack.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
+        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
+        jButtonCancelar.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonCancelar.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jButtonCancelar.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
+        jButtonBack.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonBack.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jButtonBack.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
         jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
         jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
         jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
@@ -175,7 +172,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanelPrincipal.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 160, 80));
+        jPanelPrincipal.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 170, 80));
 
         jPanelUsuarios.setOpaque(false);
         jPanelUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

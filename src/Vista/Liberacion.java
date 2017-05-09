@@ -24,15 +24,15 @@ public class Liberacion extends javax.swing.JDialog {
         initComponents();
        jLabelFondo.setIcon(new javax.swing.ImageIcon("Imagenes/registroLiberacion-iloveimg-resized.gif"));
         this.setLocationRelativeTo(null);
-        jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
-        jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
-        jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
-        jButtonBorrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
-        jButtonBorrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
-        jButtonBorrar.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
-        jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
-        jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
-        jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
+        jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/aceptarnormal.png"));
+        jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/aceptarrollover.png"));
+        jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/aceptarpressed.png"));
+        jButtonBorrar.setIcon(new ImageIcon("Imagenes/icon/eliminarnormal.png"));
+        jButtonBorrar.setRolloverIcon(new ImageIcon("Imagenes/icon/eliminarrollover.png"));
+        jButtonBorrar.setPressedIcon(new ImageIcon("Imagenes/icon/eliminarpressed.png"));
+        jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/cancelarnormal.png"));
+        jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/cancelarrollover.png"));
+        jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/cancelarpressed.png"));
         
     }
 
@@ -126,7 +126,7 @@ public class Liberacion extends javax.swing.JDialog {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 264, 90, 70));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 80, 70));
 
         jButtonBorrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonBorrar.setToolTipText("Borrar Todo");
@@ -141,7 +141,7 @@ public class Liberacion extends javax.swing.JDialog {
                 jButtonBorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 100, 80));
+        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 80, 70));
 
         jLabelRegistro.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelRegistro.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,7 +166,7 @@ public class Liberacion extends javax.swing.JDialog {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 100, 70));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 90, 70));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 360));
 
         pack();
