@@ -1,6 +1,5 @@
 package Controlador;
 
-import Modelo.BaseDeDatos;
 import Modelo.Cliente;
 import Modelo.Gestor;
 import Modelo.Liberacion;
@@ -12,7 +11,6 @@ import Vista.GestionPedidos;
 import Vista.GestionProductos;
 import Vista.GestionGestores;
 import java.awt.Frame;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -72,6 +70,8 @@ public class ControladorGestionAdministrador {
 
     public void modificarUsuario() throws SQLException, Exception {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String usuario = miVentana.getjTextFieldUsuario().getText();
+        String contrasenya = new String(miVentana.getjTextFieldPassword().getText());
         String nombre = miVentana.getjTextFieldNombre().getText();
         String apellidos = miVentana.getjTextFieldApellidos().getText();
         String dni = miVentana.getjTextFieldDni().getText();
@@ -84,28 +84,17 @@ public class ControladorGestionAdministrador {
         } else if (miVentana.getjRadioButtonAdministrador().isSelected()) {
             permisos = 2;
         }
-        ResultSet rs;
-        if (miVentana.getjTextFieldPassword().getText().equals("")) {
-            rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE usuarios SET nombre = '" + nombre + "', apellidos = '" + apellidos + "', direccion = '" + direccion + "', telefono = '" + telefono + "', fechaNacimiento = '" + fechaNacimiento + "', dni = '" + dni + "', permiso = " + permisos + " WHERE usuario = '" + miVentana.getjTextFieldUsuario().getText() + "';");
-        } else {
-            String contrasenya = Cliente.encriptarContrasenya(miVentana.getjTextFieldPassword().getText());
-            rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE usuarios SET contrasenya = '" + contrasenya + "', nombre = '" + nombre + "', apellidos = '" + apellidos + "', direccion = '" + direccion + "', telefono = '" + telefono + "', fechaNacimiento = '" + fechaNacimiento + "', dni = '" + dni + "', permiso = " + permisos + " WHERE usuario = '" + miVentana.getjTextFieldUsuario().getText() + "';");
-        }
-        if (rs != null) {
-            Repositorio.repositorio().cargarClientes();
+        if(Repositorio.repositorio().modificarUsuario(usuario, contrasenya, nombre, apellidos, dni, fechaNacimiento, direccion, telefono, permisos))
             miVentana.mostrarMensaje("¡Usuario modificado correctamente!");
-        } else {
+        else
             miVentana.mostrarError("Ha ocurrido un error al modificar el usuario.");
-        }
     }
 
     public void eliminarUsuario() throws SQLException, Exception {
         String usuario = miVentana.getjTextFieldUsuario().getText();
         int dialogResult = JOptionPane.showConfirmDialog(miVentana, "¿Estás seguro de que quieres borrar el usuario " + usuario + "?", "¡Atención!", JOptionPane.YES_NO_OPTION);
-        if (dialogResult == JOptionPane.YES_OPTION) {
-            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM usuarios WHERE usuario = '" + usuario + "';");
-            if (rs != null) {
-                Repositorio.repositorio().cargarClientes();
+        if (dialogResult == JOptionPane.YES_OPTION) { 
+            if (Repositorio.repositorio().eliminarUsuario(usuario)) {
                 miVentana.limpiarCampos();
                 miVentana.modificarUsuarioPaneles();
                 miVentana.mostrarMensaje("Usuario eliminado correctamente.");
@@ -138,9 +127,7 @@ public class ControladorGestionAdministrador {
         } else if (miVentana.getjRadioButtonAdministrador().isSelected()) {
             permiso = 2;
         }
-        ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario + "', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', " + permiso + ");");
-        if (res != null) {
-            Repositorio.repositorio().cargarClientes();
+        if (Repositorio.repositorio().registrarUsuario(usuario, contrasenya, nombre, apellidos, dni, fechaNacimiento, direccion, telefono, permiso)) {
             miVentana.mostrarMensaje("Usuario registrado correctamente.");
             miVentana.limpiarCampos();
         } else {
@@ -158,7 +145,7 @@ public class ControladorGestionAdministrador {
         ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
         dcb.addElement("");
         for (Pedido p : listaPedidos) {
-            if (p instanceof Reparacion && p.getEstadoPedido().equals("Pagado")) {
+            if (p instanceof Reparacion && !p.getEstadoPedido().equals("Completado")) {
                 dcb.addElement(p.getNumeroPedido());
             }
         }
@@ -170,7 +157,7 @@ public class ControladorGestionAdministrador {
         ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
         dcb.addElement("");
         for (Pedido p : listaPedidos) {
-            if (p instanceof Liberacion && p.getEstadoPedido().equals("Pagado")) {
+            if (p instanceof Liberacion && !p.getEstadoPedido().equals("Completado")) {
                 dcb.addElement(p.getNumeroPedido());
             }
         }
@@ -179,44 +166,22 @@ public class ControladorGestionAdministrador {
 
     public void repararPedido() throws SQLException, Exception {
         if (mostrarAvisoPedido(reparacionSeleccionada)) {
-            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + reparacionSeleccionada.getNumeroPedido());
-            if (rs != null) {
-                ResultSet rsReparacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE reparaciones SET diagnostico = '" + miVentana.getjTextAreaDiagnostico().getText() + "' WHERE numeroPedido = " + reparacionSeleccionada.getNumeroPedido());
-                if (rsReparacion != null) {
-                    Repositorio.repositorio().cargarPedidos();
-                    miVentana.mostrarMensaje("Pedido completado.");
-                    miVentana.limpiarReparacion();
-                } else {
-                    ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Pagado' WHERE numeroPedido = " + reparacionSeleccionada.getNumeroPedido());
-                    if (rsError != null) {
-                        miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.");
-                    } else {
-                        miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.\nSe ha quedado como completado.\nGestionar manualmente el pedido " + reparacionSeleccionada.getNumeroPedido());
-                    }
-                }
+            if(Repositorio.repositorio().repararPedido(reparacionSeleccionada.getNumeroPedido(), miVentana.getjTextAreaDiagnostico().getText(), reparacionSeleccionada.getEstadoPedido())){
+                miVentana.mostrarMensaje("Pedido completado.");
+                miVentana.limpiarReparacion();
+            } else{
+                miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.");
             }
         }
     }
 
     public void liberarPedido() throws SQLException, Exception {
         if (mostrarAvisoPedido(liberacionSeleccionada)) {
-            ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + liberacionSeleccionada.getNumeroPedido());
-            if (rs != null) {
-                ResultSet rsLiberacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE liberaciones SET instrucciones = '" + miVentana.getjTextAreaDiagnostico().getText() + "', codigoLiberacion = '" + miVentana.getjTextFieldCodigoLiberacion().getText() + "' WHERE numeroPedido = " + liberacionSeleccionada.getNumeroPedido());
-                if (rsLiberacion != null) {
-                    Repositorio.repositorio().cargarPedidos();
-                    miVentana.mostrarMensaje("Pedido completado.");
-                    miVentana.limpiarReparacion();
-                } else {
-                    ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Pagado' WHERE numeroPedido = " + liberacionSeleccionada.getNumeroPedido());
-                    if (rsError != null) {
-                        miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.");
-                    } else {
-                        miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.\nSe ha quedado como completado.\nGestionar manualmente el pedido " + liberacionSeleccionada.getNumeroPedido());
-                    }
-                }
-            } else {
-                miVentana.mostrarError("No se ha podido completar el pedido.");
+            if(Repositorio.repositorio().liberarPedido(liberacionSeleccionada.getNumeroPedido(), miVentana.getjTextFieldCodigoLiberacion().getText(), miVentana.getjTextAreaDiagnostico().getText(), liberacionSeleccionada.getEstadoPedido())){
+                miVentana.mostrarMensaje("Pedido completado.");
+                miVentana.limpiarLiberacion();
+            } else{
+                miVentana.mostrarError("Ha ocurrido un error mientras se procesaba el pedido.");
             }
         }
     }

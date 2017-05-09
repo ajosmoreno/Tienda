@@ -280,4 +280,60 @@ public class Repositorio {
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Pagado' WHERE numeroPedido = " + numeroPedido + ";");
         return rs != null;
     }
+
+    public boolean modificarUsuario(String usuario, String contrasenya, String nombre, String apellidos, String dni, String fechaNacimiento, String direccion, String telefono, int permisos) throws SQLException, Exception {
+        boolean modificado = false;
+        ResultSet rs;
+        if(contrasenya.equals(""))
+            rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE usuarios SET nombre = '" + nombre + "', apellidos = '" + apellidos + "', direccion = '" + direccion + "', telefono = '" + telefono + "', fechaNacimiento = '" + fechaNacimiento + "', dni = '" + dni + "', permiso = " + permisos + " WHERE usuario = '" + usuario + "';");
+        else
+            rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE usuarios SET contrasenya = '" + Cliente.encriptarContrasenya(contrasenya) + "', nombre = '" + nombre + "', apellidos = '" + apellidos + "', direccion = '" + direccion + "', telefono = '" + telefono + "', fechaNacimiento = '" + fechaNacimiento + "', dni = '" + dni + "', permiso = " + permisos + " WHERE usuario = '" + usuario + "';");
+        if(rs != null){
+            modificado = true;
+            cargarClientes();
+        }
+        return modificado;
+    }
+
+    public boolean eliminarUsuario(String usuario) throws SQLException, Exception {
+        boolean eliminado = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM usuarios WHERE usuario = '" + usuario + "';");
+        if(rs != null){
+            eliminado = true;
+            cargarClientes();
+        }
+        return eliminado;
+    }
+    
+    public boolean repararPedido(int numeroPedido, String diagnostico, String estadoAnterior) throws SQLException, Exception{
+        boolean reparado = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + numeroPedido);
+        if(rs != null){
+            ResultSet rsReparacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE reparaciones SET diagnostico = '" + diagnostico + "' WHERE numeroPedido = " + numeroPedido);
+            if(rsReparacion != null){
+                Repositorio.repositorio().cargarPedidos();
+                reparado = true;
+            } else{
+                ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = '" + estadoAnterior + "' WHERE numeroPedido = " + numeroPedido);
+                if(rsError == null) throw new Exception("No se ha podido completar el pedido, si aparece como completado, no lo está.");
+            }
+        }
+        return reparado;
+    }
+    
+    public boolean liberarPedido(int numeroPedido, String codigoLiberacion, String instrucciones, String estadoAnterior) throws SQLException, Exception{
+        boolean liberado = false;
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + numeroPedido);
+        if(rs != null){
+            ResultSet rsLiberacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE liberaciones SET instrucciones = '" + instrucciones + "', codigoLiberacion = '" + codigoLiberacion + "' WHERE numeroPedido = " + numeroPedido);
+            if(rsLiberacion != null){
+                Repositorio.repositorio().cargarPedidos();
+                liberado = true;
+            } else{
+                ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = '" + estadoAnterior + "' WHERE numeroPedido = " + numeroPedido);
+                if(rsError == null) throw new Exception("No se ha podido completar el pedido, si aparece como completado, no lo está.");
+            }
+        }
+        return liberado;
+    }
 }
