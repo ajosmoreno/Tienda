@@ -53,9 +53,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jButtonBack.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
         jButtonBack.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
         jButtonBack.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
-        jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
-        jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
-        jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
+        jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscarnormal2.png"));
+        jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscarrollover2.png"));
+        jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscarpressed2.png"));
     }
 
     /**
@@ -267,12 +267,15 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jButtonBuscar.setBorder(null);
         jButtonBuscar.setBorderPainted(false);
         jButtonBuscar.setContentAreaFilled(false);
+        jButtonBuscar.setMaximumSize(new java.awt.Dimension(70, 70));
+        jButtonBuscar.setMinimumSize(new java.awt.Dimension(70, 70));
+        jButtonBuscar.setPreferredSize(new java.awt.Dimension(70, 70));
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBuscarActionPerformed(evt);
             }
         });
-        jPanelModificarUsuario.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 30, 30));
+        jPanelModificarUsuario.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 50, 50));
 
         jLabelNombre.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabelNombre.setForeground(new java.awt.Color(51, 51, 51));
@@ -378,7 +381,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jRadioButtonCliente.setText("Cliente");
         jPanelModificarUsuario.add(jRadioButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
-        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 600, 590));
+        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 600, 590));
 
         jButtonSolicitarCodigo.setText("Solicitar Código");
         jButtonSolicitarCodigo.addActionListener(new java.awt.event.ActionListener() {
