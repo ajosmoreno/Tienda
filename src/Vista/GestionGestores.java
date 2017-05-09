@@ -319,21 +319,25 @@ public class GestionGestores extends javax.swing.JDialog {
                         mostrarError("Ha ocurrido un error al añadir el gestor.");
                 }
             } else{
-                if(borrando){
-                    try {
-                        miControlador.borrarGestor();
-                    } catch (Exception ex) {
-                        mostrarError("Ha ocurrido un error al eliminar el gestor.");
+                if(!jComboBoxGestores.getSelectedItem().equals("")){
+                    if(borrando){
+                        try {
+                            miControlador.borrarGestor();
+                        } catch (Exception ex) {
+                            mostrarError("Ha ocurrido un error al eliminar el gestor.");
+                        }
+                    } else{
+                        try {
+                            miControlador.modificarGestor();
+                        } catch (Exception ex) {
+                            if(ex.getMessage().contains("Duplicate entry") && ex.getMessage().contains("for key 'nombre'"))
+                                mostrarError("Ya existe un gestor con ese nombre.");
+                            else
+                                mostrarError("Ha ocurrido un error al añadir el gestor.");
+                        }
                     }
                 } else{
-                    try {
-                        miControlador.modificarGestor();
-                    } catch (Exception ex) {
-                        if(ex.getMessage().contains("Duplicate entry") && ex.getMessage().contains("for key 'nombre'"))
-                            mostrarError("Ya existe un gestor con ese nombre.");
-                        else
-                            mostrarError("Ha ocurrido un error al añadir el gestor.");
-                    }
+                    mostrarError("Selecciona un gestor para eliminarlo/modificarlo.");
                 }
             }
         }
