@@ -21,7 +21,7 @@ public class Opciones extends javax.swing.JDialog {
     public Opciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/opciones-iloveimg-resized.jpg"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/opciones.jpg"));
         setLocationRelativeTo(null);
         miControlador = new ControladorOpciones(this);
         if(miControlador.esInvitado()){
@@ -48,7 +48,9 @@ public class Opciones extends javax.swing.JDialog {
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(841, 483));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(841, 483));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonVerCatalogo.setText("Ver Catalogo");
@@ -59,7 +61,7 @@ public class Opciones extends javax.swing.JDialog {
                 jButtonVerCatalogoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVerCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 123, 41));
+        getContentPane().add(jButtonVerCatalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 123, 41));
 
         jButtonGestion.setText("Gestion de Pedidos");
         jButtonGestion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -69,7 +71,7 @@ public class Opciones extends javax.swing.JDialog {
                 jButtonGestionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonGestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 120, 41));
+        getContentPane().add(jButtonGestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 120, 41));
 
         jButtonReparacion.setText("Reparación");
         jButtonReparacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -79,7 +81,7 @@ public class Opciones extends javax.swing.JDialog {
                 jButtonReparacionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 123, 41));
+        getContentPane().add(jButtonReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 123, 41));
 
         jButtonLiberacion.setText("Liberación");
         jButtonLiberacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -89,7 +91,7 @@ public class Opciones extends javax.swing.JDialog {
                 jButtonLiberacionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 123, 41));
+        getContentPane().add(jButtonLiberacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 123, 41));
 
         jButtonVolver.setText("Volver al menú principal");
         jButtonVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -99,8 +101,10 @@ public class Opciones extends javax.swing.JDialog {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 150, 41));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 150, 41));
+
+        jLabelFondo.setMinimumSize(new java.awt.Dimension(841, 483));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 841, 483));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
