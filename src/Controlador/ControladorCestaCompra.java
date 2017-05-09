@@ -15,7 +15,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
 import javax.swing.table.DefaultTableModel;
 
 /**

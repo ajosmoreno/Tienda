@@ -32,12 +32,9 @@ public class ControladorRegistro {
         String fechaNacimiento = df.format(miRegistro.getjDateChooserNacimiento().getDate());
         String direccion = miRegistro.getjTextFieldDireccion().getText();
         String telefono = miRegistro.getjTextFieldTelefono().getText();
-        ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario +"', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', 1);");
-        if(res != null){
-            Repositorio.repositorio().cargarClientes();
+        if(Repositorio.repositorio().registrarUsuario(usuario, contrasenya, nombre, apellidos, dni, fechaNacimiento, direccion, telefono, 1))
             miRegistro.mostrarMensaje("Usuario registrado correctamente.");
-        }
         else
-            miRegistro.mostrarError("Error al crear el usuario.");
+            miRegistro.mostrarError("No se ha podido registrar el usuario.");
     }
 }
