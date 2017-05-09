@@ -28,9 +28,9 @@ public class CestaCompra extends javax.swing.JDialog {
         miControlador = new ControladorCestaCompra(this);
         miControlador.cargarCesta();
         setLocationRelativeTo(null);
-        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
-        jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
+        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/bakcnormal.png"));
+        jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
     }
 
     /**

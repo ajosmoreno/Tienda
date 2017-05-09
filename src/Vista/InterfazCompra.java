@@ -28,10 +28,16 @@ public class InterfazCompra extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/fondocatalogo.jpg"));
-        jButtonAñadirCesta.setIcon(new ImageIcon("Imagenes/icon/botonañadirproducto.png"));
-        jButtonCestaCompra.setIcon(new ImageIcon("Imagenes/icon/botonircesta.png"));
-        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
+       
+        jButtonAñadirCesta.setIcon(new ImageIcon("Imagenes/icon/cestaañadirnormal.png"));
+        jButtonAñadirCesta.setPressedIcon(new ImageIcon("Imagenes/icon/cestaañadirpressed.png"));
+        jButtonAñadirCesta.setRolloverIcon(new ImageIcon("Imagenes/icon/cestaañadirrollover.png"));
+        jButtonCestaCompra.setIcon(new ImageIcon("Imagenes/icon/cesta.png"));
+        jButtonCestaCompra.setPressedIcon(new ImageIcon("Imagenes/icon/cestapressed.png"));
+        jButtonCestaCompra.setRolloverIcon(new ImageIcon("Imagenes/icon/cestarollover.png"));
+        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
         miControlador = new ControladorInterfazCompra(this);
         try {
             miControlador.mostrarMarcas();
@@ -86,7 +92,6 @@ public class InterfazCompra extends javax.swing.JDialog {
         jButtonVolver = new javax.swing.JButton();
         jButtonCestaCompra = new javax.swing.JButton();
         jLabelModelo = new javax.swing.JLabel();
-        jLabelFondo = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -111,13 +116,16 @@ public class InterfazCompra extends javax.swing.JDialog {
         getContentPane().add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 70, 24));
 
         jButtonAñadirCesta.setToolTipText("Añadir producto a la cesta de compra");
+        jButtonAñadirCesta.setBorder(null);
+        jButtonAñadirCesta.setBorderPainted(false);
+        jButtonAñadirCesta.setContentAreaFilled(false);
         jButtonAñadirCesta.setEnabled(false);
         jButtonAñadirCesta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAñadirCestaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAñadirCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 90, 90));
+        getContentPane().add(jButtonAñadirCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 110, 90));
 
         jComboBoxMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,24 +180,25 @@ public class InterfazCompra extends javax.swing.JDialog {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 470, 90, 90));
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 450, 100, 100));
 
         jButtonCestaCompra.setBackground(new java.awt.Color(255, 255, 255));
         jButtonCestaCompra.setToolTipText("Ir a la cesta de la compra");
+        jButtonCestaCompra.setBorder(null);
+        jButtonCestaCompra.setBorderPainted(false);
+        jButtonCestaCompra.setContentAreaFilled(false);
         jButtonCestaCompra.setEnabled(false);
-        jButtonCestaCompra.setOpaque(false);
         jButtonCestaCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCestaCompraActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCestaCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 90, 90));
+        getContentPane().add(jButtonCestaCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 110, 90));
 
         jLabelModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelModelo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelModelo.setText("Modelo:");
         getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, 24));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -339,7 +348,6 @@ public class InterfazCompra extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelCaracteristicas;
     private javax.swing.JLabel jLabelCatalogo;
     private javax.swing.JLabel jLabelColor;
-    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelImagen;
     private javax.swing.JLabel jLabelMarca;
     private javax.swing.JLabel jLabelModelo;
