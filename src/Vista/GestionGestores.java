@@ -158,7 +158,7 @@ public class GestionGestores extends javax.swing.JDialog {
                 jButtonVolverAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 90, 90));
+        getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 90, 90));
 
         jButtonAceptar.setToolTipText("Aceptar");
         jButtonAceptar.setBorder(null);
