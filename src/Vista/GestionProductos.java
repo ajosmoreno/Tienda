@@ -40,17 +40,17 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
         jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
         jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
-        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonCancelar.setIcon(new ImageIcon("Imagenes/icon/close.png"));
-        jButtonCancelar.setRolloverIcon(new ImageIcon("Imagenes/icon/2close.png"));
-        jButtonCancelar.setPressedIcon(new ImageIcon("Imagenes/icon/1close.png"));
-        jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar.png"));
-        jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/2botonaceptar.png"));
-        jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/1botonaceptar.png"));
+        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonCancelar.setIcon(new ImageIcon("Imagenes/icon/cancelarnormal.png"));
+        jButtonCancelar.setRolloverIcon(new ImageIcon("Imagenes/icon/cancelarrollover.png"));
+        jButtonCancelar.setPressedIcon(new ImageIcon("Imagenes/icon/cancelarpressed.png"));
+        jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/aceptarnormal.png"));
+        jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/aceptarrollover.png"));
+        jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/aceptarpressed.png"));
         jLabelFondo.setIcon(new ImageIcon("Imagenes/gestionAdmin.jpg"));
-        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
-        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png"));
+        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
         jLabelBuscador.setVisible(false);
         jComboBoxListaProductos.setVisible(false);
         jButtonBuscar.setVisible(false);
@@ -223,7 +223,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 90, 90));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 90, 90));
 
         jButtonAceptar.setToolTipText("Aceptar");
         jButtonAceptar.setBorder(null);
@@ -234,7 +234,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, 90, 90));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 90, 90));
 
         jButtonBuscarFoto.setBorder(null);
         jButtonBuscarFoto.setBorderPainted(false);

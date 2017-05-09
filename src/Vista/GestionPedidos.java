@@ -41,10 +41,10 @@ public class GestionPedidos extends javax.swing.JDialog {
         jButtonRealizar.setVisible(false);
         jScrollPanePedidos.setVisible(false);
         setLocationRelativeTo(null);
-        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/botonvolver.png"));
-        jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/botonvolver80%.png"));
-        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/botonvolver120%.png")); 
+        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png")); 
         jLabelFondo.setIcon(new ImageIcon("Imagenes/gestionAdmin.jpg"));
     }
     
