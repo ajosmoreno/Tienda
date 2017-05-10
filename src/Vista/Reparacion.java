@@ -21,16 +21,16 @@ public class Reparacion extends javax.swing.JDialog {
     public Reparacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jLabelFondo.setIcon(new ImageIcon("Imagenes/Reparacion-iloveimg-resized.jpg"));
-        jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/botonaceptar2.png"));
-        jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/botonaceptar3.png"));
-        jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/botonaceptar4.png"));
-        jButtonBorrar.setIcon(new ImageIcon("Imagenes/icon/borrar1.png"));
-        jButtonBorrar.setRolloverIcon(new ImageIcon("Imagenes/icon/borrar2.png"));
-        jButtonBorrar.setPressedIcon(new ImageIcon("Imagenes/icon/borrar3.png"));
-        jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/close2.png"));
-        jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/close3.png"));
-        jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/close4.png"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/liberacion.jpg"));
+        jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/aceptarnormal.png"));
+        jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/aceptarrollover.png"));
+        jButtonAceptar.setPressedIcon(new ImageIcon("Imagenes/icon/aceptarpressed.png"));
+        jButtonBorrar.setIcon(new ImageIcon("Imagenes/icon/eliminarnormal.png"));
+        jButtonBorrar.setRolloverIcon(new ImageIcon("Imagenes/icon/eliminarrollover.png"));
+        jButtonBorrar.setPressedIcon(new ImageIcon("Imagenes/icon/eliminarpressed.png"));
+        jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/cancelarnormal.png"));
+        jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/cancelarrollover.png"));
+        jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/cancelarpressed.png"));
     }
 
     /**
@@ -63,51 +63,51 @@ public class Reparacion extends javax.swing.JDialog {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelRegistroReparacion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelRegistroReparacion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRegistroReparacion.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabelRegistroReparacion.setForeground(new java.awt.Color(0, 0, 51));
         jLabelRegistroReparacion.setText("    Registro Reparación");
-        getContentPane().add(jLabelRegistroReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 11, 267, -1));
+        getContentPane().add(jLabelRegistroReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 290, -1));
 
-        jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(0, 0, 51));
         jLabelNombre.setText("Nombre:");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 71, -1, -1));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, 20));
 
-        jLabelApellidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelApellidos.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelApellidos.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelApellidos.setForeground(new java.awt.Color(0, 0, 51));
         jLabelApellidos.setText("Apellidos:");
-        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 109, -1, -1));
+        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, 20));
 
-        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDireccion.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(0, 0, 51));
         jLabelDireccion.setText("Dirección:");
-        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 151, -1, -1));
+        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 155, -1, 30));
 
-        jLabelTelefono.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTelefono.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelTelefono.setForeground(new java.awt.Color(0, 0, 51));
         jLabelTelefono.setText("Teléfono:");
-        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 193, -1, -1));
+        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 195, -1, 30));
 
-        jLabelObservaciones.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelObservaciones.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelObservaciones.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelObservaciones.setForeground(new java.awt.Color(0, 0, 51));
         jLabelObservaciones.setText("Observaciones:");
-        getContentPane().add(jLabelObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 244, -1, -1));
+        getContentPane().add(jLabelObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
 
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 65, 241, -1));
-        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 106, 241, -1));
-        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 148, 241, -1));
-        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 187, 241, -1));
+        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 241, -1));
+        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 241, -1));
+        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 241, -1));
+        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 241, -1));
 
         jTextAreaObservaciones.setColumns(20);
         jTextAreaObservaciones.setRows(5);
         jScrollPaneObservaciones.setViewportView(jTextAreaObservaciones);
 
-        getContentPane().add(jScrollPaneObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 244, 241, -1));
+        getContentPane().add(jScrollPaneObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 241, -1));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAceptar.setToolTipText("Aceptar");
@@ -122,7 +122,7 @@ public class Reparacion extends javax.swing.JDialog {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 347, 98, 60));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 98, 80));
 
         jButtonBorrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonBorrar.setToolTipText("Borrar Todo");
@@ -137,7 +137,7 @@ public class Reparacion extends javax.swing.JDialog {
                 jButtonBorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 98, 60));
+        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 98, 80));
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonSalir.setToolTipText("Salir");
@@ -152,8 +152,8 @@ public class Reparacion extends javax.swing.JDialog {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 347, 98, 60));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 98, 80));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
 
         pack();
         setLocationRelativeTo(null);
