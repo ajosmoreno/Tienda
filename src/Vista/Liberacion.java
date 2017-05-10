@@ -22,7 +22,7 @@ public class Liberacion extends javax.swing.JDialog {
     public Liberacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-       jLabelFondo.setIcon(new javax.swing.ImageIcon("Imagenes/registroLiberacion-iloveimg-resized.gif"));
+       jLabelFondo.setIcon(new javax.swing.ImageIcon("Imagenes/liberacion.png"));
         this.setLocationRelativeTo(null);
         jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/aceptarnormal.png"));
         jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/aceptarrollover.png"));
@@ -65,53 +65,53 @@ public class Liberacion extends javax.swing.JDialog {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNombre.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelNombre.setForeground(new java.awt.Color(102, 102, 102));
         jLabelNombre.setText("Nombre:");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 20));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 20));
 
-        jLabelApellidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelApellidos.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelApellidos.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelApellidos.setForeground(new java.awt.Color(102, 102, 102));
         jLabelApellidos.setText("Apellidos:");
-        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
-        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDireccion.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelDireccion.setForeground(new java.awt.Color(102, 102, 102));
         jLabelDireccion.setText("Dirección:");
-        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
-        jLabelTelefono.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTelefono.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelTelefono.setForeground(new java.awt.Color(102, 102, 102));
         jLabelTelefono.setText("Teléfono:");
-        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
-        jLabelImei.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelImei.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelImei.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelImei.setForeground(new java.awt.Color(102, 102, 102));
         jLabelImei.setText("Imei:");
-        getContentPane().add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+        getContentPane().add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 68, 201, -1));
+        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 201, -1));
 
         jTextFieldApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldApellidosActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 106, 201, -1));
+        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 201, -1));
 
         jTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDireccionActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 144, 201, -1));
-        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 182, 201, -1));
-        getContentPane().add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 220, 201, -1));
+        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 201, -1));
+        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 201, -1));
+        getContentPane().add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 201, -1));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAceptar.setToolTipText("Aceptar");
@@ -143,10 +143,10 @@ public class Liberacion extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 80, 70));
 
-        jLabelRegistro.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelRegistro.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jLabelRegistro.setForeground(new java.awt.Color(204, 204, 204));
         jLabelRegistro.setText(" Registro Liberación");
-        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 11, 190, -1));
+        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 190, -1));
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonSalir.setToolTipText("Salir");
