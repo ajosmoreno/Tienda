@@ -159,4 +159,27 @@ public final class Cliente{
         }
         return hashText;
     }
+    
+    private boolean comprobarDNI(String dni) {
+        dni = dni.replace("-", "").replace(" ", "");
+        boolean valido = false;
+        int numeroDNI = -1;
+        if (dni.length() == 9) {
+            numeroDNI = Integer.parseInt(dni.substring(0, 8));
+            if(calcularLetraDNI(numeroDNI).toUpperCase().equals(dni.substring(8).toUpperCase()))
+                valido = true;
+        }
+        return valido;
+    }
+
+    private String calcularLetraDNI(int numeroDNI) {
+        int resto = numeroDNI % 23;
+        String letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE", letra = null;
+        try{
+            letra = letrasDNI.substring(resto, resto + 1);
+        } catch (IndexOutOfBoundsException ex){
+            letra = null;
+        }
+        return letra;
+    }
 }
