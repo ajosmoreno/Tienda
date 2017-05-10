@@ -94,7 +94,7 @@ public class GestionPedidos extends javax.swing.JDialog {
                 jButtonCancelarPedidoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 158, 39));
+        getContentPane().add(jButtonCancelarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, 158, 39));
 
         jButtonListarPedidos.setText("Listar Pedidos");
         jButtonListarPedidos.addActionListener(new java.awt.event.ActionListener() {

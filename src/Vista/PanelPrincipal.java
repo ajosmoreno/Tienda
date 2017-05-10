@@ -118,7 +118,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButtonEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 100, 40));
+        getContentPane().add(jButtonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 100, 40));
 
         jButtonInvitado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonInvitado.setText("Entrar como invitado");
