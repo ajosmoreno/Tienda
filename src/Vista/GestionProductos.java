@@ -34,9 +34,9 @@ public class GestionProductos extends javax.swing.JDialog {
         initComponents();
         miControlador = new ControladorGestionProductos(this);
         setLocationRelativeTo(null);
-        jButtonBuscarFoto.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
-        jButtonBuscarFoto.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
-        jButtonBuscarFoto.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
+        jButtonBuscarFoto.setIcon(new ImageIcon("Imagenes/icon/buscarnormal2.png"));
+        jButtonBuscarFoto.setRolloverIcon(new ImageIcon("Imagenes/icon/buscarrollover2.png"));
+        jButtonBuscarFoto.setPressedIcon(new ImageIcon("Imagenes/icon/buscarpressed2.png"));
         jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
         jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
         jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
@@ -244,7 +244,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonBuscarFotoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 50, 40));
+        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 150, 60, 60));
 
         jLabeStock.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabeStock.setForeground(new java.awt.Color(51, 51, 51));
