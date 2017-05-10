@@ -381,7 +381,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jRadioButtonCliente.setText("Cliente");
         jPanelModificarUsuario.add(jRadioButtonCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
 
-        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 600, 590));
+        jPanelUsuarios.add(jPanelModificarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 600, 590));
 
         jButtonSolicitarCodigo.setText("Solicitar Código");
         jButtonSolicitarCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -724,6 +724,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
     private void jTextFieldBuscadorNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscadorNombreActionPerformed
         // TODO add your handling code here:
+        jButtonBuscarActionPerformed(null);
     }//GEN-LAST:event_jTextFieldBuscadorNombreActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed

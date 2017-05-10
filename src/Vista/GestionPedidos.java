@@ -42,9 +42,12 @@ public class GestionPedidos extends javax.swing.JDialog {
         jScrollPanePedidos.setVisible(false);
         setLocationRelativeTo(null);
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
-        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
         jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png")); 
+        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
+        jButtonVolver.setVisible(false);
         jLabelFondo.setIcon(new ImageIcon("Imagenes/gestionAdmin.jpg"));
     }
     
@@ -68,6 +71,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         jScrollPanePedidos = new javax.swing.JScrollPane();
         jTablePedidos = new javax.swing.JTable();
         jButtonRealizar = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -90,7 +94,7 @@ public class GestionPedidos extends javax.swing.JDialog {
                 jButtonCancelarPedidoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 158, 39));
+        getContentPane().add(jButtonCancelarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 158, 39));
 
         jButtonListarPedidos.setText("Listar Pedidos");
         jButtonListarPedidos.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +119,12 @@ public class GestionPedidos extends javax.swing.JDialog {
         jLabelNombreCliente.setForeground(new java.awt.Color(51, 51, 51));
         jLabelNombreCliente.setText("Nombre Cliente: ");
         getContentPane().add(jLabelNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 120, 20));
+
+        jTextFieldNombreCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNombreClienteActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextFieldNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 169, -1));
 
         jButtonBuscar.setBorder(null);
@@ -168,7 +178,17 @@ public class GestionPedidos extends javax.swing.JDialog {
                 jButtonRealizarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonRealizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 149, 39));
+        getContentPane().add(jButtonRealizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 149, 39));
+
+        jButtonVolver.setBorder(null);
+        jButtonVolver.setBorderPainted(false);
+        jButtonVolver.setContentAreaFilled(false);
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(873, 483, 100, 90));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 989, 586));
 
         pack();
@@ -181,6 +201,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         jButtonBuscar.setVisible(true);
         jTablePedidos.setVisible(false);
         jScrollPanePedidos.setVisible(false);
+        jButtonVolver.setVisible(true);
     }//GEN-LAST:event_jButtonComprobarPedidoActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
@@ -233,6 +254,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         jScrollPanePedidos.setVisible(false);
         jButtonRealizar.setVisible(false);
         jButtonCancelarPedido.setVisible(false);
+        jButtonVolver.setVisible(true);
     }//GEN-LAST:event_jButtonListarPedidosActionPerformed
 
     private void jButtonRealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRealizarActionPerformed
@@ -250,6 +272,23 @@ public class GestionPedidos extends javax.swing.JDialog {
             mostrarError("Ha ocurrido un error al cancelar los pedidos.");
         }
     }//GEN-LAST:event_jButtonCancelarPedidoActionPerformed
+
+    private void jTextFieldNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreClienteActionPerformed
+        // TODO add your handling code here:
+        jButtonBuscarActionPerformed(null);
+    }//GEN-LAST:event_jTextFieldNombreClienteActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        // TODO add your handling code here:
+        jTextFieldNombreCliente.setVisible(false);
+        jLabelNombreCliente.setVisible(false);
+        jButtonBuscar.setVisible(false);
+        jTablePedidos.setVisible(false);
+        jScrollPanePedidos.setVisible(false);
+        jButtonRealizar.setVisible(false);
+        jButtonCancelarPedido.setVisible(false);
+        jButtonVolver.setVisible(false);
+    }//GEN-LAST:event_jButtonVolverActionPerformed
 
     public void mostrarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
@@ -317,6 +356,7 @@ public class GestionPedidos extends javax.swing.JDialog {
     private javax.swing.JButton jButtonComprobarPedido;
     private javax.swing.JButton jButtonListarPedidos;
     private javax.swing.JButton jButtonRealizar;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JButton jButtonVolverAtras;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelNombreCliente;
