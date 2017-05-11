@@ -48,17 +48,15 @@ public class Liberacion extends javax.swing.JDialog {
         jLabelNombre = new javax.swing.JLabel();
         jLabelApellidos = new javax.swing.JLabel();
         jLabelDireccion = new javax.swing.JLabel();
-        jLabelTelefono = new javax.swing.JLabel();
         jLabelImei = new javax.swing.JLabel();
-        jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldApellidos = new javax.swing.JTextField();
         jTextFieldDireccion = new javax.swing.JTextField();
-        jTextFieldTelefono = new javax.swing.JTextField();
         jTextFieldImei = new javax.swing.JTextField();
         jButtonAceptar = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
         jLabelRegistro = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -67,51 +65,38 @@ public class Liberacion extends javax.swing.JDialog {
 
         jLabelNombre.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelNombre.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelNombre.setText("Nombre:");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, 20));
+        jLabelNombre.setText("Operador:");
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, 20));
 
         jLabelApellidos.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelApellidos.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelApellidos.setText("Apellidos:");
-        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
+        jLabelApellidos.setText("Marca:");
+        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
 
         jLabelDireccion.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelDireccion.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelDireccion.setText("Dirección:");
-        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, -1));
-
-        jLabelTelefono.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
-        jLabelTelefono.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelTelefono.setText("Teléfono:");
-        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
+        jLabelDireccion.setText("Modelo:");
+        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, -1));
 
         jLabelImei.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelImei.setForeground(new java.awt.Color(0, 0, 51));
         jLabelImei.setText("Imei:");
-        getContentPane().add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
-
-        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 201, -1));
+        getContentPane().add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
 
         jTextFieldApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldApellidosActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 201, -1));
+        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 201, -1));
 
         jTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDireccionActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 201, -1));
-        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 201, -1));
-        getContentPane().add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 201, -1));
+        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 201, -1));
+        getContentPane().add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 201, -1));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAceptar.setToolTipText("Aceptar");
@@ -126,7 +111,7 @@ public class Liberacion extends javax.swing.JDialog {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 90, 80));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 90, 80));
 
         jButtonBorrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonBorrar.setToolTipText("Borrar Todo");
@@ -141,12 +126,12 @@ public class Liberacion extends javax.swing.JDialog {
                 jButtonBorrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 100, 80));
+        getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 100, 80));
 
         jLabelRegistro.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabelRegistro.setForeground(new java.awt.Color(0, 0, 51));
         jLabelRegistro.setText(" Registro Liberación");
-        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 260, 50));
+        getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 260, 50));
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonSalir.setToolTipText("Salir");
@@ -166,15 +151,13 @@ public class Liberacion extends javax.swing.JDialog {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 90, 80));
+        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 90, 80));
+
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 200, -1));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDireccionActionPerformed
         // TODO add your handling code here:
@@ -190,10 +173,9 @@ public class Liberacion extends javax.swing.JDialog {
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
-        jTextFieldNombre.setText("");
+        
         jTextFieldApellidos.setText("");
         jTextFieldDireccion.setText("");
-        jTextFieldTelefono.setText("");
         jTextFieldImei.setText("");
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
@@ -251,17 +233,15 @@ public class Liberacion extends javax.swing.JDialog {
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonSalir;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabelApellidos;
     private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelImei;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelRegistro;
-    private javax.swing.JLabel jLabelTelefono;
     private javax.swing.JTextField jTextFieldApellidos;
     private javax.swing.JTextField jTextFieldDireccion;
     private javax.swing.JTextField jTextFieldImei;
-    private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -197,7 +197,7 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextAreaCarateristicas.setRows(5);
         jScrollPaneCaracteristicas.setViewportView(jTextAreaCarateristicas);
 
-        getContentPane().add(jScrollPaneCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 400, 220));
+        getContentPane().add(jScrollPaneCaracteristicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 400, 190));
 
         jButtonCancelar.setToolTipText("Cancelar");
         jButtonCancelar.setBorder(null);
@@ -208,7 +208,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 90, 90));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 90, 90));
 
         jButtonAceptar.setToolTipText("Aceptar");
         jButtonAceptar.setBorder(null);
@@ -219,7 +219,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonAceptarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 90, 90));
+        getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 90, 90));
 
         jButtonBuscarFoto.setBorder(null);
         jButtonBuscarFoto.setBorderPainted(false);
@@ -229,7 +229,7 @@ public class GestionProductos extends javax.swing.JDialog {
                 jButtonBuscarFotoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 150, 60, 60));
+        getContentPane().add(jButtonBuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, 60, 60));
 
         jLabeStock.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabeStock.setForeground(new java.awt.Color(51, 51, 51));

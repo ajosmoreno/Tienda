@@ -426,7 +426,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
                 jButtonFinalizarPedidoActionPerformed(evt);
             }
         });
-        jPanelUsuarios.add(jButtonFinalizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 130, 60));
+        jPanelUsuarios.add(jButtonFinalizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 130, 60));
 
         jPanelPrincipal.add(jPanelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 760, 590));
 
