@@ -234,7 +234,7 @@ public class Repositorio {
         return registrado;
     }
 
-    public int generarPedido(int idCliente, double subtotal, double total, String tipoPago) throws SQLException, Exception {
+    public int generarCompra(int idCliente, double subtotal, double total, String tipoPago) throws SQLException, Exception {
         int pedidoGenerado = 0;
         ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + subtotal + ", " + total + ", '" + tipoPago + "', 'Sin pagar');");
         if(rsPedido != null){
@@ -424,5 +424,24 @@ public class Repositorio {
             Sesion.miCliente().getCliente().getCesta().add(producto);
         }
         return añadido;
+    }
+    
+    public int generarLiberacion(int idCliente, double subtotal, double total, String tipoPago, int operador, String imei) throws SQLException, Exception{
+        int numeroPedido = 0;
+        ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + total * 0.79 + ", " + total + " , '" + tipoPago + "', 'Pagado');");
+        if(rsPedido != null){
+            rsPedido.next();
+            numeroPedido = Integer.parseInt(rsPedido.getString("numeroPedido"));
+            ResultSet rsLiberacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO liberaciones (numeroPedido, operador, imei) VALUES (" + numeroPedido + ", " + operador + ", '" + imei + "')");
+            if(rsLiberacion == null){
+                BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM pedidos WHERE numeroPedido = " + numeroPedido);
+                throw new Exception("No se ha podido generar la liberación.");
+            } else{
+                cargarPedidos();
+            }
+        } else{
+            throw new Exception("No se ha podido generar el pedido de la liberación.");
+        }
+        return numeroPedido;
     }
 }

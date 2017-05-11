@@ -1,7 +1,13 @@
 package Vista;
 
+import Controlador.ControladorLiberacion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,12 +22,14 @@ import javax.swing.ImageIcon;
  */
 public class Liberacion extends javax.swing.JDialog {
 
+    private ControladorLiberacion miControlador;
     /**
      * Creates new form Liberacion
      */
     public Liberacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        miControlador = new ControladorLiberacion(this);
         jLabelFondo.setIcon(new javax.swing.ImageIcon("Imagenes/liberacion.jpg"));
         this.setLocationRelativeTo(null);
         jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/aceptarnormal.png"));
@@ -33,7 +41,11 @@ public class Liberacion extends javax.swing.JDialog {
         jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/cancelarnormal.png"));
         jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/cancelarrollover.png"));
         jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/cancelarpressed.png"));
-        
+        try {
+            miControlador.cargarOperadores();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al mostrar los operadores.");
+        }
     }
 
     /**
@@ -45,57 +57,57 @@ public class Liberacion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelNombre = new javax.swing.JLabel();
-        jLabelApellidos = new javax.swing.JLabel();
-        jLabelDireccion = new javax.swing.JLabel();
+        jLabelOperador = new javax.swing.JLabel();
+        jLabelMarca = new javax.swing.JLabel();
+        jLabelModelo = new javax.swing.JLabel();
         jLabelImei = new javax.swing.JLabel();
-        jTextFieldApellidos = new javax.swing.JTextField();
-        jTextFieldDireccion = new javax.swing.JTextField();
+        jTextFieldMarca = new javax.swing.JTextField();
+        jTextFieldModelo = new javax.swing.JTextField();
         jTextFieldImei = new javax.swing.JTextField();
         jButtonAceptar = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
         jLabelRegistro = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxOperadores = new javax.swing.JComboBox<>();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelNombre.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
-        jLabelNombre.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelNombre.setText("Operador:");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, 20));
+        jLabelOperador.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelOperador.setForeground(new java.awt.Color(0, 0, 51));
+        jLabelOperador.setText("Operador:");
+        getContentPane().add(jLabelOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, 20));
 
-        jLabelApellidos.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
-        jLabelApellidos.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelApellidos.setText("Marca:");
-        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+        jLabelMarca.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelMarca.setForeground(new java.awt.Color(0, 0, 51));
+        jLabelMarca.setText("Marca:");
+        getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
 
-        jLabelDireccion.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
-        jLabelDireccion.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelDireccion.setText("Modelo:");
-        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, -1));
+        jLabelModelo.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelModelo.setForeground(new java.awt.Color(0, 0, 51));
+        jLabelModelo.setText("Modelo:");
+        getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, -1));
 
         jLabelImei.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelImei.setForeground(new java.awt.Color(0, 0, 51));
         jLabelImei.setText("Imei:");
         getContentPane().add(jLabelImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
 
-        jTextFieldApellidos.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldApellidosActionPerformed(evt);
+                jTextFieldMarcaActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 201, -1));
+        getContentPane().add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 201, -1));
 
-        jTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDireccionActionPerformed(evt);
+                jTextFieldModeloActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 201, -1));
+        getContentPane().add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 201, -1));
         getContentPane().add(jTextFieldImei, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 201, -1));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -153,29 +165,42 @@ public class Liberacion extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 90, 80));
 
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 200, -1));
+        getContentPane().add(jComboBoxOperadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 200, -1));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDireccionActionPerformed
+    private void jTextFieldModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldModeloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDireccionActionPerformed
+    }//GEN-LAST:event_jTextFieldModeloActionPerformed
 
-    private void jTextFieldApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldApellidosActionPerformed
+    private void jTextFieldMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMarcaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldApellidosActionPerformed
+    }//GEN-LAST:event_jTextFieldMarcaActionPerformed
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        // TODO add your handling code here:
+        if(jComboBoxOperadores.getSelectedIndex() == 0 || jTextFieldMarca.getText().equals("") || jTextFieldModelo.getText().equals("") || jTextFieldImei.getText().equals(""))
+            mostrarError("Rellena todos los campos.");
+        else{
+            int opcion = JOptionPane.showConfirmDialog(this, "Este pedido solo se puede pagar por Tarjeta.\n\n¿Desea continuar?", "Información", JOptionPane.OK_CANCEL_OPTION);
+            if(opcion == JOptionPane.OK_OPTION){
+                try {
+                    miControlador.añadirLiberacion();
+                    mostrarMensaje("Liberación generada correctamente.\n\nEl código de liberación aparecerá en sus pedidos cuando esté disponible.");
+                } catch (Exception ex) {
+                    mostrarError("Ha ocurrido un error al generar la liberación.");
+                    mostrarError(ex.getMessage());
+                }
+            }
+        }
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
         
-        jTextFieldApellidos.setText("");
-        jTextFieldDireccion.setText("");
+        jTextFieldMarca.setText("");
+        jTextFieldModelo.setText("");
         jTextFieldImei.setText("");
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
@@ -187,6 +212,31 @@ public class Liberacion extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSalirMouseMoved
 
+    public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
+    }
+    
+    public JComboBox<String> getjComboBoxOperadores() {
+        return jComboBoxOperadores;
+    }
+
+    public JTextField getjTextFieldImei() {
+        return jTextFieldImei;
+    }
+
+    public JTextField getjTextFieldMarca() {
+        return jTextFieldMarca;
+    }
+
+    public JTextField getjTextFieldModelo() {
+        return jTextFieldModelo;
+    }
+
+        
     /**
      * @param args the command line arguments
      */
@@ -233,15 +283,15 @@ public class Liberacion extends javax.swing.JDialog {
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonSalir;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabelApellidos;
-    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JComboBox<String> jComboBoxOperadores;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelImei;
-    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelMarca;
+    private javax.swing.JLabel jLabelModelo;
+    private javax.swing.JLabel jLabelOperador;
     private javax.swing.JLabel jLabelRegistro;
-    private javax.swing.JTextField jTextFieldApellidos;
-    private javax.swing.JTextField jTextFieldDireccion;
     private javax.swing.JTextField jTextFieldImei;
+    private javax.swing.JTextField jTextFieldMarca;
+    private javax.swing.JTextField jTextFieldModelo;
     // End of variables declaration//GEN-END:variables
 }

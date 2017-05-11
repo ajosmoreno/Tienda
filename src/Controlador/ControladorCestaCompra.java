@@ -130,7 +130,7 @@ public class ControladorCestaCompra {
         int idCliente = Sesion.miCliente().getCliente().getId();
         double total = Double.parseDouble(miVentana.getjLabelPrecioTotal().getText().replace("€", ""));
         double subtotal = total * 0.79;
-        int pedidoGenerado = Repositorio.repositorio().generarPedido(idCliente, subtotal, total, tipoPago);
+        int pedidoGenerado = Repositorio.repositorio().generarCompra(idCliente, subtotal, total, tipoPago);
         if(pedidoGenerado > 0){
             if(tipoPago.equals("Efectivo")){
                 miVentana.mostrarMensaje("El pedido ha sido procesado, puede pasar a recogerlo en la caja dando este número " + pedidoGenerado + ".");
