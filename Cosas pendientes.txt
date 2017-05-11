@@ -1,6 +1,5 @@
-- Borrar System.out.print
-- Redimensionar imagen en el catálogo automáticamente.
 - Quitar marcos a los ventanas.
 - Quitar resizable de todas las ventanas.
 - Renombrar imágenes. (380 x 380).
-- Modificar la forma de mostrar y gestionar pedidos pendientes. (Liberaciones y reparaciones).
+- Añadir precio a la reparación.
+- Diseño de lo último añadido.
