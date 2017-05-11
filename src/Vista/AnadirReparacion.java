@@ -164,7 +164,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         try {
             if(miControlador.añadirReparacion())
-                mostrarMensaje("La liberación se ha generado correctamente.\n\nPodrás pasar a recogerlo cuando en tus pedidos el estado sea 'Reparado'.");
+                mostrarMensaje("La reparacion se ha generado correctamente.\n\nPodrás pasar a recogerlo cuando en tus pedidos el estado sea 'Reparado'.");
             else
                 mostrarError("No se ha podido generar la reparación.");
         } catch (Exception ex) {
