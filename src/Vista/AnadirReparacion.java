@@ -37,9 +37,10 @@ public class AnadirReparacion extends javax.swing.JDialog {
         jButtonBorrar.setIcon(new ImageIcon("Imagenes/icon/eliminarnormal.png"));
         jButtonBorrar.setRolloverIcon(new ImageIcon("Imagenes/icon/eliminarrollover.png"));
         jButtonBorrar.setPressedIcon(new ImageIcon("Imagenes/icon/eliminarpressed.png"));
-        jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/cancelarnormal.png"));
-        jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/cancelarrollover.png"));
-        jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/cancelarpressed.png"));
+        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
+        jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+       
         try {
             miControlador.cargarProveedores();
         } catch (Exception ex) {
@@ -67,7 +68,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
         jTextAreaObservaciones = new javax.swing.JTextArea();
         jButtonAceptar = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
-        jButtonSalir = new javax.swing.JButton();
+        jButtonVolverAtras = new javax.swing.JButton();
         jComboBoxProveedores = new javax.swing.JComboBox<>();
         jLabelFondo = new javax.swing.JLabel();
 
@@ -138,20 +139,20 @@ public class AnadirReparacion extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 98, 80));
 
-        jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonSalir.setToolTipText("Salir");
-        jButtonSalir.setBorder(null);
-        jButtonSalir.setBorderPainted(false);
-        jButtonSalir.setContentAreaFilled(false);
-        jButtonSalir.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButtonSalir.setMinimumSize(new java.awt.Dimension(50, 50));
-        jButtonSalir.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVolverAtras.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonVolverAtras.setToolTipText("Salir");
+        jButtonVolverAtras.setBorder(null);
+        jButtonVolverAtras.setBorderPainted(false);
+        jButtonVolverAtras.setContentAreaFilled(false);
+        jButtonVolverAtras.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButtonVolverAtras.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButtonVolverAtras.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButtonVolverAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirActionPerformed(evt);
+                jButtonVolverAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 98, 80));
+        getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 98, 80));
 
         getContentPane().add(jComboBoxProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 240, -1));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
@@ -163,7 +164,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         try {
             if(miControlador.añadirReparacion())
-                mostrarMensaje("La liberación se ha generado correctamente.\n\nPodrás pasar a recogerlo cuando en tus pedidos el estado sea 'Reparado'.");
+                mostrarMensaje("La reparacion se ha generado correctamente.\n\nPodrás pasar a recogerlo cuando en tus pedidos el estado sea 'Reparado'.");
             else
                 mostrarError("No se ha podido generar la reparación.");
         } catch (Exception ex) {
@@ -179,10 +180,10 @@ public class AnadirReparacion extends javax.swing.JDialog {
         jTextAreaObservaciones.setText("");
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+    private void jButtonVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverAtrasActionPerformed
         
           this.dispose();
-    }//GEN-LAST:event_jButtonSalirActionPerformed
+    }//GEN-LAST:event_jButtonVolverAtrasActionPerformed
 
     public JComboBox<String> getjComboBoxProveedores() {
         return jComboBoxProveedores;
@@ -254,7 +255,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonBorrar;
-    private javax.swing.JButton jButtonSalir;
+    private javax.swing.JButton jButtonVolverAtras;
     private javax.swing.JComboBox<String> jComboBoxProveedores;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelMarca;
