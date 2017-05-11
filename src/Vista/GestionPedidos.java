@@ -218,7 +218,6 @@ public class GestionPedidos extends javax.swing.JDialog {
                     }
                 } catch (Exception ex) {
                     mostrarError("Error al mostrar pedidos pendientes del cliente.");
-                    ex.printStackTrace();
                 }
             } else{
                 try {
