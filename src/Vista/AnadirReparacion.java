@@ -13,12 +13,12 @@ import javax.swing.ImageIcon;
  *
  * @author Antonio
  */
-public class Reparacion extends javax.swing.JDialog {
+public class AnadirReparacion extends javax.swing.JDialog {
 
     /**
      * Creates new form Reparacion
      */
-    public Reparacion(java.awt.Frame parent, boolean modal) {
+    public AnadirReparacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         jLabelFondo.setIcon(new ImageIcon("Imagenes/liberacion.jpg"));
@@ -180,20 +180,21 @@ public class Reparacion extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reparacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirReparacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reparacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirReparacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reparacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirReparacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reparacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirReparacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Reparacion dialog = new Reparacion(new javax.swing.JFrame(), true);
+                AnadirReparacion dialog = new AnadirReparacion(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

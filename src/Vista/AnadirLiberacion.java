@@ -20,13 +20,13 @@ import javax.swing.JTextField;
  *
  * @author Antonio
  */
-public class Liberacion extends javax.swing.JDialog {
+public class AnadirLiberacion extends javax.swing.JDialog {
 
     private ControladorLiberacion miControlador;
     /**
      * Creates new form Liberacion
      */
-    public Liberacion(java.awt.Frame parent, boolean modal) {
+    public AnadirLiberacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         miControlador = new ControladorLiberacion(this);
@@ -254,20 +254,21 @@ public class Liberacion extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Liberacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirLiberacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Liberacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirLiberacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Liberacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirLiberacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Liberacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnadirLiberacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Liberacion dialog = new Liberacion(new javax.swing.JFrame(), true);
+                AnadirLiberacion dialog = new AnadirLiberacion(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

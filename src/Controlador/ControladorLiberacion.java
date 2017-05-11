@@ -3,7 +3,7 @@ package Controlador;
 import Modelo.Gestor;
 import Modelo.Repositorio;
 import Modelo.Sesion;
-import Vista.Liberacion;
+import Vista.AnadirLiberacion;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -14,9 +14,9 @@ import javax.swing.JOptionPane;
  */
 public class ControladorLiberacion {
     
-    private Liberacion miVentana;
+    private AnadirLiberacion miVentana;
 
-    public ControladorLiberacion(Liberacion miVentana) {
+    public ControladorLiberacion(AnadirLiberacion miVentana) {
         this.miVentana = miVentana;
     }
 

@@ -3,9 +3,9 @@ package Controlador;
 import Modelo.Sesion;
 import Vista.GestionPedidos;
 import Vista.InterfazCompra;
-import Vista.Liberacion;
+import Vista.AnadirLiberacion;
 import Vista.Opciones;
-import Vista.Reparacion;
+import Vista.AnadirReparacion;
 import java.awt.Frame;
 
 /**
@@ -31,12 +31,12 @@ public class ControladorOpciones {
     }
     
     public void abrirReparacion(){
-        Reparacion reparacion = new Reparacion((Frame)miVentana.getParent(),true);
+        AnadirReparacion reparacion = new AnadirReparacion((Frame)miVentana.getParent(),true);
         reparacion.setVisible(true);
     }
     
     public void abrirLiberacion(){
-        Liberacion liberacion = new Liberacion((Frame)miVentana.getParent(),true);
+        AnadirLiberacion liberacion = new AnadirLiberacion((Frame)miVentana.getParent(),true);
         liberacion.setVisible(true);
     }
     
