@@ -197,8 +197,10 @@ public class AnadirLiberacion extends javax.swing.JDialog {
             int opcion = JOptionPane.showConfirmDialog(this, "Este pedido solo se puede pagar por Tarjeta.\n\n¿Desea continuar?", "Información", JOptionPane.OK_CANCEL_OPTION);
             if(opcion == JOptionPane.OK_OPTION){
                 try {
-                    miControlador.añadirLiberacion();
-                    mostrarMensaje("Liberación generada correctamente.\n\nEl código de liberación aparecerá en sus pedidos cuando esté disponible.");
+                    if(miControlador.añadirLiberacion())
+                        mostrarMensaje("Liberación generada correctamente.\n\nEl código de liberación aparecerá en sus pedidos cuando esté disponible.");
+                    else
+                        mostrarError("No se ha podido generar la liberación.");
                 } catch (Exception ex) {
                     mostrarError("Ha ocurrido un error al generar la liberación.");
                     mostrarError(ex.getMessage());
