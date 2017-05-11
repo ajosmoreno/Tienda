@@ -9,8 +9,11 @@ import Modelo.Compra;
 import Modelo.Liberacion;
 import Modelo.Pedido;
 import Modelo.Reparacion;
+import Modelo.Repositorio;
 import Modelo.Sesion;
 import Vista.GestionPedidosClientes;
+import Vista.VisorPedido;
+import java.awt.Frame;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -126,12 +129,42 @@ public class ControladorGestionPedidosClientes {
         miVentana.getjTablePedidos().setModel(dtm);
     }
 
-    public void cancelarPedidos() {
-        
+    public void cancelarPedidos() throws ClassNotFoundException, Exception {
+        boolean cancelado = false;
+        if(mostrarAviso()){
+            for(int i = 0; i < miVentana.getjTablePedidos().getRowCount(); i++){
+                boolean seleccionado = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 0);
+                if(seleccionado){
+                    cancelado = Repositorio.repositorio().cancelarPedido(Integer.parseInt(miVentana.getjTablePedidos().getValueAt(i, 1).toString()));
+                }
+            }
+        }
+        if(cancelado){
+            Sesion.miCliente().setCliente(Repositorio.repositorio().clientePorUsuario(Sesion.miCliente().getCliente().getNombreUsuario()));
+            miVentana.mostrarMensaje("Pedidos cancelados.");
+            cargarPedidosNoCompletados();
+        }
     }
     
     public boolean mostrarAviso(){
         int opcion = JOptionPane.showConfirmDialog(miVentana, "Se cancelarán los productos SELECCIONADOS.\n\n¿Desea continuar?", "Información", JOptionPane.OK_CANCEL_OPTION);
         return opcion == JOptionPane.OK_OPTION;
+    }
+    
+    public void mostrarDetalles(int numeroPedido, String tipoPedido) throws ClassNotFoundException, Exception{
+        switch(tipoPedido){
+            case "Liberación":
+                Liberacion l = (Liberacion)Repositorio.repositorio().pedidoPorID(numeroPedido);
+                miVentana.mostrarMensaje("Codigo de liberación: " + l.getCodigoLiberacion() +".\n\nInstrucciones:\n" + l.getInstrucciones());
+                break;
+            case "Reparación":
+                Reparacion r = (Reparacion)Repositorio.repositorio().pedidoPorID(numeroPedido);
+                miVentana.mostrarMensaje("Diagnóstico:\n" + r.getDiagnostico());
+                break;
+            case "Compra":
+                VisorPedido visorPedido = new VisorPedido((Frame)miVentana.getParent(), true, numeroPedido);
+                visorPedido.setVisible(true);
+                break;
+        }
     }
 }

@@ -6,7 +6,10 @@
 package Vista;
 
 import Controlador.ControladorGestionPedidosClientes;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -46,7 +49,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
     private void initComponents() {
 
         jComboBoxEstadoPedido = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelEstados = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePedidos = new javax.swing.JTable();
         jButtonCancelar = new javax.swing.JButton();
@@ -60,7 +63,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Estado del pedido:");
+        jLabelEstados.setText("Estado del pedido:");
 
         jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,6 +76,11 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTablePedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePedidosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTablePedidos);
 
         jButtonCancelar.setText("Cancelar pedido");
@@ -94,7 +102,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(192, 192, 192)
-                        .addComponent(jLabel1)
+                        .addComponent(jLabelEstados)
                         .addGap(18, 18, 18)
                         .addComponent(jComboBoxEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -108,7 +116,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabelEstados))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
@@ -117,6 +125,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxEstadoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadoPedidoActionPerformed
@@ -141,9 +150,48 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_jComboBoxEstadoPedidoActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        miControlador.cancelarPedidos();
+        try {
+            miControlador.cancelarPedidos();
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al cancelar los pedidos.");
+            mostrarError(ex.getMessage());
+        }
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
+    private void jTablePedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePedidosMouseClicked
+        int numeroPedido = 0;
+        String tipo = "";
+        if(jComboBoxEstadoPedido.getSelectedIndex() != 2){
+            if(jTablePedidos.getSelectedColumn() == 5){
+                tipo = jTablePedidos.getValueAt(jTablePedidos.getSelectedRow(), 3).toString();
+                numeroPedido = Integer.parseInt(jTablePedidos.getValueAt(jTablePedidos.getSelectedRow(), 0).toString());
+                try {
+                    miControlador.mostrarDetalles(numeroPedido, tipo);
+                } catch (Exception ex) {
+                    mostrarError("Error al mostrar los detalles del pedido.");
+                }
+            }
+        } else{
+            if(jTablePedidos.getSelectedColumn() == 6){
+                tipo = jTablePedidos.getValueAt(jTablePedidos.getSelectedRow(), 3).toString();
+                numeroPedido = Integer.parseInt(jTablePedidos.getValueAt(jTablePedidos.getSelectedRow(), 1).toString());
+                try {
+                    miControlador.mostrarDetalles(numeroPedido, tipo);
+                } catch (Exception ex) {
+                    mostrarError("Error al mostrar los detalles del pedido.");
+                }
+            }
+        }
+    }//GEN-LAST:event_jTablePedidosMouseClicked
+
+    public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -189,7 +237,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JComboBox<String> jComboBoxEstadoPedido;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelEstados;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablePedidos;
     // End of variables declaration//GEN-END:variables

@@ -461,4 +461,19 @@ public class Repositorio {
         }
         return numeroPedido;
     }
+
+    public Pedido pedidoPorID(int numeroPedido) {
+        Pedido pedido = null;
+        boolean encontrado = false;
+        int contador = 0;
+        while(!encontrado && contador < listaPedidos.size()){
+            Pedido p = listaPedidos.get(contador);
+            if(p.getNumeroPedido() == numeroPedido){
+                encontrado = true;
+                pedido = p;
+            }
+            contador++;
+        }
+        return pedido;
+    }
 }
