@@ -592,7 +592,6 @@ public class GestionAdministrador extends javax.swing.JDialog {
                     miControlador.abrirReparacion();
                 } catch (Exception ex) {
                     mostrarError("Error al cargar reparación.");
-                    mostrarError(ex.getMessage());
                 }
             } else{
                 try {

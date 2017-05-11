@@ -246,7 +246,6 @@ public class Repositorio {
                     ResultSet stockProducto = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT stock FROM productos WHERE id = " + p.getId());
                     stockProducto.next();
                     if(Integer.parseInt(stockProducto.getString("stock")) > 0){
-                        System.out.println("INSERT INTO productoscomprados (numeroPedido, idProducto) VALUES (" + rsPedido.getString("numeroPedido") + ", " + p.getId() + ");");
                         ResultSet productoComprado = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO productoscomprados (numeroPedido, idProducto) VALUES (" + rsPedido.getString("numeroPedido") + ", " + p.getId() + ");");
                         if(productoComprado != null){
                             BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE productos SET stock = stock - 1 WHERE id = " + p.getId());
@@ -257,7 +256,6 @@ public class Repositorio {
                                 pedidoGenerado = Integer.parseInt(rsPedido.getString("numeroPedido"));
                             }
                         } else{
-                            System.out.println("no comprado");
                             throw new Exception("No se ha podido procesar el producto " + p.getMarca() + " " + p.getModelo() + " " + p.getColor() + " de la cesta.\n\nInténtelo de nuevo en otro pedido.");
                         }
                     } else{

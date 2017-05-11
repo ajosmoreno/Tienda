@@ -211,7 +211,6 @@ public class AnadirLiberacion extends javax.swing.JDialog {
                         mostrarError("No se ha podido generar la liberación.");
                 } catch (Exception ex) {
                     mostrarError("Ha ocurrido un error al generar la liberación.");
-                    mostrarError(ex.getMessage());
                 }
             }
         }

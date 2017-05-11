@@ -154,7 +154,6 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
             miControlador.cancelarPedidos();
         } catch (Exception ex) {
             mostrarError("Ha ocurrido un error al cancelar los pedidos.");
-            mostrarError(ex.getMessage());
         }
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 

@@ -359,7 +359,6 @@ public class GestionProductos extends javax.swing.JDialog {
                         miControlador.modificarProducto();
                     } catch (Exception ex) {
                         mostrarError("Error al modificar el producto");
-                        mostrarError(ex.getMessage());
                     }
                 } else{
                     try {
@@ -421,7 +420,6 @@ public class GestionProductos extends javax.swing.JDialog {
 
     private void jTextFieldFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFotoMouseClicked
         if(!jTextFieldFoto.getText().equals("")){
-            System.out.println("aaaa");
             new VisorImagen((Frame)this.getParent(), true, jTextFieldFoto.getText()).setVisible(true);
         }
     }//GEN-LAST:event_jTextFieldFotoMouseClicked
