@@ -31,12 +31,12 @@ public class ControladorGestionPedidos {
         DefaultTableModel dtm = new DefaultTableModel(){
             @Override
             public Class<?> getColumnClass(int columnIndex) {
-                if(columnIndex == 0 || columnIndex == 6) return Boolean.class;
+                if(columnIndex == 0 || columnIndex == 7) return Boolean.class;
                 else return super.getColumnClass(columnIndex);
             }
             @Override
             public boolean isCellEditable(int row, int col) {
-                return col == 0 || col == 6;
+                return col == 0 || col == 7;
             }
         };
         dtm.addColumn("");
@@ -44,16 +44,20 @@ public class ControladorGestionPedidos {
         dtm.addColumn("Fecha");
         dtm.addColumn("Forma de pago");
         dtm.addColumn("Estado de pedido");
+        dtm.addColumn("Tipo");
         dtm.addColumn("Total");
         dtm.addColumn("Completar pedido");
         Cliente c = Repositorio.repositorio().clientePorUsuario(miVentana.getjTextFieldNombreCliente().getText());
         if(c != null){
             for(Pedido p: Repositorio.repositorio().devolverPedidos()){
-
-                    if(!p.getEstadoPedido().equals("Completado") && !p.getEstadoPedido().equals("Cancelado") && p instanceof Compra && p.getCliente() == c.getId()){
-                        Object[] fila = {false, p.getNumeroPedido(), p.getFecha(), p.getTipoPago(), p.getEstadoPedido(), p.getTotal(), false};
-                        dtm.addRow(fila);
-                    }
+                String tipo = "";
+                if(p instanceof Compra) tipo = "Compra";
+                else if(p instanceof Reparacion) tipo = "Reparación";
+                else if(p instanceof Liberacion) tipo = "Liberación";    
+                if(!p.getEstadoPedido().equals("Completado") && !p.getEstadoPedido().equals("Cancelado") && p.getCliente() == c.getId()){
+                    Object[] fila = {false, p.getNumeroPedido(), p.getFecha(), p.getTipoPago(), p.getEstadoPedido(), tipo, p.getTotal(), false};
+                    dtm.addRow(fila);
+                }
             }
         } else{
             miVentana.mostrarError("El usuario introducido no existe.");

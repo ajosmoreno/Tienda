@@ -1,5 +1,3 @@
-- Poner todo el manejo de datos en el repositorio.
-- Asignar usuario a la sesión, cuando cambie cesta o haga algún pedido.
 - Borrar System.out.print
 - Redimensionar imagen en el catálogo automáticamente.
 - Quitar marcos a los ventanas.

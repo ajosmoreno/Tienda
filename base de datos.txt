@@ -25,7 +25,7 @@ idCliente int unsigned not null,
 subtotal float(6,2) not null,
 total float(6,2) not null,
 tipoPago enum('Efectivo', 'Tarjeta') not null,
-estadoPedido enum('Completado','Pagado', 'Cancelado', 'Sin pagar') not null,
+estadoPedido enum('Completado','Pagado', 'Cancelado', 'Sin pagar', 'Liberado', 'Reparado') not null,
 foreign key(idCliente) references usuarios(id)
 ON UPDATE CASCADE ON DELETE NO ACTION) ENGINE = INNODB;
 
