@@ -42,6 +42,8 @@ public class AnadirLiberacion extends javax.swing.JDialog {
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
         jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
         jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jLabelPrecio.setVisible(false);
+        jLabelPrecioTotal.setVisible(false);
         try {
             miControlador.cargarOperadores();
         } catch (Exception ex) {
@@ -168,6 +170,11 @@ public class AnadirLiberacion extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 90, 80));
 
+        jComboBoxOperadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxOperadoresActionPerformed(evt);
+            }
+        });
         getContentPane().add(jComboBoxOperadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 200, -1));
 
         jLabelPrecio.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
@@ -225,6 +232,11 @@ public class AnadirLiberacion extends javax.swing.JDialog {
     private void jButtonVolverAtrasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVolverAtrasMouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonVolverAtrasMouseMoved
+
+    private void jComboBoxOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOperadoresActionPerformed
+         jLabelPrecio.setVisible(true);
+        jLabelPrecioTotal.setVisible(true);
+    }//GEN-LAST:event_jComboBoxOperadoresActionPerformed
 
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
