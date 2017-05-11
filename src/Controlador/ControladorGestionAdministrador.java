@@ -145,7 +145,7 @@ public class ControladorGestionAdministrador {
         ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
         dcb.addElement("");
         for (Pedido p : listaPedidos) {
-            if (p instanceof Reparacion && !p.getEstadoPedido().equals("Completado")) {
+            if (p instanceof Reparacion && !p.getEstadoPedido().equals("Completado") && !p.getEstadoPedido().equals("Reparado")) {
                 dcb.addElement(p.getNumeroPedido());
             }
         }

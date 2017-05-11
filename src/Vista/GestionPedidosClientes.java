@@ -5,20 +5,37 @@
  */
 package Vista;
 
+import Controlador.ControladorGestionPedidosClientes;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+
 /**
  *
  * @author Antonio
  */
 public class GestionPedidosClientes extends javax.swing.JDialog {
 
+    private ControladorGestionPedidosClientes miControlador;
     /**
      * Creates new form GestionPedidosClientes
      */
     public GestionPedidosClientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        miControlador = new ControladorGestionPedidosClientes(this);
+        miControlador.cargarTodosPedidos();
+        jButtonCancelar.setEnabled(false);
     }
 
+    public JComboBox<String> getjComboBoxEstadoPedido() {
+        return jComboBoxEstadoPedido;
+    }
+
+    public JTable getjTablePedidos() {
+        return jTablePedidos;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,19 +45,24 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxEstadoPedido = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTablePedidos = new javax.swing.JTable();
         jButtonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Completado", "Sin completar" }));
+        jComboBoxEstadoPedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Completados", "No completados", "Cancelados" }));
+        jComboBoxEstadoPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxEstadoPedidoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Estado del pedido:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -51,9 +73,14 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTablePedidos);
 
         jButtonCancelar.setText("Cancelar pedido");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,7 +96,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
                         .addGap(192, 192, 192)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBoxEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -80,7 +107,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -91,6 +118,31 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBoxEstadoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadoPedidoActionPerformed
+        switch(jComboBoxEstadoPedido.getSelectedItem().toString()){
+            case "Todos":
+                jButtonCancelar.setEnabled(false);
+                miControlador.cargarTodosPedidos();
+                break;
+            case "Completados":
+                jButtonCancelar.setEnabled(false);
+                miControlador.cargarPedidosCompletados();
+                break;
+            case "No completados":
+                jButtonCancelar.setEnabled(true);
+                miControlador.cargarPedidosNoCompletados();
+                break;
+            case "Cancelados":
+                jButtonCancelar.setEnabled(false);
+                miControlador.cargarPedidosCancelados();
+                break;
+        }
+    }//GEN-LAST:event_jComboBoxEstadoPedidoActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        miControlador.cancelarPedidos();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,9 +188,9 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxEstadoPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTablePedidos;
     // End of variables declaration//GEN-END:variables
 }

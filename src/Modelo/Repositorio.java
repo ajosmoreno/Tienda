@@ -307,7 +307,7 @@ public class Repositorio {
     
     public boolean repararPedido(int numeroPedido, String diagnostico, String estadoAnterior) throws SQLException, Exception{
         boolean reparado = false;
-        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + numeroPedido);
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Reparado' WHERE numeroPedido = " + numeroPedido);
         if(rs != null){
             ResultSet rsReparacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE reparaciones SET diagnostico = '" + diagnostico + "' WHERE numeroPedido = " + numeroPedido);
             if(rsReparacion != null){

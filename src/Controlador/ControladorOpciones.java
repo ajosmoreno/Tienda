@@ -6,6 +6,7 @@ import Vista.InterfazCompra;
 import Vista.AnadirLiberacion;
 import Vista.Opciones;
 import Vista.AnadirReparacion;
+import Vista.GestionPedidosClientes;
 import java.awt.Frame;
 
 /**
@@ -26,8 +27,8 @@ public class ControladorOpciones {
     }
     
     public void abrirGestionPedidos(){
-        GestionPedidos gestionPedidos = new GestionPedidos((Frame)miVentana.getParent(), true);
-        gestionPedidos.setVisible(true);
+        GestionPedidosClientes gPedidos = new GestionPedidosClientes((Frame)miVentana.getParent(), true);
+        gPedidos.setVisible(true);
     }
     
     public void abrirReparacion(){
