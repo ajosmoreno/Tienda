@@ -38,9 +38,9 @@ public class AnadirLiberacion extends javax.swing.JDialog {
         jButtonBorrar.setIcon(new ImageIcon("Imagenes/icon/eliminarnormal.png"));
         jButtonBorrar.setRolloverIcon(new ImageIcon("Imagenes/icon/eliminarrollover.png"));
         jButtonBorrar.setPressedIcon(new ImageIcon("Imagenes/icon/eliminarpressed.png"));
-        jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/cancelarnormal.png"));
-        jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/cancelarrollover.png"));
-        jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/cancelarpressed.png"));
+        jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
+        jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
+        jButtonVolverAtras.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
         try {
             miControlador.cargarOperadores();
         } catch (Exception ex) {
@@ -67,8 +67,10 @@ public class AnadirLiberacion extends javax.swing.JDialog {
         jButtonAceptar = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
         jLabelRegistro = new javax.swing.JLabel();
-        jButtonSalir = new javax.swing.JButton();
+        jButtonVolverAtras = new javax.swing.JButton();
         jComboBoxOperadores = new javax.swing.JComboBox<>();
+        jLabelPrecio = new javax.swing.JLabel();
+        jLabelPrecioTotal = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -145,27 +147,36 @@ public class AnadirLiberacion extends javax.swing.JDialog {
         jLabelRegistro.setText(" Registro Liberación");
         getContentPane().add(jLabelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 260, 50));
 
-        jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonSalir.setToolTipText("Salir");
-        jButtonSalir.setBorder(null);
-        jButtonSalir.setBorderPainted(false);
-        jButtonSalir.setContentAreaFilled(false);
-        jButtonSalir.setMaximumSize(new java.awt.Dimension(50, 50));
-        jButtonSalir.setMinimumSize(new java.awt.Dimension(50, 50));
-        jButtonSalir.setPreferredSize(new java.awt.Dimension(50, 50));
-        jButtonSalir.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jButtonVolverAtras.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonVolverAtras.setToolTipText("Salir");
+        jButtonVolverAtras.setBorder(null);
+        jButtonVolverAtras.setBorderPainted(false);
+        jButtonVolverAtras.setContentAreaFilled(false);
+        jButtonVolverAtras.setMaximumSize(new java.awt.Dimension(50, 50));
+        jButtonVolverAtras.setMinimumSize(new java.awt.Dimension(50, 50));
+        jButtonVolverAtras.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButtonVolverAtras.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jButtonSalirMouseMoved(evt);
+                jButtonVolverAtrasMouseMoved(evt);
             }
         });
-        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVolverAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirActionPerformed(evt);
+                jButtonVolverAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 90, 80));
+        getContentPane().add(jButtonVolverAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 90, 80));
 
         getContentPane().add(jComboBoxOperadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 200, -1));
+
+        jLabelPrecio.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelPrecio.setForeground(new java.awt.Color(0, 0, 51));
+        jLabelPrecio.setText("Precio:");
+        getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, -1, 20));
+
+        jLabelPrecioTotal.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelPrecioTotal.setText("10 €");
+        getContentPane().add(jLabelPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 40, 20));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
 
         pack();
@@ -204,13 +215,13 @@ public class AnadirLiberacion extends javax.swing.JDialog {
         jTextFieldImei.setText("");
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+    private void jButtonVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverAtrasActionPerformed
           this.dispose();
-    }//GEN-LAST:event_jButtonSalirActionPerformed
+    }//GEN-LAST:event_jButtonVolverAtrasActionPerformed
 
-    private void jButtonSalirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseMoved
+    private void jButtonVolverAtrasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVolverAtrasMouseMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSalirMouseMoved
+    }//GEN-LAST:event_jButtonVolverAtrasMouseMoved
 
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
@@ -283,13 +294,15 @@ public class AnadirLiberacion extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonBorrar;
-    private javax.swing.JButton jButtonSalir;
+    private javax.swing.JButton jButtonVolverAtras;
     private javax.swing.JComboBox<String> jComboBoxOperadores;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelImei;
     private javax.swing.JLabel jLabelMarca;
     private javax.swing.JLabel jLabelModelo;
     private javax.swing.JLabel jLabelOperador;
+    private javax.swing.JLabel jLabelPrecio;
+    private javax.swing.JLabel jLabelPrecioTotal;
     private javax.swing.JLabel jLabelRegistro;
     private javax.swing.JTextField jTextFieldImei;
     private javax.swing.JTextField jTextFieldMarca;
