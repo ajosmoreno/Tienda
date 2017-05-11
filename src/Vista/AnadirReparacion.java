@@ -1,6 +1,12 @@
 package Vista;
 
+import Controlador.ControladorReparacion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,12 +21,14 @@ import javax.swing.ImageIcon;
  */
 public class AnadirReparacion extends javax.swing.JDialog {
 
+    private ControladorReparacion miControlador;
     /**
      * Creates new form Reparacion
      */
     public AnadirReparacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        miControlador = new ControladorReparacion(this);
         jLabelFondo.setIcon(new ImageIcon("Imagenes/liberacion.jpg"));
         jButtonAceptar.setIcon(new ImageIcon("Imagenes/icon/aceptarnormal.png"));
         jButtonAceptar.setRolloverIcon(new ImageIcon("Imagenes/icon/aceptarrollover.png"));
@@ -31,6 +39,11 @@ public class AnadirReparacion extends javax.swing.JDialog {
         jButtonSalir.setIcon(new ImageIcon("Imagenes/icon/cancelarnormal.png"));
         jButtonSalir.setRolloverIcon(new ImageIcon("Imagenes/icon/cancelarrollover.png"));
         jButtonSalir.setPressedIcon(new ImageIcon("Imagenes/icon/cancelarpressed.png"));
+        try {
+            miControlador.cargarProveedores();
+        } catch (Exception ex) {
+            Logger.getLogger(AnadirReparacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -45,7 +58,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
         jLabelRegistroReparacion = new javax.swing.JLabel();
         jLabelProveedor = new javax.swing.JLabel();
         jLabelMarca = new javax.swing.JLabel();
-        jLabelMOdelo = new javax.swing.JLabel();
+        jLabelModelo = new javax.swing.JLabel();
         jLabelObservaciones = new javax.swing.JLabel();
         jTextFieldMarca = new javax.swing.JTextField();
         jTextFieldModelo = new javax.swing.JTextField();
@@ -54,7 +67,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
         jButtonAceptar = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxProveedores = new javax.swing.JComboBox<>();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -76,10 +89,10 @@ public class AnadirReparacion extends javax.swing.JDialog {
         jLabelMarca.setText("Marca:");
         getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, 20));
 
-        jLabelMOdelo.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
-        jLabelMOdelo.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelMOdelo.setText("Modelo:");
-        getContentPane().add(jLabelMOdelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 60, 20));
+        jLabelModelo.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelModelo.setForeground(new java.awt.Color(0, 0, 51));
+        jLabelModelo.setText("Modelo:");
+        getContentPane().add(jLabelModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 60, 20));
 
         jLabelObservaciones.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelObservaciones.setForeground(new java.awt.Color(0, 0, 51));
@@ -139,7 +152,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 98, 80));
 
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 240, -1));
+        getContentPane().add(jComboBoxProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 240, -1));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
 
         pack();
@@ -163,6 +176,23 @@ public class AnadirReparacion extends javax.swing.JDialog {
           this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
+    public JComboBox<String> getjComboBoxProveedores() {
+        return jComboBoxProveedores;
+    }
+
+    public JTextArea getjTextAreaObservaciones() {
+        return jTextAreaObservaciones;
+    }
+
+    public JTextField getjTextFieldMarca() {
+        return jTextFieldMarca;
+    }
+
+    public JTextField getjTextFieldModelo() {
+        return jTextFieldModelo;
+    }
+
+    
     /**
      * @param args the command line arguments
      */
@@ -210,10 +240,10 @@ public class AnadirReparacion extends javax.swing.JDialog {
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonSalir;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxProveedores;
     private javax.swing.JLabel jLabelFondo;
-    private javax.swing.JLabel jLabelMOdelo;
     private javax.swing.JLabel jLabelMarca;
+    private javax.swing.JLabel jLabelModelo;
     private javax.swing.JLabel jLabelObservaciones;
     private javax.swing.JLabel jLabelProveedor;
     private javax.swing.JLabel jLabelRegistroReparacion;

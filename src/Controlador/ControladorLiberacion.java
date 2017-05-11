@@ -31,7 +31,7 @@ public class ControladorLiberacion {
         miVentana.getjComboBoxOperadores().setModel(dcm);
     }
 
-    public void añadirLiberacion() throws ClassNotFoundException, Exception {
+    public boolean añadirLiberacion() throws ClassNotFoundException, Exception {
         miVentana.mostrarMensaje("Introduzca su tarjeta de crédito/débito en el lector y pulse aceptar.");
         JOptionPane.showInputDialog("Introduzca el pin de la tarjeta");
         int idCliente = Sesion.miCliente().getCliente().getId();
@@ -40,8 +40,6 @@ public class ControladorLiberacion {
         double subtotal = total * 0.79;
         int idGestor = Repositorio.repositorio().gestorPorNombre(miVentana.getjComboBoxOperadores().getSelectedItem().toString()).getId();
         String imei = miVentana.getjTextFieldImei().getText();
-        if(Repositorio.repositorio().generarLiberacion(idCliente, subtotal, total, "Tarjeta", idGestor, imei) > 0){
-            
-        }
+        return Repositorio.repositorio().generarLiberacion(idCliente, subtotal, total, "Tarjeta", idGestor, imei) > 0;
     }
 }
