@@ -428,7 +428,7 @@ public class Repositorio {
     
     public int generarLiberacion(int idCliente, double subtotal, double total, String tipoPago, int operador, String imei) throws SQLException, Exception{
         int numeroPedido = 0;
-        ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + total * 0.79 + ", " + total + " , '" + tipoPago + "', 'Pagado');");
+        ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + subtotal + ", " + total + " , '" + tipoPago + "', 'Pagado');");
         if(rsPedido != null){
             rsPedido.next();
             numeroPedido = Integer.parseInt(rsPedido.getString("numeroPedido"));
@@ -441,6 +441,23 @@ public class Repositorio {
             }
         } else{
             throw new Exception("No se ha podido generar el pedido de la liberación.");
+        }
+        return numeroPedido;
+    }
+
+    public int generarReparacion(int idCliente, int subtotal, int total, String tipoPago, int proveedor, String diagnostico) throws SQLException, Exception {
+        int numeroPedido = 0;
+        ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + subtotal + ", " + total + " , '" + tipoPago + "', 'Sin pagar');");
+        if(rsPedido != null){
+            rsPedido.next();
+            numeroPedido = Integer.parseInt(rsPedido.getString("numeroPedido"));
+            ResultSet rsReparacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO reparaciones VALUES (" + numeroPedido + ", " + proveedor + ", '" + diagnostico + "');");
+            if(rsReparacion == null){
+                BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM pedidos WHERE numeroPedido = " + numeroPedido);
+                throw new Exception("No se ha podido generar la reparación.");
+            } else{
+                cargarPedidos();
+            }
         }
         return numeroPedido;
     }

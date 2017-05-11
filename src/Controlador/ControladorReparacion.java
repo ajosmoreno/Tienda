@@ -2,9 +2,11 @@ package Controlador;
 
 import Modelo.Gestor;
 import Modelo.Repositorio;
+import Modelo.Sesion;
 import Vista.AnadirReparacion;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,5 +31,12 @@ public class ControladorReparacion {
         miVentana.getjComboBoxProveedores().setModel(dcm);
     }
     
-    
+    public boolean añadirReparacion() throws ClassNotFoundException, Exception {
+        int idCliente = Sesion.miCliente().getCliente().getId();
+        int idGestor = Repositorio.repositorio().gestorPorNombre(miVentana.getjComboBoxProveedores().getSelectedItem().toString()).getId();
+        String diagnostico = "Marca: " + miVentana.getjTextFieldMarca().getText() + "\n" +
+                "Modelo: " + miVentana.getjTextFieldModelo().getText() + "\n" +
+                "Observaciones: " + miVentana.getjTextAreaObservaciones().getText();
+        return Repositorio.repositorio().generarReparacion(idCliente, 0, 0, "Efectivo", idGestor, diagnostico) > 0;
+    }
 }

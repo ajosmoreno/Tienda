@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -42,7 +43,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
         try {
             miControlador.cargarProveedores();
         } catch (Exception ex) {
-            Logger.getLogger(AnadirReparacion.class.getName()).log(Level.SEVERE, null, ex);
+            mostrarError("Ha ocurrido un error al cargar los proveedores.");
         }
     }
 
@@ -160,7 +161,14 @@ public class AnadirReparacion extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        // TODO add your handling code here:
+        try {
+            if(miControlador.añadirReparacion())
+                mostrarMensaje("La liberación se ha generado correctamente.\n\nPodrás pasar a recogerlo cuando en tus pedidos el estado sea 'Reparado'.");
+            else
+                mostrarError("No se ha podido generar la reparación.");
+        } catch (Exception ex) {
+            mostrarError("Ha ocurrido un error al generar la reparación.");
+        }
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
@@ -192,6 +200,13 @@ public class AnadirReparacion extends javax.swing.JDialog {
         return jTextFieldModelo;
     }
 
+    public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
+    }
     
     /**
      * @param args the command line arguments
