@@ -35,8 +35,7 @@ public class ControladorLiberacion {
         miVentana.mostrarMensaje("Introduzca su tarjeta de crédito/débito en el lector y pulse aceptar.");
         JOptionPane.showInputDialog("Introduzca el pin de la tarjeta");
         int idCliente = Sesion.miCliente().getCliente().getId();
-        //double total = Double.parseDouble(miVentana.getjLabelPrecioTotal.getText().replace("€", ""));
-        double total = 10;
+        double total = Double.parseDouble(miVentana.getjLabelPrecioTotal().getText().replace(" €", ""));
         double subtotal = total * 0.79;
         int idGestor = Repositorio.repositorio().gestorPorNombre(miVentana.getjComboBoxOperadores().getSelectedItem().toString()).getId();
         String imei = miVentana.getjTextFieldImei().getText();

@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -249,7 +250,11 @@ public class AnadirLiberacion extends javax.swing.JDialog {
         return jTextFieldModelo;
     }
 
-        
+    public JLabel getjLabelPrecioTotal() {
+        return jLabelPrecioTotal;
+    }
+
+    
     /**
      * @param args the command line arguments
      */
