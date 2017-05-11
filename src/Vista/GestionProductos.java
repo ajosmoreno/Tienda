@@ -37,9 +37,6 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonBuscarFoto.setIcon(new ImageIcon("Imagenes/icon/buscarnormal2.png"));
         jButtonBuscarFoto.setRolloverIcon(new ImageIcon("Imagenes/icon/buscarrollover2.png"));
         jButtonBuscarFoto.setPressedIcon(new ImageIcon("Imagenes/icon/buscarpressed2.png"));
-        jButtonBuscar.setIcon(new ImageIcon("Imagenes/icon/buscar2.png"));
-        jButtonBuscar.setRolloverIcon(new ImageIcon("Imagenes/icon/buscar4.png"));
-        jButtonBuscar.setPressedIcon(new ImageIcon("Imagenes/icon/buscar3.png"));
         jButtonVolverAtras.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
         jButtonCancelar.setIcon(new ImageIcon("Imagenes/icon/cancelarnormal.png"));
         jButtonCancelar.setRolloverIcon(new ImageIcon("Imagenes/icon/cancelarrollover.png"));
@@ -53,7 +50,6 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonVolverAtras.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
         jLabelBuscador.setVisible(false);
         jComboBoxListaProductos.setVisible(false);
-        jButtonBuscar.setVisible(false);
         jLabelMarca.setVisible(false);
         jLabelModelo.setVisible(false);
         jLabelPrecio.setVisible(false);
@@ -88,7 +84,6 @@ public class GestionProductos extends javax.swing.JDialog {
         jButtonInsertarProducto = new javax.swing.JButton();
         jButtonVolverAtras = new javax.swing.JButton();
         jLabelBuscador = new javax.swing.JLabel();
-        jButtonBuscar = new javax.swing.JButton();
         jLabelModelo = new javax.swing.JLabel();
         jLabelMarca = new javax.swing.JLabel();
         jLabelCaracteristicas = new javax.swing.JLabel();
@@ -156,16 +151,6 @@ public class GestionProductos extends javax.swing.JDialog {
         jLabelBuscador.setForeground(new java.awt.Color(51, 51, 51));
         jLabelBuscador.setText("Id producto: ");
         getContentPane().add(jLabelBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, 20));
-
-        jButtonBuscar.setBorder(null);
-        jButtonBuscar.setBorderPainted(false);
-        jButtonBuscar.setContentAreaFilled(false);
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 40, 40));
 
         jLabelModelo.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabelModelo.setForeground(new java.awt.Color(51, 51, 51));
@@ -283,7 +268,6 @@ public class GestionProductos extends javax.swing.JDialog {
         borrando = false;
         jLabelBuscador.setVisible(false);
         jComboBoxListaProductos.setVisible(false);
-        jButtonBuscar.setVisible(false);
         jButtonCancelar.setVisible(false);
         jButtonAceptar.setVisible(false);
         jTextAreaCarateristicas.setVisible(false);
@@ -336,7 +320,6 @@ public class GestionProductos extends javax.swing.JDialog {
         jComboBoxListaProductos.setModel(new DefaultComboBoxModel());
         jLabelBuscador.setVisible(false);
         jComboBoxListaProductos.setVisible(false);
-        jButtonBuscar.setVisible(false);
         jLabelMarca.setVisible(false);
         jLabelModelo.setVisible(false);
         jLabelPrecio.setVisible(false);
@@ -400,10 +383,6 @@ public class GestionProductos extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonBuscarFotoActionPerformed
 
     private void jComboBoxListaProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxListaProductosActionPerformed
-        
-    }//GEN-LAST:event_jComboBoxListaProductosActionPerformed
-
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         if(!jComboBoxListaProductos.getSelectedItem().equals("")){
             try {
                 if(!borrando) jButtonBuscarFoto.setVisible(true);
@@ -434,7 +413,7 @@ public class GestionProductos extends javax.swing.JDialog {
             limpiarCampos();
             modificarCampos();
         }
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
+    }//GEN-LAST:event_jComboBoxListaProductosActionPerformed
 
     private void jTextFieldFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFotoActionPerformed
         
@@ -500,7 +479,6 @@ public class GestionProductos extends javax.swing.JDialog {
     public void modificarCampos(){
         jLabelBuscador.setVisible(true);
             jComboBoxListaProductos.setVisible(true);
-            jButtonBuscar.setVisible(true);
             jLabelMarca.setVisible(false);
             jLabelModelo.setVisible(false);
             jLabelPrecio.setVisible(false);
@@ -566,7 +544,6 @@ public class GestionProductos extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAceptar;
-    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonBuscarFoto;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEliminarProducto;
