@@ -43,20 +43,18 @@ public class Reparacion extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabelRegistroReparacion = new javax.swing.JLabel();
-        jLabelNombre = new javax.swing.JLabel();
-        jLabelApellidos = new javax.swing.JLabel();
-        jLabelDireccion = new javax.swing.JLabel();
-        jLabelTelefono = new javax.swing.JLabel();
+        jLabelProveedor = new javax.swing.JLabel();
+        jLabelMarca = new javax.swing.JLabel();
+        jLabelMOdelo = new javax.swing.JLabel();
         jLabelObservaciones = new javax.swing.JLabel();
-        jTextFieldNombre = new javax.swing.JTextField();
-        jTextFieldApellidos = new javax.swing.JTextField();
-        jTextFieldDireccion = new javax.swing.JTextField();
-        jTextFieldTelefono = new javax.swing.JTextField();
+        jTextFieldMarca = new javax.swing.JTextField();
+        jTextFieldModelo = new javax.swing.JTextField();
         jScrollPaneObservaciones = new javax.swing.JScrollPane();
         jTextAreaObservaciones = new javax.swing.JTextArea();
         jButtonAceptar = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -68,46 +66,33 @@ public class Reparacion extends javax.swing.JDialog {
         jLabelRegistroReparacion.setText("    Registro Reparación");
         getContentPane().add(jLabelRegistroReparacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 290, -1));
 
-        jLabelNombre.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
-        jLabelNombre.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelNombre.setText("Nombre:");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, 20));
+        jLabelProveedor.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelProveedor.setForeground(new java.awt.Color(0, 0, 51));
+        jLabelProveedor.setText("Proveedor:");
+        getContentPane().add(jLabelProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, 20));
 
-        jLabelApellidos.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
-        jLabelApellidos.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelApellidos.setText("Apellidos:");
-        getContentPane().add(jLabelApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, 20));
+        jLabelMarca.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelMarca.setForeground(new java.awt.Color(0, 0, 51));
+        jLabelMarca.setText("Marca:");
+        getContentPane().add(jLabelMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, 20));
 
-        jLabelDireccion.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
-        jLabelDireccion.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelDireccion.setText("Dirección:");
-        getContentPane().add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 155, -1, 30));
-
-        jLabelTelefono.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
-        jLabelTelefono.setForeground(new java.awt.Color(0, 0, 51));
-        jLabelTelefono.setText("Teléfono:");
-        getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 195, -1, 30));
+        jLabelMOdelo.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
+        jLabelMOdelo.setForeground(new java.awt.Color(0, 0, 51));
+        jLabelMOdelo.setText("Modelo:");
+        getContentPane().add(jLabelMOdelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 60, 20));
 
         jLabelObservaciones.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabelObservaciones.setForeground(new java.awt.Color(0, 0, 51));
         jLabelObservaciones.setText("Observaciones:");
-        getContentPane().add(jLabelObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
-
-        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 241, -1));
-        getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 241, -1));
-        getContentPane().add(jTextFieldDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 241, -1));
-        getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 241, -1));
+        getContentPane().add(jLabelObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+        getContentPane().add(jTextFieldMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 241, -1));
+        getContentPane().add(jTextFieldModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 241, -1));
 
         jTextAreaObservaciones.setColumns(20);
         jTextAreaObservaciones.setRows(5);
         jScrollPaneObservaciones.setViewportView(jTextAreaObservaciones);
 
-        getContentPane().add(jScrollPaneObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 241, -1));
+        getContentPane().add(jScrollPaneObservaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 241, 150));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAceptar.setToolTipText("Aceptar");
@@ -153,15 +138,13 @@ public class Reparacion extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 98, 80));
+
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 240, -1));
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 480));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         // TODO add your handling code here:
@@ -169,10 +152,9 @@ public class Reparacion extends javax.swing.JDialog {
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
-        jTextFieldNombre.setText("");
-        jTextFieldApellidos.setText("");
-        jTextFieldDireccion.setText("");
-        jTextFieldTelefono.setText("");
+      
+        jTextFieldMarca.setText("");
+        jTextFieldModelo.setText("");
         jTextAreaObservaciones.setText("");
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
@@ -227,18 +209,16 @@ public class Reparacion extends javax.swing.JDialog {
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonSalir;
-    private javax.swing.JLabel jLabelApellidos;
-    private javax.swing.JLabel jLabelDireccion;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabelFondo;
-    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelMOdelo;
+    private javax.swing.JLabel jLabelMarca;
     private javax.swing.JLabel jLabelObservaciones;
+    private javax.swing.JLabel jLabelProveedor;
     private javax.swing.JLabel jLabelRegistroReparacion;
-    private javax.swing.JLabel jLabelTelefono;
     private javax.swing.JScrollPane jScrollPaneObservaciones;
     private javax.swing.JTextArea jTextAreaObservaciones;
-    private javax.swing.JTextField jTextFieldApellidos;
-    private javax.swing.JTextField jTextFieldDireccion;
-    private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JTextField jTextFieldMarca;
+    private javax.swing.JTextField jTextFieldModelo;
     // End of variables declaration//GEN-END:variables
 }
