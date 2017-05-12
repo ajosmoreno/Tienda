@@ -649,9 +649,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
             + "\n"
             + "1. Encienda su móvil con una tarjeta no aceptada por el terminal, es decir de otro operador distinto\n"
             + "\n"
-            + "2. Si no ha desactivado el PIN como le recomendamos y le pide el codigo PIN meta el código PIN de la SIM. Si le da error y está seguro de que introduce el PIN correcto es porque el código que el pide es el de liberación, en la mayoría de modelos la pantalla es igual a la del PIN.\n"
+            + "2. Si no ha desactivado el PIN como le recomendamos y le pide el codigo PIN meta el código PIN de la SIM. Si le da error \n y está seguro de que introduce el PIN correcto es porque el código que el pide es el de liberación, en la mayoría de modelos la pantalla es igual a la del PIN.\n"
             + "\n"
-            + "3. Cuando le pida el código de liberación deberá introducir el código de 7 números que tiene y acto seguido pulsar en Confirmar, OK, aceptar o similar. Si no lo pidiera ni aparece ningun campo para introducirlo marque el código y luego pulse sobre Confirmar, OK, aceptar o similar.");
+            + "3. Cuando le pida el código de liberación deberá introducir el código de 7 números que tiene y acto seguido pulsar en \n Confirmar, OK, aceptar o similar. Si no lo pidiera ni aparece ningun campo para introducirlo marque el código y luego pulse sobre Confirmar, OK, aceptar o similar.");
         jTextAreaDiagnostico.setCaretPosition(0);
         jButtonFinalizarPedido.setEnabled(true);
     }//GEN-LAST:event_jButtonSolicitarCodigoActionPerformed
