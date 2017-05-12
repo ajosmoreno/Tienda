@@ -20,6 +20,7 @@ public class VisorPedido extends javax.swing.JDialog {
     public VisorPedido(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        jLabel1Fondo.setIcon(new ImageIcon("Imagenes/pedidoscliente.jpg"));
         jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
         jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
         jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
@@ -56,7 +57,7 @@ public class VisorPedido extends javax.swing.JDialog {
         jButtonVolver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableProductos = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel1Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -88,7 +89,7 @@ public class VisorPedido extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTableProductos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 674, 335));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 460));
+        getContentPane().add(jLabel1Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 460));
 
         pack();
         setLocationRelativeTo(null);
@@ -142,7 +143,7 @@ public class VisorPedido extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonVolver;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel1Fondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableProductos;
     // End of variables declaration//GEN-END:variables

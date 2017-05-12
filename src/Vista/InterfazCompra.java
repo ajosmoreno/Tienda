@@ -158,7 +158,7 @@ public class InterfazCompra extends javax.swing.JDialog {
         getContentPane().add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
         jLabelPrecioTotal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(jLabelPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 58, 30));
+        getContentPane().add(jLabelPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 160, 30));
 
         jTextAreaCaracteristicas.setEditable(false);
         jTextAreaCaracteristicas.setColumns(20);

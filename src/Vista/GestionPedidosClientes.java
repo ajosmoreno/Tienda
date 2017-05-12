@@ -32,6 +32,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));;
         jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
         jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/pedidoscliente.jpg"));
     }
 
     public JComboBox<String> getjComboBoxEstadoPedido() {
@@ -58,6 +59,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         jTablePedidos = new javax.swing.JTable();
         jButtonCancelar = new javax.swing.JButton();
         jButtonVolver = new javax.swing.JButton();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -101,7 +103,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 544, 116, 52));
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 130, 52));
 
         jButtonVolver.setToolTipText("Volver atras");
         jButtonVolver.setBorder(null);
@@ -113,6 +115,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(694, 533, 97, 73));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 606));
 
         pack();
         setLocationRelativeTo(null);
@@ -233,6 +236,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxEstadoPedido;
     private javax.swing.JLabel jLabelEstados;
+    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablePedidos;
     // End of variables declaration//GEN-END:variables
