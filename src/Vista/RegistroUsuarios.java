@@ -76,7 +76,6 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         setTitle("Registro de Usuarios");
         setMinimumSize(new java.awt.Dimension(841, 483));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(841, 483));
         setResizable(false);
         setSize(new java.awt.Dimension(841, 483));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,6 +123,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         getContentPane().add(jTextFieldDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 170, -1));
 
         jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAceptar.setToolTipText("Aceptar");
         jButtonAceptar.setBorder(null);
         jButtonAceptar.setBorderPainted(false);
         jButtonAceptar.setContentAreaFilled(false);
@@ -138,6 +138,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         getContentPane().add(jButtonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 100, 80));
 
         jButtonBorrarTodo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonBorrarTodo.setToolTipText("Borrar todo");
         jButtonBorrarTodo.setBorder(null);
         jButtonBorrarTodo.setBorderPainted(false);
         jButtonBorrarTodo.setContentAreaFilled(false);
@@ -149,6 +150,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         getContentPane().add(jButtonBorrarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 100, 80));
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSalir.setToolTipText("Salir");
         jButtonSalir.setBorder(null);
         jButtonSalir.setBorderPainted(false);
         jButtonSalir.setContentAreaFilled(false);

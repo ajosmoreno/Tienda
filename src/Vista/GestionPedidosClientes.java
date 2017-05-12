@@ -8,6 +8,7 @@ package Vista;
 import Controlador.ControladorGestionPedidosClientes;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -28,6 +29,9 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         miControlador = new ControladorGestionPedidosClientes(this);
         miControlador.cargarTodosPedidos();
         jButtonCancelar.setEnabled(false);
+        jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));;
+        jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
+        jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
     }
 
     public JComboBox<String> getjComboBoxEstadoPedido() {
@@ -53,8 +57,12 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePedidos = new javax.swing.JTable();
         jButtonCancelar = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jComboBoxEstadoPedido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Completados", "No completados", "Cancelados" }));
         jComboBoxEstadoPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -62,8 +70,10 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
                 jComboBoxEstadoPedidoActionPerformed(evt);
             }
         });
+        getContentPane().add(jComboBoxEstadoPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 28, 222, -1));
 
         jLabelEstados.setText("Estado del pedido:");
+        getContentPane().add(jLabelEstados, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 31, -1, -1));
 
         jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,46 +93,26 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jTablePedidos);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 75, 749, -1));
+
         jButtonCancelar.setText("Cancelar pedido");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 544, 116, 52));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(jLabelEstados)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBoxEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxEstadoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelEstados))
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        jButtonVolver.setToolTipText("Volver atras");
+        jButtonVolver.setBorder(null);
+        jButtonVolver.setBorderPainted(false);
+        jButtonVolver.setContentAreaFilled(false);
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(694, 533, 97, 73));
 
         pack();
         setLocationRelativeTo(null);
@@ -183,6 +173,11 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTablePedidosMouseClicked
 
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButtonVolverActionPerformed
+
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }
@@ -235,6 +230,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxEstadoPedido;
     private javax.swing.JLabel jLabelEstados;
     private javax.swing.JScrollPane jScrollPane1;

@@ -116,6 +116,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonBuscar">
       <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Buscar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -211,6 +212,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonVolver">
       <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Volver atras"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>

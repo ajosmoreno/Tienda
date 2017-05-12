@@ -128,6 +128,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         });
         getContentPane().add(jTextFieldNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 169, -1));
 
+        jButtonBuscar.setToolTipText("Buscar");
         jButtonBuscar.setBorder(null);
         jButtonBuscar.setBorderPainted(false);
         jButtonBuscar.setContentAreaFilled(false);
@@ -181,6 +182,7 @@ public class GestionPedidos extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonRealizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 149, 39));
 
+        jButtonVolver.setToolTipText("Volver atras");
         jButtonVolver.setBorder(null);
         jButtonVolver.setBorderPainted(false);
         jButtonVolver.setContentAreaFilled(false);

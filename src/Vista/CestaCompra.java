@@ -108,6 +108,7 @@ public class CestaCompra extends javax.swing.JDialog {
         });
         getContentPane().add(jButtonPagarTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, 50));
 
+        jButtonVolver.setToolTipText("Volver atras");
         jButtonVolver.setBorder(null);
         jButtonVolver.setBorderPainted(false);
         jButtonVolver.setContentAreaFilled(false);
