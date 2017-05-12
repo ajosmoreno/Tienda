@@ -941,6 +941,10 @@ public class GestionAdministrador extends javax.swing.JDialog {
     public JButton getjButtonSolicitarCodigo() {
         return jButtonSolicitarCodigo;
     }
+
+    public JTextField getjTextFieldPrecio() {
+        return jTextFieldPrecio;
+    }
     
     
 

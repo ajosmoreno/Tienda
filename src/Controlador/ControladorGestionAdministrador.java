@@ -166,7 +166,7 @@ public class ControladorGestionAdministrador {
 
     public void repararPedido() throws SQLException, Exception {
         if (mostrarAvisoPedido(reparacionSeleccionada)) {
-            if(Repositorio.repositorio().repararPedido(reparacionSeleccionada.getNumeroPedido(), miVentana.getjTextAreaDiagnostico().getText(), reparacionSeleccionada.getEstadoPedido())){
+            if(Repositorio.repositorio().repararPedido(reparacionSeleccionada.getNumeroPedido(), miVentana.getjTextAreaDiagnostico().getText(), Double.parseDouble(miVentana.getjTextFieldPrecio().getText().replace(",", ".")), reparacionSeleccionada.getEstadoPedido())){
                 miVentana.mostrarMensaje("Pedido completado.");
                 miVentana.limpiarReparacion();
             } else{

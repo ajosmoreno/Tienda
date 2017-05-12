@@ -303,13 +303,14 @@ public class Repositorio {
         return eliminado;
     }
     
-    public boolean repararPedido(int numeroPedido, String diagnostico, String estadoAnterior) throws SQLException, Exception{
+    public boolean repararPedido(int numeroPedido, String diagnostico, Double precio, String estadoAnterior) throws SQLException, Exception{
         boolean reparado = false;
-        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Reparado' WHERE numeroPedido = " + numeroPedido);
+        ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Reparado', subtotal = " + (precio * 0.79) + ", total = " + precio + " WHERE numeroPedido = " + numeroPedido);
         if(rs != null){
             ResultSet rsReparacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE reparaciones SET diagnostico = '" + diagnostico + "' WHERE numeroPedido = " + numeroPedido);
             if(rsReparacion != null){
-                Repositorio.repositorio().cargarPedidos();
+                cargarPedidos();
+                cargarClientes();
                 reparado = true;
             } else{
                 ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = '" + estadoAnterior + "' WHERE numeroPedido = " + numeroPedido);
@@ -325,7 +326,8 @@ public class Repositorio {
         if(rs != null){
             ResultSet rsLiberacion = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE liberaciones SET instrucciones = '" + instrucciones + "', codigoLiberacion = '" + codigoLiberacion + "' WHERE numeroPedido = " + numeroPedido);
             if(rsLiberacion != null){
-                Repositorio.repositorio().cargarPedidos();
+                cargarPedidos();
+                cargarClientes();
                 liberado = true;
             } else{
                 ResultSet rsError = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = '" + estadoAnterior + "' WHERE numeroPedido = " + numeroPedido);
@@ -366,6 +368,7 @@ public class Repositorio {
             modificado = true;
             cargarProductos();
             cargarPedidos();
+            cargarClientes();
         }
         return modificado;
     }
