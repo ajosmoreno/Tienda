@@ -122,6 +122,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jLabelCodigoLiberacion = new javax.swing.JLabel();
         jTextFieldCodigoLiberacion = new javax.swing.JTextField();
         jButtonFinalizarPedido = new javax.swing.JButton();
+        jTextFieldPrecio = new javax.swing.JTextField();
+        jLabelPrecio = new javax.swing.JLabel();
         jButtonGestionProducto = new javax.swing.JButton();
         jButtonLiberacion = new javax.swing.JButton();
         jLabelFondoPrincipal = new javax.swing.JLabel();
@@ -230,7 +232,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
 
         jLabelProveedor.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabelProveedor.setForeground(new java.awt.Color(51, 51, 51));
-        jLabelProveedor.setText("Proveedor");
+        jLabelProveedor.setText("Proveedor:");
         jPanelUsuarios.add(jLabelProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 90, -1));
 
         jTextFieldProveedor.setEditable(false);
@@ -427,6 +429,11 @@ public class GestionAdministrador extends javax.swing.JDialog {
             }
         });
         jPanelUsuarios.add(jButtonFinalizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 130, 60));
+        jPanelUsuarios.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 200, -1));
+
+        jLabelPrecio.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabelPrecio.setText("Precio:");
+        jPanelUsuarios.add(jLabelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, -1));
 
         jPanelPrincipal.add(jPanelUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 760, 590));
 
@@ -472,6 +479,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jTextFieldImei.setVisible(false);
         jLabelProveedor.setVisible(false);
         jTextFieldProveedor.setVisible(false);
+        jLabelPrecio.setVisible(false);
+        jTextFieldPrecio.setVisible(false);
         jLabelDiagnostico.setVisible(false);
         jTextAreaDiagnostico.setVisible(false);
         jScrollPaneDiagnostico.setVisible(false);
@@ -572,6 +581,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
             jButtonFinalizarPedido.setVisible(false);
             jTextAreaDiagnostico.setText("");
             jButtonFinalizarPedido.setVisible(true);
+            jLabelPrecio.setVisible(true);
+            jTextFieldPrecio.setVisible(true);
         } catch (Exception ex) {
             mostrarError("Error al cargar las reparaciones pendientes.");
         }
@@ -625,6 +636,9 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jComboBoxPedidosPendientes.setVisible(false);
         jTextFieldCodigoLiberacion.setVisible(false);
         jButtonFinalizarPedido.setVisible(false);
+        jLabelPrecio.setVisible(false);
+        jTextFieldPrecio.setVisible(false);
+        
         
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
@@ -826,6 +840,8 @@ public class GestionAdministrador extends javax.swing.JDialog {
             jTextFieldCodigoLiberacion.setVisible(true);
             jButtonFinalizarPedido.setVisible(true);
             jTextFieldCodigoLiberacion.setText("");
+            jLabelPrecio.setVisible(false);
+            jTextFieldPrecio.setVisible(false);
         } catch (Exception ex) {
             mostrarError("Error al cargar las liberaciones pendientes.");
         }
@@ -850,6 +866,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jButtonSolicitarCodigo.setEnabled(false);
         jTextAreaDiagnostico.setText("");
         jButtonFinalizarPedido.setEnabled(false);
+        jTextFieldPrecio.setText("");
     }
     
     public JComboBox<String> getjComboBoxPedidosPendientes() {
@@ -1005,6 +1022,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelPedidosPendientes;
     private javax.swing.JLabel jLabelPermisos;
+    private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JLabel jLabelProveedor;
     private javax.swing.JLabel jLabelTelefono;
     private javax.swing.JLabel jLabelUsuario;
@@ -1024,6 +1042,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldImei;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldPassword;
+    private javax.swing.JTextField jTextFieldPrecio;
     private javax.swing.JTextField jTextFieldProveedor;
     private javax.swing.JTextField jTextFieldTelefono;
     private javax.swing.JTextField jTextFieldUsuario;
