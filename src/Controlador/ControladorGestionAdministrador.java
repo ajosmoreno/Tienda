@@ -212,7 +212,7 @@ public class ControladorGestionAdministrador {
         }
         miVentana.getjButtonFinalizarPedido().setEnabled(true);
         miVentana.getjTextFieldProveedor().setText(g.getNombre());
-        miVentana.getjTextAreaDiagnostico().setText("---- Mensaje inicial ----\n\n" + reparacionSeleccionada.getDiagnostico() + "\n\n---- Informe de resultado ----\n");
+        miVentana.getjTextAreaDiagnostico().setText("---- Mensaje inicial ----\n" + reparacionSeleccionada.getDiagnostico() + "\n\n---- Informe de resultado ----\n");
     }
 
     public void abrirLiberacion() throws ClassNotFoundException, Exception {

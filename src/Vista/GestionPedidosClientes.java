@@ -161,7 +161,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         int numeroPedido = 0;
         String tipo = "";
         if(jComboBoxEstadoPedido.getSelectedIndex() != 2){
-            if(jTablePedidos.getSelectedColumn() == 5){
+            if(jTablePedidos.getSelectedColumn() == 6){
                 tipo = jTablePedidos.getValueAt(jTablePedidos.getSelectedRow(), 3).toString();
                 numeroPedido = Integer.parseInt(jTablePedidos.getValueAt(jTablePedidos.getSelectedRow(), 0).toString());
                 try {
@@ -171,8 +171,8 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
                 }
             }
         } else{
-            if(jTablePedidos.getSelectedColumn() == 6){
-                tipo = jTablePedidos.getValueAt(jTablePedidos.getSelectedRow(), 3).toString();
+            if(jTablePedidos.getSelectedColumn() == 7){
+                tipo = jTablePedidos.getValueAt(jTablePedidos.getSelectedRow(), 4).toString();
                 numeroPedido = Integer.parseInt(jTablePedidos.getValueAt(jTablePedidos.getSelectedRow(), 1).toString());
                 try {
                     miControlador.mostrarDetalles(numeroPedido, tipo);
