@@ -74,6 +74,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelRegistroReparacion.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N

@@ -39,6 +39,7 @@ public class ControladorGestionPedidosClientes {
         dtm.addColumn("Tipo de pago");
         dtm.addColumn("Tipo de pedido");
         dtm.addColumn("Estado del pedido");
+        dtm.addColumn("Precio");
         dtm.addColumn("Detalles del pedido");
         ArrayList<Pedido> listaPedidos = Sesion.miCliente().getCliente().getPedidosRealizados();
         for(Pedido p: listaPedidos){
@@ -46,7 +47,7 @@ public class ControladorGestionPedidosClientes {
             if(p instanceof Compra) tipo = "Compra";
             else if(p instanceof Liberacion) tipo = "Liberación";
             else if(p instanceof Reparacion) tipo = "Reparación";
-            String[] fila = {String.valueOf(p.getNumeroPedido()), p.getFecha(), p.getTipoPago(), tipo, p.getEstadoPedido(), "Clic para ver"};
+            String[] fila = {String.valueOf(p.getNumeroPedido()), p.getFecha(), p.getTipoPago(), tipo, p.getEstadoPedido(), String.valueOf(p.getTotal()) + "€", "Clic para ver"};
             dtm.addRow(fila);
         }
         miVentana.getjTablePedidos().setModel(dtm);
@@ -59,6 +60,7 @@ public class ControladorGestionPedidosClientes {
         dtm.addColumn("Tipo de pago");
         dtm.addColumn("Tipo de pedido");
         dtm.addColumn("Estado del pedido");
+        dtm.addColumn("Precio");
         dtm.addColumn("Detalles del pedido");
         ArrayList<Pedido> listaPedidos = Sesion.miCliente().getCliente().getPedidosRealizados();
         for(Pedido p: listaPedidos){
@@ -67,7 +69,7 @@ public class ControladorGestionPedidosClientes {
                 if(p instanceof Compra) tipo = "Compra";
                 else if(p instanceof Liberacion) tipo = "Liberación";
                 else if(p instanceof Reparacion) tipo = "Reparación";
-                String[] fila = {String.valueOf(p.getNumeroPedido()), p.getFecha(), p.getTipoPago(), tipo, p.getEstadoPedido(), "Clic para ver"};
+                String[] fila = {String.valueOf(p.getNumeroPedido()), p.getFecha(), p.getTipoPago(), tipo, p.getEstadoPedido(), String.valueOf(p.getTotal()) + "€", "Clic para ver"};
                 dtm.addRow(fila);
             }
         }
@@ -92,6 +94,7 @@ public class ControladorGestionPedidosClientes {
         dtm.addColumn("Tipo de pago");
         dtm.addColumn("Tipo de pedido");
         dtm.addColumn("Estado del pedido");
+        dtm.addColumn("Precio");
         dtm.addColumn("Detalles del pedido");
         ArrayList<Pedido> listaPedidos = Sesion.miCliente().getCliente().getPedidosRealizados();
         for(Pedido p: listaPedidos){
@@ -100,7 +103,7 @@ public class ControladorGestionPedidosClientes {
                 if(p instanceof Compra) tipo = "Compra";
                 else if(p instanceof Liberacion) tipo = "Liberación";
                 else if(p instanceof Reparacion) tipo = "Reparación";
-                Object[] fila = {false, String.valueOf(p.getNumeroPedido()), p.getFecha(), p.getTipoPago(), tipo, p.getEstadoPedido(), "Clic para ver"};
+                Object[] fila = {false, String.valueOf(p.getNumeroPedido()), p.getFecha(), p.getTipoPago(), tipo, p.getEstadoPedido(), String.valueOf(p.getTotal()) + "€", "Clic para ver"};
                 dtm.addRow(fila);
             }
         }
@@ -114,6 +117,7 @@ public class ControladorGestionPedidosClientes {
         dtm.addColumn("Tipo de pago");
         dtm.addColumn("Tipo de pedido");
         dtm.addColumn("Estado del pedido");
+        dtm.addColumn("Precio");
         dtm.addColumn("Detalles del pedido");
         ArrayList<Pedido> listaPedidos = Sesion.miCliente().getCliente().getPedidosRealizados();
         for(Pedido p: listaPedidos){
@@ -122,7 +126,7 @@ public class ControladorGestionPedidosClientes {
                 if(p instanceof Compra) tipo = "Compra";
                 else if(p instanceof Liberacion) tipo = "Liberación";
                 else if(p instanceof Reparacion) tipo = "Reparación";
-                String[] fila = {String.valueOf(p.getNumeroPedido()), p.getFecha(), p.getTipoPago(), tipo, p.getEstadoPedido(), "Clic para ver"};
+                String[] fila = {String.valueOf(p.getNumeroPedido()), p.getFecha(), p.getTipoPago(), tipo, p.getEstadoPedido(), String.valueOf(p.getTotal()) + "€", "Clic para ver"};
                 dtm.addRow(fila);
             }
         }

@@ -98,6 +98,7 @@ public class InterfazCompra extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelCatalogo.setFont(new java.awt.Font("Comic Sans MS", 1, 39)); // NOI18N

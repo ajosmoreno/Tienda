@@ -109,6 +109,7 @@ public class GestionProductos extends javax.swing.JDialog {
         setTitle("Gestion de productos");
         setMinimumSize(new java.awt.Dimension(989, 586));
         setUndecorated(true);
+        setResizable(false);
         setSize(new java.awt.Dimension(989, 586));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

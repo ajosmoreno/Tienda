@@ -5,6 +5,7 @@
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="name" type="java.lang.String" value="Gestion de Pedidos" noResource="true"/>
     <Property name="undecorated" type="boolean" value="true"/>
+    <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[989, 586]"/>
     </Property>
@@ -115,6 +116,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonBuscar">
       <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Buscar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -210,6 +212,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonVolver">
       <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Volver atras"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
