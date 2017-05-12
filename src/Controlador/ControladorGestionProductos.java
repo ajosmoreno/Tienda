@@ -29,8 +29,8 @@ public class ControladorGestionProductos {
 
     public void buscarImagen() throws IOException {
         boolean elegida = true;
-        String userDir = System.getProperty("user.home");
-        JFileChooser fileChooser = new JFileChooser(userDir + "/Desktop");
+        String current = new java.io.File( "." ).getCanonicalPath();
+        JFileChooser fileChooser = new JFileChooser(current + "/Imagenes/Productos/");
         if(JFileChooser.APPROVE_OPTION == fileChooser.showOpenDialog(miVentana)){
             File archivoElegido = fileChooser.getSelectedFile();
             File archivoEnImagenes = new File("Imagenes/Productos/" + archivoElegido.getName());
