@@ -76,7 +76,7 @@ public class ControladorGestionPedidos {
         boolean correcto = false;
         for(int i = 0; i < miVentana.getjTablePedidos().getRowCount(); i++){
             boolean seleccionado = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 0);
-            boolean completar = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 6);
+            boolean completar = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 7);
             int pedido = (Integer)miVentana.getjTablePedidos().getValueAt(i, 1);
             if(seleccionado && completar){
                 if(Repositorio.repositorio().completarPedido(pedido)){
@@ -98,7 +98,7 @@ public class ControladorGestionPedidos {
         boolean correcto = false;
         for(int i = 0; i < miVentana.getjTablePedidos().getRowCount(); i++){
             boolean seleccionado = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 0);
-            boolean completar = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 6);
+            boolean completar = (Boolean)miVentana.getjTablePedidos().getValueAt(i, 7);
             int pedido = (Integer)miVentana.getjTablePedidos().getValueAt(i, 1);
             if(seleccionado && !completar){
                 if(Repositorio.repositorio().cancelarPedido(pedido)){

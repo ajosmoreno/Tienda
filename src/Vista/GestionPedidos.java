@@ -262,6 +262,7 @@ public class GestionPedidos extends javax.swing.JDialog {
             miControlador.completarPedidos();
         } catch (Exception ex) {
             mostrarError("Ha ocurrido un error al completar los pedidos.");
+            
         }
     }//GEN-LAST:event_jButtonRealizarActionPerformed
 

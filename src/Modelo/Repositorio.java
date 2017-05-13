@@ -441,6 +441,8 @@ public class Repositorio {
                 throw new Exception("No se ha podido generar la liberación.");
             } else{
                 cargarPedidos();
+                cargarClientes();
+                Sesion.miCliente().setCliente(clientePorUsuario(Sesion.miCliente().getCliente().getNombreUsuario()));
             }
         } else{
             throw new Exception("No se ha podido generar el pedido de la liberación.");
@@ -460,6 +462,8 @@ public class Repositorio {
                 throw new Exception("No se ha podido generar la reparación.");
             } else{
                 cargarPedidos();
+                cargarClientes();
+                Sesion.miCliente().setCliente(clientePorUsuario(Sesion.miCliente().getCliente().getNombreUsuario()));
             }
         }
         return numeroPedido;
