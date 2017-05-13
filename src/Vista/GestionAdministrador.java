@@ -7,11 +7,7 @@ package Vista;
 
 import Controlador.ControladorGestionAdministrador;
 import com.toedter.calendar.JDateChooser;
-import java.awt.Color;
 import java.sql.SQLException;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,7 +19,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Antonio
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class GestionAdministrador extends javax.swing.JDialog {
 

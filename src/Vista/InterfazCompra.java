@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
 
 /**
  *
- * @author Antonio
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class InterfazCompra extends javax.swing.JDialog {
 

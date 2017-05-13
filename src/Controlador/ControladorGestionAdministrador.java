@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorGestionAdministrador {
 

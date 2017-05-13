@@ -3,7 +3,6 @@ package Controlador;
 import Modelo.Compra;
 import Modelo.Producto;
 import Modelo.Repositorio;
-import Modelo.Sesion;
 import Vista.VisorPedido;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -15,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorVisorPedido {
     

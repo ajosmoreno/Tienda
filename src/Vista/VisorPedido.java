@@ -1,15 +1,12 @@
 package Vista;
 
 import Controlador.ControladorVisorPedido;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class VisorPedido extends javax.swing.JDialog {
 

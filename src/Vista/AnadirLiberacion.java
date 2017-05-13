@@ -1,9 +1,6 @@
 package Vista;
 
 import Controlador.ControladorLiberacion;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -19,7 +16,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Antonio
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class AnadirLiberacion extends javax.swing.JDialog {
 

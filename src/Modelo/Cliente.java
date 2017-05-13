@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public final class Cliente{
     
@@ -160,7 +160,7 @@ public final class Cliente{
         return hashText;
     }
     
-    private boolean comprobarDNI(String dni) {
+    public static boolean comprobarDNI(String dni) {
         dni = dni.replace("-", "").replace(" ", "");
         boolean valido = false;
         int numeroDNI = -1;
@@ -172,7 +172,7 @@ public final class Cliente{
         return valido;
     }
 
-    private String calcularLetraDNI(int numeroDNI) {
+    private static String calcularLetraDNI(int numeroDNI) {
         int resto = numeroDNI % 23;
         String letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE", letra = null;
         try{

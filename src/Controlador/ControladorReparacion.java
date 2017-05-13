@@ -6,11 +6,10 @@ import Modelo.Sesion;
 import Vista.AnadirReparacion;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorReparacion {
     

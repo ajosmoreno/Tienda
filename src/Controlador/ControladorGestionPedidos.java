@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Antonio
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorGestionPedidos {
 

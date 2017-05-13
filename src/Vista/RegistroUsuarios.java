@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Antonio
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class RegistroUsuarios extends javax.swing.JDialog {
 

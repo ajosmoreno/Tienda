@@ -1,17 +1,14 @@
  package Controlador;
 
-import Modelo.BaseDeDatos;
-import Modelo.Cliente;
 import Modelo.Repositorio;
 import Vista.RegistroUsuarios;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorRegistro {
     

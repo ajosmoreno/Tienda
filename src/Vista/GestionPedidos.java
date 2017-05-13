@@ -1,8 +1,6 @@
 package Vista;
 
 import Controlador.ControladorGestionPedidos;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -17,7 +15,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Antonio
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class GestionPedidos extends javax.swing.JDialog {
 

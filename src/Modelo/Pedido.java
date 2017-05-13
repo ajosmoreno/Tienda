@@ -1,10 +1,8 @@
 package Modelo;
 
-import java.util.Date;
-
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class Pedido {
     

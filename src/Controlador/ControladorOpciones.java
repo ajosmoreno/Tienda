@@ -1,7 +1,6 @@
 package Controlador;
 
 import Modelo.Sesion;
-import Vista.GestionPedidos;
 import Vista.InterfazCompra;
 import Vista.AnadirLiberacion;
 import Vista.Opciones;
@@ -11,7 +10,7 @@ import java.awt.Frame;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorOpciones {
     

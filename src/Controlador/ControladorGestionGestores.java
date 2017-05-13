@@ -8,7 +8,7 @@ import javax.swing.DefaultComboBoxModel;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorGestionGestores {
     

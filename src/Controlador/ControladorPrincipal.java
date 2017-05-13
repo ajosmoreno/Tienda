@@ -8,11 +8,10 @@ import Vista.GestionAdministrador;
 import Vista.Opciones;
 import Vista.PanelPrincipal;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorPrincipal {
     

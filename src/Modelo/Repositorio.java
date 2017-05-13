@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author José Manuel Moreno Córdoba
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class Repositorio {
 
@@ -226,11 +226,13 @@ public class Repositorio {
 
     public boolean registrarUsuario(String usuario, String contrasenya, String nombre, String apellidos, String dni, String fechaNacimiento, String direccion, String telefono, int permisos) throws SQLException, Exception {
         boolean registrado = false;
-        ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario + "', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', " + permisos + ");");
-        if (res != null) {
-            cargarClientes();
-            registrado = true;
-        }
+        if(Cliente.comprobarDNI(dni)){
+            ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario + "', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', " + permisos + ");");
+            if (res != null) {
+                cargarClientes();
+                registrado = true;
+            }
+        } else throw new IllegalArgumentException("El DNI introducido no es correcto.");
         return registrado;
     }
 

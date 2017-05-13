@@ -8,8 +8,6 @@ package Vista;
 import Controlador.ControladorGestionProductos;
 import java.awt.Frame;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -19,7 +17,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Antonio
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class GestionProductos extends javax.swing.JDialog {
 

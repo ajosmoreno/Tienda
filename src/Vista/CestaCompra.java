@@ -14,7 +14,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author Antonio
+ * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class CestaCompra extends javax.swing.JDialog {
 
