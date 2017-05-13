@@ -22,6 +22,36 @@ public class Repositorio {
         listaPedidos = new ArrayList<Pedido>();
         listaGestores = new ArrayList<Gestor>();
     }
+    
+    public static Repositorio repositorio() throws SQLException, ClassNotFoundException, Exception {
+        if (miRepositorio == null) {
+            miRepositorio = new Repositorio();
+        }
+        return miRepositorio;
+    }
+
+    public ArrayList<Cliente> devolverClientes() {
+        return listaClientes;
+    }
+
+    public ArrayList<Producto> devolverProductos() {
+        return listaProductos;
+    }
+
+    public ArrayList<Pedido> devolverPedidos() {
+        return listaPedidos;
+    }
+
+    public ArrayList<Gestor> devolverGestores() {
+        return listaGestores;
+    }
+    
+    public void inicializarDatos() throws ClassNotFoundException, SQLException, Exception {
+        cargarProductos();
+        cargarPedidos();
+        cargarClientes();
+        cargarGestores();
+    }
 
     public void cargarProductos() throws ClassNotFoundException, SQLException, Exception {
         listaProductos = new ArrayList<Producto>();
@@ -160,36 +190,6 @@ public class Repositorio {
     public boolean eliminarProductoCesta(Cliente c, Producto p) throws SQLException, Exception {
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM cesta WHERE idCliente = " + c.getId() + " AND idProducto = " + p.getId());
         return rs != null;
-    }
-
-    public void inicializarDatos() throws ClassNotFoundException, SQLException, Exception {
-        cargarProductos();
-        cargarPedidos();
-        cargarClientes();
-        cargarGestores();
-    }
-
-    public static Repositorio repositorio() throws SQLException, ClassNotFoundException, Exception {
-        if (miRepositorio == null) {
-            miRepositorio = new Repositorio();
-        }
-        return miRepositorio;
-    }
-
-    public ArrayList<Cliente> devolverClientes() {
-        return listaClientes;
-    }
-
-    public ArrayList<Producto> devolverProductos() {
-        return listaProductos;
-    }
-
-    public ArrayList<Pedido> devolverPedidos() {
-        return listaPedidos;
-    }
-
-    public ArrayList<Gestor> devolverGestores() {
-        return listaGestores;
     }
 
     public boolean añadirGestor(String nombre, String direccion, String telefono, String email, String tipo) throws SQLException, Exception {

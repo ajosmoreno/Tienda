@@ -79,16 +79,4 @@ public class Pedido {
     public void setEstadoPedido(String estadoPedido) {
         this.estadoPedido = estadoPedido;
     }
-    
-    public void realizarPago(){
-        
-    }
-    
-    public void devolverPedido(){
-        
-    }
-    
-    public void cancelarPedido(){
-        
-    }
 }
