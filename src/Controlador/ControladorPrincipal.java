@@ -26,8 +26,8 @@ public class ControladorPrincipal {
     }
     
     public void iniciarSesion() throws SQLException, ClassNotFoundException, Exception {
-        String usuario = miVentana.getjTextFieldusuario().getText();
-        String contrasenya = new String(miVentana.getjPasswordFieldusuario().getPassword());
+        String usuario = miVentana.getjTextFieldUsuario().getText();
+        String contrasenya = new String(miVentana.getjPasswordFieldContrasenya().getPassword());
         Cliente c = Repositorio.repositorio().clientePorUsuario(usuario);
         if (c != null) {
             if (c.getContrasenya().equals(Cliente.encriptarContrasenya(contrasenya))) {
@@ -48,8 +48,8 @@ public class ControladorPrincipal {
                         gAdmin.setVisible(true);
                         break;
                 }
-                miVentana.getjTextFieldusuario().setText("");
-                miVentana.getjPasswordFieldusuario().setText("");
+                miVentana.getjTextFieldUsuario().setText("");
+                miVentana.getjPasswordFieldContrasenya().setText("");
                 Sesion.miCliente().setCliente(null);
             } else {
                 miVentana.mostrarError("La contraseña introducida no es correcta.");

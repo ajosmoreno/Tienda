@@ -21,7 +21,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
 
     private ControladorRegistro miControlador;
     /**
-     * Creates new form RegistroUsuarios
+     * Muestra los iconos y lo que se tiene que ver al principio
      */
     public RegistroUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -58,7 +58,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelDireccion = new javax.swing.JLabel();
         jLabelTelefono = new javax.swing.JLabel();
         jTextFieldNombreUsuario = new javax.swing.JTextField();
-        jPasswordFieldUsuario = new javax.swing.JPasswordField();
+        jPasswordFieldContrasenya = new javax.swing.JPasswordField();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldTelefono = new javax.swing.JTextField();
         jTextFieldApellidos = new javax.swing.JTextField();
@@ -115,7 +115,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         jLabelTelefono.setText("Telefono");
         getContentPane().add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 60, 30));
         getContentPane().add(jTextFieldNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 170, -1));
-        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 170, -1));
+        getContentPane().add(jPasswordFieldContrasenya, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 170, -1));
         getContentPane().add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, -1));
         getContentPane().add(jTextFieldTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 170, -1));
         getContentPane().add(jTextFieldApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 170, -1));
@@ -193,7 +193,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
 
     private void jButtonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarTodoActionPerformed
         jTextFieldNombreUsuario.setText("");
-        jPasswordFieldUsuario.setText("");
+        jPasswordFieldContrasenya.setText("");
         jTextFieldNombre.setText("");
         jTextFieldApellidos.setText("");
         jTextFieldTelefono.setText("");
@@ -217,7 +217,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         try {
-            if(jTextFieldNombreUsuario.getText().equals("") || jTextFieldNombre.getText().equals("") || jTextFieldApellidos.getText().equals("") || new String(jPasswordFieldUsuario.getPassword()).equals("") || jTextFieldDireccion.getText().equals("") || jTextFieldDni.getText().equals("") || jDateChooserNacimiento.getDate() == null){
+            if(jTextFieldNombreUsuario.getText().equals("") || jTextFieldNombre.getText().equals("") || jTextFieldApellidos.getText().equals("") || new String(jPasswordFieldContrasenya.getPassword()).equals("") || jTextFieldDireccion.getText().equals("") || jTextFieldDni.getText().equals("") || jDateChooserNacimiento.getDate() == null){
                 mostrarError("Rellena todos los campos.");
             } else{
                 miControlador.registrar();
@@ -235,45 +235,86 @@ public class RegistroUsuarios extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
+    /**
+     * Devuelve el DateChooser
+     * @return DateChooser
+     */
     public JDateChooser getjDateChooserNacimiento() {
         return jDateChooserNacimiento;
     }
 
-    public JPasswordField getjPasswordFieldUsuario() {
-        return jPasswordFieldUsuario;
+    /**
+     * Devuelve el campo de texto de la contraseña
+     * @return Campo de texto de la contraseña
+     */
+    public JPasswordField getjPasswordFieldContrasenya() {
+        return jPasswordFieldContrasenya;
     }
 
+    /**
+     * Devuelve el campo de texto de los apellidos
+     * @return Campo de texto de los apellidos
+     */
     public JTextField getjTextFieldApellidos() {
         return jTextFieldApellidos;
     }
 
+    /**
+     * Devuelve el campo de texto del teléfono
+     * @return Campo de texto del teléfono
+     */
     public JTextField getjTextFieldTelefono() {
         return jTextFieldTelefono;
     }
 
+    /**
+     * Devuelve el campo de texto del DNI
+     * @return Campo de texto del DNI
+     */
     public JTextField getjTextFieldDni() {
         return jTextFieldDni;
     }
 
+    /**
+     * Devuelve el campo de texto del nombre
+     * @return Campo de texto del nombre
+     */
     public JTextField getjTextFieldNombre() {
         return jTextFieldNombre;
     }
 
+    /**
+     * Devuelve el campo de texto del nombre de usuario
+     * @return Campo de texto del nombre de usuario
+     */
     public JTextField getjTextFieldNombreUsuario() {
         return jTextFieldNombreUsuario;
     }
 
+    /**
+     * Devuelve el campo de texto de la dirección
+     * @return Campo de texto de la dirección
+     */
     public JTextField getjTextFieldDireccion() {
         return jTextFieldDireccion;
     }
     
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
     
+    /**
+     * Muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
     public void mostrarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.DEFAULT_OPTION);
     }
+    
     /**
      * @param args the command line arguments
      */
@@ -332,7 +373,7 @@ public class RegistroUsuarios extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelRegistro;
     private javax.swing.JLabel jLabelTelefono;
     private javax.swing.JLabel jLabelUsuario;
-    private javax.swing.JPasswordField jPasswordFieldUsuario;
+    private javax.swing.JPasswordField jPasswordFieldContrasenya;
     private javax.swing.JTextField jTextFieldApellidos;
     private javax.swing.JTextField jTextFieldDireccion;
     private javax.swing.JTextField jTextFieldDni;
@@ -340,5 +381,4 @@ public class RegistroUsuarios extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldNombreUsuario;
     private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
-
 }

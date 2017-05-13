@@ -22,7 +22,7 @@ public class AnadirLiberacion extends javax.swing.JDialog {
 
     private ControladorLiberacion miControlador;
     /**
-     * Creates new form Liberacion
+     * Constructor que cambia los iconos y muestra lo que se debe de ver al iniciarlo
      */
     public AnadirLiberacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -235,30 +235,58 @@ public class AnadirLiberacion extends javax.swing.JDialog {
         jLabelPrecioTotal.setVisible(true);
     }//GEN-LAST:event_jComboBoxOperadoresActionPerformed
 
+    /**
+     * Método que muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Método que muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }
     
+    /**
+     * Devuelve el combobox de operadores
+     * @return Combobox de operadores
+     */
     public JComboBox<String> getjComboBoxOperadores() {
         return jComboBoxOperadores;
     }
 
+    /**
+     * Devuelve el campo de texto del imei
+     * @return Campo de texto del imei
+     */
     public JTextField getjTextFieldImei() {
         return jTextFieldImei;
     }
 
+    /**
+     * Devuelve el campo de texto de la marca
+     * @return Campo de texto de la marca
+     */
     public JTextField getjTextFieldMarca() {
         return jTextFieldMarca;
     }
 
+    /**
+     * Devuelve el campo de texto del modelo
+     * @return Campo de texto del modelo
+     */
     public JTextField getjTextFieldModelo() {
         return jTextFieldModelo;
     }
 
+    /**
+     * Devuelve el label del precio total
+     * @return Label del precio total
+     */
     public JLabel getjLabelPrecioTotal() {
         return jLabelPrecioTotal;
     }

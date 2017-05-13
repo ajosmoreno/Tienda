@@ -22,7 +22,7 @@ public class AnadirReparacion extends javax.swing.JDialog {
 
     private ControladorReparacion miControlador;
     /**
-     * Creates new form Reparacion
+     * Muestra los iconos y lo que se tiene que ver al principio
      */
     public AnadirReparacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -184,26 +184,50 @@ public class AnadirReparacion extends javax.swing.JDialog {
           this.dispose();
     }//GEN-LAST:event_jButtonVolverAtrasActionPerformed
 
+    /**
+     * Devuelve el combobox de los proveedores
+     * @return Combobox de los proveedores
+     */
     public JComboBox<String> getjComboBoxProveedores() {
         return jComboBoxProveedores;
     }
 
+    /**
+     * Devuelve el campo de texto de las observaciones
+     * @return Campo de texto de las observaciones
+     */
     public JTextArea getjTextAreaObservaciones() {
         return jTextAreaObservaciones;
     }
 
+    /**
+     * Devuelve el campo de texto de la marca
+     * @return Campo de texto de la marca
+     */
     public JTextField getjTextFieldMarca() {
         return jTextFieldMarca;
     }
 
+    /**
+     * Devuelve el campo de texto del modelo
+     * @return Campo de texto del modelo
+     */
     public JTextField getjTextFieldModelo() {
         return jTextFieldModelo;
     }
 
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }

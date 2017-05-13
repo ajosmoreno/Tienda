@@ -22,7 +22,7 @@ public class ControladorRegistro {
     public void registrar() throws ClassNotFoundException, SQLException, Exception{
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String usuario = miRegistro.getjTextFieldNombreUsuario().getText();
-        String contrasenya = new String(miRegistro.getjPasswordFieldUsuario().getPassword());
+        String contrasenya = new String(miRegistro.getjPasswordFieldContrasenya().getPassword());
         String nombre = miRegistro.getjTextFieldNombre().getText();
         String apellidos = miRegistro.getjTextFieldApellidos().getText();
         String dni = miRegistro.getjTextFieldDni().getText();

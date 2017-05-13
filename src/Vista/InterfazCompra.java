@@ -22,7 +22,7 @@ public class InterfazCompra extends javax.swing.JDialog {
 
     private ControladorInterfazCompra miControlador;
     /**
-     * Creates new form InterfazCompra
+     * Muestra los iconos y lo que se debe de ver al principio
      */
     public InterfazCompra(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -46,22 +46,42 @@ public class InterfazCompra extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * Devuelve el campo de texto de las características
+     * @return Campo de texto de las características
+     */
     public JTextArea getjTextAreaCaracteristicas() {
         return jTextAreaCaracteristicas;
     }
 
+    /**
+     * Devuelve el label del precio total
+     * @return Label precio total
+     */
     public JLabel getjLabelPrecioTotal() {
         return jLabelPrecioTotal;
     }
 
+    /**
+     * Devuelve el label de la imagen
+     * @return Label imagen
+     */
     public JLabel getjLabelImagen() {
         return jLabelImagen;
     }
 
+    /**
+     * Muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
     public void mostrarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }
     
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -267,26 +287,40 @@ public class InterfazCompra extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonAñadirCestaActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Devuelve el combobox del modelo
+     * @return Combobox modelo
      */
     public JComboBox<String> getjComboBoxModelo() {
         return jComboBoxModelo;
     }
 
+    /**
+     * Devuelve el combobox del color
+     * @return Combobox color
+     */
     public JComboBox<String> getjComboBoxColor() {
         return jComboBoxColor;
     }
 
+    /**
+     * Devuelve el botón de añadir a la cesta
+     * @return Botón añadir a la cesta
+     */
     public JButton getjButtonAñadirCesta() {
         return jButtonAñadirCesta;
     }
 
+    /**
+     * Devuelve el botón de ir a la cesta
+     * @return Botón de ir a la cesta
+     */
     public JButton getjButtonCestaCompra() {
         return jButtonCestaCompra;
     }
     
-    
-    
+    /**
+     * @param args the command line arguments
+    */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -310,11 +344,6 @@ public class InterfazCompra extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(InterfazCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /**
-         *
-         * @return
-         */
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -355,6 +384,4 @@ public class InterfazCompra extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPaneCaracteristicas;
     private javax.swing.JTextArea jTextAreaCaracteristicas;
     // End of variables declaration//GEN-END:variables
-
-    
-}
+ }

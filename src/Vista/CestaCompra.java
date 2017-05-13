@@ -20,7 +20,7 @@ public class CestaCompra extends javax.swing.JDialog {
 
     private ControladorCestaCompra miControlador;
     /**
-     * Creates new form CestaCompra
+     * Muestra los iconos y lo que se tiene que ver
      */
     public CestaCompra(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -181,30 +181,58 @@ public class CestaCompra extends javax.swing.JDialog {
         // TODO add your handling code here:
     }  
    
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }
     
+    /**
+     * Devuelve la tabla de la cesta
+     * @return Tabla de la cesta
+     */
     public JTable getjTableCesta() {
         return jTableCesta;
     }
 
+    /**
+     * Devuelve el botón de borrar producto
+     * @return Botón de borrar producto
+     */
     public JButton getjButtonBorrarProducto() {
         return jButtonBorrarProducto;
     }
 
+    /**
+     * Devuelve el botón de pagar con tarjeta
+     * @return Botón pagar con tarjeta
+     */
     public JButton getjButtonPagarTarjeta() {
         return jButtonPagarTarjeta;
     }
 
+    /**
+     * Devuelve el botón de pagar en efectivo
+     * @return Botón pagar en efectivo
+     */
     public JButton getjButtonPagoEfectivo() {
         return jButtonPagoEfectivo;
     }
 
+    /**
+     * Devueve el label del precio total
+     * @return Label del precio total
+     */
     public JLabel getjLabelPrecioTotal() {
         return jLabelPrecioTotal;
     }

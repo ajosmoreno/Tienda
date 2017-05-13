@@ -19,7 +19,7 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
 
     private ControladorGestionPedidosClientes miControlador;
     /**
-     * Creates new form GestionPedidosClientes
+     * Muestra los iconos y lo que se debe de ver al principio
      */
     public GestionPedidosClientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -33,10 +33,18 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         jLabelFondo.setIcon(new ImageIcon("Imagenes/pedidoscliente.jpg"));
     }
 
+    /**
+     * Devuelve el combobox del estado de pedido
+     * @return Combobox del estado de pedido
+     */
     public JComboBox<String> getjComboBoxEstadoPedido() {
         return jComboBoxEstadoPedido;
     }
 
+    /**
+     * Devuelve la tabla de pedidos
+     * @return Tabla de pedidos
+     */
     public JTable getjTablePedidos() {
         return jTablePedidos;
     }
@@ -179,10 +187,18 @@ public class GestionPedidosClientes extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }

@@ -21,7 +21,7 @@ public class GestionGestores extends javax.swing.JDialog {
     private boolean añadiendo;
     private boolean borrando;
     /**
-     * Creates new form GestionProveedores
+     * Cambia los iconos y lo que se tiene que ver al principio
      */
     public GestionGestores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -291,6 +291,9 @@ public class GestionGestores extends javax.swing.JDialog {
         limpiarCampos();
     }//GEN-LAST:event_jButtonBorrarCamposActionPerformed
 
+    /**
+     * Limpia los campos
+     */
     public void limpiarCampos(){
         try {
             jTextFieldNombreGestor.setText("");
@@ -341,34 +344,66 @@ public class GestionGestores extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }
     
+    /**
+     * Devuelve el combobox de los gestores
+     * @return Combobox gestores
+     */
     public JComboBox<String> getjComboBoxGestores() {
         return jComboBoxGestores;
     }
 
+    /**
+     * Devuelve el combobox del tipo de gestor
+     * @return Combobox tipo gestor
+     */
     public JComboBox<String> getjComboBoxTipoGestor() {
         return jComboBoxTipoGestor;
     }
 
+    /**
+     * Devuelve el campo de texto de la dirección del gestor
+     * @return Campo de texto de la dirección del gestor
+     */
     public JTextField getjTextFieldDireccionGestor() {
         return jTextFieldDireccionGestor;
     }
 
+    /**
+     * Devuelve el campo de texto del email del gestor
+     * @return Campo de texto del email del gestor
+     */
     public JTextField getjTextFieldEmailGestor() {
         return jTextFieldEmailGestor;
     }
 
+    /**
+     * Devuelve el campo de texto del nombre del gestor
+     * @return Campo de texto del nombre del gestor
+     */
     public JTextField getjTextFieldNombreGestor() {
         return jTextFieldNombreGestor;
     }
 
+    /**
+     * Devuelve el campo de texto del teléfono del gestor
+     * @return Campo de texto del teléfono del gestor
+     */
     public JTextField getjTextFieldTelefonoGestor() {
         return jTextFieldTelefonoGestor;
     }

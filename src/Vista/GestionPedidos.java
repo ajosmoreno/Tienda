@@ -22,7 +22,7 @@ public class GestionPedidos extends javax.swing.JDialog {
     private ControladorGestionPedidos miControlador;
     private boolean pendientes;
     /**
-     * Creates new form GestionPedidos
+     * Muestra los iconos y lo que se tiene que ver al principio
      */
     public GestionPedidos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -291,23 +291,37 @@ public class GestionPedidos extends javax.swing.JDialog {
         jButtonVolver.setVisible(false);
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
+    /**
+     * Muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
     public void mostrarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }
     
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Devuelve la tabla de pedidos
+     * @return Tabla de pedidos
+     */
     public JTable getjTablePedidos() {
         return jTablePedidos;
     }
 
+    /**
+     * Devuelve el campo de texto del nombre del cliente
+     * @return Campo de texto del nombre del cliente
+     */
     public JTextField getjTextFieldNombreCliente() {
         return jTextFieldNombreCliente;
     }
-    
-    
     
     /**
      * @param args the command line arguments

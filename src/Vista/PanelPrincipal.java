@@ -21,7 +21,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
     private ControladorPrincipal miControlador;
     /**
-     * Creates new form PanelPrincipal
+     * Muestra los iconos e inicializa la base de datos y los repositorios
      */
     public PanelPrincipal() {
         initComponents();
@@ -51,7 +51,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabelBienvenido = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
-        jPasswordFieldUsuario = new javax.swing.JPasswordField();
+        jPasswordFieldContrasenya = new javax.swing.JPasswordField();
         jLabelPassword = new javax.swing.JLabel();
         jLabelRegistro = new javax.swing.JLabel();
         jButtonRegistro = new javax.swing.JButton();
@@ -86,12 +86,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 70, 40));
         getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 210, -1));
 
-        jPasswordFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jPasswordFieldContrasenya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldUsuarioActionPerformed(evt);
+                jPasswordFieldContrasenyaActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 210, -1));
+        getContentPane().add(jPasswordFieldContrasenya, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 210, -1));
 
         jLabelPassword.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -175,7 +175,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRegistroActionPerformed
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
-        if(jTextFieldUsuario.getText().equals("") || new String(jPasswordFieldUsuario.getPassword()).equals(""))
+        if(jTextFieldUsuario.getText().equals("") || new String(jPasswordFieldContrasenya.getPassword()).equals(""))
             mostrarError("Rellena todos los campos.");
         else{
             try {
@@ -206,10 +206,29 @@ public class PanelPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formKeyPressed
 
-    private void jPasswordFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldUsuarioActionPerformed
+    private void jPasswordFieldContrasenyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldContrasenyaActionPerformed
         jButtonEntrarActionPerformed(null);
-    }//GEN-LAST:event_jPasswordFieldUsuarioActionPerformed
+    }//GEN-LAST:event_jPasswordFieldContrasenyaActionPerformed
+    
+    /**
+     * Devuelve el campo de texto de la contraseña
+     * @return Campo de texto de la contraseña
+     */
+    public JPasswordField getjPasswordFieldContrasenya() {
+        return jPasswordFieldContrasenya;
+    }
 
+    /**
+     * Devuelve el campo de texto del usuario
+     * @return Campo de texto del usuario
+     */
+    public JTextField getjTextFieldUsuario() {
+        return jTextFieldUsuario;
+    }
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje){
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -258,15 +277,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelRegistro;
     private javax.swing.JLabel jLabelUsuario;
-    private javax.swing.JPasswordField jPasswordFieldUsuario;
+    private javax.swing.JPasswordField jPasswordFieldContrasenya;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
-
-    public JPasswordField getjPasswordFieldusuario() {
-        return jPasswordFieldUsuario;
-    }
-
-    public JTextField getjTextFieldusuario() {
-        return jTextFieldUsuario;
-    }
 }

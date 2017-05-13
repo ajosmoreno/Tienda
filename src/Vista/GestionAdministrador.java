@@ -27,7 +27,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private boolean añadiendoUsuario;
     private boolean reparando;
     /**
-     * Creates new form GestionAdministrador
+     * Muestra los iconos y lo que se debe ver al princion
      */
     public GestionAdministrador(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -844,16 +844,33 @@ public class GestionAdministrador extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButtonLiberacionActionPerformed
 
-    public void limpiarReparacion() throws Exception{
-        miControlador.cargarReparaciones();
-        limpiarCamposPedidos();
+    /**
+     * Limpia los campos de la reparación
+     */
+    public void limpiarReparacion(){
+        try {
+            miControlador.cargarReparaciones();
+            limpiarCamposPedidos();
+        } catch (Exception ex) {
+            mostrarError("No se han podido cargar las reparaciones");
+        }
     }
     
-    public void limpiarLiberacion() throws Exception{
-        miControlador.cargarLiberaciones();
-        limpiarCamposPedidos();
+    /**
+     * Limpia los campos de la liberación
+     */    
+    public void limpiarLiberacion(){
+        try {
+            miControlador.cargarLiberaciones();
+            limpiarCamposPedidos();
+        } catch (Exception ex) {
+            mostrarError("No se han podido cargar las liberaciones");
+        }
     }
     
+    /**
+     * Limpia los campos genéricos
+     */
     public void limpiarCamposPedidos(){
         jTextAreaDiagnostico.setText("");
         jTextFieldProveedor.setText("");
@@ -866,83 +883,197 @@ public class GestionAdministrador extends javax.swing.JDialog {
         jTextFieldPrecio.setText("");
     }
     
+    /**
+     * Devuelve el combobox de los pedidos pendientes
+     * @return Combobox de los pedidos pendientes
+     */
     public JComboBox<String> getjComboBoxPedidosPendientes() {
         return jComboBoxPedidosPendientes;
     }
 
+    /**
+     * Devuelve el campo de texto del buscador por nombre
+     * @return Campo de texto del buscador por nombre
+     */
     public JTextField getjTextFieldBuscadorNombre() {
         return jTextFieldBuscadorNombre;
     }
 
+    /**
+     * Devuelve el campo de texto del nombre
+     * @return Campo de texto del nombre
+     */
     public JTextField getjTextFieldNombre() {
         return jTextFieldNombre;
     }
 
+    /**
+     * Devuelve el campo de texto de los apellidos
+     * @return Campo de texto de los apellidos
+     */
     public JTextField getjTextFieldApellidos() {
         return jTextFieldApellidos;
     }
 
+    /**
+     * Devuelve el campo de texto del DNI
+     * @return Campo de texto del DNI
+     */
     public JTextField getjTextFieldDni() {
         return jTextFieldDni;
     }
 
+    /**
+     * Devuelve el campo de texto de la dirección
+     * @return Campo de texto de la dirección
+     */
     public JTextField getjTextFieldDireccion() {
         return jTextFieldDireccion;
     }
 
+    /**
+     * Devuelve el DateChooser
+     * @return DateChooser
+     */
     public JDateChooser getjDateChooserNacimiento() {
         return jDateChooserNacimiento;
     }
 
+    /**
+     * Devuelve el campo de texto del teléfono
+     * @return Campo de texto del teléfono
+     */
     public JTextField getjTextFieldTelefono() {
         return jTextFieldTelefono;
     }
 
+    /**
+     * Devuelve el campo de texto del usuario
+     * @return Campo de texto del usuario
+     */
     public JTextField getjTextFieldUsuario() {
         return jTextFieldUsuario;
     }
 
+    /**
+     * Devuelve elcampo de texto de la contraseña
+     * @return Campo de texto de la contraseña
+     */
     public JTextField getjTextFieldPassword() {
         return jTextFieldPassword;
     }
 
+    /**
+     * Devuelve el campo de texto del diagnóstico
+     * @return 
+     */
     public JTextArea getjTextAreaDiagnostico() {
         return jTextAreaDiagnostico;
     }
 
+    /**
+     * Devuelve el campo de texto del IMEI
+     * @return Campo de texto del IMEI
+     */
     public JTextField getjTextFieldImei() {
         return jTextFieldImei;
     }
 
+    /**
+     * Devuelve el campo de texto de las observaciones
+     * @return 
+     */
     public JTextField getjTextFieldObservaciones() {
         return jTextFieldProveedor;
     }
 
+    /**
+     * Devuelve el campo de texto del código de liberación
+     * @return Campo de texto del código de liberación
+     */
     public JTextField getjTextFieldCodigoLiberacion() {
         return jTextFieldCodigoLiberacion;
     }
 
+    /**
+     * Devuelve el campo de texto del proveedor
+     * @return Campo de texto del proveedor
+     */
     public JTextField getjTextFieldProveedor() {
         return jTextFieldProveedor;
     }
 
+    /**
+     * Devuelve el botón de finalizar pedido
+     * @return Botón finalizar pedido
+     */
     public JButton getjButtonFinalizarPedido() {
         return jButtonFinalizarPedido;
     }
 
+    /**
+     * Devuelve el combobox de los operadores
+     * @return Combobox de los operadores
+     */
     public JComboBox<String> getjComboBoxOperadores() {
         return jComboBoxOperadores;
     }
 
+    /**
+     * Devuelve el botón de solicitar código
+     * @return Botón solicitar código
+     */
     public JButton getjButtonSolicitarCodigo() {
         return jButtonSolicitarCodigo;
     }
 
+    /**
+     * Devuelve el campo de texto del precio
+     * @return Campo de texto del precio
+     */
     public JTextField getjTextFieldPrecio() {
         return jTextFieldPrecio;
     }
     
-    
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
+    public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    /**
+     * Muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
+    }
+
+    /**
+     * Devuelve el RadioButton de adminstrador
+     * @return RadioButton de administrador
+     */
+    public JRadioButton getjRadioButtonAdministrador() {
+        return jRadioButtonAdministrador;
+    }
+
+    /**
+     * Devuelve el RadioButton de cliente
+     * @return RadioButton cliente
+     */
+    public JRadioButton getjRadioButtonCliente() {
+        return jRadioButtonCliente;
+    }
+
+    /**
+     * Devuelve el RadioButton de invitado
+     * @return RadioButton invitado
+     */
+    public JRadioButton getjRadioButtonInvitado() {
+        return jRadioButtonInvitado;
+    }    
 
     /**
      * @param args the command line arguments
@@ -1048,25 +1179,4 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldTelefono;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
-
-    public void mostrarError(String mensaje) {
-        JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
-    }
-
-    public void mostrarMensaje(String mensaje) {
-        JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
-    }
-
-
-    public JRadioButton getjRadioButtonAdministrador() {
-        return jRadioButtonAdministrador;
-    }
-
-    public JRadioButton getjRadioButtonCliente() {
-        return jRadioButtonCliente;
-    }
-
-    public JRadioButton getjRadioButtonInvitado() {
-        return jRadioButtonInvitado;
-    }
 }

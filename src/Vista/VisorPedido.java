@@ -12,19 +12,20 @@ public class VisorPedido extends javax.swing.JDialog {
 
     private ControladorVisorPedido miControlador;
     /**
-     * Creates new form VisorPedido
+     * Constructor por defecto
      */
     public VisorPedido(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
-        
+        initComponents();  
     }
     
+    /**
+     * Constructor que muestra los productos del pedido
+     * @param numeroPedido Número de pedido
+     */
     public VisorPedido(java.awt.Frame parent, boolean modal, int numeroPedido) {
         super(parent, modal);
         initComponents();
-        
-        
         miControlador = new ControladorVisorPedido(this);
         try {
             miControlador.mostrarPedido(numeroPedido);
@@ -33,10 +34,18 @@ public class VisorPedido extends javax.swing.JDialog {
         }
     } 
 
+    /**
+     * Devuelve la tabla de productos
+     * @return Tabla de productos
+     */
     public JTable getjTableProductos() {
         return jTableProductos;
     }
 
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }

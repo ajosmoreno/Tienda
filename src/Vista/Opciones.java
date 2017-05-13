@@ -16,7 +16,7 @@ public class Opciones extends javax.swing.JDialog {
 
     private ControladorOpciones miControlador;
     /**
-     * Creates new form Opciones
+     * Muestra los iconos y lo que se tiene que ver al principio
      */
     public Opciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

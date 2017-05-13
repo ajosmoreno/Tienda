@@ -25,7 +25,7 @@ public class GestionProductos extends javax.swing.JDialog {
     private boolean añadiendo;
     private boolean borrando;
     /**
-     * Creates new form GestionProductos
+     * Muestra los iconos y lo que se tiene que ver al principio
      */
     public GestionProductos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -423,6 +423,9 @@ public class GestionProductos extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jTextFieldFotoMouseClicked
 
+    /**
+     * Limpia los campos
+     */
     public void limpiarCampos(){
         jTextAreaCarateristicas.setText("");
         jTextFieldColor.setText("");
@@ -433,46 +436,89 @@ public class GestionProductos extends javax.swing.JDialog {
         jTextFieldStock.setText("");
     }
     
+    /**
+     * Muestra un mensaje de error al usuario
+     * @param mensaje Mensaje de error
+     */
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Ha ocurrido un error", JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Muestra un mensaje de información al usuario
+     * @param mensaje Mensaje de información
+     */
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.DEFAULT_OPTION);
     }
 
+    /**
+     * Devuelve el campo de texto de la foto
+     * @return Campo de texto de la foto
+     */
     public JTextField getjTextFieldFoto() {
         return jTextFieldFoto;
     }
 
+    /**
+     * Devuelve el campo de texto de las características
+     * @return Campo de texto de las características
+     */
     public JTextArea getjTextAreaCarateristicas() {
         return jTextAreaCarateristicas;
     }
 
+    /**
+     * Devuelve el campo de texto del color
+     * @return Campo de texto del color
+     */
     public JTextField getjTextFieldColor() {
         return jTextFieldColor;
     }
 
+    /**
+     * Devuelve el campo de texto de la marca
+     * @return Campo de texto de la marca
+     */
     public JTextField getjTextFieldMarca() {
         return jTextFieldMarca;
     }
 
+    /**
+     * Devuelve el campo de texto del modelo
+     * @return Campo de texto del modelo
+     */
     public JTextField getjTextFieldModelo() {
         return jTextFieldModelo;
     }
 
+    /**
+     * Devuelve el campo de texto del precio
+     * @return Campo de texto del precio
+     */
     public JTextField getjTextFieldPrecio() {
         return jTextFieldPrecio;
     }
 
+    /**
+     * Devuelve el campo de texto del stock
+     * @return Campo de texto del stock
+     */
     public JTextField getjTextFieldStock() {
         return jTextFieldStock;
     }
 
+    /**
+     * Devuelve el combobox de la lista de productos
+     * @return Combobox lista productos
+     */
     public JComboBox<String> getjComboBoxListaProductos() {
         return jComboBoxListaProductos;
     }
     
+    /**
+     * Modifica los campos a visibles o no
+     */
     public void modificarCampos(){
         jLabelBuscador.setVisible(true);
             jComboBoxListaProductos.setVisible(true);

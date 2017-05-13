@@ -13,13 +13,17 @@ import javax.swing.ImageIcon;
 public class VisorImagen extends javax.swing.JDialog {
 
     /**
-     * Creates new form VisorImagen
+     * Constructor por defecto
      */
     public VisorImagen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
     
+    /**
+     * Constructor que muestra la imagen
+     * @param imagen Ruta de la imagen en la carpeta Imagenes/Productos/
+     */
     public VisorImagen(java.awt.Frame parent, boolean modal, String imagen) {
         super(parent, modal);
         initComponents();
