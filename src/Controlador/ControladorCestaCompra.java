@@ -56,7 +56,7 @@ public class ControladorCestaCompra {
         for(Producto p: cesta){
             total += p.getPrecio();
             ImageIcon imageIcon = new ImageIcon("Imagenes/Productos/" + p.getImagen());
-            Image image = getScaledImage(imageIcon.getImage(), 190, 95);
+            Image image = getScaledImage(imageIcon.getImage(), 115, 115);
             imageIcon = new ImageIcon(image);
             Object[] fila = { true, p.getMarca(), p.getModelo(), p.getColor(), imageIcon, p.getPrecio()};
             dtm.addRow(fila);
@@ -68,7 +68,7 @@ public class ControladorCestaCompra {
         miVentana.getjTableCesta().getColumn("Color").setMaxWidth(150);
         miVentana.getjTableCesta().getColumn("Imagen").setMaxWidth(190);
         miVentana.getjTableCesta().getColumn("Precio").setMaxWidth(100);
-        miVentana.getjTableCesta().setRowHeight(95);
+        miVentana.getjTableCesta().setRowHeight(115);
         miVentana.getjLabelPrecioTotal().setText(total + "€");
         if(dtm.getRowCount() > 0){ 
             miVentana.getjButtonBorrarProducto().setEnabled(true);

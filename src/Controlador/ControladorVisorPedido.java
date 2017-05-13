@@ -48,7 +48,7 @@ public class ControladorVisorPedido {
         for(Producto p: listaProductos){
             total += p.getPrecio();
             ImageIcon imageIcon = new ImageIcon("Imagenes/Productos/" + p.getImagen());
-            Image image = getScaledImage(imageIcon.getImage(), 190, 95);
+            Image image = getScaledImage(imageIcon.getImage(), 115, 115);
             imageIcon = new ImageIcon(image);
             Object[] fila = {p.getMarca(), p.getModelo(), p.getColor(), imageIcon, p.getPrecio()};
             dtm.addRow(fila);
@@ -59,7 +59,7 @@ public class ControladorVisorPedido {
         miVentana.getjTableProductos().getColumn("Color").setMaxWidth(150);
         miVentana.getjTableProductos().getColumn("Imagen").setMaxWidth(190);
         miVentana.getjTableProductos().getColumn("Precio").setMaxWidth(100);
-        miVentana.getjTableProductos().setRowHeight(95);
+        miVentana.getjTableProductos().setRowHeight(115);
     }
     
     private Image getScaledImage(Image srcImg, int w, int h){

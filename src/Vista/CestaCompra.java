@@ -90,7 +90,7 @@ public class CestaCompra extends javax.swing.JDialog {
             jTableCesta.getColumnModel().getColumn(0).setMaxWidth(20);
         }
 
-        getContentPane().add(jScrollPaneCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 777, 310));
+        getContentPane().add(jScrollPaneCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 777, 360));
 
         jButtonPagoEfectivo.setText("Realizar pago en efectivo");
         jButtonPagoEfectivo.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +138,7 @@ public class CestaCompra extends javax.swing.JDialog {
         getContentPane().add(jButtonBorrarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, -1, 50));
 
         jLabelTotal.setText("TOTAL:");
-        getContentPane().add(jLabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, 20));
+        getContentPane().add(jLabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, 20));
         getContentPane().add(jLabelPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 100, 20));
 
         pack();

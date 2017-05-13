@@ -51,6 +51,7 @@ public class ControladorGestionPedidosClientes {
             dtm.addRow(fila);
         }
         miVentana.getjTablePedidos().setModel(dtm);
+        miVentana.getjTablePedidos().getColumn("ID").setMaxWidth(30);
     }
 
     public void cargarPedidosCompletados() {
@@ -74,6 +75,7 @@ public class ControladorGestionPedidosClientes {
             }
         }
         miVentana.getjTablePedidos().setModel(dtm);
+        miVentana.getjTablePedidos().getColumn("ID").setMaxWidth(30);
     }
 
     public void cargarPedidosNoCompletados() {
@@ -108,6 +110,10 @@ public class ControladorGestionPedidosClientes {
             }
         }
         miVentana.getjTablePedidos().setModel(dtm);
+        miVentana.getjTablePedidos().getColumn("").setMaxWidth(25);
+        miVentana.getjTablePedidos().getColumn("ID").setMaxWidth(25);
+        miVentana.getjTablePedidos().getColumn("Precio").setMaxWidth(65);
+        System.out.println(miVentana.getjTablePedidos().getColumn("Precio").getWidth());
     }
     
     public void cargarPedidosCancelados() {
@@ -131,6 +137,7 @@ public class ControladorGestionPedidosClientes {
             }
         }
         miVentana.getjTablePedidos().setModel(dtm);
+        miVentana.getjTablePedidos().getColumn("ID").setMaxWidth(30);
     }
 
     public void cancelarPedidos() throws ClassNotFoundException, Exception {
