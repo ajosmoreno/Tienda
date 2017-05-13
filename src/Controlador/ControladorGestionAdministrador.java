@@ -84,7 +84,7 @@ public class ControladorGestionAdministrador {
         } else if (miVentana.getjRadioButtonAdministrador().isSelected()) {
             permisos = 2;
         }
-        if(Repositorio.repositorio().modificarUsuario(usuario, contrasenya, nombre, apellidos, dni, fechaNacimiento, direccion, telefono, permisos))
+        if(Repositorio.repositorio().modificarCliente(usuario, contrasenya, nombre, apellidos, dni, fechaNacimiento, direccion, telefono, permisos))
             miVentana.mostrarMensaje("¡Usuario modificado correctamente!");
         else
             miVentana.mostrarError("Ha ocurrido un error al modificar el usuario.");
@@ -94,7 +94,7 @@ public class ControladorGestionAdministrador {
         String usuario = miVentana.getjTextFieldUsuario().getText();
         int dialogResult = JOptionPane.showConfirmDialog(miVentana, "¿Estás seguro de que quieres borrar el usuario " + usuario + "?", "¡Atención!", JOptionPane.YES_NO_OPTION);
         if (dialogResult == JOptionPane.YES_OPTION) { 
-            if (Repositorio.repositorio().eliminarUsuario(usuario)) {
+            if (Repositorio.repositorio().eliminarCliente(usuario)) {
                 miVentana.limpiarCampos();
                 miVentana.modificarUsuarioPaneles();
                 miVentana.mostrarMensaje("Usuario eliminado correctamente.");
@@ -127,7 +127,7 @@ public class ControladorGestionAdministrador {
         } else if (miVentana.getjRadioButtonAdministrador().isSelected()) {
             permiso = 2;
         }
-        if (Repositorio.repositorio().registrarUsuario(usuario, contrasenya, nombre, apellidos, dni, fechaNacimiento, direccion, telefono, permiso)) {
+        if (Repositorio.repositorio().registrarCliente(usuario, contrasenya, nombre, apellidos, dni, fechaNacimiento, direccion, telefono, permiso)) {
             miVentana.mostrarMensaje("Usuario registrado correctamente.");
             miVentana.limpiarCampos();
         } else {
@@ -201,18 +201,17 @@ public class ControladorGestionAdministrador {
         ArrayList<Gestor> listaGestores = Repositorio.repositorio().devolverGestores();
         boolean gEncontrado = false;
         int gContador = 0;
-        Gestor g = null;
         while (!gEncontrado && gContador < listaGestores.size()) {
-            Gestor g1 = listaGestores.get(gContador);
-            if (reparacionSeleccionada.getProveedor() == g1.getId()) {
-                g = g1;
+            Gestor g = listaGestores.get(gContador);
+            if (reparacionSeleccionada.getProveedor() == g.getId()) {
                 gEncontrado = true;
+                miVentana.getjButtonFinalizarPedido().setEnabled(true);
+                miVentana.getjTextFieldProveedor().setText(g.getNombre());
+                miVentana.getjTextAreaDiagnostico().setText("---- Mensaje inicial ----\n" + reparacionSeleccionada.getDiagnostico() + "\n\n---- Informe de resultado ----\n");
             }
             gContador++;
         }
-        miVentana.getjButtonFinalizarPedido().setEnabled(true);
-        miVentana.getjTextFieldProveedor().setText(g.getNombre());
-        miVentana.getjTextAreaDiagnostico().setText("---- Mensaje inicial ----\n" + reparacionSeleccionada.getDiagnostico() + "\n\n---- Informe de resultado ----\n");
+        
     }
 
     public void abrirLiberacion() throws ClassNotFoundException, Exception {
@@ -230,24 +229,23 @@ public class ControladorGestionAdministrador {
         ArrayList<Gestor> listaGestores = Repositorio.repositorio().devolverGestores();
         boolean gEncontrado = false;
         int gContador = 0;
-        Gestor g = null;
         while (!gEncontrado && gContador < listaGestores.size()) {
-            Gestor g1 = listaGestores.get(gContador);
-            if (liberacionSeleccionada.getOperador() == g1.getId()) {
-                g = g1;
+            Gestor g = listaGestores.get(gContador);
+            if (liberacionSeleccionada.getOperador() == g.getId()) {
                 gEncontrado = true;
+                miVentana.getjTextFieldImei().setText(liberacionSeleccionada.getImei());
+                DefaultComboBoxModel dcb = new DefaultComboBoxModel();
+                dcb.addElement(g.getNombre());
+                miVentana.getjComboBoxOperadores().setModel(dcb);
+                miVentana.getjButtonSolicitarCodigo().setEnabled(true);
             }
             gContador++;
         }
-        miVentana.getjTextFieldImei().setText(liberacionSeleccionada.getImei());
-        DefaultComboBoxModel dcb = new DefaultComboBoxModel();
-        dcb.addElement(g.getNombre());
-        miVentana.getjComboBoxOperadores().setModel(dcb);
-        miVentana.getjButtonSolicitarCodigo().setEnabled(true);
+        
     }
 
     public boolean mostrarAvisoPedido(Object tipo) {
-        boolean respuesta = false;
+        boolean respuesta;
         if (tipo instanceof Reparacion) {
             int reply = JOptionPane.showConfirmDialog(miVentana, "Se va a finalizar el pedido " + reparacionSeleccionada.getNumeroPedido() + ". ¿Es correcto?", "Confirma los datos", JOptionPane.YES_NO_OPTION);
             respuesta = reply == JOptionPane.YES_OPTION;

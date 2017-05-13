@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase repositorio que gestionará toda la manipulación de los datos
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class Repositorio {
@@ -23,6 +23,13 @@ public class Repositorio {
         listaGestores = new ArrayList<Gestor>();
     }
     
+    /**
+     * Devuelve el repositorio del sistema
+     * @return Objeto repositorio
+     * @throws SQLException Error cuando alguna consulta falla
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando ocurre otro error
+     */
     public static Repositorio repositorio() throws SQLException, ClassNotFoundException, Exception {
         if (miRepositorio == null) {
             miRepositorio = new Repositorio();
@@ -30,22 +37,44 @@ public class Repositorio {
         return miRepositorio;
     }
 
+    /**
+     * Devuelve la lista de clientes del repositorio
+     * @return Lista de clientes del repositorio
+     */
     public ArrayList<Cliente> devolverClientes() {
         return listaClientes;
     }
 
+    /**
+     * Devuelve la lista de productos del repositorio
+     * @return Lista de productos del repositorio
+     */
     public ArrayList<Producto> devolverProductos() {
         return listaProductos;
     }
 
+    /**
+     * Devuelve la lista de pedidos del repositorio
+     * @return Lista de pedidos del repositorio
+     */
     public ArrayList<Pedido> devolverPedidos() {
         return listaPedidos;
     }
 
+    /**
+     * Devuelve la lista de gestores del repositorio
+     * @return Lista de gestores del repositorio
+     */
     public ArrayList<Gestor> devolverGestores() {
         return listaGestores;
     }
     
+    /**
+     * Inicializa todo el repositorio
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void inicializarDatos() throws ClassNotFoundException, SQLException, Exception {
         cargarProductos();
         cargarPedidos();
@@ -53,6 +82,12 @@ public class Repositorio {
         cargarGestores();
     }
 
+    /**
+     * Obtiene los productos de la base de datos y los carga en el repositorio
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void cargarProductos() throws ClassNotFoundException, SQLException, Exception {
         listaProductos = new ArrayList<Producto>();
         ResultSet rsProducto = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM productos;");
@@ -62,6 +97,12 @@ public class Repositorio {
         }
     }
 
+    /**
+     * Obtiene los pedidos de la base de datos y los carga en el repositorio
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void cargarPedidos() throws ClassNotFoundException, SQLException, Exception {
         listaPedidos = new ArrayList<Pedido>();
         //Añadimos los pedidos que son compra al repositorio
@@ -95,6 +136,12 @@ public class Repositorio {
         }
     }
 
+    /**
+     * Obtiene los clientes de la base de datos y los carga en el repositorio
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void cargarClientes() throws SQLException, ClassNotFoundException, Exception {
         listaClientes = new ArrayList<Cliente>();
         ResultSet rsClientes = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM usuarios;");
@@ -110,6 +157,11 @@ public class Repositorio {
         }
     }
 
+    /**
+     * Obtiene los gestores de la base de datos y los carga en el repositorio
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void cargarGestores() throws SQLException, Exception {
         listaGestores = new ArrayList<Gestor>();
         ResultSet rsGestores = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM gestores;");
@@ -119,6 +171,13 @@ public class Repositorio {
         }
     }
 
+    /**
+     * Devuele la cesta del cliente introducido
+     * @param idCliente ID del cliente
+     * @return Lista de productos
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public ArrayList<Producto> cestaPorCliente(int idCliente) throws SQLException, Exception {
         ArrayList<Producto> cesta = new ArrayList<Producto>();
         ResultSet rsCesta = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT * FROM cesta WHERE idCliente = " + idCliente);
@@ -128,6 +187,11 @@ public class Repositorio {
         return cesta;
     }
 
+    /**
+     * Devuelve el producto que tiene la ID introducida
+     * @param idProducto ID del producto
+     * @return Objeto de la clase Producto o null si no lo encuentra
+     */
     public Producto productoPorID(int idProducto) {
         Producto producto = null;
         boolean encontrado = false;
@@ -143,6 +207,11 @@ public class Repositorio {
         return producto;
     }
 
+    /**
+     * Devuelve el cliente con el nombre de usuario introducido
+     * @param usuario Nombre de usuario
+     * @return Objeto de la clase cliente o null si no lo encuentra
+     */
     public Cliente clientePorUsuario(String usuario) {
         Cliente cliente = null;
         boolean encontrado = false;
@@ -158,6 +227,11 @@ public class Repositorio {
         return cliente;
     }
 
+    /**
+     * Devuelve el gestor con el nombre introducido
+     * @param nombre Nombre del gestor
+     * @return Objeto de la clase gestor o null si no lo encuentra
+     */
     public Gestor gestorPorNombre(String nombre) {
         Gestor gestor = null;
         boolean encontrado = false;
@@ -173,6 +247,11 @@ public class Repositorio {
         return gestor;
     }
 
+    /**
+     * Devuelve la posición del cliente en la lista de clientes del repositorio
+     * @param c Objeto cliente
+     * @return Posición en la lista o -1 si no lo encuentra
+     */
     public int posicionClienteEnLista(Cliente c) {
         int pos = -1;
         boolean encontrado = false;
@@ -187,11 +266,30 @@ public class Repositorio {
         return pos;
     }
 
+    /**
+     * Elimina un producto de la cesta del cliente
+     * @param c Objeto de la clase cliente
+     * @param p Objeto de la clase producto
+     * @return True si lo ha eliminado o false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa 
+     */
     public boolean eliminarProductoCesta(Cliente c, Producto p) throws SQLException, Exception {
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM cesta WHERE idCliente = " + c.getId() + " AND idProducto = " + p.getId());
         return rs != null;
     }
 
+    /**
+     * Añade un gestor a la base de datos y al repositorio
+     * @param nombre Nombre del gestor
+     * @param direccion Dirección del gestor
+     * @param telefono Telefono del gestor
+     * @param email Email del gestor
+     * @param tipo Tipo de gestor (Proveedor, Operador)
+     * @return True si lo ha añadido, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean añadirGestor(String nombre, String direccion, String telefono, String email, String tipo) throws SQLException, Exception {
         boolean añadido = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO gestores (nombre, direccion, telefono, email, tipo) VALUES ('" + nombre + "', '" + direccion + "', '" + telefono + "', '" + email + "', '" + tipo + "');");
@@ -204,6 +302,18 @@ public class Repositorio {
         return añadido;
     }
 
+    /**
+     * Modifica el gestor en la bbdd y repositorio
+     * @param id ID del gestor
+     * @param nombre Nombre del gestor
+     * @param direccion Dirección del gestor
+     * @param telefono Teléfono del gestor
+     * @param email Email del gestor
+     * @param tipo Tipo de gestor (Operador, Proveedor)
+     * @return True si lo ha modificado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa 
+     */
     public boolean modificarGestor(int id, String nombre, String direccion, String telefono, String email, String tipo) throws SQLException, Exception {
         boolean añadido = false;
         ResultSet rsModificar = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE gestores SET nombre = '" + nombre + "', direccion = '" + direccion + "', telefono = '" + telefono + "', email = '" + email + "', tipo = '" + tipo + "' WHERE id = " + id);
@@ -214,6 +324,13 @@ public class Repositorio {
         return añadido;
     }
 
+    /**
+     * Elimina el gestor introducido
+     * @param nombre Nombre del gestor
+     * @return True si lo ha borrado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean eliminarGestor(String nombre) throws SQLException, Exception {
         boolean eliminado = false;
         ResultSet rsEliminar = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM gestores WHERE nombre = '" + nombre + "';");
@@ -224,7 +341,23 @@ public class Repositorio {
         return eliminado;
     }
 
-    public boolean registrarUsuario(String usuario, String contrasenya, String nombre, String apellidos, String dni, String fechaNacimiento, String direccion, String telefono, int permisos) throws SQLException, Exception {
+    /**
+     * Registra un cliente en la bbdd y repositorio
+     * @param usuario Nombre de cliente
+     * @param contrasenya Contraseña
+     * @param nombre Nombre
+     * @param apellidos Apellidos
+     * @param dni DNI
+     * @param fechaNacimiento Fecha de nacimiento
+     * @param direccion Dirección
+     * @param telefono Teléfono
+     * @param permisos Permisos
+     * @return True si lo ha registrado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     * @throws IllegalArgumentException Cuando el DNI no es válido
+     */
+    public boolean registrarCliente(String usuario, String contrasenya, String nombre, String apellidos, String dni, String fechaNacimiento, String direccion, String telefono, int permisos) throws SQLException, Exception, IllegalArgumentException {
         boolean registrado = false;
         if(Cliente.comprobarDNI(dni)){
             ResultSet res = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, direccion, telefono, fechaNacimiento, dni, permiso) VALUES ('" + usuario + "', '" + Cliente.encriptarContrasenya(contrasenya) + "', '" + nombre + "', '" + apellidos + "', '" + direccion + "', '" + telefono + "', '" + fechaNacimiento + "', '" + dni + "', " + permisos + ");");
@@ -236,6 +369,16 @@ public class Repositorio {
         return registrado;
     }
 
+    /**
+     * Genera la compra del cliente
+     * @param idCliente ID del cliente
+     * @param subtotal Subtotal del pedido
+     * @param total Total del pedido
+     * @param tipoPago Tipo de pago (Efectivo, Tarjeta)
+     * @return Número de pedido o 0 si no se ha podido generar
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public int generarCompra(int idCliente, double subtotal, double total, String tipoPago) throws SQLException, Exception {
         int pedidoGenerado = 0;
         ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + subtotal + ", " + total + ", '" + tipoPago + "', 'Sin pagar');");
@@ -276,12 +419,34 @@ public class Repositorio {
         return pedidoGenerado;
     }
     
+    /**
+     * Paga un pedido
+     * @param numeroPedido Número del pedido
+     * @return True si se ha pagado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean pagarPedido(int numeroPedido) throws SQLException, Exception{
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Pagado' WHERE numeroPedido = " + numeroPedido + ";");
         return rs != null;
     }
 
-    public boolean modificarUsuario(String usuario, String contrasenya, String nombre, String apellidos, String dni, String fechaNacimiento, String direccion, String telefono, int permisos) throws SQLException, Exception {
+    /**
+     * Modifica un cliente
+     * @param usuario Nombre de usuario del cliente
+     * @param contrasenya Contraseña del cliente
+     * @param nombre Nombre
+     * @param apellidos Apellidos
+     * @param dni DNI 
+     * @param fechaNacimiento Fecha de nacimiento
+     * @param direccion Dirección
+     * @param telefono Teléfono
+     * @param permisos Permisos
+     * @return True si lo ha modificado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa 
+     */
+    public boolean modificarCliente(String usuario, String contrasenya, String nombre, String apellidos, String dni, String fechaNacimiento, String direccion, String telefono, int permisos) throws SQLException, Exception {
         boolean modificado = false;
         ResultSet rs;
         if(contrasenya.equals(""))
@@ -295,7 +460,14 @@ public class Repositorio {
         return modificado;
     }
 
-    public boolean eliminarUsuario(String usuario) throws SQLException, Exception {
+    /**
+     * Elimina el cliente con el nombre de usuario introducido
+     * @param usuario Nombre de usuario
+     * @return True si lo ha borrado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
+    public boolean eliminarCliente(String usuario) throws SQLException, Exception {
         boolean eliminado = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM usuarios WHERE usuario = '" + usuario + "';");
         if(rs != null){
@@ -305,6 +477,16 @@ public class Repositorio {
         return eliminado;
     }
     
+    /**
+     * Repara el pedido
+     * @param numeroPedido Número de pedido
+     * @param diagnostico Diagnóstico del pedido
+     * @param precio Precio del pedido
+     * @param estadoAnterior Estado anterior del pedido por si falla
+     * @return True si lo ha reparado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean repararPedido(int numeroPedido, String diagnostico, Double precio, String estadoAnterior) throws SQLException, Exception{
         boolean reparado = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Reparado', subtotal = " + (precio * 0.79) + ", total = " + precio + " WHERE numeroPedido = " + numeroPedido);
@@ -322,6 +504,16 @@ public class Repositorio {
         return reparado;
     }
     
+    /**
+     * Libera el pedido
+     * @param numeroPedido Número de pedido
+     * @param codigoLiberacion Código de liberación
+     * @param instrucciones Instrucciones de liberación
+     * @param estadoAnterior Estado anterior del pedido por si falla
+     * @return True si lo ha liberado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean liberarPedido(int numeroPedido, String codigoLiberacion, String instrucciones, String estadoAnterior) throws SQLException, Exception{
         boolean liberado = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + numeroPedido);
@@ -339,6 +531,13 @@ public class Repositorio {
         return liberado;
     }
     
+    /**
+     * Completa un pedido
+     * @param numeroPedido Número de pedido
+     * @return True si lo ha completado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean completarPedido(int numeroPedido) throws SQLException, Exception{
         boolean completado = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Completado' WHERE numeroPedido = " + numeroPedido);
@@ -351,6 +550,13 @@ public class Repositorio {
         return completado;
     }
     
+    /**
+     * Cancela un pedido
+     * @param numerPedido Número pedido
+     * @return True si lo ha cancelado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean cancelarPedido(int numerPedido) throws SQLException, Exception{
         boolean eliminado = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE pedidos SET estadoPedido = 'Cancelado' WHERE numeroPedido = " + numerPedido);
@@ -363,6 +569,20 @@ public class Repositorio {
         return eliminado;
     }
     
+    /**
+     * Modifica un producto
+     * @param id ID del producto
+     * @param marca Marca del producto
+     * @param modelo Modelo del producto
+     * @param precio Precio del producto
+     * @param stock Stock del producto
+     * @param imagen Nombre de la imagen en Imagenes/Productos/
+     * @param caracteristicas Características del producto
+     * @param color Color del producto
+     * @return True si lo ha modificado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean modificarProducto(int id, String marca, String modelo, Double precio, int stock, String imagen, String caracteristicas, String color) throws SQLException, Exception{
         boolean modificado = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("UPDATE productos SET marca = '" + marca + "', modelo = '" + modelo + "', precio = " + precio + ", stock = " + stock + ", imagen = '" + imagen + "', descripcion = '" + caracteristicas + "', color = '" + color + "' WHERE id = " + id);
@@ -375,6 +595,13 @@ public class Repositorio {
         return modificado;
     }
     
+    /**
+     * Elimina un producto por su ID
+     * @param id ID del producto
+     * @return True si lo ha eliminado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean eliminarProducto(int id) throws SQLException, Exception{
         boolean eliminado = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("DELETE FROM productos WHERE id = " + id);
@@ -385,6 +612,19 @@ public class Repositorio {
         return eliminado;
     }
     
+    /**
+     * Añade un producto
+     * @param marca Marca del producto
+     * @param modelo Modelo del producto
+     * @param precio Precio del producto
+     * @param color Color del producto
+     * @param caracteristicas Características del producto
+     * @param stock Stock del producto
+     * @param imagen Nombre de la imagen en Imagenes/Productos/
+     * @return True si lo ha añadido, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean añadirProducto(String marca, String modelo, Double precio, String color, String caracteristicas, int stock, String imagen) throws SQLException, Exception{
         boolean añadido = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO productos (marca, modelo, precio, color, descripcion, stock, imagen) VALUES ('" + marca + "', '" + modelo + "', " + precio + " , '" + color + "', '" + caracteristicas + "', " + stock +", '" + imagen + "');");
@@ -395,6 +635,12 @@ public class Repositorio {
         return añadido;
     }
     
+    /**
+     * Devuelve una lista con las marcas de productos disponibles
+     * @return Lista con las marcas de productos disponibles
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public ArrayList<String> obtenerMarcasProductos() throws SQLException, Exception{
         ArrayList<String> lista = new ArrayList<String>();
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT distinct marca FROM productos;");
@@ -404,6 +650,13 @@ public class Repositorio {
         return lista;
     }
     
+    /**
+     * Obtiene los modelos disponibles de la marca
+     * @param marca Marca del producto
+     * @return Lista con los modelos de esa marca
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public ArrayList<String> obtenerModelosProductos(String marca) throws SQLException, Exception{
         ArrayList<String> lista = new ArrayList<String>();
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT modelo FROM productos WHERE marca = '" + marca + "' GROUP BY modelo;");
@@ -413,12 +666,27 @@ public class Repositorio {
         return lista;
     }
     
+    /**
+     * Comprueba si un producto está disponible
+     * @param id ID del producto
+     * @return True si está disponible, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean productoDisponible(int id) throws SQLException, Exception{
         ResultSet consultaStock = BaseDeDatos.baseDeDatos().ejecutarConsultaSelect("SELECT stock FROM productos WHERE id = " + id);
         consultaStock.next();
         return Integer.parseInt(consultaStock.getString("stock")) > 0;
     }
     
+    /**
+     * Añade un producto a la cesta del cliente
+     * @param idCliente ID del cliente
+     * @param producto Objeto producto
+     * @return True si lo ha añadido, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa 
+     */
     public boolean añadirProductoCesta(int idCliente, Producto producto) throws SQLException, Exception{
         boolean añadido = false;
         ResultSet rs = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO cesta VALUES (" + idCliente + ", " + producto.getId() + ");");
@@ -429,6 +697,18 @@ public class Repositorio {
         return añadido;
     }
     
+    /**
+     * Genera una liberación
+     * @param idCliente ID del cliente
+     * @param subtotal Subtotal del pedido
+     * @param total Total del pedido
+     * @param tipoPago Tipo de pago (Tarjeta)
+     * @param operador Operador
+     * @param imei IMEI del telñefono
+     * @return Devuelve el número de pedido de la liberación o 0 si no se ha podido realizar
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa 
+     */
     public int generarLiberacion(int idCliente, double subtotal, double total, String tipoPago, int operador, String imei) throws SQLException, Exception{
         int numeroPedido = 0;
         ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + subtotal + ", " + total + " , '" + tipoPago + "', 'Pagado');");
@@ -450,6 +730,18 @@ public class Repositorio {
         return numeroPedido;
     }
 
+    /**
+     * Genera una reparación
+     * @param idCliente ID del cliente
+     * @param subtotal Subtotal del pedido
+     * @param total Total del pedido
+     * @param tipoPago Tipo de pago del pedido (Efectivo)
+     * @param proveedor Proveedor
+     * @param diagnostico Diagnóstico de la reparación
+     * @return Número de pedido de la reparación o 0 si no se ha podido generar
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public int generarReparacion(int idCliente, int subtotal, int total, String tipoPago, int proveedor, String diagnostico) throws SQLException, Exception {
         int numeroPedido = 0;
         ResultSet rsPedido = BaseDeDatos.baseDeDatos().ejecutarConsulta("INSERT INTO pedidos (idCliente, subtotal, total, tipoPago, estadoPedido) VALUES (" + idCliente + ", " + subtotal + ", " + total + " , '" + tipoPago + "', 'Sin pagar');");
@@ -469,6 +761,11 @@ public class Repositorio {
         return numeroPedido;
     }
 
+    /**
+     * Devuelve un pedido por su ID
+     * @param numeroPedido ID de pedido
+     * @return Objeto de la clase pedido
+     */
     public Pedido pedidoPorID(int numeroPedido) {
         Pedido pedido = null;
         boolean encontrado = false;

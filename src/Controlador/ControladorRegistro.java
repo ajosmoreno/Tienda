@@ -29,7 +29,7 @@ public class ControladorRegistro {
         String fechaNacimiento = df.format(miRegistro.getjDateChooserNacimiento().getDate());
         String direccion = miRegistro.getjTextFieldDireccion().getText();
         String telefono = miRegistro.getjTextFieldTelefono().getText();
-        if(Repositorio.repositorio().registrarUsuario(usuario, contrasenya, nombre, apellidos, dni, fechaNacimiento, direccion, telefono, 1))
+        if(Repositorio.repositorio().registrarCliente(usuario, contrasenya, nombre, apellidos, dni, fechaNacimiento, direccion, telefono, 1))
             miRegistro.mostrarMensaje("Usuario registrado correctamente.");
         else
             miRegistro.mostrarError("No se ha podido registrar el usuario.");
