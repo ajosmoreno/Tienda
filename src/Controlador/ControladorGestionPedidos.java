@@ -59,12 +59,12 @@ public class ControladorGestionPedidos {
         dtm.addColumn("Completar pedido");
         Cliente c = Repositorio.repositorio().clientePorUsuario(miVentana.getjTextFieldNombreCliente().getText());
         if(c != null){
-            for(Pedido p: Repositorio.repositorio().devolverPedidos()){
+            for(Pedido p: c.getPedidosRealizados()){
                 String tipo = "";
                 if(p instanceof Compra) tipo = "Compra";
                 else if(p instanceof Reparacion) tipo = "Reparación";
                 else if(p instanceof Liberacion) tipo = "Liberación";    
-                if(!p.getEstadoPedido().equals("Completado") && !p.getEstadoPedido().equals("Cancelado") && p.getCliente() == c.getId()){
+                if(!p.getEstadoPedido().equals("Completado") && !p.getEstadoPedido().equals("Cancelado")){
                     Object[] fila = {false, p.getNumeroPedido(), p.getFecha(), p.getTipoPago(), p.getEstadoPedido(), tipo, p.getTotal(), false};
                     dtm.addRow(fila);
                 }
@@ -157,7 +157,7 @@ public class ControladorGestionPedidos {
         dtm.addColumn("Total");
         Cliente c = Repositorio.repositorio().clientePorUsuario(miVentana.getjTextFieldNombreCliente().getText());
         if(c != null){
-            for(Pedido p: Repositorio.repositorio().devolverPedidos()){
+            for(Pedido p: c.getPedidosRealizados()){
                 String tipo = "";
                 if(p instanceof Compra) tipo = "Compra";
                 else if(p instanceof Reparacion) tipo = "Reparación";

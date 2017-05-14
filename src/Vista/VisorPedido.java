@@ -27,6 +27,7 @@ public class VisorPedido extends javax.swing.JDialog {
     public VisorPedido(java.awt.Frame parent, boolean modal, int numeroPedido) {
         super(parent, modal);
         initComponents();
+        this.setTitle("Lista de productos del pedido " + numeroPedido);
         miControlador = new ControladorVisorPedido(this);
         try {
             miControlador.mostrarPedido(numeroPedido);
