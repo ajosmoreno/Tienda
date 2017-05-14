@@ -1,5 +1,0 @@
-- Quitar marcos a los ventanas.
-- Quitar resizable de todas las ventanas.
-- Renombrar imágenes. (380 x 380).
-- Añadir precio a la reparación.
-- Diseño de lo último añadido.
