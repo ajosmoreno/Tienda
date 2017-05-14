@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.ControladorVisorPedido;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
@@ -80,7 +81,7 @@ public class VisorPedido extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(jTableProductos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 460));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 330));
 
         pack();
         setLocationRelativeTo(null);

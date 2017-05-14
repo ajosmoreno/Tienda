@@ -31,6 +31,7 @@ public class CestaCompra extends javax.swing.JDialog {
         jButtonVolver.setIcon(new ImageIcon("Imagenes/icon/backnormal.png"));
         jButtonVolver.setPressedIcon(new ImageIcon("Imagenes/icon/backpressed.png"));
         jButtonVolver.setRolloverIcon(new ImageIcon("Imagenes/icon/backrollover.png"));
+        jLabelFondo.setIcon(new ImageIcon("Imagenes/pedidoscliente.jpg"));
     }
 
     /**
@@ -50,6 +51,7 @@ public class CestaCompra extends javax.swing.JDialog {
         jLabelPrecioTotal = new javax.swing.JLabel();
         jScrollPaneCesta = new javax.swing.JScrollPane();
         jTableCesta = new javax.swing.JTable();
+        jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cesta de Compra");
@@ -140,6 +142,7 @@ public class CestaCompra extends javax.swing.JDialog {
         }
 
         getContentPane().add(jScrollPaneCesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 777, 360));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -284,6 +287,7 @@ public class CestaCompra extends javax.swing.JDialog {
     private javax.swing.JButton jButtonPagarTarjeta;
     private javax.swing.JButton jButtonPagoEfectivo;
     private javax.swing.JButton jButtonVolver;
+    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelPrecioTotal;
     private javax.swing.JLabel jLabelTotal;
     private javax.swing.JScrollPane jScrollPaneCesta;
