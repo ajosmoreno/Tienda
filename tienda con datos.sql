@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-05-2017 a las 15:24:13
+-- Tiempo de generación: 14-05-2017 a las 15:22:46
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -58,7 +58,8 @@ INSERT INTO `compras` (`numeroPedido`) VALUES
 (2),
 (3),
 (6),
-(7);
+(7),
+(12);
 
 -- --------------------------------------------------------
 
@@ -109,7 +110,8 @@ CREATE TABLE `liberaciones` (
 
 INSERT INTO `liberaciones` (`numeroPedido`, `operador`, `imei`, `codigoLiberacion`, `instrucciones`) VALUES
 (5, 5, '1234984', '321613764', '* No es necesario, pero sí altamente recomendable desactivar previamente el PIN de la sim no aceptada, para no confundir con el código de liberación cuando lo pida.\n\n1. Encienda su móvil con una tarjeta no aceptada por el terminal, es decir de otro operador distinto\n\n2. Si no ha desactivado el PIN como le recomendamos y le pide el codigo PIN meta el código PIN de la SIM. Si le da error \n y está seguro de que introduce el PIN correcto es porque el código que el pide es el de liberación, en la mayoría de modelos la pantalla es igual a la del PIN.\n\n3. Cuando le pida el código de liberación deberá introducir el código de 7 números que tiene y acto seguido pulsar en \n Confirmar, OK, aceptar o similar. Si no lo pidiera ni aparece ningun campo para introducirlo marque el código y luego pulse sobre Confirmar, OK, aceptar o similar.'),
-(9, 6, '2569703952', NULL, NULL);
+(9, 6, '2569703952', '599516309', '* No es necesario, pero sí altamente recomendable desactivar previamente el PIN de la sim no aceptada, para no confundir con el código de liberación cuando lo pida.\n\n1. Encienda su móvil con una tarjeta no aceptada por el terminal, es decir de otro operador distinto\n\n2. Si no ha desactivado el PIN como le recomendamos y le pide el codigo PIN meta el código PIN de la SIM. Si le da error \n y está seguro de que introduce el PIN correcto es porque el código que el pide es el de liberación, en la mayoría de modelos la pantalla es igual a la del PIN.\n\n3. Cuando le pida el código de liberación deberá introducir el código de 7 números que tiene y acto seguido pulsar en \n Confirmar, OK, aceptar o similar. Si no lo pidiera ni aparece ningun campo para introducirlo marque el código y luego pulse sobre Confirmar, OK, aceptar o similar.'),
+(11, 6, '8494561984', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -139,8 +141,11 @@ INSERT INTO `pedidos` (`numeroPedido`, `fecha`, `idCliente`, `subtotal`, `total`
 (5, '2017-05-13 13:11:04', 4, 7.90, 10.00, 'Tarjeta', 'Completado'),
 (6, '2017-05-13 15:03:43', 4, 7773.60, 9840.00, 'Efectivo', 'Sin pagar'),
 (7, '2017-05-13 15:08:16', 4, 7773.60, 9840.00, 'Efectivo', 'Sin pagar'),
-(8, '2017-05-13 15:20:44', 4, 0.00, 0.00, 'Efectivo', 'Sin pagar'),
-(9, '2017-05-13 15:21:27', 4, 7.90, 10.00, 'Tarjeta', 'Pagado');
+(8, '2017-05-13 15:20:44', 4, 33.97, 43.00, 'Efectivo', 'Reparado'),
+(9, '2017-05-13 15:21:27', 4, 7.90, 10.00, 'Tarjeta', 'Completado'),
+(10, '2017-05-14 09:38:00', 4, 0.00, 0.00, 'Efectivo', 'Cancelado'),
+(11, '2017-05-14 09:38:21', 4, 7.90, 10.00, 'Tarjeta', 'Cancelado'),
+(12, '2017-05-14 14:30:12', 11, 639.11, 809.00, 'Efectivo', 'Sin pagar');
 
 -- --------------------------------------------------------
 
@@ -165,7 +170,7 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`id`, `marca`, `modelo`, `precio`, `color`, `descripcion`, `stock`, `imagen`) VALUES
 (1, 'Samsung', 'Galaxy S8', 809.00, 'Negro', 'Memoria RAM: 4GB\n\nBatería: 3000mAh\n\nPantalla: 5,8" SAMOLED\n\nAlmacenamiento: 64GB ampliables con microSD\n\n4G: LTE CAT16\n\nConector: USB Tipo C', 1498, 'galaxy-s8_gallery_back_black.png'),
-(2, 'Samsung', 'Galaxy S8', 809.00, 'Orchid Grey', 'Memoria RAM: 4GB\n\nBatería: 3000mAh\n\nPantalla: 5,8" SAMOLED\n\nAlmacenamiento: 64GB ampliables con microSD\n\n4G: LTE CAT16\n\nConector: USB Tipo C', 1498, 'galaxy_s8_greyorchid.png'),
+(2, 'Samsung', 'Galaxy S8', 809.00, 'Orchid Grey', 'Memoria RAM: 4GB\n\nBatería: 3000mAh\n\nPantalla: 5,8" SAMOLED\n\nAlmacenamiento: 64GB ampliables con microSD\n\n4G: LTE CAT16\n\nConector: USB Tipo C', 1497, 'galaxy_s8_greyorchid.png'),
 (3, 'Samsung', 'Galaxy S7 Edge', 550.00, 'Azul Coral', 'Memoria RAM: 4GB\n\nBatería: 3500mAh\n\nPantalla: 5,5" SAMOLED\n\nAlmacenamiento: 32GB ampliables con microSD\n\n4G: LTE CAT12\n\nConector: microUSB', 1498, 'galaxy-s7-edge-bluecoral.png'),
 (4, 'Samsung', 'Galaxy S7 Edge', 550.00, 'Dorado', 'Memoria RAM: 4GB\n\nBatería: 3500mAh\n\nPantalla: 5,5" SAMOLED\n\nAlmacenamiento: 32GB ampliables con microSD\n\n4G: LTE CAT12\n\nConector: microUSB', 1498, 'Samsung-Galaxy-S7-edge-Gold.png'),
 (5, 'Apple', 'iPhone 7', 769.00, 'Negro Brillante', 'Memoria RAM: 2GB\n\nBatería: 1969mAh\n\nPantalla: 4,7" IPS\n\nAlmacenamiento: 32GB\n\n4G: LTE CAT12\n\nConector: Lightning', 1498, 'iphone7-negrobrillante.png'),
@@ -177,7 +182,7 @@ INSERT INTO `productos` (`id`, `marca`, `modelo`, `precio`, `color`, `descripcio
 (11, 'LG', 'G6', 650.00, 'Negro', 'Memoria RAM: 4GB\n\nBatería: 3300mAh\n\nPantalla: 5,7" OLED\n\nAlmacenamiento: 32GB ampliables con microSD\n\n4G: LTE CAT12\n\nConector: USB Tipo C', 1498, 'LG-G6-negro.png'),
 (12, 'Huawei', 'P9', 409.00, 'Blanco Cerámica', 'Memoria RAM: 3GB\n\nBatería: 3000mAh\n\nPantalla: 5,2" IPS\n\nAlmacenamiento: 32GB ampliables con microSD\n\n4G: LTE CAT12\n\nConector: USB Tipo C', 1498, 'Huawei_P9-Ceramic-White.png'),
 (13, 'Huawei', 'P9', 409.00, 'Dorado', 'Memoria RAM: 3GB\n\nBatería: 3000mAh\n\nPantalla: 5,2" IPS\n\nAlmacenamiento: 32GB ampliables con microSD\n\n4G: LTE CAT12\n\nConector: USB Tipo C', 1498, 'Huawei-P9-Gold.png'),
-(14, 'Huawei', 'P10', 599.00, 'Dorado', 'Memoria RAM: 4GB\n\nBatería: 3200mAh\n\nPantalla: 5,1" IPS\n\nAlmacenamiento: 64GB ampliables con microSD\n\n4G: LTE CAT12\n\nConector: USB Tipo C', 1498, 'huaweip10-gold.png'),
+(14, 'Huawei', 'P10', 599.00, 'Dorado', 'Memoria RAM: 4GB\n\nBatería: 3200mAh\n\nPantalla: 5,1" IPS\n\nAlmacenamiento: 64GB ampliables con microSD\n\n4G: LTE CAT12\n\nConector: USB Tipo C', 0, 'huaweip10-gold.png'),
 (15, 'Huawei', 'P10', 599.00, 'Blanco', 'Memoria RAM: 4GB\n\nBatería: 3200mAh\n\nPantalla: 5,1" IPS\n\nAlmacenamiento: 64GB ampliables con microSD\n\n4G: LTE CAT12\n\nConector: USB Tipo C', 1497, 'huaweip10-white.png');
 
 -- --------------------------------------------------------
@@ -202,6 +207,7 @@ INSERT INTO `productoscomprados` (`numeroPedido`, `idProducto`, `fechaCompra`) V
 (1, 2, '2017-05-13 12:55:11'),
 (6, 2, '2017-05-13 15:03:43'),
 (7, 2, '2017-05-13 15:08:16'),
+(12, 2, '2017-05-14 14:30:12'),
 (6, 3, '2017-05-13 15:03:43'),
 (7, 3, '2017-05-13 15:08:16'),
 (6, 4, '2017-05-13 15:03:43'),
@@ -250,7 +256,8 @@ CREATE TABLE `reparaciones` (
 
 INSERT INTO `reparaciones` (`numeroPedido`, `proveedor`, `diagnostico`) VALUES
 (4, 2, '---- Mensaje inicial ----\nMarca: Apple\nModelo: iPhone 6S\nObservaciones: El móvil no carga\n\n---- Informe de resultado ----\nHemos cambiado el conector de carga'),
-(8, 4, 'Marca: Huawei\nModelo: P9 Lite\nObservaciones: Lector de huellas no funciona');
+(8, 4, '---- Mensaje inicial ----\nMarca: Huawei\nModelo: P9 Lite\nObservaciones: Lector de huellas no funciona\n\n---- Informe de resultado ----\nLector de huellas sustituido'),
+(10, 1, 'Marca: Samsung\nModelo: Galaxy S5\nObservaciones: El sensor de la cámara tiene una\nmancha negra');
 
 -- --------------------------------------------------------
 
@@ -279,7 +286,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `usuario`, `contrasenya`, `fechaRegistro`, `nombre`, `apellidos`, `direccion`, `telefono`, `fechaNacimiento`, `dni`, `permiso`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '2017-05-13 09:12:11', 'Administrador', 'Administrador', 'S/C', '600000000', '1970-01-01', '00000000T', 2),
 (2, 'invitado', 'a6ae8a143d440ab8c006d799f682d48d', '2017-05-13 09:12:11', 'Invitado', 'Invitado', 'S/C', '600000000', '1970-01-01', '00000001R', 0),
-(4, 'prueba', 'c893bad68927b457dbed39460e6afd62', '2017-05-13 12:53:16', 'Prueba', 'Probando', 'C/ Prueba', '654789123', '2017-05-13', '00000002W', 1);
+(4, 'prueba', 'c893bad68927b457dbed39460e6afd62', '2017-05-13 12:53:16', 'Prueba', 'Probando', 'C/ Prueba', '654789123', '2017-05-13', '00000002W', 1),
+(11, 'prueba1', '3f1b7ccad63d40a7b4c27dda225bf941', '2017-05-14 14:29:21', 'Prueba', '1', 'C/ SC', '12345678', '2017-05-04', '00000003A', 1);
 
 --
 -- Índices para tablas volcadas
@@ -355,22 +363,22 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `gestores`
 --
 ALTER TABLE `gestores`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `numeroPedido` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `numeroPedido` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Restricciones para tablas volcadas
 --
