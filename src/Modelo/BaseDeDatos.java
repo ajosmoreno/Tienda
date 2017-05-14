@@ -3,9 +3,10 @@ package Modelo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -88,7 +89,7 @@ public class BaseDeDatos {
         File archivo = new File("config.ini");
         if(!archivo.exists()){
             archivo.createNewFile();
-            PrintWriter pw = new PrintWriter(new FileWriter(archivo));
+            PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(archivo), "UTF-8"));
             pw.println("#Configuración Base de Datos");
             pw.println("servidor=");
             pw.println("puerto=");
