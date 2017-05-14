@@ -791,13 +791,17 @@ public class GestionAdministrador extends javax.swing.JDialog {
     private void jButtonFinalizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinalizarPedidoActionPerformed
         if(reparando){
             try {
-                miControlador.repararPedido();
+                if(jComboBoxPedidosPendientes.getSelectedItem().equals("") || jTextFieldProveedor.getText().equals("") || jTextFieldPrecio.getText().equals("") || jTextAreaDiagnostico.getText().equals(""))
+                    mostrarError("Rellena todos los campos.");
+                else miControlador.repararPedido();
             } catch (Exception ex) {
                 mostrarError("Error al completar el pedido.");
             }
         } else{
             try {
-                miControlador.liberarPedido();
+                if(jComboBoxPedidosPendientes.getSelectedItem().equals("") || jTextFieldImei.getText().equals("") || jComboBoxOperadores.getSelectedItem().equals("") || jTextFieldCodigoLiberacion.getText().equals("") || jTextAreaDiagnostico.getText().equals(""))
+                    mostrarError("Rellena todos los campos.");
+                else miControlador.liberarPedido();
             } catch (Exception ex) {
                 mostrarError("Error al completar el pedido.");
             }

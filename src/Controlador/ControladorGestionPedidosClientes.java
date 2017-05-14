@@ -113,7 +113,6 @@ public class ControladorGestionPedidosClientes {
         miVentana.getjTablePedidos().getColumn("").setMaxWidth(25);
         miVentana.getjTablePedidos().getColumn("ID").setMaxWidth(25);
         miVentana.getjTablePedidos().getColumn("Precio").setMaxWidth(65);
-        System.out.println(miVentana.getjTablePedidos().getColumn("Precio").getWidth());
     }
     
     public void cargarPedidosCancelados() {
