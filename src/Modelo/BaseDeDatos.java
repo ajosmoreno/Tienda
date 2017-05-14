@@ -2,9 +2,10 @@ package Modelo;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -97,7 +98,7 @@ public class BaseDeDatos {
             pw.close();
             throw new Exception("El archivo de configuración no está completo.");
         } else{
-            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(archivo), "UTF-8"));
             String linea = br.readLine();
             boolean encontrado = false;
             while(linea != null && !encontrado){
