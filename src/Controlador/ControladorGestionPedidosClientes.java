@@ -39,7 +39,12 @@ public class ControladorGestionPedidosClientes {
      * Carga todos los pedidos del cliente
      */
     public void cargarTodosPedidos(){
-        DefaultTableModel dtm = new DefaultTableModel();
+        DefaultTableModel dtm = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int col) {
+                return false;
+            }
+        };
         dtm.addColumn("ID");
         dtm.addColumn("Fecha");
         dtm.addColumn("Tipo de pago");
@@ -64,7 +69,12 @@ public class ControladorGestionPedidosClientes {
      * Carga los pedidos completados del cliente
      */
     public void cargarPedidosCompletados() {
-        DefaultTableModel dtm = new DefaultTableModel();
+        DefaultTableModel dtm = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int col) {
+                return false;
+            }
+        };
         dtm.addColumn("ID");
         dtm.addColumn("Fecha");
         dtm.addColumn("Tipo de pago");
@@ -131,7 +141,12 @@ public class ControladorGestionPedidosClientes {
      * Carga los pedidos cancelados del cliente
      */
     public void cargarPedidosCancelados() {
-        DefaultTableModel dtm = new DefaultTableModel();
+        DefaultTableModel dtm = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int col) {
+                return false;
+            }
+        };
         dtm.addColumn("ID");
         dtm.addColumn("Fecha");
         dtm.addColumn("Tipo de pago");
