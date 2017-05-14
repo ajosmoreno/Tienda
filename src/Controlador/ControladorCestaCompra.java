@@ -15,17 +15,24 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorCestaCompra {
     
     private CestaCompra miVentana;
     
+    /**
+     * Constructor del controlador que enlaza el controlador con la vista
+     * @param miVentana Vista CestaCompra
+     */
     public ControladorCestaCompra(CestaCompra miVentana){
         this.miVentana = miVentana;
     }
 
+    /**
+     * Carga los productos de la cesta en la tabla
+     */
     public void cargarCesta() {
         DefaultTableModel dtm;
         dtm = new DefaultTableModel(){
@@ -93,6 +100,11 @@ public class ControladorCestaCompra {
         return resizedImg;
     }
 
+    /**
+     * Borra productos de la cesta
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa 
+     */
     public void borrarProductos() throws SQLException, Exception {
         if(mostrarAviso()){
             boolean borrado = false;
@@ -113,19 +125,37 @@ public class ControladorCestaCompra {
         }
     }
     
+    /**
+     * Muestra un aviso informando de que productos se van a borrar
+     * @return True si acepta el aviso, false si no
+     */
     public boolean mostrarAviso(){
         int opcion = JOptionPane.showConfirmDialog(miVentana, "Se borrarán los productos de la cesta que NO están seleccionados.\n\n¿Deseas continuar?", "ATENCIÓN", JOptionPane.OK_CANCEL_OPTION);
         return opcion == JOptionPane.OK_OPTION;
     }
 
+    /**
+     * Paga el pedido en Efectivo
+     * @throws Exception Error cuando no se puede pagar
+     */
     public void pagarEfectivo() throws Exception {
         generarPedido("Efectivo");
     }
 
+    /**
+     * Paga el pedido con Tarjeta
+     * @throws Exception 
+     */
     public void pagarTarjeta() throws Exception {
         generarPedido("Tarjeta");
     }
     
+    /**
+     * Genera el pedido dependiendo del tipo de pago
+     * @param tipoPago Tipo de pago (Efectivo, Tarjeta)
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void generarPedido(String tipoPago) throws SQLException, Exception{
         int idCliente = Sesion.miCliente().getCliente().getId();
         double total = Double.parseDouble(miVentana.getjLabelPrecioTotal().getText().replace("€", ""));

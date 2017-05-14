@@ -9,17 +9,26 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *  Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorLiberacion {
     
     private AnadirLiberacion miVentana;
 
+    /**
+     * Constructor que enlaza el controlador con la vista
+     * @param miVentana Vista AnadirLiberacion
+     */
     public ControladorLiberacion(AnadirLiberacion miVentana) {
         this.miVentana = miVentana;
     }
 
+    /**
+     * Carga los operadores disponibles
+     * @throws ClassNotFoundException Error cuando no se encuentran 
+     * @throws Exception Error cuando falla otra cosa 
+     */
     public void cargarOperadores() throws ClassNotFoundException, Exception {
         ArrayList<Gestor> listaGestores = Repositorio.repositorio().devolverGestores();
         DefaultComboBoxModel dcm = new DefaultComboBoxModel();
@@ -31,6 +40,12 @@ public class ControladorLiberacion {
         miVentana.getjComboBoxOperadores().setModel(dcm);
     }
 
+    /**
+     * Añade la liberación
+     * @return True si se ha añadido, false si no
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean añadirLiberacion() throws ClassNotFoundException, Exception {
         miVentana.mostrarMensaje("Introduzca su tarjeta de crédito/débito en el lector y pulse aceptar.");
         JOptionPane.showInputDialog("Introduzca el pin de la tarjeta");

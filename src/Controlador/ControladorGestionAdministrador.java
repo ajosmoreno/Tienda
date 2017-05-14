@@ -19,7 +19,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *  Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorGestionAdministrador {
@@ -28,15 +28,29 @@ public class ControladorGestionAdministrador {
     private Reparacion reparacionSeleccionada;
     private Liberacion liberacionSeleccionada;
 
+    /**
+     * Constructor que enlaza el controlador con la vista
+     * @param miVentana Vista GestionAdministrador
+     */
     public ControladorGestionAdministrador(GestionAdministrador miVentana) {
         this.miVentana = miVentana;
     }
 
+    /**
+     * Abre la vista de gestión de pedidos
+     */
     public void abrirGestionPedidos() {
         GestionPedidos gPedidos = new GestionPedidos((Frame) miVentana.getParent(), true);
         gPedidos.setVisible(true);
     }
 
+    /**
+     * Busca el cliente introducido en la vista
+     * @return True si lo ha encontrado, false si no
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     */
     public boolean buscarCliente() throws SQLException, ClassNotFoundException, Exception {
         boolean encontrado = false;
         Cliente c = Repositorio.repositorio().clientePorUsuario(miVentana.getjTextFieldBuscadorNombre().getText());
@@ -68,6 +82,11 @@ public class ControladorGestionAdministrador {
         return encontrado;
     }
 
+    /**
+     * Modifica el usuario introducido en la vista
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void modificarUsuario() throws SQLException, Exception {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String usuario = miVentana.getjTextFieldUsuario().getText();
@@ -90,6 +109,11 @@ public class ControladorGestionAdministrador {
             miVentana.mostrarError("Ha ocurrido un error al modificar el usuario.");
     }
 
+    /**
+     * Elimina el usuario introducido en la vista
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void eliminarUsuario() throws SQLException, Exception {
         String usuario = miVentana.getjTextFieldUsuario().getText();
         int dialogResult = JOptionPane.showConfirmDialog(miVentana, "¿Estás seguro de que quieres borrar el usuario " + usuario + "?", "¡Atención!", JOptionPane.YES_NO_OPTION);
@@ -104,13 +128,21 @@ public class ControladorGestionAdministrador {
         }
     }
 
+    /**
+     * Genera un código de liberación aleatorio
+     */
     public void asignarCodigoLiberacion() {
-
         int codigo = (int) (Math.random() * 999999999);
         String codigoliberacion = String.valueOf(codigo);
         miVentana.getjTextFieldCodigoLiberacion().setText(codigoliberacion);
     }
 
+    /**
+     * Registra un usuario con los datos de la vista
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void registrarUsuario() throws ClassNotFoundException, SQLException, Exception {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String usuario = miVentana.getjTextFieldUsuario().getText();
@@ -135,12 +167,20 @@ public class ControladorGestionAdministrador {
         }
     }
 
+    /**
+     * Abre la vista de gestión de productos
+     */
     public void abrirGestionProductos() {
         GestionProductos gProductos = new GestionProductos((Frame) miVentana.getParent(), true);
         gProductos.setVisible(true);
     }
 
-    public void cargarReparaciones() throws ClassNotFoundException, Exception {
+    /**
+     * Carga las reparaciones pendientes
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa 
+     */
+    public void cargarReparacionesPendientes() throws ClassNotFoundException, Exception {
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();
         ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
         dcb.addElement("");
@@ -152,7 +192,12 @@ public class ControladorGestionAdministrador {
         miVentana.getjComboBoxPedidosPendientes().setModel(dcb);
     }
 
-    public void cargarLiberaciones() throws ClassNotFoundException, Exception {
+    /**
+     * Carga las liberaciones pendientes
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
+    public void cargarLiberacionesPendientes() throws ClassNotFoundException, Exception {
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();
         ArrayList<Pedido> listaPedidos = Repositorio.repositorio().devolverPedidos();
         dcb.addElement("");
@@ -164,6 +209,11 @@ public class ControladorGestionAdministrador {
         miVentana.getjComboBoxPedidosPendientes().setModel(dcb);
     }
 
+    /**
+     * Repara el pedido seleccionado en la vista
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa 
+     */
     public void repararPedido() throws SQLException, Exception {
         if (mostrarAvisoPedido(reparacionSeleccionada)) {
             if(Repositorio.repositorio().repararPedido(reparacionSeleccionada.getNumeroPedido(), miVentana.getjTextAreaDiagnostico().getText(), Double.parseDouble(miVentana.getjTextFieldPrecio().getText().replace(",", ".")), reparacionSeleccionada.getEstadoPedido())){
@@ -175,6 +225,11 @@ public class ControladorGestionAdministrador {
         }
     }
 
+    /**
+     * Libera el pedido seleccionado en la vista
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void liberarPedido() throws SQLException, Exception {
         if (mostrarAvisoPedido(liberacionSeleccionada)) {
             if(Repositorio.repositorio().liberarPedido(liberacionSeleccionada.getNumeroPedido(), miVentana.getjTextFieldCodigoLiberacion().getText(), miVentana.getjTextAreaDiagnostico().getText(), liberacionSeleccionada.getEstadoPedido())){
@@ -186,6 +241,11 @@ public class ControladorGestionAdministrador {
         }
     }
 
+    /**
+     * Abre la reparación seleccionada en la vista
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void abrirReparacion() throws ClassNotFoundException, Exception {
         boolean encontrado = false;
         int contador = 0;
@@ -214,6 +274,11 @@ public class ControladorGestionAdministrador {
         
     }
 
+    /**
+     * Abre la reparación seleccionada en la vista
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void abrirLiberacion() throws ClassNotFoundException, Exception {
         boolean encontrado = false;
         int contador = 0;
@@ -244,6 +309,11 @@ public class ControladorGestionAdministrador {
         
     }
 
+    /**
+     * Muestra un aviso de que se va a completar un pedido
+     * @param tipo Tipo de pedido que se va a finalizar
+     * @return True si ha aceptado el aviso, false si no
+     */
     public boolean mostrarAvisoPedido(Object tipo) {
         boolean respuesta;
         if (tipo instanceof Reparacion) {
@@ -256,7 +326,10 @@ public class ControladorGestionAdministrador {
         return respuesta;
     }
     
-    public void abrirGestionProveedores(){
+    /**
+     * Abre la vista de gestión de gestores
+     */
+    public void abrirGestionGestores(){
         GestionGestores gProveedores = new GestionGestores((Frame)miVentana.getParent(), true);
         gProveedores.setVisible(true);
     }

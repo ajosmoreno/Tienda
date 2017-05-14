@@ -7,18 +7,28 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
- *
+ *  Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorRegistro {
     
     private RegistroUsuarios miRegistro;
     
+    /**
+     * Constructor que enlaza el controlador con la vista
+     * @param miRegistro Vista RegistroUsuarios
+     */
     public ControladorRegistro(RegistroUsuarios miRegistro){
         this.miRegistro = miRegistro;
         miRegistro.getjDateChooserNacimiento().getDateEditor().setEnabled(false);
     }
     
+    /**
+     * Registra el usuario 
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     * @throws Error al ejecutar alguna consulta SQL
+     */
     public void registrar() throws ClassNotFoundException, SQLException, Exception{
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String usuario = miRegistro.getjTextFieldNombreUsuario().getText();

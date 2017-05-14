@@ -16,17 +16,27 @@ import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *  Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorGestionPedidos {
 
     private GestionPedidos miVentana;
 
+    /**
+     * Constructor que enlaza el controlador con la vista
+     * @param miVentana Vista GestionPedidos
+     */
     public ControladorGestionPedidos(GestionPedidos miVentana) {
         this.miVentana = miVentana;
     }
 
+    /**
+     * Muestra los pedidos pendientes del cliente introducido en la vista
+     * @return True si el usuario existe, false si no
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean mostarPendientes() throws ClassNotFoundException, Exception {
         DefaultTableModel dtm = new DefaultTableModel(){
             @Override
@@ -72,6 +82,11 @@ public class ControladorGestionPedidos {
         return c != null;
     }
 
+    /**
+     * Completa los pedidos seleccionados
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void completarPedidos() throws SQLException, Exception {
         boolean correcto = false;
         for(int i = 0; i < miVentana.getjTablePedidos().getRowCount(); i++){
@@ -94,6 +109,11 @@ public class ControladorGestionPedidos {
         }
     }
     
+    /**
+     * Cancela los pedidos que están seleccionados y no están seleccionados como completar
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void cancelarPedidos() throws SQLException, Exception{
         boolean correcto = false;
         for(int i = 0; i < miVentana.getjTablePedidos().getRowCount(); i++){
@@ -116,6 +136,12 @@ public class ControladorGestionPedidos {
         }
     }
 
+    /**
+     * Muestra los pedidos del cliente introducido
+     * @return True si existe el usuario, false si no
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean mostrarPedidos() throws ClassNotFoundException, Exception {
         DefaultTableModel dtm = new DefaultTableModel(){
             @Override

@@ -538,7 +538,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
     }
 
     private void jButtonGestionProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionProveedorActionPerformed
-        miControlador.abrirGestionProveedores();
+        miControlador.abrirGestionGestores();
     }//GEN-LAST:event_jButtonGestionProveedorActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
@@ -550,7 +550,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         try {
             limpiarReparacion();
             reparando = true;
-            miControlador.cargarReparaciones();
+            miControlador.cargarReparacionesPendientes();
             jPanelUsuarios.setVisible(true);
             jLabelPedidosPendientes.setVisible(true);
             jComboBoxPedidosPendientes.setVisible(true);
@@ -812,7 +812,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
         try {
             limpiarLiberacion();
             reparando = false;
-            miControlador.cargarLiberaciones();
+            miControlador.cargarLiberacionesPendientes();
             jPanelUsuarios.setVisible(true);
             jLabelPedidosPendientes.setVisible(true);
             jComboBoxPedidosPendientes.setVisible(true);
@@ -853,7 +853,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
      */
     public void limpiarReparacion(){
         try {
-            miControlador.cargarReparaciones();
+            miControlador.cargarReparacionesPendientes();
             limpiarCamposPedidos();
         } catch (Exception ex) {
             mostrarError("No se han podido cargar las reparaciones");
@@ -865,7 +865,7 @@ public class GestionAdministrador extends javax.swing.JDialog {
      */    
     public void limpiarLiberacion(){
         try {
-            miControlador.cargarLiberaciones();
+            miControlador.cargarLiberacionesPendientes();
             limpiarCamposPedidos();
         } catch (Exception ex) {
             mostrarError("No se han podido cargar las liberaciones");

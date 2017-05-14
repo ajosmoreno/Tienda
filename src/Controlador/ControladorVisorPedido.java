@@ -13,17 +13,27 @@ import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *  Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorVisorPedido {
     
     private VisorPedido miVentana;
 
+    /**
+     * Constructor que enlaza el controlador con la vista
+     * @param miVentana Vista VisorPedido
+     */
     public ControladorVisorPedido(VisorPedido miVentana) {
         this.miVentana = miVentana;
     }
     
+    /**
+     * Muestra el pedido
+     * @param numeroPedido Número de pedido
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void mostrarPedido(int numeroPedido) throws ClassNotFoundException, Exception{
         DefaultTableModel dtm;
         dtm = new DefaultTableModel(){

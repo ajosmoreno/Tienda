@@ -7,17 +7,26 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 /**
- *
+ *  Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorGestionGestores {
     
     private GestionGestores miVentana;
 
+    /**
+     * Constructor que enlaza el controlador con la vista
+     * @param miVentana Vista GestionGestores
+     */
     public ControladorGestionGestores(GestionGestores miVentana) {
         this.miVentana = miVentana;
     }
     
+    /**
+     * Añade un gestor al repositorio y bbdd
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void añadirGestor() throws ClassNotFoundException, Exception{
         String nombre = miVentana.getjTextFieldNombreGestor().getText();
         String direccion = miVentana.getjTextFieldDireccionGestor().getText();
@@ -31,6 +40,11 @@ public class ControladorGestionGestores {
         }
     }
 
+    /**
+     * Borra el gestor seleccionado en la vista
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void borrarGestor() throws ClassNotFoundException, Exception {
         if(Repositorio.repositorio().eliminarGestor(miVentana.getjComboBoxGestores().getSelectedItem().toString())){
             miVentana.mostrarMensaje("Gestor eliminado correctamente");
@@ -40,6 +54,11 @@ public class ControladorGestionGestores {
         }
     }
 
+    /**
+     * Carga los gestores
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa 
+     */
     public void cargarGestores() throws ClassNotFoundException, Exception {
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();
         ArrayList<Gestor> listaGestores = Repositorio.repositorio().devolverGestores();
@@ -50,6 +69,12 @@ public class ControladorGestionGestores {
         miVentana.getjComboBoxGestores().setModel(dcb);
     }
 
+    /**
+     * Muestra el gestor seleccionado
+     * @return True si lo ha mostrado, false si no lo encuentra
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public boolean mostrarGestor() throws ClassNotFoundException, Exception {
         boolean mostrado = false;
         Gestor g = Repositorio.repositorio().gestorPorNombre(miVentana.getjComboBoxGestores().getSelectedItem().toString());
@@ -65,6 +90,11 @@ public class ControladorGestionGestores {
         return mostrado;
     }
 
+    /**
+     * Modifica el gestor seleccionado en la vista
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void modificarGestor() throws ClassNotFoundException, Exception {
         String nombre = miVentana.getjTextFieldNombreGestor().getText();
         String direccion = miVentana.getjTextFieldDireccionGestor().getText();

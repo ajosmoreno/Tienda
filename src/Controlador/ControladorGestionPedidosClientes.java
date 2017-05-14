@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *  Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorGestionPedidosClientes {
@@ -27,11 +27,17 @@ public class ControladorGestionPedidosClientes {
     
     private GestionPedidosClientes miVentana; 
     
-    
+    /**
+     * Constructor que enlaza el controlador con la vista
+     * @param miVentana Vista GestionPedidosClientes
+     */
     public ControladorGestionPedidosClientes (GestionPedidosClientes miVentana) {
         this.miVentana = miVentana;
     }
     
+    /**
+     * Carga todos los pedidos del cliente
+     */
     public void cargarTodosPedidos(){
         DefaultTableModel dtm = new DefaultTableModel();
         dtm.addColumn("ID");
@@ -54,6 +60,9 @@ public class ControladorGestionPedidosClientes {
         miVentana.getjTablePedidos().getColumn("ID").setMaxWidth(30);
     }
 
+    /**
+     * Carga los pedidos completados del cliente
+     */
     public void cargarPedidosCompletados() {
         DefaultTableModel dtm = new DefaultTableModel();
         dtm.addColumn("ID");
@@ -78,6 +87,9 @@ public class ControladorGestionPedidosClientes {
         miVentana.getjTablePedidos().getColumn("ID").setMaxWidth(30);
     }
 
+    /**
+     * Carga los pedidos no completados del cliente
+     */
     public void cargarPedidosNoCompletados() {
         DefaultTableModel dtm = new DefaultTableModel(){
             @Override
@@ -115,6 +127,9 @@ public class ControladorGestionPedidosClientes {
         miVentana.getjTablePedidos().getColumn("Precio").setMaxWidth(65);
     }
     
+    /**
+     * Carga los pedidos cancelados del cliente
+     */
     public void cargarPedidosCancelados() {
         DefaultTableModel dtm = new DefaultTableModel();
         dtm.addColumn("ID");
@@ -139,6 +154,11 @@ public class ControladorGestionPedidosClientes {
         miVentana.getjTablePedidos().getColumn("ID").setMaxWidth(30);
     }
 
+    /**
+     * Cancela los pedidos seleccionados en la vista
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void cancelarPedidos() throws ClassNotFoundException, Exception {
         boolean cancelado = false;
         if(mostrarAviso()){
@@ -156,11 +176,22 @@ public class ControladorGestionPedidosClientes {
         }
     }
     
+    /**
+     * Muestra un aviso de que se cancelarán los productos seleccionados
+     * @return True si acepta el aviso, false si no
+     */
     public boolean mostrarAviso(){
         int opcion = JOptionPane.showConfirmDialog(miVentana, "Se cancelarán los productos SELECCIONADOS.\n\n¿Desea continuar?", "Información", JOptionPane.OK_CANCEL_OPTION);
         return opcion == JOptionPane.OK_OPTION;
     }
     
+    /**
+     * Muestra los detalles del pedido
+     * @param numeroPedido Número de pedido seleccionado
+     * @param tipoPedido Tipo de pedido seleccionado
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void mostrarDetalles(int numeroPedido, String tipoPedido) throws ClassNotFoundException, Exception{
         switch(tipoPedido){
             case "Liberación":

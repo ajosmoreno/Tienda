@@ -15,7 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *  Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorGestionProductos {
@@ -23,10 +23,18 @@ public class ControladorGestionProductos {
     private GestionProductos miVentana;
     private Producto productoSeleccionado;
     
+    /**
+     * Constructor que enlaza el controlador con la vista
+     * @param miVentana Vista GestionProductos
+     */
     public ControladorGestionProductos(GestionProductos miVentana){
         this.miVentana = miVentana;
     }
 
+    /**
+     * Busca la imagen con el explorador de archivos
+     * @throws IOException Error cuando no se puede manipular el archivo
+     */
     public void buscarImagen() throws IOException {
         boolean elegida = true;
         String current = new java.io.File( "." ).getCanonicalPath();
@@ -56,6 +64,11 @@ public class ControladorGestionProductos {
         }
     }
     
+    /**
+     * Añade un producto al repositorio y BBDD
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void añadirProducto() throws SQLException, Exception{
         String marca = miVentana.getjTextFieldMarca().getText();
         String modelo = miVentana.getjTextFieldModelo().getText();
@@ -72,6 +85,11 @@ public class ControladorGestionProductos {
         }
     }
     
+    /**
+     * Carga los productos
+     * @throws ClassNotFoundException Error cuando no se encuentra el driver
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void cargarProductos() throws ClassNotFoundException, Exception{
         ArrayList<Producto> productos = Repositorio.repositorio().devolverProductos();
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();
@@ -82,6 +100,9 @@ public class ControladorGestionProductos {
         miVentana.getjComboBoxListaProductos().setModel(dcb);
     }
     
+    /**
+     * Muestra los datos del producto seleccionado
+     */
     public void mostrarDatosProducto(){
         if(productoSeleccionado != null){
             miVentana.getjTextFieldMarca().setText(productoSeleccionado.getMarca());
@@ -96,10 +117,20 @@ public class ControladorGestionProductos {
         }
     }
     
+    /**
+     * Busca el producto seleccionado en el repositorio
+     * @throws ClassNotFoundException Error cuando no se encuentra
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void seleccionarProducto() throws ClassNotFoundException, Exception{
         productoSeleccionado = Repositorio.repositorio().productoPorID(Integer.parseInt(miVentana.getjComboBoxListaProductos().getSelectedItem().toString()));
     }
 
+    /**
+     * Modifica el producto seleccionado
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void modificarProducto() throws SQLException, Exception {
         String marca = miVentana.getjTextFieldMarca().getText();
         String modelo = miVentana.getjTextFieldModelo().getText();
@@ -115,6 +146,11 @@ public class ControladorGestionProductos {
         }
     }
 
+    /**
+     * Elimina el producto seleccionado
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void eliminarProducto() throws SQLException, Exception {
         if(mostrarAviso()){
             if(Repositorio.repositorio().eliminarProducto(productoSeleccionado.getId())){
@@ -128,6 +164,10 @@ public class ControladorGestionProductos {
         }
     }
     
+    /**
+     * Muestra un aviso de que se va a eliminar el producto
+     * @return True si lo ha aceptado, false si no
+     */
     public boolean mostrarAviso(){
         int opcion = JOptionPane.showConfirmDialog(miVentana, "Se va a eliminar el producto " + productoSeleccionado.getId() + ", ¿es correcto?", "Atención", JOptionPane.OK_CANCEL_OPTION);
         return opcion == JOptionPane.OK_OPTION;

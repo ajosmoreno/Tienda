@@ -16,7 +16,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 
 /**
- *
+ *  Clase que accederá al modelo
  * @author José Manuel Moreno, Carmen Barranco, Antonio Serrano
  */
 public class ControladorInterfazCompra {
@@ -24,6 +24,10 @@ public class ControladorInterfazCompra {
     private InterfazCompra miVentana;
     private Producto productoSeleccionado;
 
+    /**
+     * Constructor que enlaza el controlador con la vista y comprueba los permisos
+     * @param miVentana Vista InterfazCompra
+     */
     public ControladorInterfazCompra(InterfazCompra miVentana) {
         this.miVentana = miVentana;
         if(Sesion.miCliente().getCliente().getPermisos() == 1){
@@ -31,6 +35,11 @@ public class ControladorInterfazCompra {
         }
     }
     
+    /**
+     * Muestra las marcas disponibles
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void mostrarMarcas() throws SQLException, Exception{
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();
         dcb.addElement("");
@@ -40,6 +49,11 @@ public class ControladorInterfazCompra {
         miVentana.getjComboBoxMarca().setModel(dcb);
     }
 
+    /**
+     * Muestra los modelos disponibles de la marca seleccionada
+     * @throws ClassNotFoundException Error cuando no se encuentran 
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void mostrarModelos() throws ClassNotFoundException, Exception {
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();    
         if(!miVentana.getjComboBoxMarca().getSelectedItem().equals("")){
@@ -51,6 +65,11 @@ public class ControladorInterfazCompra {
         miVentana.getjComboBoxModelo().setModel(dcb);
     }
     
+    /**
+     * Muestra los colores del modelo seleccionado
+     * @throws ClassNotFoundException Error cuando no se encuentran 
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void mostrarColores() throws ClassNotFoundException, Exception{
         DefaultComboBoxModel dcb = new DefaultComboBoxModel();
         if(!miVentana.getjComboBoxMarca().getSelectedItem().equals("") && !miVentana.getjComboBoxModelo().getSelectedItem().equals("")){
@@ -65,6 +84,11 @@ public class ControladorInterfazCompra {
         miVentana.getjComboBoxColor().setModel(dcb);
     }
 
+    /**
+     * Selecciona el producto que coincide con lo seleccionado
+     * @throws ClassNotFoundException Error cuando no se encuentran 
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void seleccionarProducto() throws ClassNotFoundException, Exception{
         ArrayList<Producto> listaProductos = Repositorio.repositorio().devolverProductos();
         productoSeleccionado = null;
@@ -79,6 +103,11 @@ public class ControladorInterfazCompra {
         }
     }
     
+    /**
+     * Muestra las características del producto seleccionado
+     * @throws ClassNotFoundException Error cuando no se encuentran 
+     * @throws Exception Error cuando falla otra cosa 
+     */
     public void mostrarCaracteristicas() throws ClassNotFoundException, Exception { 
         miVentana.getjTextAreaCaracteristicas().setText(productoSeleccionado.getDescripcion());
         miVentana.getjLabelPrecioTotal().setText("" + productoSeleccionado.getPrecio() + "€");
@@ -101,6 +130,9 @@ public class ControladorInterfazCompra {
         return resizedImg;
     }
     
+    /**
+     * Vacia las características del producto
+     */
     public void vaciarCaracteristicas(){
         miVentana.getjTextAreaCaracteristicas().setText("");
         miVentana.getjLabelPrecioTotal().setText("");
@@ -108,6 +140,9 @@ public class ControladorInterfazCompra {
         miVentana.getjButtonAñadirCesta().setToolTipText("Añadir producto a la cesta de compra.");
     }
     
+    /**
+     * Habilita los botones según permisos y stock
+     */
     public void habilitarBotones(){
         if(Sesion.miCliente().getCliente().getPermisos() == 1 && productoSeleccionado.getStock() > 0){
             miVentana.getjButtonAñadirCesta().setEnabled(true);
@@ -117,10 +152,18 @@ public class ControladorInterfazCompra {
         
     }
     
+    /**
+     * Deshabilida los botones
+     */
     public void deshabilitarBotones(){
         miVentana.getjButtonAñadirCesta().setEnabled(false);
     }
     
+    /**
+     * Añade el producto a la cesta
+     * @throws SQLException Error al ejecutar alguna consulta SQL
+     * @throws Exception Error cuando falla otra cosa
+     */
     public void añadirCesta() throws SQLException, Exception{
         if(Sesion.miCliente().getCliente().getPermisos() == 1 && Repositorio.repositorio().productoDisponible(productoSeleccionado.getId())){
             if(Repositorio.repositorio().añadirProductoCesta(Sesion.miCliente().getCliente().getId(), productoSeleccionado)){
@@ -134,6 +177,9 @@ public class ControladorInterfazCompra {
         }
     }
 
+    /**
+     * Abre la cesta si tiene permisos para ello.
+     */
     public void abrirCesta() {
         if(Sesion.miCliente().getCliente().getPermisos() == 1){
             CestaCompra cesta = new CestaCompra((Frame)miVentana.getParent(), true);
